@@ -80,8 +80,15 @@ h1.hero-h .outline{-webkit-text-stroke:2px var(--white);color:transparent;}@medi
 .hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;}
 .hero-desc{color:var(--dim);font-size:1rem;line-height:1.85;max-width:420px;}
 .hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
-.btn-primary{padding:14px 28px;background:var(--accent);color:#080808;border:none;border-radius:3px;font-size:.85rem;font-weight:800;cursor:pointer;letter-spacing:.5px;transition:all .2s;white-space:nowrap;}
+.btn-primary{padding:14px 28px;background:var(--accent);color:#080808;border:none;border-radius:3px;font-size:.85rem;font-weight:800;cursor:pointer;letter-spacing:.5px;transition:all .2s;white-space:nowrap;position:relative;}
 .btn-primary:hover{background:#fff;}
+/* GLOW CTA */
+.btn-glow{overflow:hidden;z-index:1;}
+.btn-glow::before{content:'';position:absolute;inset:-2px;background:conic-gradient(from var(--glow-angle,0deg),transparent 60%,var(--accent) 78%,transparent 95%);border-radius:5px;z-index:-2;animation:glowSpin 3s linear infinite;}
+.btn-glow::after{content:'';position:absolute;inset:1px;background:var(--accent);border-radius:3px;z-index:-1;transition:background .2s;}
+.btn-glow:hover::after{background:#fff;}
+@keyframes glowSpin{to{--glow-angle:360deg;}}
+@property --glow-angle{syntax:'<angle>';initial-value:0deg;inherits:false;}
 .btn-ghost{padding:14px 28px;background:none;color:var(--dim);border:1px solid var(--border);border-radius:3px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;}
 .btn-ghost:hover{color:var(--white);border-color:#444;}
 
@@ -293,6 +300,25 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 .client-logo{font-size:.85rem;color:#333;font-weight:800;letter-spacing:2px;text-transform:uppercase;transition:color .3s;}
 .client-logo:hover{color:var(--dim);}
 
+/* GLOW CARD — hover border light sweep */
+.glow-card{position:relative;overflow:hidden;}
+.glow-card::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:conic-gradient(from var(--card-glow,0deg),transparent 70%,rgba(232,255,71,.4) 85%,transparent 95%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;pointer-events:none;}
+.glow-card:hover::before{opacity:1;animation:cardGlow 2.5s linear infinite;}
+@keyframes cardGlow{to{--card-glow:360deg;}}
+@property --card-glow{syntax:'<angle>';initial-value:0deg;inherits:false;}
+
+/* TEXT REVEAL — clip from left */
+.text-reveal{clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.77,0,.18,1);}
+.text-reveal.in{clip-path:inset(0 0 0 0);}
+
+/* STAGGER CHILDREN — words appear one by one */
+.stagger-reveal .word{display:inline-block;opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s;}
+.stagger-reveal.in .word{opacity:1;transform:none;}
+
+/* HOVER SOUND PULSE — visual feedback for hovered cards */
+.srv-row::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(232,255,71,.02),transparent);opacity:0;transition:opacity .3s;}
+.srv-row:hover::before{opacity:1;}
+
 /* FADE IN */
 .fi{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
 .fi.in{opacity:1;transform:none;}
@@ -392,7 +418,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
   </ul>
   <div class="nav-right">
     <div class="lang-sw"><button class="on" onclick="setLang('es')">ES</button><button onclick="setLang('en')">EN</button></div>
-    <button class="btn-nav" onclick="goTo('contacto')" data-es="Solicitar Auditoría" data-en="Request Audit">Solicitar Auditoría</button>
+    <button class="btn-nav" onclick="goTo('contacto');playSound('click')" data-es="Solicitar Auditoría" data-en="Request Audit">Solicitar Auditoría</button>
     <button class="ham" id="ham" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -400,16 +426,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 <!-- HERO -->
 <section id="inicio">
   <div class="hero-eyebrow fi"><span data-es="Agencia de Crecimiento Digital e IA — 2026" data-en="AI & Digital Growth Agency — 2026">Agencia de Crecimiento Digital e IA — 2026</span></div>
-  <h1 class="hero-h fi">
-    <span data-es="Escalamos" data-en="We Scale">Escalamos</span><br>
-    <em data-es="tu negocio" data-en="your business">tu negocio</em><br>
-    <span class="outline" data-es="con sistemas" data-en="with AI">con sistemas</span><br>
-    <span data-es="de IA." data-en="systems.">de IA.</span>
+  <h1 class="hero-h stagger-reveal fi">
+    <span class="word" data-es="Escalamos" data-en="We Scale">Escalamos</span><br>
+    <em class="word" data-es="tu negocio" data-en="your business" style="transition-delay:.15s">tu negocio</em><br>
+    <span class="word outline" data-es="con sistemas" data-en="with AI" style="transition-delay:.3s">con sistemas</span><br>
+    <span class="word" data-es="de IA." data-en="systems." style="transition-delay:.45s">de IA.</span>
   </h1>
   <div class="hero-bottom fi">
     <p class="hero-desc" data-es="Diseñamos arquitecturas de crecimiento que automatizan ventas, optimizan procesos y posicionan tu marca como líder en el mundo digital." data-en="We design growth architectures that automate sales, optimize processes and position your brand as a leader in the digital world.">Diseñamos arquitecturas de crecimiento que automatizan ventas, optimizan procesos y posicionan tu marca como líder en el mundo digital.</p>
     <div class="hero-actions">
-      <button class="btn-primary" onclick="goTo('contacto')" data-es="Solicitar Auditoría de Crecimiento" data-en="Request Growth Audit">Solicitar Auditoría de Crecimiento</button>
+      <button class="btn-primary btn-glow" onclick="goTo('contacto');playSound('click')" data-es="Solicitar Auditoría de Crecimiento" data-en="Request Growth Audit">Solicitar Auditoría de Crecimiento</button>
       <button class="btn-ghost" onclick="goTo('servicios')" data-es="Ver servicios" data-en="See services">Ver servicios</button>
     </div>
     <div class="trust-strip">
@@ -435,7 +461,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 <!-- PROBLEMS -->
 <section id="problemas">
   <div class="label fi" data-es="¿Te identificas?" data-en="Do you relate?">¿Te identificas?</div>
-  <h2 class="big fi"><span data-es="Los problemas" data-en="The problems">Los problemas</span><br><em data-es="que resolvemos" data-en="we solve">que resolvemos</em></h2>
+  <h2 class="big text-reveal fi"><span data-es="Los problemas" data-en="The problems">Los problemas</span><br><em data-es="que resolvemos" data-en="we solve">que resolvemos</em></h2>
   <div class="prob-grid fi">
     <div class="prob-item"><div class="prob-num">01</div><div class="prob-q" data-es="¿Tu contenido no convierte?" data-en="Your content doesn't convert?">¿Tu contenido no convierte?</div><div class="prob-a"><span data-es="Lo resolvemos con " data-en="We fix it with ">Lo resolvemos con </span><strong data-es="Social Media Estratégico" data-en="Strategic Social Media">Social Media Estratégico</strong><span data-es=" orientado a posicionamiento y crecimiento real." data-en=" focused on positioning and real growth."> orientado a posicionamiento y crecimiento real.</span></div></div>
     <div class="prob-item"><div class="prob-num">02</div><div class="prob-q" data-es="¿Procesos manuales que te frenan?" data-en="Manual processes holding you back?">¿Procesos manuales que te frenan?</div><div class="prob-a"><span data-es="Implementamos " data-en="We implement ">Implementamos </span><strong data-es="automatizaciones con IA" data-en="AI automations">automatizaciones con IA</strong><span data-es=" que liberan el 80% de tu tiempo operativo." data-en=" that free 80% of your operational time."> que liberan el 80% de tu tiempo operativo.</span></div></div>
@@ -450,21 +476,21 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
     <p class="sub fi" data-es="No vendemos servicios aislados. Diseñamos ecosistemas de crecimiento autónomos integrados con IA." data-en="We don't sell isolated services. We design autonomous growth ecosystems integrated with AI.">No vendemos servicios aislados. Diseñamos ecosistemas de crecimiento autónomos integrados con IA.</p>
   </div>
   <div class="srv-grid fi">
-    <div class="srv-row" onclick="goTo('contacto')"><div class="srv-idx">01</div><div class="srv-name" data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</div><div class="srv-desc" data-es="Desarrollo de identidad visual, diseño de marca desde cero y estrategia de posicionamiento para escalar en mercados globales." data-en="Visual identity development, brand design from scratch and positioning strategy to scale in global markets.">Desarrollo de identidad visual, diseño de marca desde cero y estrategia de posicionamiento para escalar en mercados globales.</div><div class="srv-items"><span data-es="Identidad Visual" data-en="Visual Identity">Identidad Visual</span><span data-es="Posicionamiento" data-en="Positioning">Posicionamiento</span><span data-es="Branding Global" data-en="Global Branding">Branding Global</span></div><div class="srv-arrow">↗</div></div>
-    <div class="srv-row" onclick="goTo('contacto')"><div class="srv-idx">02</div><div class="srv-name" data-es="Ecosistemas de Crecimiento" data-en="Growth Ecosystems">Ecosistemas de Crecimiento</div><div class="srv-desc" data-es="Gestión estratégica de redes sociales, contenido orientado a conversión y posicionamiento AEO/GEO en motores generativos." data-en="Strategic social media management, conversion-oriented content and AEO/GEO positioning in generative engines.">Gestión estratégica de redes sociales, contenido orientado a conversión y posicionamiento AEO/GEO en motores generativos.</div><div class="srv-items"><span data-es="Social Media" data-en="Social Media">Social Media</span><span>AEO / GEO</span><span data-es="Contenido IA" data-en="AI Content">Contenido IA</span></div><div class="srv-arrow">↗</div></div>
-    <div class="srv-row" onclick="goTo('contacto')"><div class="srv-idx">03</div><div class="srv-name" data-es="Automatización Agéntica" data-en="Agentic Automation">Automatización Agéntica</div><div class="srv-desc" data-es="Automatización de procesos, integración de CRM y calendarios, y desarrollo de agentes de IA que operan 24/7 por tu negocio." data-en="Process automation, CRM and calendar integration, and AI agents that operate 24/7 for your business.">Automatización de procesos, integración de CRM y calendarios, y desarrollo de agentes de IA que operan 24/7 por tu negocio.</div><div class="srv-items"><span data-es="Agentes IA" data-en="AI Agents">Agentes IA</span><span data-es="Integraciones" data-en="Integrations">Integraciones</span><span>CRM / Email</span></div><div class="srv-arrow">↗</div></div>
-    <div class="srv-row" onclick="goTo('contacto')"><div class="srv-idx">04</div><div class="srv-name" data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</div><div class="srv-desc" data-es="E-commerce, sitios corporativos, landing pages y funnels de alto rendimiento integrados con sistemas de IA y automatización." data-en="E-commerce, corporate sites, high-performance landing pages and funnels integrated with AI systems.">E-commerce, sitios corporativos, landing pages y funnels de alto rendimiento integrados con sistemas de IA y automatización.</div><div class="srv-items"><span>E-commerce</span><span data-es="Funnels de Venta" data-en="Sales Funnels">Funnels de Venta</span><span data-es="Integración IA" data-en="AI Integration">Integración IA</span></div><div class="srv-arrow">↗</div></div>
+    <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')"><div class="srv-idx">01</div><div class="srv-name" data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</div><div class="srv-desc" data-es="Desarrollo de identidad visual, diseño de marca desde cero y estrategia de posicionamiento para escalar en mercados globales." data-en="Visual identity development, brand design from scratch and positioning strategy to scale in global markets.">Desarrollo de identidad visual, diseño de marca desde cero y estrategia de posicionamiento para escalar en mercados globales.</div><div class="srv-items"><span data-es="Identidad Visual" data-en="Visual Identity">Identidad Visual</span><span data-es="Posicionamiento" data-en="Positioning">Posicionamiento</span><span data-es="Branding Global" data-en="Global Branding">Branding Global</span></div><div class="srv-arrow">↗</div></div>
+    <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')"><div class="srv-idx">02</div><div class="srv-name" data-es="Ecosistemas de Crecimiento" data-en="Growth Ecosystems">Ecosistemas de Crecimiento</div><div class="srv-desc" data-es="Gestión estratégica de redes sociales, contenido orientado a conversión y posicionamiento AEO/GEO en motores generativos." data-en="Strategic social media management, conversion-oriented content and AEO/GEO positioning in generative engines.">Gestión estratégica de redes sociales, contenido orientado a conversión y posicionamiento AEO/GEO en motores generativos.</div><div class="srv-items"><span data-es="Social Media" data-en="Social Media">Social Media</span><span>AEO / GEO</span><span data-es="Contenido IA" data-en="AI Content">Contenido IA</span></div><div class="srv-arrow">↗</div></div>
+    <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')"><div class="srv-idx">03</div><div class="srv-name" data-es="Automatización Agéntica" data-en="Agentic Automation">Automatización Agéntica</div><div class="srv-desc" data-es="Automatización de procesos, integración de CRM y calendarios, y desarrollo de agentes de IA que operan 24/7 por tu negocio." data-en="Process automation, CRM and calendar integration, and AI agents that operate 24/7 for your business.">Automatización de procesos, integración de CRM y calendarios, y desarrollo de agentes de IA que operan 24/7 por tu negocio.</div><div class="srv-items"><span data-es="Agentes IA" data-en="AI Agents">Agentes IA</span><span data-es="Integraciones" data-en="Integrations">Integraciones</span><span>CRM / Email</span></div><div class="srv-arrow">↗</div></div>
+    <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')"><div class="srv-idx">04</div><div class="srv-name" data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</div><div class="srv-desc" data-es="E-commerce, sitios corporativos, landing pages y funnels de alto rendimiento integrados con sistemas de IA y automatización." data-en="E-commerce, corporate sites, high-performance landing pages and funnels integrated with AI systems.">E-commerce, sitios corporativos, landing pages y funnels de alto rendimiento integrados con sistemas de IA y automatización.</div><div class="srv-items"><span>E-commerce</span><span data-es="Funnels de Venta" data-en="Sales Funnels">Funnels de Venta</span><span data-es="Integración IA" data-en="AI Integration">Integración IA</span></div><div class="srv-arrow">↗</div></div>
   </div>
 </section>
 
 <!-- SOCIAL PROOF -->
 <section id="resultados">
   <div class="label fi" data-es="Prueba social" data-en="Social proof">Prueba social</div>
-  <h2 class="big fi"><span data-es="Resultados" data-en="Results">Resultados</span><br><em data-es="reales." data-en="that matter.">reales.</em></h2>
+  <h2 class="big text-reveal fi"><span data-es="Resultados" data-en="Results">Resultados</span><br><em data-es="reales." data-en="that matter.">reales.</em></h2>
   <div class="t-grid fi">
-    <div class="t-card"><div class="t-roi">−18 hs/sem</div><div class="t-company">E-commerce</div><div class="t-quote" data-es='"Automatizamos el seguimiento de clientes y la gestión de pedidos. Recuperamos casi 3 horas por día que antes perdíamos en tareas manuales."' data-en='"We automated client follow-up and order management. We recovered almost 3 hours per day that we used to waste on manual tasks."'>"Automatizamos el seguimiento de clientes y la gestión de pedidos. Recuperamos casi 3 horas por día que antes perdíamos en tareas manuales."</div><div class="t-author"><div class="t-av">CM</div><div><div class="t-name">Carlos M.</div><div class="t-role">CEO</div></div></div></div>
-    <div class="t-card"><div class="t-roi">+65%</div><div class="t-company" data-es="Consultoría" data-en="Consulting">Consultoría</div><div class="t-quote" data-es='"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."' data-en='"They redesigned our digital presence and within two months we noticed a clear increase in inbound inquiries."'>"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."</div><div class="t-author"><div class="t-av" style="background:#222">SR</div><div><div class="t-name">Sofia R.</div><div class="t-role" data-es="Fundadora" data-en="Founder">Fundadora</div></div></div></div>
-    <div class="t-card"><div class="t-roi">×2 cierres</div><div class="t-company" data-es="Servicios B2B" data-en="B2B Services">Servicios B2B</div><div class="t-quote" data-es='"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."' data-en='"They implemented an automated follow-up flow that helped us close twice as many proposals in the same time."'>"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."</div><div class="t-author"><div class="t-av" style="background:#1a1a1a">ML</div><div><div class="t-name">Miguel L.</div><div class="t-role" data-es="Director" data-en="Director">Director</div></div></div></div>
+    <div class="t-card glow-card"><div class="t-roi">−18 hs/sem</div><div class="t-company">E-commerce</div><div class="t-quote" data-es='"Automatizamos el seguimiento de clientes y la gestión de pedidos. Recuperamos casi 3 horas por día que antes perdíamos en tareas manuales."' data-en='"We automated client follow-up and order management. We recovered almost 3 hours per day that we used to waste on manual tasks."'>"Automatizamos el seguimiento de clientes y la gestión de pedidos. Recuperamos casi 3 horas por día que antes perdíamos en tareas manuales."</div><div class="t-author"><div class="t-av">CM</div><div><div class="t-name">Carlos M.</div><div class="t-role">CEO</div></div></div></div>
+    <div class="t-card glow-card"><div class="t-roi">+65%</div><div class="t-company" data-es="Consultoría" data-en="Consulting">Consultoría</div><div class="t-quote" data-es='"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."' data-en='"They redesigned our digital presence and within two months we noticed a clear increase in inbound inquiries."'>"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."</div><div class="t-author"><div class="t-av" style="background:#222">SR</div><div><div class="t-name">Sofia R.</div><div class="t-role" data-es="Fundadora" data-en="Founder">Fundadora</div></div></div></div>
+    <div class="t-card glow-card"><div class="t-roi">×2 cierres</div><div class="t-company" data-es="Servicios B2B" data-en="B2B Services">Servicios B2B</div><div class="t-quote" data-es='"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."' data-en='"They implemented an automated follow-up flow that helped us close twice as many proposals in the same time."'>"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."</div><div class="t-author"><div class="t-av" style="background:#1a1a1a">ML</div><div><div class="t-name">Miguel L.</div><div class="t-role" data-es="Director" data-en="Director">Director</div></div></div></div>
   </div>
   <div class="logos-clients fi">
     <div class="ls-label" data-es="Confían en nosotros" data-en="They trust us">Confían en nosotros</div>
@@ -483,7 +509,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 <!-- METHODOLOGY -->
 <section id="metodologia">
   <div class="label fi" data-es="Cómo trabajamos" data-en="How we work">Cómo trabajamos</div>
-  <h2 class="big fi"><span data-es="La metodología" data-en="The methodology">La metodología</span><br><em data-es="que funciona." data-en="that works.">que funciona.</em></h2>
+  <h2 class="big text-reveal fi"><span data-es="La metodología" data-en="The methodology">La metodología</span><br><em data-es="que funciona." data-en="that works.">que funciona.</em></h2>
   <div class="method-grid fi">
     <div class="method-step"><div class="m-num">01</div><div class="m-title" data-es="Auditoría y Diagnóstico" data-en="Audit & Diagnosis">Auditoría y Diagnóstico</div><div class="m-text" data-es="Analizamos tu negocio, procesos y presencia digital para detectar oportunidades reales de crecimiento." data-en="We analyze your business, processes and digital presence to identify real growth opportunities.">Analizamos tu negocio, procesos y presencia digital para detectar oportunidades reales de crecimiento.</div></div>
     <div class="method-step"><div class="m-num">02</div><div class="m-title" data-es="Diseño de Arquitectura" data-en="Architecture Design">Diseño de Arquitectura</div><div class="m-text" data-es="Definimos el sistema de crecimiento personalizado: branding, marketing y automatización integrados." data-en="We define your custom growth system: branding, marketing and automation integrated.">Definimos el sistema de crecimiento personalizado: branding, marketing y automatización integrados.</div></div>
@@ -495,7 +521,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 <!-- FAQ -->
 <section id="faq">
   <div class="label fi">FAQ</div>
-  <h2 class="big fi"><em data-es="Preguntas" data-en="Frequently">Preguntas</em><br><span data-es="frecuentes." data-en="asked questions.">frecuentes.</span></h2>
+  <h2 class="big text-reveal fi"><em data-es="Preguntas" data-en="Frequently">Preguntas</em><br><span data-es="frecuentes." data-en="asked questions.">frecuentes.</span></h2>
   <div class="faq-wrap fi">
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Qué tipo de negocios atienden?" data-en="What type of businesses do you work with?">¿Qué tipo de negocios atienden?</span><div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner" data-es="Trabajamos con negocios que buscan escalar, desde startups hasta empresas medianas. Nuestros sistemas se adaptan a cualquier industria que quiera integrar IA y automatización para crecer de forma sostenible." data-en="We work with businesses looking to scale, from startups to mid-size companies. Our systems adapt to any industry that wants to integrate AI and automation to grow sustainably.">Trabajamos con negocios que buscan escalar, desde startups hasta empresas medianas.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Cuánto tiempo tarda ver resultados?" data-en="How long until I see results?">¿Cuánto tiempo tarda ver resultados?</span><div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner" data-es="Los primeros resultados son visibles entre 30 y 90 días. Las automatizaciones y agentes de IA generan retorno desde las primeras semanas de operación." data-en="First results are visible within 30-90 days. Automations and AI agents generate returns from the first weeks of operation.">Los primeros resultados son visibles entre 30 y 90 días.</div></div></div>
@@ -508,7 +534,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 <!-- CONTACT -->
 <section id="contacto">
   <div class="label fi" data-es="Empezá hoy" data-en="Start today">Empezá hoy</div>
-  <h2 class="big fi"><span data-es="Escalemos" data-en="Let's scale">Escalemos</span><br><em data-es="juntos." data-en="together.">juntos.</em></h2>
+  <h2 class="big text-reveal fi"><span data-es="Escalemos" data-en="Let's scale">Escalemos</span><br><em data-es="juntos." data-en="together.">juntos.</em></h2>
   <div class="contact-wrap fi">
     <div class="c-info">
       <h3 data-es="Auditoría de Crecimiento IA" data-en="AI Growth Audit">Auditoría de Crecimiento IA</h3>
@@ -528,13 +554,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
         <h4 data-es="¿Qué necesitas?" data-en="What do you need?">¿Qué necesitas?</h4>
         <p class="step-sub" data-es="Seleccioná el servicio que más se acerca a lo que buscás." data-en="Select the service closest to what you're looking for.">Seleccioná el servicio que más se acerca a lo que buscás.</p>
         <div class="step-options">
-          <div class="step-opt" onclick="selectOpt(this,'servicio')" data-value="Estrategia e Identidad"><div class="opt-icon">&#9733;</div><div class="opt-label" data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</div></div>
-          <div class="step-opt" onclick="selectOpt(this,'servicio')" data-value="Ecosistemas de Crecimiento"><div class="opt-icon">&#9878;</div><div class="opt-label" data-es="Crecimiento Digital" data-en="Digital Growth">Crecimiento Digital</div></div>
-          <div class="step-opt" onclick="selectOpt(this,'servicio')" data-value="Automatización Agéntica"><div class="opt-icon">&#9881;</div><div class="opt-label" data-es="Automatización IA" data-en="AI Automation">Automatización IA</div></div>
-          <div class="step-opt" onclick="selectOpt(this,'servicio')" data-value="Infraestructura Web"><div class="opt-icon">&#9677;</div><div class="opt-label" data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'servicio')" data-value="Estrategia e Identidad"><div class="opt-icon">&#9733;</div><div class="opt-label" data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'servicio')" data-value="Ecosistemas de Crecimiento"><div class="opt-icon">&#9878;</div><div class="opt-label" data-es="Crecimiento Digital" data-en="Digital Growth">Crecimiento Digital</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'servicio')" data-value="Automatización Agéntica"><div class="opt-icon">&#9881;</div><div class="opt-label" data-es="Automatización IA" data-en="AI Automation">Automatización IA</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'servicio')" data-value="Infraestructura Web"><div class="opt-icon">&#9677;</div><div class="opt-label" data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</div></div>
         </div>
         <input type="hidden" name="servicio" id="fServicio">
-        <div class="step-nav"><button type="button" class="btn-primary" onclick="nextStep()" data-es="Siguiente →" data-en="Next →">Siguiente →</button></div>
+        <div class="step-nav"><button type="button" class="btn-primary" onclick="nextStep();playSound('click')" data-es="Siguiente →" data-en="Next →">Siguiente →</button></div>
       </div>
 
       <!-- Step 2: Budget & Timeline -->
@@ -542,13 +568,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
         <h4 data-es="¿Cuál es tu presupuesto estimado?" data-en="What's your estimated budget?">¿Cuál es tu presupuesto estimado?</h4>
         <p class="step-sub" data-es="Esto nos ayuda a personalizar la propuesta para vos." data-en="This helps us personalize the proposal for you.">Esto nos ayuda a personalizar la propuesta para vos.</p>
         <div class="step-options">
-          <div class="step-opt" onclick="selectOpt(this,'presupuesto')" data-value="< USD 1,000"><div class="opt-icon">$</div><div class="opt-label">< USD 1,000</div></div>
-          <div class="step-opt" onclick="selectOpt(this,'presupuesto')" data-value="USD 1,000 - 5,000"><div class="opt-icon">$$</div><div class="opt-label">USD 1K - 5K</div></div>
-          <div class="step-opt" onclick="selectOpt(this,'presupuesto')" data-value="USD 5,000 - 15,000"><div class="opt-icon">$$$</div><div class="opt-label">USD 5K - 15K</div></div>
-          <div class="step-opt" onclick="selectOpt(this,'presupuesto')" data-value="USD 15,000+"><div class="opt-icon">$$$$</div><div class="opt-label">USD 15K+</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'presupuesto')" data-value="< USD 1,000"><div class="opt-icon">$</div><div class="opt-label">< USD 1,000</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'presupuesto')" data-value="USD 1,000 - 5,000"><div class="opt-icon">$$</div><div class="opt-label">USD 1K - 5K</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'presupuesto')" data-value="USD 5,000 - 15,000"><div class="opt-icon">$$$</div><div class="opt-label">USD 5K - 15K</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'presupuesto')" data-value="USD 15,000+"><div class="opt-icon">$$$$</div><div class="opt-label">USD 15K+</div></div>
         </div>
         <input type="hidden" name="presupuesto" id="fPresupuesto">
-        <div class="step-nav"><button type="button" class="btn-step-back" onclick="prevStep()" data-es="← Atrás" data-en="← Back">← Atrás</button><button type="button" class="btn-primary" onclick="nextStep()" data-es="Siguiente →" data-en="Next →">Siguiente →</button></div>
+        <div class="step-nav"><button type="button" class="btn-step-back" onclick="prevStep()" data-es="← Atrás" data-en="← Back">← Atrás</button><button type="button" class="btn-primary" onclick="nextStep();playSound('click')" data-es="Siguiente →" data-en="Next →">Siguiente →</button></div>
       </div>
 
       <!-- Step 3: Timeline -->
@@ -556,13 +582,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
         <h4 data-es="¿Cuándo necesitas empezar?" data-en="When do you need to start?">¿Cuándo necesitas empezar?</h4>
         <p class="step-sub" data-es="Nos ayuda a planificar la disponibilidad del equipo." data-en="Helps us plan team availability.">Nos ayuda a planificar la disponibilidad del equipo.</p>
         <div class="step-options">
-          <div class="step-opt" onclick="selectOpt(this,'timeline')" data-value="Inmediato"><div class="opt-icon">&#9889;</div><div class="opt-label" data-es="Inmediato" data-en="Immediately">Inmediato</div></div>
-          <div class="step-opt" onclick="selectOpt(this,'timeline')" data-value="1-2 semanas"><div class="opt-icon">&#128197;</div><div class="opt-label" data-es="1-2 semanas" data-en="1-2 weeks">1-2 semanas</div></div>
-          <div class="step-opt" onclick="selectOpt(this,'timeline')" data-value="1 mes"><div class="opt-icon">&#128198;</div><div class="opt-label" data-es="En 1 mes" data-en="In 1 month">En 1 mes</div></div>
-          <div class="step-opt" onclick="selectOpt(this,'timeline')" data-value="Solo explorando"><div class="opt-icon">&#128270;</div><div class="opt-label" data-es="Solo explorando" data-en="Just exploring">Solo explorando</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'timeline')" data-value="Inmediato"><div class="opt-icon">&#9889;</div><div class="opt-label" data-es="Inmediato" data-en="Immediately">Inmediato</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'timeline')" data-value="1-2 semanas"><div class="opt-icon">&#128197;</div><div class="opt-label" data-es="1-2 semanas" data-en="1-2 weeks">1-2 semanas</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'timeline')" data-value="1 mes"><div class="opt-icon">&#128198;</div><div class="opt-label" data-es="En 1 mes" data-en="In 1 month">En 1 mes</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'timeline')" data-value="Solo explorando"><div class="opt-icon">&#128270;</div><div class="opt-label" data-es="Solo explorando" data-en="Just exploring">Solo explorando</div></div>
         </div>
         <input type="hidden" name="timeline" id="fTimeline">
-        <div class="step-nav"><button type="button" class="btn-step-back" onclick="prevStep()" data-es="← Atrás" data-en="← Back">← Atrás</button><button type="button" class="btn-primary" onclick="nextStep()" data-es="Siguiente →" data-en="Next →">Siguiente →</button></div>
+        <div class="step-nav"><button type="button" class="btn-step-back" onclick="prevStep()" data-es="← Atrás" data-en="← Back">← Atrás</button><button type="button" class="btn-primary" onclick="nextStep();playSound('click')" data-es="Siguiente →" data-en="Next →">Siguiente →</button></div>
       </div>
 
       <!-- Step 4: Contact Info -->
@@ -656,8 +682,21 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
   <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<!-- UI SOUNDS — Web Audio API (zero dependency, <1KB) -->
+<script>
+const AudioCtx=window.AudioContext||window.webkitAudioContext;
+let audioCtx;
+function ensureAudio(){if(!audioCtx)audioCtx=new AudioCtx();}
+const sounds={
+  click:()=>{ensureAudio();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.type='sine';o.frequency.setValueAtTime(880,audioCtx.currentTime);o.frequency.exponentialRampToValueAtTime(1320,audioCtx.currentTime+.06);g.gain.setValueAtTime(.12,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.15);o.start(audioCtx.currentTime);o.stop(audioCtx.currentTime+.15);},
+  hover:()=>{ensureAudio();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.type='sine';o.frequency.setValueAtTime(440,audioCtx.currentTime);g.gain.setValueAtTime(.03,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.08);o.start(audioCtx.currentTime);o.stop(audioCtx.currentTime+.08);},
+  chatOpen:()=>{ensureAudio();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.type='triangle';o.frequency.setValueAtTime(523,audioCtx.currentTime);o.frequency.setValueAtTime(659,audioCtx.currentTime+.08);o.frequency.setValueAtTime(784,audioCtx.currentTime+.16);g.gain.setValueAtTime(.1,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.25);o.start(audioCtx.currentTime);o.stop(audioCtx.currentTime+.25);}
+};
+function playSound(name){try{if(sounds[name])sounds[name]();}catch(e){}}
+</script>
+
 <!-- AI CHAT WIDGET -->
-<button class="chat-toggle" id="chatToggle" onclick="toggleChat()">
+<button class="chat-toggle" id="chatToggle" onclick="toggleChat();playSound('chatOpen')">
   <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
 </button>
 <div class="chat-window" id="chatWindow">

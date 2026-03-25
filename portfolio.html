@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Portafolio | Jose AI Growth Agency</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#080808;color:#f2f2f2;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;}
+:root{--accent:#e8ff47;--dim:#888;--border:#1e1e1e;--surface:#111;--bg:#080808;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:#333;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(16px);}
+.nav-logo{font-size:.8rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#f2f2f2;text-decoration:none;cursor:pointer;}
+.nav-logo em{color:var(--accent);font-style:normal;}
+.nav-right{display:flex;align-items:center;gap:16px;}
+.btn-back{padding:9px 20px;background:none;border:1px solid var(--border);border-radius:4px;color:var(--dim);font-size:.8rem;font-weight:600;text-decoration:none;transition:all .2s;}
+.btn-back:hover{color:#f2f2f2;border-color:#444;}
+.btn-cta{padding:9px 20px;background:var(--accent);color:#080808;border:none;border-radius:4px;font-size:.8rem;font-weight:800;text-decoration:none;transition:background .2s;white-space:nowrap;}
+.btn-cta:hover{background:#fff;}
+
+/* HERO */
+.port-hero{padding:120px 48px 80px;border-bottom:1px solid var(--border);}
+.label{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--dim);margin-bottom:28px;display:flex;align-items:center;gap:12px;}
+.label::before{content:'';width:24px;height:1px;background:var(--dim);}
+h1.port-title{font-size:clamp(3rem,7vw,7rem);font-weight:900;line-height:.95;letter-spacing:-3px;margin-bottom:24px;}
+h1.port-title em{font-style:normal;color:var(--accent);}
+.port-sub{color:var(--dim);font-size:1rem;line-height:1.9;max-width:520px;}
+
+/* FILTERS */
+.filters{padding:40px 48px;border-bottom:1px solid var(--border);display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.filter-label{font-size:.7rem;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-right:8px;}
+.filter-btn{padding:7px 18px;background:none;border:1px solid var(--border);border-radius:2px;color:var(--dim);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.5px;}
+.filter-btn:hover,.filter-btn.active{background:var(--accent);color:#080808;border-color:var(--accent);}
+
+/* GRID */
+.port-grid{padding:60px 48px 120px;display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1px;background:var(--border);}
+.port-card{background:var(--bg);padding:48px 40px;transition:background .3s;cursor:pointer;position:relative;overflow:hidden;}
+.port-card:hover{background:var(--surface);}
+.port-card::after{content:'↗';position:absolute;top:40px;right:40px;font-size:1.2rem;color:var(--dim);transition:color .3s,transform .3s;}
+.port-card:hover::after{color:var(--accent);transform:translate(3px,-3px);}
+
+/* PLACEHOLDER CARD */
+.port-card.placeholder{opacity:.35;cursor:default;}
+.port-card.placeholder::after{display:none;}
+.port-card.placeholder:hover{background:var(--bg);}
+
+.card-tag{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:20px;font-weight:700;}
+.card-title{font-size:1.4rem;font-weight:800;letter-spacing:-.3px;margin-bottom:12px;line-height:1.2;}
+.card-desc{font-size:.88rem;color:var(--dim);line-height:1.8;margin-bottom:28px;}
+.card-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.card-tag-item{font-size:.72rem;padding:4px 10px;border:1px solid var(--border);border-radius:2px;color:var(--dim);}
+.card-img{width:100%;aspect-ratio:16/9;background:var(--surface);border-radius:4px;margin-bottom:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
+.card-img img{width:100%;height:100%;object-fit:cover;}
+.card-img .img-placeholder{font-size:.75rem;color:#333;letter-spacing:2px;text-transform:uppercase;}
+.card-meta{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
+.card-year{font-size:.75rem;color:var(--dim);}
+.card-result{font-size:.85rem;font-weight:800;color:var(--accent);}
+
+/* ADD PROJECT CTA */
+.add-project{padding:80px 48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+.add-project h2{font-size:2rem;font-weight:800;letter-spacing:-.5px;}
+.add-project h2 em{font-style:normal;color:var(--accent);}
+.add-project p{color:var(--dim);font-size:.9rem;margin-top:8px;}
+
+/* FOOTER */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:40px 48px;}
+.f-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.f-copy{font-size:.75rem;color:#444;}
+.f-links{display:flex;gap:24px;}
+.f-links a{font-size:.8rem;color:var(--dim);text-decoration:none;transition:color .2s;}
+.f-links a:hover{color:#f2f2f2;}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(8px);}
+.modal-overlay.open{display:flex;}
+.modal{background:#0f0f0f;border:1px solid var(--border);border-radius:8px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;padding:48px;}
+.modal-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--dim);font-size:1.5rem;cursor:pointer;transition:color .2s;}
+.modal-close:hover{color:#f2f2f2;}
+.modal h2{font-size:1.8rem;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;}
+.modal-cat{font-size:.7rem;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;}
+.modal-img{width:100%;aspect-ratio:16/9;background:var(--surface);border-radius:4px;margin-bottom:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
+.modal-img img{width:100%;height:100%;object-fit:cover;}
+.modal-body{color:var(--dim);font-size:.92rem;line-height:1.9;margin-bottom:24px;}
+.modal-results{display:flex;gap:32px;margin-bottom:32px;flex-wrap:wrap;}
+.modal-stat .n{font-size:2.2rem;font-weight:900;color:var(--accent);letter-spacing:-1px;}
+.modal-stat .t{font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:4px;}
+.modal-stack{display:flex;gap:8px;flex-wrap:wrap;}
+.modal-stack span{font-size:.75rem;padding:5px 12px;border:1px solid var(--border);border-radius:2px;color:var(--dim);}
+
+/* FADE IN */
+.fi{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s;}
+.fi.in{opacity:1;transform:none;}
+
+@media(max-width:768px){nav{padding:0 24px;}.port-hero,.filters,.port-grid,.add-project,footer{padding-left:24px;padding-right:24px;}.port-grid{grid-template-columns:1fr;}.add-project{flex-direction:column;align-items:flex-start;}.modal{padding:28px;}}
+</style>
+</head>
+<body>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal" style="position:relative;">
+    <button class="modal-close" onclick="closeModalDirect()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">JOSE <em>·</em> AI</a>
+  <div class="nav-right">
+    <a class="btn-back" href="index.html" data-es="← Volver al inicio" data-en="← Back to home">← Volver al inicio</a>
+    <a class="btn-cta" href="index.html#contacto" data-es="Solicitar Auditoría" data-en="Request Audit">Solicitar Auditoría</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="port-hero">
+  <div class="label fi" data-es="Proyectos realizados" data-en="Completed projects">Proyectos realizados</div>
+  <h1 class="port-title fi"><span data-es="Nuestro" data-en="Our">Nuestro</span><br><em data-es="portafolio." data-en="portfolio.">portafolio.</em></h1>
+  <p class="port-sub fi" data-es="Proyectos reales, resultados medibles. Cada trabajo refleja nuestra metodología de crecimiento aplicada a negocios concretos." data-en="Real projects, measurable results. Each work reflects our growth methodology applied to concrete businesses.">Proyectos reales, resultados medibles. Cada trabajo refleja nuestra metodología de crecimiento aplicada a negocios concretos.</p>
+</div>
+
+<!-- FILTERS -->
+<div class="filters fi">
+  <span class="filter-label" data-es="Filtrar por:" data-en="Filter by:">Filtrar por:</span>
+  <button class="filter-btn active" onclick="filterProjects('all', this)" data-es="Todos" data-en="All">Todos</button>
+  <button class="filter-btn" onclick="filterProjects('automatizacion', this)" data-es="Automatización IA" data-en="AI Automation">Automatización IA</button>
+  <button class="filter-btn" onclick="filterProjects('web', this)" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</button>
+  <button class="filter-btn" onclick="filterProjects('branding', this)" data-es="Branding" data-en="Branding">Branding</button>
+  <button class="filter-btn" onclick="filterProjects('marketing', this)" data-es="Marketing Digital" data-en="Digital Marketing">Marketing Digital</button>
+</div>
+
+<!-- GRID -->
+<div class="port-grid" id="portGrid">
+
+  <!-- PROYECTO 1 — PLACEHOLDER para que Jose complete -->
+  <div class="port-card fi" data-category="automatizacion" onclick="openModal(0)">
+    <div class="card-tag" data-es="Automatización IA" data-en="AI Automation">Automatización IA</div>
+    <div class="card-img"><span class="img-placeholder" data-es="Agregar imagen del proyecto" data-en="Add project image">Agregar imagen del proyecto</span></div>
+    <div class="card-title" data-es="Nombre del Proyecto" data-en="Project Name">Nombre del Proyecto</div>
+    <div class="card-desc" data-es="Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente." data-en="Brief project description. What problem it solved, what solution was implemented and how it impacted the client's business.">Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente.</div>
+    <div class="card-tags"><span class="card-tag-item">n8n</span><span class="card-tag-item">OpenAI</span><span class="card-tag-item">CRM</span></div>
+    <div class="card-meta"><span class="card-year">2026</span><span class="card-result">−X hs/sem</span></div>
+  </div>
+
+  <div class="port-card fi" data-category="web" onclick="openModal(1)">
+    <div class="card-tag" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</div>
+    <div class="card-img"><span class="img-placeholder" data-es="Agregar imagen del proyecto" data-en="Add project image">Agregar imagen del proyecto</span></div>
+    <div class="card-title" data-es="Nombre del Proyecto" data-en="Project Name">Nombre del Proyecto</div>
+    <div class="card-desc" data-es="Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente." data-en="Brief project description. What problem it solved, what solution was implemented and how it impacted the client's business.">Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente.</div>
+    <div class="card-tags"><span class="card-tag-item">Next.js</span><span class="card-tag-item">Vercel</span><span class="card-tag-item">Stripe</span></div>
+    <div class="card-meta"><span class="card-year">2026</span><span class="card-result">+X% conversión</span></div>
+  </div>
+
+  <div class="port-card fi" data-category="branding" onclick="openModal(2)">
+    <div class="card-tag">Branding</div>
+    <div class="card-img"><span class="img-placeholder" data-es="Agregar imagen del proyecto" data-en="Add project image">Agregar imagen del proyecto</span></div>
+    <div class="card-title" data-es="Nombre del Proyecto" data-en="Project Name">Nombre del Proyecto</div>
+    <div class="card-desc" data-es="Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente." data-en="Brief project description. What problem it solved, what solution was implemented and how it impacted the client's business.">Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente.</div>
+    <div class="card-tags"><span class="card-tag-item">Identidad Visual</span><span class="card-tag-item">Estrategia</span></div>
+    <div class="card-meta"><span class="card-year">2026</span><span class="card-result">+X% reconocimiento</span></div>
+  </div>
+
+  <div class="port-card fi" data-category="marketing" onclick="openModal(3)">
+    <div class="card-tag" data-es="Marketing Digital" data-en="Digital Marketing">Marketing Digital</div>
+    <div class="card-img"><span class="img-placeholder" data-es="Agregar imagen del proyecto" data-en="Add project image">Agregar imagen del proyecto</span></div>
+    <div class="card-title" data-es="Nombre del Proyecto" data-en="Project Name">Nombre del Proyecto</div>
+    <div class="card-desc" data-es="Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente." data-en="Brief project description. What problem it solved, what solution was implemented and how it impacted the client's business.">Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente.</div>
+    <div class="card-tags"><span class="card-tag-item">Social Media</span><span class="card-tag-item">AEO/GEO</span><span class="card-tag-item">Contenido IA</span></div>
+    <div class="card-meta"><span class="card-year">2026</span><span class="card-result">+X% alcance</span></div>
+  </div>
+
+</div>
+
+<!-- ADD PROJECT CTA -->
+<div class="add-project fi">
+  <div>
+    <h2 data-es="¿Trabajamos <em>juntos?</em>" data-en="Shall we <em>work together?</em>">¿Trabajamos <em>juntos?</em></h2>
+    <p data-es="Tu proyecto podría estar aquí. Agendá una auditoría gratuita y veamos cómo escalar tu negocio." data-en="Your project could be here. Schedule a free audit and let's see how to scale your business.">Tu proyecto podría estar aquí. Agendá una auditoría gratuita y veamos cómo escalar tu negocio.</p>
+  </div>
+  <a class="btn-cta" href="index.html" style="padding:14px 28px;font-size:.9rem;" data-es="Solicitar Auditoría →" data-en="Request Audit →">Solicitar Auditoría →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-bottom">
+    <span class="f-copy">© 2026 Jose AI Growth Agency.</span>
+    <div class="f-links">
+      <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+      <a href="privacy.html" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+      <a href="terms.html" data-es="Términos" data-en="Terms">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// MODAL DATA — Jose completa esto con sus proyectos reales
+const projects = [
+  { title:'Nombre del Proyecto', cat:'Automatización IA', year:'2026', desc:'Acá va la descripción completa del proyecto. Contá el contexto del cliente, el desafío que enfrentaba, la solución que implementaste y los resultados concretos que obtuviste. Cuanto más específico, más confianza genera.', results:[{n:'−X hs',t:'por semana'},{n:'+X%',t:'eficiencia'},{n:'X sem',t:'implementación'}], stack:['n8n','OpenAI','CRM','Zapier'], img:'' },
+  { title:'Nombre del Proyecto', cat:'Desarrollo Web', year:'2026', desc:'Acá va la descripción completa del proyecto. Contá el contexto del cliente, el desafío que enfrentaba, la solución que implementaste y los resultados concretos que obtuviste.', results:[{n:'+X%',t:'conversión'},{n:'X días',t:'de desarrollo'},{n:'X+',t:'integraciones'}], stack:['Next.js','Vercel','Stripe','Supabase'], img:'' },
+  { title:'Nombre del Proyecto', cat:'Branding', year:'2026', desc:'Acá va la descripción completa del proyecto de branding. Identidad visual, estrategia de posicionamiento y resultados de reconocimiento de marca.', results:[{n:'+X%',t:'reconocimiento'},{n:'X',t:'entregables'},{n:'X sem',t:'de proceso'}], stack:['Identidad Visual','Tipografía','Paleta de color','Guidelines'], img:'' },
+  { title:'Nombre del Proyecto', cat:'Marketing Digital', year:'2026', desc:'Descripción de la estrategia de marketing digital implementada, canales trabajados y resultados medibles obtenidos para el cliente.', results:[{n:'+X%',t:'alcance'},{n:'×X',t:'engagement'},{n:'X leads',t:'por mes'}], stack:['Social Media','Contenido IA','AEO/GEO','Analytics'], img:'' },
+];
+
+function openModal(idx){
+  const p = projects[idx];
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-cat">${p.cat} · ${p.year}</div>
+    <h2>${p.title}</h2>
+    <div class="modal-img">${p.img ? `<img src="${p.img}" alt="${p.title}"/>` : '<span style="font-size:.75rem;color:#333;letter-spacing:2px;text-transform:uppercase;">Imagen del proyecto</span>'}</div>
+    <div class="modal-body">${p.desc}</div>
+    <div class="modal-results">${p.results.map(r=>`<div class="modal-stat"><div class="n">${r.n}</div><div class="t">${r.t}</div></div>`).join('')}</div>
+    <div class="modal-stack">${p.stack.map(s=>`<span>${s}</span>`).join('')}</div>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e){ if(e.target===document.getElementById('modalOverlay')) closeModalDirect(); }
+function closeModalDirect(){ document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow=''; }
+
+function filterProjects(cat, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.port-card').forEach(card=>{
+    if(cat==='all'||card.dataset.category===cat){ card.style.display=''; } else { card.style.display='none'; }
+  });
+}
+
+// FADE IN
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+// ESC para cerrar modal
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModalDirect(); });
+</script>
+</body>
+</html>

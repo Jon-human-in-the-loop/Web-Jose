@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Jose | AI Growth Agency</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#080808;color:#f2f2f2;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:#333;}
+:root{--white:#f2f2f2;--dim:#888;--border:#1e1e1e;--surface:#111;--accent:#e8ff47;--bg:#080808;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;border-bottom:1px solid var(--border);background:rgba(8,8,8,0.95);backdrop-filter:blur(16px);}
+.nav-logo{font-size:.8rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;cursor:pointer;}
+.nav-logo em{color:var(--accent);font-style:normal;}
+.nav-center{display:flex;gap:0;list-style:none;height:68px;}
+.nav-center>li{position:relative;display:flex;align-items:center;}
+.nav-center>li>a{font-size:.82rem;color:var(--dim);text-decoration:none;letter-spacing:.3px;transition:color .2s;font-weight:500;cursor:pointer;padding:0 18px;height:100%;display:flex;align-items:center;gap:5px;}
+.nav-center>li>a:hover{color:var(--white);}
+.nav-center>li>a .arr{font-size:.6rem;transition:transform .2s;}
+.nav-center>li:hover>a{color:var(--white);}
+.nav-center>li:hover>a .arr{transform:rotate(180deg);}
+
+/* MEGA MENU */
+.mega{position:fixed;top:68px;left:0;right:0;background:#0d0d0d;border-bottom:1px solid var(--border);display:none;padding:32px 48px;gap:40px;box-shadow:0 24px 48px rgba(0,0,0,.6);z-index:800;}
+.nav-center>li:hover .mega{display:flex;}
+.mega-col{display:flex;flex-direction:column;gap:2px;min-width:190px;}
+.mega-label{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:#444;margin-bottom:14px;font-weight:700;padding:0 8px;}
+.mega-item{display:flex;align-items:flex-start;gap:12px;padding:9px 8px;border-radius:6px;cursor:pointer;transition:background .2s;text-decoration:none;}
+.mega-item:hover{background:rgba(255,255,255,.04);}
+.mega-icon{width:30px;height:30px;border:1px solid #1e1e1e;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;background:#111;transition:border-color .2s;overflow:hidden;}
+.mega-item:hover .mega-icon{border-color:#333;}
+.mega-title{font-size:.81rem;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:2px;}
+.mega-sub{font-size:.72rem;color:#555;line-height:1.3;}
+.nav-right{display:flex;align-items:center;gap:16px;}
+.lang-sw{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.lang-sw button{padding:6px 14px;font-size:.75rem;font-weight:700;letter-spacing:1px;background:none;border:none;color:var(--dim);cursor:pointer;transition:all .2s;}
+.lang-sw button.on{background:var(--accent);color:#080808;}
+.btn-nav{padding:9px 20px;background:var(--white);color:#080808;border:none;border-radius:4px;font-size:.8rem;font-weight:700;cursor:pointer;transition:background .2s;letter-spacing:.3px;white-space:nowrap;}
+.btn-nav:hover{background:var(--accent);}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.ham span{display:block;width:22px;height:1.5px;background:var(--white);transition:all .3s;}
+.ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.ham.open span:nth-child(2){opacity:0;}
+.ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+/* DRAWER */
+.drawer{position:fixed;inset:0;background:#080808;z-index:800;display:flex;flex-direction:column;justify-content:center;padding:80px 40px 40px;transform:translateX(100%);transition:transform .4s cubic-bezier(.77,0,.18,1);}
+.drawer.open{transform:translateX(0);}
+.drawer a{font-size:2.2rem;font-weight:800;color:var(--white);text-decoration:none;border-bottom:1px solid var(--border);padding:20px 0;transition:color .2s;display:block;cursor:pointer;}
+.drawer a:hover{color:var(--accent);}
+.drawer .drawer-cta{margin-top:32px;padding:16px 24px;background:var(--accent);color:#080808;border:none;border-radius:4px;font-size:1rem;font-weight:800;cursor:pointer;width:fit-content;}
+
+/* SECTIONS */
+section{padding:140px 48px;position:relative;}
+.label{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--dim);margin-bottom:28px;display:flex;align-items:center;gap:12px;}
+.label::before{content:'';width:24px;height:1px;background:var(--dim);}
+h2.big{font-size:clamp(2.8rem,5vw,5.5rem);font-weight:900;line-height:1.02;letter-spacing:-2px;margin-bottom:24px;}
+h2.big em{font-style:normal;color:var(--accent);}
+.sub{color:var(--dim);font-size:1rem;line-height:1.9;max-width:520px;font-weight:400;}
+
+/* HERO */
+#inicio{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:80px;padding-top:120px;border-bottom:1px solid var(--border);background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(232,255,71,.04) 0%,transparent 70%);}
+.hero-eyebrow{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--dim);margin-bottom:40px;}
+.hero-eyebrow span{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);padding:6px 14px;border-radius:2px;}
+.hero-eyebrow span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}
+
+/* HERO TITLE — grande y dramático */
+h1.hero-h{font-size:clamp(3.8rem,9.5vw,10rem);font-weight:900;line-height:.92;letter-spacing:-4px;max-width:1200px;margin-bottom:60px;}
+h1.hero-h em{font-style:normal;color:var(--accent);}
+h1.hero-h .outline{-webkit-text-stroke:2px var(--white);color:transparent;}
+
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;}
+.hero-desc{color:var(--dim);font-size:1rem;line-height:1.85;max-width:420px;}
+.hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.btn-primary{padding:14px 28px;background:var(--accent);color:#080808;border:none;border-radius:3px;font-size:.85rem;font-weight:800;cursor:pointer;letter-spacing:.5px;transition:all .2s;white-space:nowrap;}
+.btn-primary:hover{background:#fff;}
+.btn-ghost{padding:14px 28px;background:none;color:var(--dim);border:1px solid var(--border);border-radius:3px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.btn-ghost:hover{color:var(--white);border-color:#444;}
+
+/* HERO STATS — más grandes */
+.hero-stats{display:flex;gap:60px;padding-top:60px;border-top:1px solid var(--border);margin-top:60px;flex-wrap:wrap;}
+.hstat .n{font-size:3.5rem;font-weight:900;letter-spacing:-2px;color:var(--white);line-height:1;}
+.hstat .n em{font-style:normal;color:var(--accent);}
+.hstat .t{font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:6px;}
+
+/* VSL */
+.vsl-block{margin-top:100px;border:1px solid var(--border);border-radius:4px;overflow:hidden;background:var(--surface);}
+.vsl-inner{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;cursor:pointer;position:relative;}
+.vsl-inner::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,255,71,.03),transparent);}
+.play-btn{width:72px;height:72px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;transition:transform .3s,background .2s;}
+.play-btn:hover{transform:scale(1.08);background:#fff;}
+.play-btn svg{width:28px;fill:#080808;margin-left:5px;}
+.vsl-label{font-size:.8rem;color:var(--dim);letter-spacing:2px;text-transform:uppercase;}
+
+/* PROBLEMS */
+#problemas{background:var(--bg);border-bottom:1px solid var(--border);}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:80px;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.prob-item{padding:48px 40px;border-right:1px solid var(--border);transition:background .3s;}
+.prob-item:last-child{border-right:none;}
+.prob-item:hover{background:var(--surface);}
+.prob-num{font-size:.7rem;color:var(--dim);letter-spacing:3px;margin-bottom:24px;font-weight:600;}
+.prob-q{font-size:1.15rem;font-weight:700;margin-bottom:14px;line-height:1.3;}
+.prob-a{font-size:.88rem;color:var(--dim);line-height:1.85;}
+.prob-a strong{color:var(--accent);}
+
+/* SERVICES — índices decorativos grandes */
+#servicios{background:var(--surface);border-bottom:1px solid var(--border);}
+.srv-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:80px;flex-wrap:wrap;gap:24px;}
+.srv-grid{display:flex;flex-direction:column;}
+.srv-row{display:grid;grid-template-columns:100px 1fr 2fr auto;align-items:start;gap:40px;padding:48px 0;border-top:1px solid var(--border);transition:all .3s;cursor:pointer;position:relative;}
+.srv-row:last-child{border-bottom:1px solid var(--border);}
+.srv-row:hover .srv-name{color:var(--accent);}
+.srv-row:hover .srv-arrow{transform:translate(4px,-4px);color:var(--accent);}
+.srv-idx{font-size:4rem;font-weight:900;color:var(--border);letter-spacing:-2px;line-height:1;padding-top:4px;transition:color .3s;}
+.srv-row:hover .srv-idx{color:var(--accent);}
+.srv-name{font-size:clamp(1.6rem,2.8vw,2.6rem);font-weight:800;letter-spacing:-.5px;transition:color .3s;line-height:1.05;}
+.srv-desc{color:var(--dim);font-size:.88rem;line-height:1.85;padding-top:8px;}
+.srv-items{display:flex;flex-direction:column;gap:8px;padding-top:6px;}
+.srv-items span{font-size:.78rem;color:var(--dim);padding:5px 12px;border:1px solid var(--border);border-radius:2px;width:fit-content;transition:border-color .2s,color .2s;}
+.srv-row:hover .srv-items span{border-color:#333;color:#aaa;}
+.srv-arrow{font-size:1.3rem;color:var(--dim);transition:transform .3s,color .3s;padding-top:4px;}
+
+/* SOCIAL PROOF — métricas más grandes */
+#resultados{background:var(--bg);border-bottom:1px solid var(--border);}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:80px;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.t-card{padding:52px 44px;border-right:1px solid var(--border);transition:background .3s;}
+.t-card:last-child{border-right:none;}
+.t-card:hover{background:var(--surface);}
+.t-roi{font-size:3.8rem;font-weight:900;letter-spacing:-2px;color:var(--accent);margin-bottom:4px;line-height:1;}
+.t-company{font-size:.65rem;color:var(--dim);letter-spacing:3px;text-transform:uppercase;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+.t-quote{font-size:.92rem;color:var(--dim);line-height:1.85;font-style:italic;margin-bottom:28px;}
+.t-author{display:flex;align-items:center;gap:12px;}
+.t-av{width:36px;height:36px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--dim);flex-shrink:0;}
+.t-name{font-size:.82rem;font-weight:600;}
+.t-role{font-size:.75rem;color:var(--dim);}
+.logos-strip{margin-top:80px;padding-top:48px;border-top:1px solid var(--border);display:flex;align-items:center;gap:48px;flex-wrap:wrap;}
+.ls-label{font-size:.7rem;color:var(--dim);letter-spacing:3px;text-transform:uppercase;white-space:nowrap;}
+.ls-logos{display:flex;gap:32px;flex-wrap:wrap;align-items:center;}
+.ls-logo{font-size:.8rem;color:#444;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+
+/* METHODOLOGY */
+#metodologia{background:var(--surface);border-bottom:1px solid var(--border);}
+.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:80px;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.method-step{padding:48px 36px;border-right:1px solid var(--border);transition:background .3s;}
+.method-step:last-child{border-right:none;}
+.method-step:hover{background:#0f0f0f;}
+.m-num{font-size:4rem;font-weight:900;color:var(--border);letter-spacing:-2px;line-height:1;margin-bottom:24px;transition:color .3s;}
+.method-step:hover .m-num{color:var(--accent);}
+.m-title{font-size:1rem;font-weight:700;margin-bottom:12px;}
+.m-text{font-size:.85rem;color:var(--dim);line-height:1.8;}
+
+/* FAQ */
+#faq{background:var(--bg);border-bottom:1px solid var(--border);}
+.faq-wrap{max-width:800px;margin-top:80px;}
+.faq-item{border-top:1px solid var(--border);}
+.faq-item:last-child{border-bottom:1px solid var(--border);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:28px 0;cursor:pointer;gap:24px;font-size:.95rem;font-weight:600;transition:color .2s;user-select:none;}
+.faq-q:hover{color:var(--accent);}
+.faq-icon{width:28px;height:28px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--dim);flex-shrink:0;transition:all .3s;}
+.faq-item.open .faq-icon{background:var(--accent);color:#080808;border-color:var(--accent);transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-item.open .faq-a{max-height:300px;}
+.faq-a-inner{padding:0 0 28px;color:var(--dim);font-size:.88rem;line-height:1.9;max-width:660px;}
+
+/* CONTACT */
+#contacto{background:var(--surface);}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:100px;margin-top:80px;}
+.c-info h3{font-size:1.8rem;font-weight:800;letter-spacing:-.5px;margin-bottom:20px;line-height:1.2;}
+.c-info p{color:var(--dim);font-size:.9rem;line-height:1.9;margin-bottom:36px;}
+.c-detail{display:flex;align-items:center;gap:14px;margin-bottom:16px;font-size:.85rem;color:var(--dim);}
+.c-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+.c-form{display:flex;flex-direction:column;gap:16px;}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.fg{display:flex;flex-direction:column;gap:6px;}
+.fg label{font-size:.7rem;color:var(--dim);letter-spacing:2px;text-transform:uppercase;font-weight:600;}
+.fg input,.fg textarea,.fg select{background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:13px 16px;color:var(--white);font-size:.88rem;outline:none;transition:border-color .2s;font-family:system-ui,sans-serif;}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:#444;}
+.fg textarea{resize:vertical;min-height:110px;}
+.fg select option{background:var(--surface);}
+.f-success{display:none;background:rgba(232,255,71,.06);border:1px solid rgba(232,255,71,.2);border-radius:3px;padding:40px 32px;text-align:center;}
+.f-success .tick{font-size:2rem;margin-bottom:12px;}
+.f-success h4{font-size:1.1rem;font-weight:700;margin-bottom:6px;}
+.f-success p{color:var(--dim);font-size:.85rem;}
+
+/* LEAD MAGNET */
+.lm{margin-top:120px;padding:80px 60px;border:1px solid var(--border);border-radius:4px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;background:linear-gradient(135deg,rgba(232,255,71,.03),transparent);}
+.lm h3{font-size:2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:12px;}
+.lm p{color:var(--dim);font-size:.9rem;line-height:1.8;}
+.lm-form{display:flex;gap:12px;}
+.lm-form input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:13px 16px;color:var(--white);font-size:.88rem;outline:none;font-family:system-ui,sans-serif;transition:border-color .2s;}
+.lm-form input:focus{border-color:#444;}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px;}
+.f-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:60px;flex-wrap:wrap;gap:40px;}
+.f-logo{font-size:.8rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;}
+.f-logo em{color:var(--accent);font-style:normal;}
+.f-tagline{font-size:.78rem;color:var(--dim);}
+.f-links{display:flex;gap:48px;flex-wrap:wrap;}
+.f-col h5{font-size:.7rem;color:var(--dim);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;font-weight:600;}
+.f-col a{display:block;font-size:.82rem;color:var(--dim);text-decoration:none;margin-bottom:10px;transition:color .2s;cursor:pointer;}
+.f-col a:hover{color:var(--white);}
+.f-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+.f-copy{font-size:.75rem;color:#444;}
+
+/* WHATSAPP */
+.wa-btn{position:sticky;bottom:32px;float:right;margin-right:32px;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.5);text-decoration:none;transition:transform .3s;z-index:9999;}
+.wa-btn:hover{transform:scale(1.1);}
+
+/* FADE IN */
+.fi{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
+.fi.in{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){nav{padding:0 28px;}section{padding:100px 28px;}.srv-row{grid-template-columns:60px 1fr 1fr auto;gap:24px;}.contact-wrap{grid-template-columns:1fr;gap:60px;}.lm{grid-template-columns:1fr;gap:32px;}}
+@media(max-width:768px){.nav-center,.lang-sw,.btn-nav{display:none;}.ham{display:flex;}nav{padding:0 24px;}section{padding:80px 24px;}h1.hero-h{letter-spacing:-2px;font-size:clamp(3rem,12vw,5rem);}.prob-grid,.t-grid{grid-template-columns:1fr;}.prob-item,.t-card{border-right:none;border-bottom:1px solid var(--border);}.prob-item:last-child,.t-card:last-child{border-bottom:none;}.method-grid{grid-template-columns:1fr 1fr;}.srv-row{grid-template-columns:1fr;gap:12px;}.srv-idx{font-size:2.5rem;}.lm-form{flex-direction:column;}.f-top{flex-direction:column;}.f-links{flex-direction:column;gap:32px;}footer{padding:48px 24px;}.f-bottom{flex-direction:column;align-items:flex-start;}.hero-bottom{flex-direction:column;align-items:flex-start;}}
+@media(max-width:480px){.method-grid{grid-template-columns:1fr;}.method-step{border-right:none!important;border-bottom:1px solid var(--border)!important;}.method-step:last-child{border-bottom:none!important;}.f-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- DRAWER -->
+<div class="drawer" id="drawer">
+  <a onclick="goTo('inicio')"><span data-es="Inicio" data-en="Home">Inicio</span></a>
+  <a onclick="goTo('servicios')"><span data-es="Servicios" data-en="Services">Servicios</span></a>
+  <a onclick="goTo('resultados')"><span data-es="Resultados" data-en="Results">Resultados</span></a>
+  <a onclick="goTo('metodologia')"><span data-es="Metodología" data-en="Methodology">Metodología</span></a>
+  <a onclick="goTo('faq')">FAQ</a>
+  <a href="portfolio.html" target="_blank" data-es="Portafolio" data-en="Portfolio">Portafolio</a>
+  <a onclick="goTo('contacto')"><span data-es="Contacto" data-en="Contact">Contacto</span></a>
+  <button class="drawer-cta" onclick="closeDrawer();goTo('contacto')" data-es="Solicitar Auditoría" data-en="Request Audit">Solicitar Auditoría</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo" onclick="goTo('inicio')">JOSE <em>·</em> AI</span>
+  <ul class="nav-center">
+    <li><a onclick="goTo('inicio')" data-es="Inicio" data-en="Home">Inicio</a></li>
+    <li>
+      <a onclick="goTo('servicios')"><span data-es="Servicios" data-en="Services">Servicios</span><span class="arr">▾</span></a>
+      <div class="mega">
+        <!-- SVG ICONS -->
+        <svg style="display:none">
+          <symbol id="ico-ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1 0-6h1V6a4 4 0 0 1 4-4z"/><circle cx="12" cy="12" r="2"/></symbol>
+          <symbol id="ico-voice" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></symbol>
+          <symbol id="ico-agent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><path d="M17 6l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></symbol>
+          <symbol id="ico-gen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+          <symbol id="ico-multi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v7m-3.5-3.5h7"/></symbol>
+          <symbol id="ico-rag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6m-3-3h6"/></symbol>
+          <symbol id="ico-data" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v5c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 10v5c0 1.66 4 3 9 3s9-1.34 9-3v-5"/></symbol>
+          <symbol id="ico-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+          <symbol id="ico-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.5 3-4 5.5-4 9s1.5 6 4 9"/><path d="M12 3c2.5 3 4 5.5 4 9s-1.5 6-4 9"/><line x1="3" y1="12" x2="21" y2="12"/></symbol>
+          <symbol id="ico-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.5" stroke-width="2"/></symbol>
+          <symbol id="ico-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+          <symbol id="ico-discover" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+          <symbol id="ico-mvp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4.5 16.5l-1.5 5 5-1.5L20 8a2.83 2.83 0 0 0-4-4L4.5 16.5z"/></symbol>
+          <symbol id="ico-poc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></symbol>
+          <symbol id="ico-front" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="20" height="14" rx="2"/><line x1="8" y1="22" x2="16" y2="22"/><line x1="12" y1="18" x2="12" y2="22"/></symbol>
+          <symbol id="ico-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></symbol>
+        </svg>
+
+        <div class="mega-col">
+          <div class="mega-label">AI SERVICES</div>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-ai"/></svg></div><div><div class="mega-title" data-es="Desarrollo con IA" data-en="AI Development">Desarrollo con IA</div><div class="mega-sub" data-es="Sistemas ML y LLM inteligentes" data-en="ML and LLM intelligent systems">Sistemas ML y LLM inteligentes</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-voice"/></svg></div><div><div class="mega-title" data-es="Voz y Chatbots" data-en="Voice and Chatbots">Voz y Chatbots</div><div class="mega-sub" data-es="Conversaciones potenciadas por IA" data-en="AI-powered conversations">Conversaciones potenciadas por IA</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-agent"/></svg></div><div><div class="mega-title" data-es="Agentes de IA" data-en="AI Agents">Agentes de IA</div><div class="mega-sub" data-es="Agentes autónomos 24/7" data-en="Autonomous agents 24/7">Agentes autónomos 24/7</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-gen"/></svg></div><div><div class="mega-title" data-es="IA Generativa" data-en="Generative AI">IA Generativa</div><div class="mega-sub" data-es="Soluciones LLM a medida" data-en="Custom LLM solutions">Soluciones LLM a medida</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-multi"/></svg></div><div><div class="mega-title" data-es="IA Multimodal" data-en="Multi Modal AI">IA Multimodal</div><div class="mega-sub" data-es="Combina texto, imagen y audio" data-en="Combine text, image and audio">Combina texto, imagen y audio</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-rag"/></svg></div><div><div class="mega-title" data-es="Desarrollo RAG" data-en="RAG Development">Desarrollo RAG</div><div class="mega-sub" data-es="Recuperación de conocimiento con IA" data-en="AI-powered knowledge retrieval">Recuperación de conocimiento con IA</div></div></a>
+        </div>
+
+        <div class="mega-col">
+          <div class="mega-label" data-es="ÁREAS DE DESARROLLO" data-en="DEVELOPMENT AREAS">ÁREAS DE DESARROLLO</div>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-ai"/></svg></div><div><div class="mega-title" data-es="Desarrollo IA" data-en="AI Development">Desarrollo IA</div><div class="mega-sub" data-es="Sistemas ML y LLM inteligentes" data-en="Build ML and LLM based systems">Sistemas ML y LLM inteligentes</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-data"/></svg></div><div><div class="mega-title" data-es="Ingeniería de Datos" data-en="Data Engineering">Ingeniería de Datos</div><div class="mega-sub" data-es="Pipelines, warehouses y analytics" data-en="Pipelines, warehouses, and analytics">Pipelines, warehouses y analytics</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-code"/></svg></div><div><div class="mega-title" data-es="Desarrollo de Software" data-en="Custom Software">Desarrollo de Software</div><div class="mega-sub" data-es="Soluciones a medida de tu negocio" data-en="Tailored solutions for your business">Soluciones a medida de tu negocio</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-web"/></svg></div><div><div class="mega-title" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</div><div class="mega-sub" data-es="Apps web responsivas y escalables" data-en="Responsive scalable web apps">Apps web responsivas y escalables</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-mobile"/></svg></div><div><div class="mega-title" data-es="Apps Móviles" data-en="Mobile Apps">Apps Móviles</div><div class="mega-sub" data-es="iOS, Android y cross-platform" data-en="iOS, Android and cross-platform">iOS, Android y cross-platform</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-chat"/></svg></div><div><div class="mega-title" data-es="Desarrollo de Chatbots" data-en="Chatbot Development">Desarrollo de Chatbots</div><div class="mega-sub" data-es="Superficies conversacionales con IA" data-en="AI-powered conversational surfaces">Superficies conversacionales con IA</div></div></a>
+        </div>
+
+        <div class="mega-col">
+          <div class="mega-label" data-es="ETAPA DE DESARROLLO" data-en="DEVELOPMENT STAGE">ETAPA DE DESARROLLO</div>
+          <a class="mega-item" onclick="goTo('metodologia')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-discover"/></svg></div><div><div class="mega-title" data-es="Descubrimiento del Proyecto" data-en="Project Discovery">Descubrimiento del Proyecto</div><div class="mega-sub" data-es="Alcance, objetivos y roadmap" data-en="Define scope, goals, and roadmap">Alcance, objetivos y roadmap</div></div></a>
+          <a class="mega-item" onclick="goTo('metodologia')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-mvp"/></svg></div><div><div class="mega-title" data-es="Desarrollo MVP" data-en="MVP Development">Desarrollo MVP</div><div class="mega-sub" data-es="Lanzá más rápido con funciones clave" data-en="Launch faster with core features">Lanzá más rápido con funciones clave</div></div></a>
+          <a class="mega-item" onclick="goTo('metodologia')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-poc"/></svg></div><div><div class="mega-title" data-es="Desarrollo POC" data-en="POC Development">Desarrollo POC</div><div class="mega-sub" data-es="Validá ideas antes de construir" data-en="Validate ideas before building">Validá ideas antes de construir</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-front"/></svg></div><div><div class="mega-title" data-es="Desarrollo Frontend" data-en="Frontend Development">Desarrollo Frontend</div><div class="mega-sub" data-es="UI para Web, Mobile y más" data-en="Build UI for Web, Mobile and more">UI para Web, Mobile y más</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-back"/></svg></div><div><div class="mega-title" data-es="Desarrollo Backend" data-en="Backend Development">Desarrollo Backend</div><div class="mega-sub" data-es="APIs, MCPs y lógica de negocio" data-en="Build APIs, MCPs, and app logic">APIs, MCPs y lógica de negocio</div></div></a>
+        </div>
+
+        <div class="mega-col">
+          <div class="mega-label" data-es="PLATAFORMAS IA" data-en="AI PLATFORMS">PLATAFORMAS IA</div>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon" style="background:#10a37f;border-color:#10a37f;"><img src="https://raw.githubusercontent.com/Jon-human-in-the-loop/imagesllms/main/openai-chatgpt-logo-icon-free-png.webp" width="20" height="20" style="object-fit:contain;filter:brightness(0) invert(1);"/></div><div><div class="mega-title">OpenAI</div><div class="mega-sub" data-es="Modelos GPT e integraciones ChatGPT" data-en="GPT models and ChatGPT integrations">Modelos GPT e integraciones ChatGPT</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon" style="background:#c96a1e;border-color:#c96a1e;"><img src="https://raw.githubusercontent.com/Jon-human-in-the-loop/imagesllms/main/3d-claude-ai-logo.jpg" width="20" height="20" style="object-fit:contain;"/></div><div><div class="mega-title">Anthropic</div><div class="mega-sub" data-es="Aprovechá el poder de Claude" data-en="Take advantage of Claude">Aprovechá el poder de Claude</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon" style="background:#fff;border-color:#e0e0e0;"><img src="https://raw.githubusercontent.com/Jon-human-in-the-loop/imagesllms/main/gemini.jpg" width="20" height="20" style="object-fit:contain;"/></div><div><div class="mega-title">Gemini</div><div class="mega-sub" data-es="Soluciones multimodales de IA" data-en="Multimodal AI solutions">Soluciones multimodales de IA</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon" style="background:#fff;border-color:#eee;"><img src="https://raw.githubusercontent.com/Jon-human-in-the-loop/imagesllms/main/LLaMA.png" width="22" height="22" style="object-fit:contain;"/></div><div><div class="mega-title">LLaMA <span style="font-size:.68rem;color:#888;font-weight:400;">by Meta</span></div><div class="mega-sub" data-es="LLM de código abierto" data-en="Open-source LLM">LLM de código abierto</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon" style="background:#0d0d1a;border-color:#3a2a8a;"><img src="https://raw.githubusercontent.com/Jon-human-in-the-loop/imagesllms/main/qwen-color.png" width="20" height="20" style="object-fit:contain;"/></div><div><div class="mega-title">Qwen</div><div class="mega-sub" data-es="Modelo eficiente open-weight" data-en="Efficient open-weight model">Modelo eficiente open-weight</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon" style="background:#0a0a1a;border-color:#1a2a5a;"><img src="https://raw.githubusercontent.com/Jon-human-in-the-loop/imagesllms/main/deepseek-color.png" width="22" height="20" style="object-fit:contain;"/></div><div><div class="mega-title">Deepseek</div><div class="mega-sub" data-es="Modelos open-weight eficientes" data-en="Efficient open-weight models">Modelos open-weight eficientes</div></div></a>
+        </div>
+      </div>
+    </li>
+    <li><a onclick="goTo('resultados')" data-es="Resultados" data-en="Results">Resultados</a></li>
+    <li><a onclick="goTo('metodologia')" data-es="Metodología" data-en="Methodology">Metodología</a></li>
+    <li><a onclick="goTo('faq')">FAQ</a></li>
+    <li><a href="portfolio.html" target="_blank" data-es="Portafolio" data-en="Portfolio">Portafolio</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-sw"><button class="on" onclick="setLang('es')">ES</button><button onclick="setLang('en')">EN</button></div>
+    <button class="btn-nav" onclick="goTo('contacto')" data-es="Solicitar Auditoría" data-en="Request Audit">Solicitar Auditoría</button>
+    <button class="ham" id="ham" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="inicio">
+  <div class="hero-eyebrow fi"><span data-es="Agencia de Crecimiento Digital e IA — 2026" data-en="AI & Digital Growth Agency — 2026">Agencia de Crecimiento Digital e IA — 2026</span></div>
+  <h1 class="hero-h fi">
+    <span data-es="Escalamos" data-en="We Scale">Escalamos</span><br>
+    <em data-es="tu negocio" data-en="your business">tu negocio</em><br>
+    <span class="outline" data-es="con sistemas" data-en="with AI">con sistemas</span><br>
+    <span data-es="de IA." data-en="systems.">de IA.</span>
+  </h1>
+  <div class="hero-bottom fi">
+    <p class="hero-desc" data-es="Diseñamos arquitecturas de crecimiento que automatizan ventas, optimizan procesos y posicionan tu marca como líder en el mundo digital." data-en="We design growth architectures that automate sales, optimize processes and position your brand as a leader in the digital world.">Diseñamos arquitecturas de crecimiento que automatizan ventas, optimizan procesos y posicionan tu marca como líder en el mundo digital.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="goTo('contacto')" data-es="Solicitar Auditoría de Crecimiento" data-en="Request Growth Audit">Solicitar Auditoría de Crecimiento</button>
+      <button class="btn-ghost" onclick="goTo('servicios')" data-es="Ver servicios" data-en="See services">Ver servicios</button>
+    </div>
+  </div>
+  <div class="hero-stats fi">
+    <div class="hstat"><div class="n"><em>+80%</em></div><div class="t" data-es="Tiempo liberado" data-en="Time freed">Tiempo liberado</div></div>
+    <div class="hstat"><div class="n"><em>24/7</em></div><div class="t" data-es="Operación autónoma" data-en="Autonomous ops">Operación autónoma</div></div>
+    <div class="hstat"><div class="n"><em>×3</em></div><div class="t" data-es="ROI promedio" data-en="Avg ROI">ROI promedio</div></div>
+    <div class="hstat"><div class="n"><em>50+</em></div><div class="t" data-es="Negocios escalados" data-en="Businesses scaled">Negocios escalados</div></div>
+  </div>
+  <div class="vsl-block fi">
+    <div class="vsl-inner" id="vslInner" onclick="loadVSL()">
+      <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="vsl-label" data-es="Ver la propuesta de valor · ES / EN" data-en="Watch the value proposition · ES / EN">Ver la propuesta de valor · ES / EN</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section id="problemas">
+  <div class="label fi" data-es="¿Te identificas?" data-en="Do you relate?">¿Te identificas?</div>
+  <h2 class="big fi"><span data-es="Los problemas" data-en="The problems">Los problemas</span><br><em data-es="que resolvemos" data-en="we solve">que resolvemos</em></h2>
+  <div class="prob-grid fi">
+    <div class="prob-item"><div class="prob-num">01</div><div class="prob-q" data-es="¿Tu contenido no convierte?" data-en="Your content doesn't convert?">¿Tu contenido no convierte?</div><div class="prob-a"><span data-es="Lo resolvemos con " data-en="We fix it with ">Lo resolvemos con </span><strong data-es="Social Media Estratégico" data-en="Strategic Social Media">Social Media Estratégico</strong><span data-es=" orientado a posicionamiento y crecimiento real." data-en=" focused on positioning and real growth."> orientado a posicionamiento y crecimiento real.</span></div></div>
+    <div class="prob-item"><div class="prob-num">02</div><div class="prob-q" data-es="¿Procesos manuales que te frenan?" data-en="Manual processes holding you back?">¿Procesos manuales que te frenan?</div><div class="prob-a"><span data-es="Implementamos " data-en="We implement ">Implementamos </span><strong data-es="automatizaciones con IA" data-en="AI automations">automatizaciones con IA</strong><span data-es=" que liberan el 80% de tu tiempo operativo." data-en=" that free 80% of your operational time."> que liberan el 80% de tu tiempo operativo.</span></div></div>
+    <div class="prob-item"><div class="prob-num">03</div><div class="prob-q" data-es="¿Tu marca pasa desapercibida?" data-en="Is your brand invisible?">¿Tu marca pasa desapercibida?</div><div class="prob-a"><span data-es="Creamos " data-en="We create ">Creamos </span><strong data-es="identidades visuales memorables" data-en="memorable visual identities">identidades visuales memorables</strong><span data-es=" que posicionan tu negocio como autoridad." data-en=" that position your business as an authority."> que posicionan tu negocio como autoridad.</span></div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicios">
+  <div class="srv-header">
+    <div><div class="label fi" data-es="Sistemas de crecimiento" data-en="Growth systems">Sistemas de crecimiento</div><h2 class="big fi" style="margin-bottom:0"><span data-es="Nuestros" data-en="Our">Nuestros</span><br><em data-es="servicios" data-en="services">servicios</em></h2></div>
+    <p class="sub fi" data-es="No vendemos servicios aislados. Diseñamos ecosistemas de crecimiento autónomos integrados con IA." data-en="We don't sell isolated services. We design autonomous growth ecosystems integrated with AI.">No vendemos servicios aislados. Diseñamos ecosistemas de crecimiento autónomos integrados con IA.</p>
+  </div>
+  <div class="srv-grid fi">
+    <div class="srv-row" onclick="goTo('contacto')"><div class="srv-idx">01</div><div class="srv-name" data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</div><div class="srv-desc" data-es="Desarrollo de identidad visual, diseño de marca desde cero y estrategia de posicionamiento para escalar en mercados globales." data-en="Visual identity development, brand design from scratch and positioning strategy to scale in global markets.">Desarrollo de identidad visual, diseño de marca desde cero y estrategia de posicionamiento para escalar en mercados globales.</div><div class="srv-items"><span data-es="Identidad Visual" data-en="Visual Identity">Identidad Visual</span><span data-es="Posicionamiento" data-en="Positioning">Posicionamiento</span><span data-es="Branding Global" data-en="Global Branding">Branding Global</span></div><div class="srv-arrow">↗</div></div>
+    <div class="srv-row" onclick="goTo('contacto')"><div class="srv-idx">02</div><div class="srv-name" data-es="Ecosistemas de Crecimiento" data-en="Growth Ecosystems">Ecosistemas de Crecimiento</div><div class="srv-desc" data-es="Gestión estratégica de redes sociales, contenido orientado a conversión y posicionamiento AEO/GEO en motores generativos." data-en="Strategic social media management, conversion-oriented content and AEO/GEO positioning in generative engines.">Gestión estratégica de redes sociales, contenido orientado a conversión y posicionamiento AEO/GEO en motores generativos.</div><div class="srv-items"><span data-es="Social Media" data-en="Social Media">Social Media</span><span>AEO / GEO</span><span data-es="Contenido IA" data-en="AI Content">Contenido IA</span></div><div class="srv-arrow">↗</div></div>
+    <div class="srv-row" onclick="goTo('contacto')"><div class="srv-idx">03</div><div class="srv-name" data-es="Automatización Agéntica" data-en="Agentic Automation">Automatización Agéntica</div><div class="srv-desc" data-es="Automatización de procesos, integración de CRM y calendarios, y desarrollo de agentes de IA que operan 24/7 por tu negocio." data-en="Process automation, CRM and calendar integration, and AI agents that operate 24/7 for your business.">Automatización de procesos, integración de CRM y calendarios, y desarrollo de agentes de IA que operan 24/7 por tu negocio.</div><div class="srv-items"><span data-es="Agentes IA" data-en="AI Agents">Agentes IA</span><span data-es="Integraciones" data-en="Integrations">Integraciones</span><span>CRM / Email</span></div><div class="srv-arrow">↗</div></div>
+    <div class="srv-row" onclick="goTo('contacto')"><div class="srv-idx">04</div><div class="srv-name" data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</div><div class="srv-desc" data-es="E-commerce, sitios corporativos, landing pages y funnels de alto rendimiento integrados con sistemas de IA y automatización." data-en="E-commerce, corporate sites, high-performance landing pages and funnels integrated with AI systems.">E-commerce, sitios corporativos, landing pages y funnels de alto rendimiento integrados con sistemas de IA y automatización.</div><div class="srv-items"><span>E-commerce</span><span data-es="Funnels de Venta" data-en="Sales Funnels">Funnels de Venta</span><span data-es="Integración IA" data-en="AI Integration">Integración IA</span></div><div class="srv-arrow">↗</div></div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section id="resultados">
+  <div class="label fi" data-es="Prueba social" data-en="Social proof">Prueba social</div>
+  <h2 class="big fi"><span data-es="Resultados" data-en="Results">Resultados</span><br><em data-es="reales." data-en="that matter.">reales.</em></h2>
+  <div class="t-grid fi">
+    <div class="t-card"><div class="t-roi">−18 hs/sem</div><div class="t-company">E-commerce</div><div class="t-quote" data-es='"Automatizamos el seguimiento de clientes y la gestión de pedidos. Recuperamos casi 3 horas por día que antes perdíamos en tareas manuales."' data-en='"We automated client follow-up and order management. We recovered almost 3 hours per day that we used to waste on manual tasks."'>"Automatizamos el seguimiento de clientes y la gestión de pedidos. Recuperamos casi 3 horas por día que antes perdíamos en tareas manuales."</div><div class="t-author"><div class="t-av">CM</div><div><div class="t-name">Carlos M.</div><div class="t-role">CEO</div></div></div></div>
+    <div class="t-card"><div class="t-roi">+65%</div><div class="t-company" data-es="Consultoría" data-en="Consulting">Consultoría</div><div class="t-quote" data-es='"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."' data-en='"They redesigned our digital presence and within two months we noticed a clear increase in inbound inquiries."'>"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."</div><div class="t-author"><div class="t-av" style="background:#222">SR</div><div><div class="t-name">Sofia R.</div><div class="t-role" data-es="Fundadora" data-en="Founder">Fundadora</div></div></div></div>
+    <div class="t-card"><div class="t-roi">×2 cierres</div><div class="t-company" data-es="Servicios B2B" data-en="B2B Services">Servicios B2B</div><div class="t-quote" data-es='"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."' data-en='"They implemented an automated follow-up flow that helped us close twice as many proposals in the same time."'>"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."</div><div class="t-author"><div class="t-av" style="background:#1a1a1a">ML</div><div><div class="t-name">Miguel L.</div><div class="t-role" data-es="Director" data-en="Director">Director</div></div></div></div>
+  </div>
+
+</section>
+
+<!-- METHODOLOGY -->
+<section id="metodologia">
+  <div class="label fi" data-es="Cómo trabajamos" data-en="How we work">Cómo trabajamos</div>
+  <h2 class="big fi"><span data-es="La metodología" data-en="The methodology">La metodología</span><br><em data-es="que funciona." data-en="that works.">que funciona.</em></h2>
+  <div class="method-grid fi">
+    <div class="method-step"><div class="m-num">01</div><div class="m-title" data-es="Auditoría y Diagnóstico" data-en="Audit & Diagnosis">Auditoría y Diagnóstico</div><div class="m-text" data-es="Analizamos tu negocio, procesos y presencia digital para detectar oportunidades reales de crecimiento." data-en="We analyze your business, processes and digital presence to identify real growth opportunities.">Analizamos tu negocio, procesos y presencia digital para detectar oportunidades reales de crecimiento.</div></div>
+    <div class="method-step"><div class="m-num">02</div><div class="m-title" data-es="Diseño de Arquitectura" data-en="Architecture Design">Diseño de Arquitectura</div><div class="m-text" data-es="Definimos el sistema de crecimiento personalizado: branding, marketing y automatización integrados." data-en="We define your custom growth system: branding, marketing and automation integrated.">Definimos el sistema de crecimiento personalizado: branding, marketing y automatización integrados.</div></div>
+    <div class="method-step"><div class="m-num">03</div><div class="m-title" data-es="Implementación Agéntica" data-en="Agentic Implementation">Implementación Agéntica</div><div class="m-text" data-es="Desplegamos los sistemas y agentes de IA que operan de forma autónoma para escalar tu negocio." data-en="We deploy the systems and AI agents that operate autonomously to scale your business.">Desplegamos los sistemas y agentes de IA que operan de forma autónoma para escalar tu negocio.</div></div>
+    <div class="method-step"><div class="m-num">04</div><div class="m-title" data-es="Optimización Continua" data-en="Continuous Optimization">Optimización Continua</div><div class="m-text" data-es="Medimos, analizamos y optimizamos el sistema constantemente para seguir escalando con datos reales." data-en="We measure, analyze and optimize constantly to keep scaling with real data.">Medimos, analizamos y optimizamos el sistema constantemente para seguir escalando con datos reales.</div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="label fi">FAQ</div>
+  <h2 class="big fi"><em data-es="Preguntas" data-en="Frequently">Preguntas</em><br><span data-es="frecuentes." data-en="asked questions.">frecuentes.</span></h2>
+  <div class="faq-wrap fi">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Qué tipo de negocios atienden?" data-en="What type of businesses do you work with?">¿Qué tipo de negocios atienden?</span><div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner" data-es="Trabajamos con negocios que buscan escalar, desde startups hasta empresas medianas. Nuestros sistemas se adaptan a cualquier industria que quiera integrar IA y automatización para crecer de forma sostenible." data-en="We work with businesses looking to scale, from startups to mid-size companies. Our systems adapt to any industry that wants to integrate AI and automation to grow sustainably.">Trabajamos con negocios que buscan escalar, desde startups hasta empresas medianas.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Cuánto tiempo tarda ver resultados?" data-en="How long until I see results?">¿Cuánto tiempo tarda ver resultados?</span><div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner" data-es="Los primeros resultados son visibles entre 30 y 90 días. Las automatizaciones y agentes de IA generan retorno desde las primeras semanas de operación." data-en="First results are visible within 30-90 days. Automations and AI agents generate returns from the first weeks of operation.">Los primeros resultados son visibles entre 30 y 90 días.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-es="¿En qué consiste la Auditoría de Crecimiento IA?" data-en="What does the AI Growth Audit consist of?">¿En qué consiste la Auditoría de Crecimiento IA?</span><div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner" data-es="Es una sesión estratégica donde analizamos tu negocio, identificamos cuellos de botella y diseñamos un plan de crecimiento personalizado con mapa de automatizaciones y oportunidades de IA." data-en="It's a strategic session where we analyze your business, identify bottlenecks and design a personalized growth plan with automation map and AI opportunities.">Es una sesión estratégica donde analizamos tu negocio e identificamos oportunidades.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Trabajan con clientes internacionales?" data-en="Do you work with international clients?">¿Trabajan con clientes internacionales?</span><div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner" data-es="Sí. Operamos con clientes en Latinoamérica, Europa y Estados Unidos de forma 100% remota." data-en="Yes. We operate with clients in Latin America, Europe and the United States 100% remotely.">Sí. Operamos con clientes en Latinoamérica, Europa y Estados Unidos de forma 100% remota.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Qué diferencia a esta agencia de las demás?" data-en="What differentiates this agency from others?">¿Qué diferencia a esta agencia de las demás?</span><div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner" data-es="No somos una agencia tradicional. Construimos ecosistemas de crecimiento autónomos que combinan branding, marketing, automatización e IA en un sistema integrado." data-en="We're not a traditional agency. We build autonomous growth ecosystems combining branding, marketing, automation and AI in one integrated system.">No somos una agencia tradicional. Construimos ecosistemas de crecimiento autónomos.</div></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="label fi" data-es="Empezá hoy" data-en="Start today">Empezá hoy</div>
+  <h2 class="big fi"><span data-es="Escalemos" data-en="Let's scale">Escalemos</span><br><em data-es="juntos." data-en="together.">juntos.</em></h2>
+  <div class="contact-wrap fi">
+    <div class="c-info">
+      <h3 data-es="Auditoría de Crecimiento IA" data-en="AI Growth Audit">Auditoría de Crecimiento IA</h3>
+      <p data-es="Completá el formulario y en menos de 24 horas te contactamos para agendar tu sesión de diagnóstico estratégico personalizado." data-en="Complete the form and within 24 hours we'll contact you to schedule your personalized strategic diagnosis session.">Completá el formulario y en menos de 24 horas te contactamos para agendar tu sesión de diagnóstico estratégico personalizado.</p>
+      <div class="c-detail"><span class="c-dot"></span><span>hola@joseagencia.com</span></div>
+      <div class="c-detail"><span class="c-dot"></span><span data-es="Respuesta en menos de 24 horas" data-en="Response within 24 hours">Respuesta en menos de 24 horas</span></div>
+      <div class="c-detail"><span class="c-dot"></span><span>Latinoamérica · Europa · USA</span></div>
+      <div class="c-detail"><span class="c-dot"></span><span data-es="Operación 100% remota" data-en="100% remote operation">Operación 100% remota</span></div>
+    </div>
+    <form class="c-form" id="cForm" onsubmit="submitForm(event)">
+      <input type="hidden" name="_subject" value="Nueva consulta desde joseagencia.com"/>
+      <input type="hidden" name="_language" value="es"/>
+      <div class="f-row">
+        <div class="fg"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" name="nombre" required placeholder="Tu nombre"></div>
+        <div class="fg"><label>Email</label><input type="email" name="email" required placeholder="tu@email.com"></div>
+      </div>
+      <div class="fg"><label data-es="Empresa" data-en="Company">Empresa</label><input type="text" name="empresa" placeholder="Nombre de tu empresa"></div>
+      <div class="fg">
+        <label data-es="Servicio de interés" data-en="Service of interest">Servicio de interés</label>
+        <select name="servicio">
+          <option data-es="Seleccioná una opción" data-en="Select an option">Seleccioná una opción</option>
+          <option data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</option>
+          <option data-es="Ecosistemas de Crecimiento Digital" data-en="Digital Growth Ecosystems">Ecosistemas de Crecimiento Digital</option>
+          <option data-es="Automatización Agéntica" data-en="Agentic Automation">Automatización Agéntica</option>
+          <option data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</option>
+          <option data-es="Solución completa" data-en="Complete solution">Solución completa</option>
+        </select>
+      </div>
+      <div class="fg"><label data-es="Mensaje" data-en="Message">Mensaje</label><textarea name="mensaje" placeholder="Contanos sobre tu negocio..."></textarea></div>
+      <button type="submit" class="btn-primary" data-es="Solicitar Auditoría de Crecimiento IA →" data-en="Request AI Growth Audit →">Solicitar Auditoría de Crecimiento IA →</button>
+      <div class="f-success" id="fSuccess"><div class="tick">✓</div><h4 data-es="¡Solicitud recibida!" data-en="Request received!">¡Solicitud recibida!</h4><p data-es="Te contactamos en menos de 24 horas." data-en="We'll contact you within 24 hours.">Te contactamos en menos de 24 horas.</p></div>
+    </form>
+  </div>
+  <div class="lm fi">
+    <div>
+      <h3 data-es="Blueprint de Crecimiento IA 2026" data-en="AI Growth Blueprint 2026">Blueprint de Crecimiento IA 2026</h3>
+      <p data-es="La guía que usamos con nuestros clientes para diseñar sistemas de crecimiento autónomos. Gratis." data-en="The guide we use with our clients to design autonomous growth systems. Free.">La guía que usamos con nuestros clientes para diseñar sistemas de crecimiento autónomos. Gratis.</p>
+    </div>
+    <div>
+      <div class="lm-form"><input type="email" id="lmEmail" placeholder="tu@email.com"><button class="btn-primary" onclick="submitLM()" data-es="Descargar →" data-en="Download →">Descargar →</button></div>
+      <p id="lmMsg" style="display:none;margin-top:12px;font-size:.8rem;color:var(--accent)"></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-top">
+    <div><div class="f-logo">JOSE <em>·</em> AI</div><div class="f-tagline" data-es="Agencia de Crecimiento Digital e Inteligencia Artificial" data-en="AI & Digital Growth Agency">Agencia de Crecimiento Digital e Inteligencia Artificial</div></div>
+    <div class="f-links">
+      <div class="f-col">
+        <h5 data-es="Navegación" data-en="Navigation">Navegación</h5>
+        <a onclick="goTo('inicio')" data-es="Inicio" data-en="Home">Inicio</a>
+        <a onclick="goTo('servicios')" data-es="Servicios" data-en="Services">Servicios</a>
+        <a onclick="goTo('resultados')" data-es="Resultados" data-en="Results">Resultados</a>
+        <a onclick="goTo('metodologia')" data-es="Metodología" data-en="Methodology">Metodología</a>
+        <a onclick="goTo('faq')">FAQ</a>
+      </div>
+      <div class="f-col">
+        <h5 data-es="Servicios" data-en="Services">Servicios</h5>
+        <a onclick="goTo('servicios')" data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</a>
+        <a onclick="goTo('servicios')" data-es="Crecimiento Digital" data-en="Digital Growth">Crecimiento Digital</a>
+        <a onclick="goTo('servicios')" data-es="Automatización IA" data-en="AI Automation">Automatización IA</a>
+        <a onclick="goTo('servicios')" data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</a>
+      </div>
+      <div class="f-col">
+        <h5 data-es="Legal" data-en="Legal">Legal</h5>
+        <a href="privacy.html" data-es="Política de Privacidad" data-en="Privacy Policy">Política de Privacidad</a>
+        <a href="terms.html" data-es="Términos de Servicio" data-en="Terms of Service">Términos de Servicio</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span class="f-copy" data-es="© 2026 Jose AI Growth Agency. Todos los derechos reservados." data-en="© 2026 Jose AI Growth Agency. All rights reserved.">© 2026 Jose AI Growth Agency. Todos los derechos reservados.</span>
+    <div class="lang-sw" style="display:flex"><button class="on" onclick="setLang('es')">ES</button><button onclick="setLang('en')">EN</button></div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a class="wa-btn" href="https://wa.me/5492615251379" target="_blank" rel="noopener" style="position:sticky;bottom:32px;float:right;margin-right:32px;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.5);text-decoration:none;z-index:9999;">
+  <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+function goTo(id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const y=el.getBoundingClientRect().top+document.documentElement.scrollTop-68;
+  document.documentElement.scrollTop=y;
+  document.body.scrollTop=y;
+}
+let lang='es';
+function setLang(l){
+  lang=l;
+  document.querySelectorAll('[data-es]').forEach(el=>{
+    el.textContent=el.getAttribute('data-'+l)||el.getAttribute('data-es');
+  });
+  document.querySelectorAll('.lang-sw button').forEach((b,i)=>{
+    b.classList.toggle('on',(i===0&&l==='es')||(i===1&&l==='en'));
+  });
+  document.documentElement.lang=l;
+}
+let drawerOpen=false;
+function toggleDrawer(){
+  drawerOpen=!drawerOpen;
+  document.getElementById('drawer').classList.toggle('open',drawerOpen);
+  document.getElementById('ham').classList.toggle('open',drawerOpen);
+  document.body.style.overflow=drawerOpen?'hidden':'';
+}
+function closeDrawer(){
+  drawerOpen=false;
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+  document.body.style.overflow='';
+}
+function toggleFaq(el){
+  const item=el.closest('.faq-item');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+async function submitForm(e){
+  e.preventDefault();
+  const form=document.getElementById('cForm');
+  const btn=form.querySelector('button[type="submit"]');
+  btn.textContent=lang==='es'?'Enviando...':'Sending...';
+  btn.disabled=true;
+  const data=new FormData(form);
+  try{
+    const res=await fetch('https://formspree.io/f/FORMSPREE_ID',{method:'POST',body:data,headers:{Accept:'application/json'}});
+    if(res.ok){
+      form.querySelectorAll('input,textarea,select,button').forEach(el=>el.style.display='none');
+      document.getElementById('fSuccess').style.display='block';
+    }else{btn.textContent=lang==='es'?'Error, intentá de nuevo':'Error, try again';btn.disabled=false;}
+  }catch{btn.textContent=lang==='es'?'Error de conexión':'Connection error';btn.disabled=false;}
+}
+function submitLM(){
+  const v=document.getElementById('lmEmail').value;
+  const msg=document.getElementById('lmMsg');
+  if(!v||!v.includes('@')){msg.textContent=lang==='es'?'⚠ Ingresá un email válido.':'⚠ Enter a valid email.';msg.style.color='#f59e0b';msg.style.display='block';return;}
+  msg.textContent=lang==='es'?'✓ Blueprint enviado a tu email.':'✓ Blueprint sent to your email.';
+  msg.style.color='var(--accent)';msg.style.display='block';
+  document.getElementById('lmEmail').value='';
+}
+function loadVSL(){
+  const inner=document.getElementById('vslInner');
+  inner.innerHTML=`<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" style="width:100%;aspect-ratio:16/9;border:none;" allowfullscreen allow="autoplay"></iframe>`;
+  inner.style.cursor='default';
+}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

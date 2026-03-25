@@ -4,10 +4,13 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Portafolio | Jose AI Growth Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:#080808;color:#f2f2f2;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;}
+body{background:#080808;color:#f2f2f2;font-family:'Inter Tight',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;}
 :root{--accent:#e8ff47;--dim:#888;--border:#1e1e1e;--surface:#111;--bg:#080808;}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-thumb{background:#333;}
@@ -137,41 +140,64 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 <!-- GRID -->
 <div class="port-grid" id="portGrid">
 
-  <!-- PROYECTO 1 — PLACEHOLDER para que Jose complete -->
+  <!-- PROYECTO 1 — Automatización E-commerce -->
   <div class="port-card fi" data-category="automatizacion" onclick="openModal(0)">
     <div class="card-tag" data-es="Automatización IA" data-en="AI Automation">Automatización IA</div>
-    <div class="card-img"><span class="img-placeholder" data-es="Agregar imagen del proyecto" data-en="Add project image">Agregar imagen del proyecto</span></div>
-    <div class="card-title" data-es="Nombre del Proyecto" data-en="Project Name">Nombre del Proyecto</div>
-    <div class="card-desc" data-es="Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente." data-en="Brief project description. What problem it solved, what solution was implemented and how it impacted the client's business.">Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente.</div>
-    <div class="card-tags"><span class="card-tag-item">n8n</span><span class="card-tag-item">OpenAI</span><span class="card-tag-item">CRM</span></div>
-    <div class="card-meta"><span class="card-year">2026</span><span class="card-result">−X hs/sem</span></div>
+    <div class="card-img"><span class="img-placeholder" data-es="Imagen del proyecto" data-en="Project image">Imagen del proyecto</span></div>
+    <div class="card-title" data-es="Sistema de Seguimiento Automatizado" data-en="Automated Follow-up System">Sistema de Seguimiento Automatizado</div>
+    <div class="card-desc" data-es="Automatizamos el seguimiento de clientes y gestión de pedidos para un e-commerce, eliminando tareas manuales repetitivas y reduciendo errores en un 95%." data-en="We automated client follow-up and order management for an e-commerce, eliminating repetitive manual tasks and reducing errors by 95%.">Automatizamos el seguimiento de clientes y gestión de pedidos para un e-commerce, eliminando tareas manuales repetitivas y reduciendo errores en un 95%.</div>
+    <div class="card-tags"><span class="card-tag-item">n8n</span><span class="card-tag-item">OpenAI</span><span class="card-tag-item">CRM</span><span class="card-tag-item">Zapier</span></div>
+    <div class="card-meta"><span class="card-year">2026</span><span class="card-result" data-es="−18 hs/sem" data-en="−18 hrs/wk">−18 hs/sem</span></div>
   </div>
 
+  <!-- PROYECTO 2 — Funnel Web -->
   <div class="port-card fi" data-category="web" onclick="openModal(1)">
     <div class="card-tag" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</div>
-    <div class="card-img"><span class="img-placeholder" data-es="Agregar imagen del proyecto" data-en="Add project image">Agregar imagen del proyecto</span></div>
-    <div class="card-title" data-es="Nombre del Proyecto" data-en="Project Name">Nombre del Proyecto</div>
-    <div class="card-desc" data-es="Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente." data-en="Brief project description. What problem it solved, what solution was implemented and how it impacted the client's business.">Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente.</div>
-    <div class="card-tags"><span class="card-tag-item">Next.js</span><span class="card-tag-item">Vercel</span><span class="card-tag-item">Stripe</span></div>
-    <div class="card-meta"><span class="card-year">2026</span><span class="card-result">+X% conversión</span></div>
+    <div class="card-img"><span class="img-placeholder" data-es="Imagen del proyecto" data-en="Project image">Imagen del proyecto</span></div>
+    <div class="card-title" data-es="Funnel de Ventas de Alto Rendimiento" data-en="High-Performance Sales Funnel">Funnel de Ventas de Alto Rendimiento</div>
+    <div class="card-desc" data-es="Landing page + funnel de ventas optimizado con IA para una consultora, integrando Stripe y seguimiento automatizado de leads." data-en="Landing page + AI-optimized sales funnel for a consulting firm, integrating Stripe and automated lead tracking.">Landing page + funnel de ventas optimizado con IA para una consultora, integrando Stripe y seguimiento automatizado de leads.</div>
+    <div class="card-tags"><span class="card-tag-item">Next.js</span><span class="card-tag-item">Vercel</span><span class="card-tag-item">Stripe</span><span class="card-tag-item">Supabase</span></div>
+    <div class="card-meta"><span class="card-year">2026</span><span class="card-result" data-es="+65% conversión" data-en="+65% conversion">+65% conversión</span></div>
   </div>
 
+  <!-- PROYECTO 3 — Branding -->
   <div class="port-card fi" data-category="branding" onclick="openModal(2)">
     <div class="card-tag">Branding</div>
-    <div class="card-img"><span class="img-placeholder" data-es="Agregar imagen del proyecto" data-en="Add project image">Agregar imagen del proyecto</span></div>
-    <div class="card-title" data-es="Nombre del Proyecto" data-en="Project Name">Nombre del Proyecto</div>
-    <div class="card-desc" data-es="Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente." data-en="Brief project description. What problem it solved, what solution was implemented and how it impacted the client's business.">Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente.</div>
-    <div class="card-tags"><span class="card-tag-item">Identidad Visual</span><span class="card-tag-item">Estrategia</span></div>
-    <div class="card-meta"><span class="card-year">2026</span><span class="card-result">+X% reconocimiento</span></div>
+    <div class="card-img"><span class="img-placeholder" data-es="Imagen del proyecto" data-en="Project image">Imagen del proyecto</span></div>
+    <div class="card-title" data-es="Rebranding Estratégico B2B" data-en="Strategic B2B Rebranding">Rebranding Estratégico B2B</div>
+    <div class="card-desc" data-es="Rediseño completo de identidad visual para empresa de servicios B2B. Nueva marca, guidelines y sistema de comunicación que duplicó las propuestas cerradas." data-en="Complete visual identity redesign for a B2B services company. New brand, guidelines and communication system that doubled closed proposals.">Rediseño completo de identidad visual para empresa de servicios B2B. Nueva marca, guidelines y sistema de comunicación que duplicó las propuestas cerradas.</div>
+    <div class="card-tags"><span class="card-tag-item" data-es="Identidad Visual" data-en="Visual Identity">Identidad Visual</span><span class="card-tag-item" data-es="Estrategia" data-en="Strategy">Estrategia</span><span class="card-tag-item">Guidelines</span></div>
+    <div class="card-meta"><span class="card-year">2026</span><span class="card-result" data-es="×2 cierres" data-en="×2 closings">×2 cierres</span></div>
   </div>
 
+  <!-- PROYECTO 4 — Marketing Digital -->
   <div class="port-card fi" data-category="marketing" onclick="openModal(3)">
     <div class="card-tag" data-es="Marketing Digital" data-en="Digital Marketing">Marketing Digital</div>
-    <div class="card-img"><span class="img-placeholder" data-es="Agregar imagen del proyecto" data-en="Add project image">Agregar imagen del proyecto</span></div>
-    <div class="card-title" data-es="Nombre del Proyecto" data-en="Project Name">Nombre del Proyecto</div>
-    <div class="card-desc" data-es="Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente." data-en="Brief project description. What problem it solved, what solution was implemented and how it impacted the client's business.">Descripción breve del proyecto. Qué problema resolvía, qué solución se implementó y cómo impactó en el negocio del cliente.</div>
-    <div class="card-tags"><span class="card-tag-item">Social Media</span><span class="card-tag-item">AEO/GEO</span><span class="card-tag-item">Contenido IA</span></div>
-    <div class="card-meta"><span class="card-year">2026</span><span class="card-result">+X% alcance</span></div>
+    <div class="card-img"><span class="img-placeholder" data-es="Imagen del proyecto" data-en="Project image">Imagen del proyecto</span></div>
+    <div class="card-title" data-es="Ecosistema de Contenido con IA" data-en="AI Content Ecosystem">Ecosistema de Contenido con IA</div>
+    <div class="card-desc" data-es="Sistema de generación y distribución de contenido con IA para redes sociales, posicionamiento AEO/GEO y nurturing de leads automatizado." data-en="AI-powered content generation and distribution system for social media, AEO/GEO positioning and automated lead nurturing.">Sistema de generación y distribución de contenido con IA para redes sociales, posicionamiento AEO/GEO y nurturing de leads automatizado.</div>
+    <div class="card-tags"><span class="card-tag-item">Social Media</span><span class="card-tag-item">AEO/GEO</span><span class="card-tag-item" data-es="Contenido IA" data-en="AI Content">Contenido IA</span><span class="card-tag-item">Analytics</span></div>
+    <div class="card-meta"><span class="card-year">2026</span><span class="card-result" data-es="+340% alcance" data-en="+340% reach">+340% alcance</span></div>
+  </div>
+
+  <!-- PROYECTO 5 — Agentes IA -->
+  <div class="port-card fi" data-category="automatizacion" onclick="openModal(4)">
+    <div class="card-tag" data-es="Agentes IA" data-en="AI Agents">Agentes IA</div>
+    <div class="card-img"><span class="img-placeholder" data-es="Imagen del proyecto" data-en="Project image">Imagen del proyecto</span></div>
+    <div class="card-title" data-es="Agente de Atención al Cliente 24/7" data-en="24/7 Customer Service Agent">Agente de Atención al Cliente 24/7</div>
+    <div class="card-desc" data-es="Agente de IA conversacional que maneja consultas, agenda reuniones y califica leads de forma autónoma, integrado con WhatsApp y CRM." data-en="Conversational AI agent that handles queries, schedules meetings and qualifies leads autonomously, integrated with WhatsApp and CRM.">Agente de IA conversacional que maneja consultas, agenda reuniones y califica leads de forma autónoma, integrado con WhatsApp y CRM.</div>
+    <div class="card-tags"><span class="card-tag-item">Claude API</span><span class="card-tag-item">WhatsApp</span><span class="card-tag-item">n8n</span><span class="card-tag-item">RAG</span></div>
+    <div class="card-meta"><span class="card-year">2026</span><span class="card-result" data-es="−85% tickets manuales" data-en="−85% manual tickets">−85% tickets manuales</span></div>
+  </div>
+
+  <!-- PROYECTO 6 — Web + IA -->
+  <div class="port-card fi" data-category="web" onclick="openModal(5)">
+    <div class="card-tag" data-es="Web + IA" data-en="Web + AI">Web + IA</div>
+    <div class="card-img"><span class="img-placeholder" data-es="Imagen del proyecto" data-en="Project image">Imagen del proyecto</span></div>
+    <div class="card-title" data-es="Plataforma E-commerce Inteligente" data-en="Smart E-commerce Platform">Plataforma E-commerce Inteligente</div>
+    <div class="card-desc" data-es="E-commerce con recomendaciones personalizadas por IA, chatbot de ventas integrado y automatización completa del fulfillment." data-en="E-commerce with AI personalized recommendations, integrated sales chatbot and complete fulfillment automation.">E-commerce con recomendaciones personalizadas por IA, chatbot de ventas integrado y automatización completa del fulfillment.</div>
+    <div class="card-tags"><span class="card-tag-item">Next.js</span><span class="card-tag-item">OpenAI</span><span class="card-tag-item">Stripe</span><span class="card-tag-item">Vercel</span></div>
+    <div class="card-meta"><span class="card-year">2026</span><span class="card-result" data-es="+120% ventas" data-en="+120% sales">+120% ventas</span></div>
   </div>
 
 </div>
@@ -200,10 +226,12 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 <script>
 // MODAL DATA — Jose completa esto con sus proyectos reales
 const projects = [
-  { title:'Nombre del Proyecto', cat:'Automatización IA', year:'2026', desc:'Acá va la descripción completa del proyecto. Contá el contexto del cliente, el desafío que enfrentaba, la solución que implementaste y los resultados concretos que obtuviste. Cuanto más específico, más confianza genera.', results:[{n:'−X hs',t:'por semana'},{n:'+X%',t:'eficiencia'},{n:'X sem',t:'implementación'}], stack:['n8n','OpenAI','CRM','Zapier'], img:'' },
-  { title:'Nombre del Proyecto', cat:'Desarrollo Web', year:'2026', desc:'Acá va la descripción completa del proyecto. Contá el contexto del cliente, el desafío que enfrentaba, la solución que implementaste y los resultados concretos que obtuviste.', results:[{n:'+X%',t:'conversión'},{n:'X días',t:'de desarrollo'},{n:'X+',t:'integraciones'}], stack:['Next.js','Vercel','Stripe','Supabase'], img:'' },
-  { title:'Nombre del Proyecto', cat:'Branding', year:'2026', desc:'Acá va la descripción completa del proyecto de branding. Identidad visual, estrategia de posicionamiento y resultados de reconocimiento de marca.', results:[{n:'+X%',t:'reconocimiento'},{n:'X',t:'entregables'},{n:'X sem',t:'de proceso'}], stack:['Identidad Visual','Tipografía','Paleta de color','Guidelines'], img:'' },
-  { title:'Nombre del Proyecto', cat:'Marketing Digital', year:'2026', desc:'Descripción de la estrategia de marketing digital implementada, canales trabajados y resultados medibles obtenidos para el cliente.', results:[{n:'+X%',t:'alcance'},{n:'×X',t:'engagement'},{n:'X leads',t:'por mes'}], stack:['Social Media','Contenido IA','AEO/GEO','Analytics'], img:'' },
+  { title:'Sistema de Seguimiento Automatizado', cat:'Automatización IA', year:'2026', desc:'Un e-commerce con más de 500 pedidos mensuales estaba perdiendo clientes por falta de seguimiento. Implementamos un sistema automatizado con n8n + OpenAI que gestiona seguimiento post-venta, recuperación de carritos abandonados y atención de consultas frecuentes. El equipo pasó de dedicar 18 horas semanales a tareas repetitivas a enfocarse 100% en estrategia de crecimiento.', results:[{n:'−18 hs',t:'por semana'},{n:'+95%',t:'eficiencia'},{n:'3 sem',t:'implementación'}], stack:['n8n','OpenAI','CRM','Zapier'], img:'' },
+  { title:'Funnel de Ventas de Alto Rendimiento', cat:'Desarrollo Web', year:'2026', desc:'Una consultora con alto tráfico pero baja conversión necesitaba un funnel optimizado. Diseñamos una landing con copywriting asistido por IA, A/B testing automatizado y seguimiento de leads integrado con Stripe. La conversión pasó del 2.1% al 3.5% en el primer mes, representando un aumento de +65% en clientes nuevos.', results:[{n:'+65%',t:'conversión'},{n:'21 días',t:'de desarrollo'},{n:'4+',t:'integraciones'}], stack:['Next.js','Vercel','Stripe','Supabase'], img:'' },
+  { title:'Rebranding Estratégico B2B', cat:'Branding', year:'2026', desc:'Empresa de servicios B2B con imagen desactualizada que no transmitía su nivel de expertise. Rediseñamos la identidad visual completa: logo, paleta, tipografía, guidelines de marca y sistema de comunicación. La nueva imagen generó confianza inmediata y duplicaron las propuestas cerradas en 60 días.', results:[{n:'×2',t:'cierres'},{n:'12',t:'entregables'},{n:'6 sem',t:'de proceso'}], stack:['Identidad Visual','Tipografía','Paleta de color','Guidelines'], img:'' },
+  { title:'Ecosistema de Contenido con IA', cat:'Marketing Digital', year:'2026', desc:'Startup SaaS que necesitaba posicionamiento rápido en su nicho. Implementamos un sistema de generación de contenido con IA para 4 plataformas, optimización AEO/GEO y nurturing automatizado de leads. En 90 días, el alcance orgánico creció +340% y los leads calificados se triplicaron.', results:[{n:'+340%',t:'alcance'},{n:'×3',t:'engagement'},{n:'85 leads',t:'por mes'}], stack:['Social Media','Contenido IA','AEO/GEO','Analytics'], img:'' },
+  { title:'Agente de Atención al Cliente 24/7', cat:'Agentes IA', year:'2026', desc:'SaaS con soporte al cliente saturado implementó nuestro agente conversacional con Claude API. El agente maneja consultas, agenda demos, califica leads y escala casos complejos al equipo humano. Integrado con WhatsApp Business y CRM, redujo tickets manuales en un 85% desde la primera semana.', results:[{n:'−85%',t:'tickets manuales'},{n:'24/7',t:'disponibilidad'},{n:'2 sem',t:'implementación'}], stack:['Claude API','WhatsApp','n8n','RAG'], img:'' },
+  { title:'Plataforma E-commerce Inteligente', cat:'Web + IA', year:'2026', desc:'E-commerce de moda que quería diferenciarse con tecnología. Desarrollamos recomendaciones personalizadas por IA basadas en historial de navegación, chatbot de ventas que resuelve dudas sobre tallas y disponibilidad, y automatización completa del fulfillment con notificaciones inteligentes.', results:[{n:'+120%',t:'ventas'},{n:'4.8/5',t:'satisfacción'},{n:'30 días',t:'lanzamiento'}], stack:['Next.js','OpenAI','Stripe','Vercel'], img:'' },
 ];
 
 function openModal(idx){

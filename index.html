@@ -75,7 +75,7 @@ h2.big em{font-style:normal;color:var(--accent);}
 /* HERO TITLE — grande y dramático */
 h1.hero-h{font-size:clamp(3.8rem,9.5vw,10rem);font-weight:900;line-height:.92;letter-spacing:-4px;max-width:1200px;margin-bottom:60px;}
 h1.hero-h em{font-style:normal;color:var(--accent);}
-h1.hero-h .outline{-webkit-text-stroke:2px var(--white);color:transparent;}@media(max-width:768px){h1.hero-h .outline{-webkit-text-stroke:0;color:var(--white);}}
+h1.hero-h .outline{-webkit-text-stroke:3px var(--white);color:transparent;}@media(max-width:768px){h1.hero-h .outline{-webkit-text-stroke:0;color:var(--white);}}
 
 .hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;}
 .hero-desc{color:var(--dim);font-size:1rem;line-height:1.85;max-width:420px;}
@@ -731,7 +731,7 @@ function playSound(name){try{if(sounds[name])sounds[name]();}catch(e){}}
 <!-- AI CHAT WIDGET -->
 <div class="chat-bubble" title="Soy tu asistente de IA - ¡preguntame!">
   <button class="chat-toggle" id="chatToggle" onclick="toggleChat();playSound('chatOpen')" data-es="Agente IA" data-en="AI Agent">
-    <svg viewBox="0 0 24 24" fill="currentColor"><rect x="8" y="2" width="8" height="3" rx="1"/><rect x="5" y="5" width="14" height="12" rx="1.5"/><circle cx="9" cy="10" r="1.5"/><circle cx="15" cy="10" r="1.5"/><path d="M8 17v3M16 17v3M10 20h4"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h.01M16 8h.01"/><circle cx="8" cy="9" r="1.5" fill="currentColor"/><circle cx="16" cy="9" r="1.5" fill="currentColor"/><path d="M9 15a3 3 0 0 0 6 0"/><path d="M4 8v4M20 8v4"/></svg>
     <span class="chat-label" data-es="Pregúntame" data-en="Ask me">Pregúntame</span>
   </button>
 </div>

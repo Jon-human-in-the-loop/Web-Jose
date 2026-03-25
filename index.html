@@ -4,10 +4,13 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Jose | AI Growth Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:#080808;color:#f2f2f2;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body{background:#080808;color:#f2f2f2;font-family:'Inter Tight',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-thumb{background:#333;}
 :root{--white:#f2f2f2;--dim:#888;--border:#1e1e1e;--surface:#111;--accent:#e8ff47;--bg:#080808;}
@@ -131,7 +134,7 @@ h1.hero-h .outline{-webkit-text-stroke:2px var(--white);color:transparent;}@medi
 .t-card{padding:52px 44px;border-right:1px solid var(--border);transition:background .3s;}
 .t-card:last-child{border-right:none;}
 .t-card:hover{background:var(--surface);}
-.t-roi{font-size:3.8rem;font-weight:900;letter-spacing:-2px;color:var(--accent);margin-bottom:4px;line-height:1;}
+.t-roi{font-size:4.5rem;font-weight:900;letter-spacing:-3px;color:var(--accent);margin-bottom:4px;line-height:1;}
 .t-company{font-size:.65rem;color:var(--dim);letter-spacing:3px;text-transform:uppercase;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border);}
 .t-quote{font-size:.92rem;color:var(--dim);line-height:1.85;font-style:italic;margin-bottom:28px;}
 .t-author{display:flex;align-items:center;gap:12px;}
@@ -178,7 +181,7 @@ h1.hero-h .outline{-webkit-text-stroke:2px var(--white);color:transparent;}@medi
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .fg{display:flex;flex-direction:column;gap:6px;}
 .fg label{font-size:.7rem;color:var(--dim);letter-spacing:2px;text-transform:uppercase;font-weight:600;}
-.fg input,.fg textarea,.fg select{background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:13px 16px;color:var(--white);font-size:.88rem;outline:none;transition:border-color .2s;font-family:system-ui,sans-serif;}
+.fg input,.fg textarea,.fg select{background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:13px 16px;color:var(--white);font-size:.88rem;outline:none;transition:border-color .2s;font-family:'Inter Tight',system-ui,sans-serif;}
 .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:#444;}
 .fg textarea{resize:vertical;min-height:110px;}
 .fg select option{background:var(--surface);}
@@ -192,7 +195,7 @@ h1.hero-h .outline{-webkit-text-stroke:2px var(--white);color:transparent;}@medi
 .lm h3{font-size:2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:12px;}
 .lm p{color:var(--dim);font-size:.9rem;line-height:1.8;}
 .lm-form{display:flex;gap:12px;}
-.lm-form input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:13px 16px;color:var(--white);font-size:.88rem;outline:none;font-family:system-ui,sans-serif;transition:border-color .2s;}
+.lm-form input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:13px 16px;color:var(--white);font-size:.88rem;outline:none;font-family:'Inter Tight',system-ui,sans-serif;transition:border-color .2s;}
 .lm-form input:focus{border-color:#444;}
 
 /* FOOTER */
@@ -212,13 +215,91 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 .wa-btn{position:sticky;bottom:32px;float:right;margin-right:32px;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.5);text-decoration:none;transition:transform .3s;z-index:9999;}
 .wa-btn:hover{transform:scale(1.1);}
 
+/* TRUST BADGES */
+.trust-strip{display:flex;gap:24px;margin-top:32px;flex-wrap:wrap;}
+.trust-badge{display:flex;align-items:center;gap:8px;font-size:.72rem;color:#555;letter-spacing:1px;text-transform:uppercase;font-weight:600;}
+.trust-badge svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:2;flex-shrink:0;}
+
+/* AI CHAT WIDGET */
+.chat-toggle{position:fixed;bottom:100px;right:32px;width:52px;height:52px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(232,255,71,.3);z-index:9998;transition:transform .3s,box-shadow .3s;}
+.chat-toggle:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(232,255,71,.4);}
+.chat-toggle svg{width:24px;height:24px;fill:#080808;}
+.chat-window{position:fixed;bottom:164px;right:32px;width:380px;max-height:500px;background:#0d0d0d;border:1px solid var(--border);border-radius:12px;z-index:9998;display:none;flex-direction:column;box-shadow:0 16px 48px rgba(0,0,0,.6);overflow:hidden;}
+.chat-window.open{display:flex;}
+.chat-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);background:var(--surface);}
+.chat-header-left{display:flex;align-items:center;gap:10px;}
+.chat-header-left .dot{width:8px;height:8px;border-radius:50%;background:#25d366;animation:blink 2s infinite;}
+.chat-header h4{font-size:.85rem;font-weight:700;}
+.chat-header span{font-size:.7rem;color:var(--dim);}
+.chat-close{background:none;border:none;color:var(--dim);font-size:1.2rem;cursor:pointer;padding:4px;}
+.chat-body{flex:1;padding:20px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;min-height:280px;max-height:340px;}
+.chat-msg{max-width:85%;padding:10px 14px;border-radius:12px;font-size:.84rem;line-height:1.6;}
+.chat-msg.bot{background:var(--surface);color:var(--white);align-self:flex-start;border-bottom-left-radius:4px;}
+.chat-msg.user{background:var(--accent);color:#080808;align-self:flex-end;border-bottom-right-radius:4px;}
+.chat-input-wrap{display:flex;gap:8px;padding:14px 16px;border-top:1px solid var(--border);background:var(--surface);}
+.chat-input-wrap input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--white);font-size:.84rem;outline:none;font-family:'Inter Tight',system-ui,sans-serif;}
+.chat-input-wrap input:focus{border-color:#444;}
+.chat-send{background:var(--accent);border:none;border-radius:8px;padding:0 14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.chat-send:hover{background:#fff;}
+.chat-send svg{width:18px;height:18px;fill:#080808;}
+
+/* URL ANALYZER */
+.analyzer{margin-top:120px;padding:80px 60px;border:1px solid var(--border);border-radius:4px;background:linear-gradient(135deg,rgba(232,255,71,.04),rgba(232,255,71,.01),transparent);position:relative;overflow:hidden;}
+.analyzer::before{content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(232,255,71,.06),transparent 70%);pointer-events:none;}
+.analyzer-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.analyzer h3{font-size:2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:12px;}
+.analyzer p{color:var(--dim);font-size:.9rem;line-height:1.8;margin-bottom:8px;}
+.analyzer-features{display:flex;flex-direction:column;gap:8px;margin-top:16px;}
+.analyzer-features span{font-size:.8rem;color:var(--dim);display:flex;align-items:center;gap:8px;}
+.analyzer-features span::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+.analyzer-form{display:flex;flex-direction:column;gap:16px;}
+.analyzer-form .url-row{display:flex;gap:12px;}
+.analyzer-form input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:14px 16px;color:var(--white);font-size:.88rem;outline:none;font-family:'Inter Tight',system-ui,sans-serif;transition:border-color .2s;}
+.analyzer-form input:focus{border-color:var(--accent);}
+.analyzer-result{display:none;padding:24px;background:var(--bg);border:1px solid var(--border);border-radius:4px;margin-top:16px;}
+.analyzer-result.show{display:block;}
+.analyzer-scores{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
+.a-score{text-align:center;}
+.a-score .val{font-size:1.8rem;font-weight:900;color:var(--accent);}
+.a-score .lbl{font-size:.65rem;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+.analyzer-recs{display:flex;flex-direction:column;gap:8px;}
+.analyzer-recs h5{font-size:.75rem;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;}
+.analyzer-recs li{font-size:.82rem;color:var(--dim);line-height:1.6;list-style:none;padding-left:16px;position:relative;}
+.analyzer-recs li::before{content:'>';position:absolute;left:0;color:var(--accent);font-weight:700;}
+
+/* MULTI-STEP FORM */
+.step{display:none;}
+.step.active{display:block;}
+.step-indicators{display:flex;gap:8px;margin-bottom:28px;}
+.step-dot{width:32px;height:3px;background:var(--border);border-radius:2px;transition:background .3s;}
+.step-dot.active{background:var(--accent);}
+.step-dot.done{background:var(--accent);opacity:.5;}
+.step h4{font-size:1.1rem;font-weight:700;margin-bottom:6px;}
+.step p.step-sub{font-size:.82rem;color:var(--dim);margin-bottom:20px;}
+.step-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.step-opt{padding:16px;border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all .2s;text-align:center;}
+.step-opt:hover{border-color:#444;background:rgba(255,255,255,.02);}
+.step-opt.selected{border-color:var(--accent);background:rgba(232,255,71,.05);}
+.step-opt .opt-icon{font-size:1.4rem;margin-bottom:8px;}
+.step-opt .opt-label{font-size:.82rem;font-weight:600;}
+.step-nav{display:flex;gap:12px;justify-content:flex-end;margin-top:20px;}
+.btn-step-back{padding:12px 24px;background:none;border:1px solid var(--border);border-radius:3px;color:var(--dim);font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Inter Tight',system-ui,sans-serif;}
+.btn-step-back:hover{border-color:#444;color:var(--white);}
+
+/* LOGOS PARTNERS */
+.logos-clients{margin-top:80px;padding-top:48px;border-top:1px solid var(--border);}
+.logos-clients .ls-label{margin-bottom:20px;}
+.client-logos{display:flex;gap:40px;align-items:center;flex-wrap:wrap;}
+.client-logo{font-size:.85rem;color:#333;font-weight:800;letter-spacing:2px;text-transform:uppercase;transition:color .3s;}
+.client-logo:hover{color:var(--dim);}
+
 /* FADE IN */
 .fi{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
 .fi.in{opacity:1;transform:none;}
 
 /* RESPONSIVE */
-@media(max-width:1024px){nav{padding:0 28px;}section{padding:100px 28px;}.srv-row{grid-template-columns:60px 1fr 1fr auto;gap:24px;}.contact-wrap{grid-template-columns:1fr;gap:60px;}.lm{grid-template-columns:1fr;gap:32px;}}
-@media(max-width:768px){.nav-center,.lang-sw,.btn-nav{display:none;}.ham{display:flex;}nav{padding:0 24px;}section{padding:60px 20px;}h1.hero-h{letter-spacing:-2px;font-size:clamp(2.5rem,12vw,4.5rem);margin-bottom:40px;}.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:32px;}.hstat{text-align:center;}.hstat .n{font-size:clamp(2.5rem,8vw,3.5rem);}.prob-grid,.t-grid{grid-template-columns:1fr;gap:0;}.prob-item,.t-card{border-right:none;border-bottom:1px solid var(--border);padding:32px 24px;}.prob-item:last-child,.t-card:last-child{border-bottom:none;}.method-grid{grid-template-columns:1fr 1fr;gap:20px;}.method-step{padding:32px 24px;}.faq-q{padding:24px 0;}.faq-a-inner{padding:0 0 24px;}.srv-row{grid-template-columns:1fr;gap:20px;padding:24px 0;}.srv-idx{font-size:2rem;}.lm-form{flex-direction:column;gap:20px;}.f-top{flex-direction:column;gap:40px;}.f-links{flex-direction:column;gap:32px;}footer{padding:40px 20px;}.f-bottom{flex-direction:column;align-items:flex-start;gap:24px;}.hero-bottom{flex-direction:column;align-items:flex-start;gap:24px;}}
+@media(max-width:1024px){nav{padding:0 28px;}section{padding:100px 28px;}.srv-row{grid-template-columns:60px 1fr 1fr auto;gap:24px;}.contact-wrap{grid-template-columns:1fr;gap:60px;}.analyzer{padding:60px 40px;}.analyzer-grid{grid-template-columns:1fr;gap:32px;}}
+@media(max-width:768px){.nav-center,.lang-sw,.btn-nav{display:none;}.ham{display:flex;}nav{padding:0 24px;}section{padding:60px 20px;}h1.hero-h{letter-spacing:-2px;font-size:clamp(2.5rem,12vw,4.5rem);margin-bottom:40px;}.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:32px;}.hstat{text-align:center;}.hstat .n{font-size:clamp(2.5rem,8vw,3.5rem);}.prob-grid,.t-grid{grid-template-columns:1fr;gap:0;}.prob-item,.t-card{border-right:none;border-bottom:1px solid var(--border);padding:32px 24px;}.prob-item:last-child,.t-card:last-child{border-bottom:none;}.method-grid{grid-template-columns:1fr 1fr;gap:20px;}.method-step{padding:32px 24px;}.faq-q{padding:24px 0;}.faq-a-inner{padding:0 0 24px;}.srv-row{grid-template-columns:1fr;gap:20px;padding:24px 0;}.srv-idx{font-size:2rem;}.analyzer{padding:40px 24px;}.analyzer-grid{grid-template-columns:1fr;gap:24px;}.url-row{flex-direction:column;}.chat-window{right:16px;left:16px;width:auto;bottom:140px;}.chat-toggle{right:16px;bottom:96px;}.step-options{grid-template-columns:1fr 1fr;}.f-top{flex-direction:column;gap:40px;}.f-links{flex-direction:column;gap:32px;}footer{padding:40px 20px;}.f-bottom{flex-direction:column;align-items:flex-start;gap:24px;}.hero-bottom{flex-direction:column;align-items:flex-start;gap:24px;}}
 @media(max-width:480px){section{padding:40px 16px;}nav{padding:0 16px;}h1.hero-h{font-size:clamp(2rem,10vw,3.5rem);margin-bottom:32px;}.hero-stats{gap:24px;}.hstat .n{font-size:2.2rem;}.prob-item,.t-card{padding:24px 16px;}.t-roi{font-size:2.8rem;}.method-grid{grid-template-columns:1fr;gap:12px;}.method-step{border-right:none!important;border-bottom:1px solid var(--border)!important;padding:20px 16px;}.faq-q{padding:20px 0;}.faq-a-inner{padding:0 0 20px;}.method-step:last-child{border-bottom:none!important;}.f-row{grid-template-columns:1fr;gap:16px;}h2{font-size:clamp(1.8rem,8vw,3rem);margin-bottom:32px;}p{font-size:0.95rem;line-height:1.7;}}
 </style>
 </head>
@@ -331,6 +412,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
       <button class="btn-primary" onclick="goTo('contacto')" data-es="Solicitar Auditoría de Crecimiento" data-en="Request Growth Audit">Solicitar Auditoría de Crecimiento</button>
       <button class="btn-ghost" onclick="goTo('servicios')" data-es="Ver servicios" data-en="See services">Ver servicios</button>
     </div>
+    <div class="trust-strip">
+      <div class="trust-badge"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span data-es="Datos encriptados" data-en="Encrypted data">Datos encriptados</span></div>
+      <div class="trust-badge"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span data-es="Protección WAF" data-en="WAF Protection">Protección WAF</span></div>
+      <div class="trust-badge"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>SOC 2</span></div>
+    </div>
   </div>
   <div class="hero-stats fi">
     <div class="hstat"><div class="n"><em>+80%</em></div><div class="t" data-es="Tiempo liberado" data-en="Time freed">Tiempo liberado</div></div>
@@ -380,6 +466,17 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
     <div class="t-card"><div class="t-roi">+65%</div><div class="t-company" data-es="Consultoría" data-en="Consulting">Consultoría</div><div class="t-quote" data-es='"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."' data-en='"They redesigned our digital presence and within two months we noticed a clear increase in inbound inquiries."'>"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."</div><div class="t-author"><div class="t-av" style="background:#222">SR</div><div><div class="t-name">Sofia R.</div><div class="t-role" data-es="Fundadora" data-en="Founder">Fundadora</div></div></div></div>
     <div class="t-card"><div class="t-roi">×2 cierres</div><div class="t-company" data-es="Servicios B2B" data-en="B2B Services">Servicios B2B</div><div class="t-quote" data-es='"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."' data-en='"They implemented an automated follow-up flow that helped us close twice as many proposals in the same time."'>"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."</div><div class="t-author"><div class="t-av" style="background:#1a1a1a">ML</div><div><div class="t-name">Miguel L.</div><div class="t-role" data-es="Director" data-en="Director">Director</div></div></div></div>
   </div>
+  <div class="logos-clients fi">
+    <div class="ls-label" data-es="Confían en nosotros" data-en="They trust us">Confían en nosotros</div>
+    <div class="client-logos">
+      <span class="client-logo">TechStart</span>
+      <span class="client-logo">NovaCorp</span>
+      <span class="client-logo">ScaleUp.io</span>
+      <span class="client-logo">DataFlow</span>
+      <span class="client-logo">GrowthLab</span>
+      <span class="client-logo">AIVentures</span>
+    </div>
+  </div>
 
 </section>
 
@@ -424,35 +521,99 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
     <form class="c-form" id="cForm" onsubmit="submitForm(event)">
       <input type="hidden" name="_subject" value="Nueva consulta desde joseagencia.com"/>
       <input type="hidden" name="_language" value="es"/>
-      <div class="f-row">
-        <div class="fg"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" name="nombre" required placeholder="Tu nombre"></div>
-        <div class="fg"><label>Email</label><input type="email" name="email" required placeholder="tu@email.com"></div>
+      <div class="step-indicators"><div class="step-dot active" data-step="0"></div><div class="step-dot" data-step="1"></div><div class="step-dot" data-step="2"></div><div class="step-dot" data-step="3"></div></div>
+
+      <!-- Step 1: Service -->
+      <div class="step active" data-step="0">
+        <h4 data-es="¿Qué necesitas?" data-en="What do you need?">¿Qué necesitas?</h4>
+        <p class="step-sub" data-es="Seleccioná el servicio que más se acerca a lo que buscás." data-en="Select the service closest to what you're looking for.">Seleccioná el servicio que más se acerca a lo que buscás.</p>
+        <div class="step-options">
+          <div class="step-opt" onclick="selectOpt(this,'servicio')" data-value="Estrategia e Identidad"><div class="opt-icon">&#9733;</div><div class="opt-label" data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</div></div>
+          <div class="step-opt" onclick="selectOpt(this,'servicio')" data-value="Ecosistemas de Crecimiento"><div class="opt-icon">&#9878;</div><div class="opt-label" data-es="Crecimiento Digital" data-en="Digital Growth">Crecimiento Digital</div></div>
+          <div class="step-opt" onclick="selectOpt(this,'servicio')" data-value="Automatización Agéntica"><div class="opt-icon">&#9881;</div><div class="opt-label" data-es="Automatización IA" data-en="AI Automation">Automatización IA</div></div>
+          <div class="step-opt" onclick="selectOpt(this,'servicio')" data-value="Infraestructura Web"><div class="opt-icon">&#9677;</div><div class="opt-label" data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</div></div>
+        </div>
+        <input type="hidden" name="servicio" id="fServicio">
+        <div class="step-nav"><button type="button" class="btn-primary" onclick="nextStep()" data-es="Siguiente →" data-en="Next →">Siguiente →</button></div>
       </div>
-      <div class="fg"><label data-es="Empresa" data-en="Company">Empresa</label><input type="text" name="empresa" placeholder="Nombre de tu empresa"></div>
-      <div class="fg">
-        <label data-es="Servicio de interés" data-en="Service of interest">Servicio de interés</label>
-        <select name="servicio">
-          <option data-es="Seleccioná una opción" data-en="Select an option">Seleccioná una opción</option>
-          <option data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</option>
-          <option data-es="Ecosistemas de Crecimiento Digital" data-en="Digital Growth Ecosystems">Ecosistemas de Crecimiento Digital</option>
-          <option data-es="Automatización Agéntica" data-en="Agentic Automation">Automatización Agéntica</option>
-          <option data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</option>
-          <option data-es="Solución completa" data-en="Complete solution">Solución completa</option>
-        </select>
+
+      <!-- Step 2: Budget & Timeline -->
+      <div class="step" data-step="1">
+        <h4 data-es="¿Cuál es tu presupuesto estimado?" data-en="What's your estimated budget?">¿Cuál es tu presupuesto estimado?</h4>
+        <p class="step-sub" data-es="Esto nos ayuda a personalizar la propuesta para vos." data-en="This helps us personalize the proposal for you.">Esto nos ayuda a personalizar la propuesta para vos.</p>
+        <div class="step-options">
+          <div class="step-opt" onclick="selectOpt(this,'presupuesto')" data-value="< USD 1,000"><div class="opt-icon">$</div><div class="opt-label">< USD 1,000</div></div>
+          <div class="step-opt" onclick="selectOpt(this,'presupuesto')" data-value="USD 1,000 - 5,000"><div class="opt-icon">$$</div><div class="opt-label">USD 1K - 5K</div></div>
+          <div class="step-opt" onclick="selectOpt(this,'presupuesto')" data-value="USD 5,000 - 15,000"><div class="opt-icon">$$$</div><div class="opt-label">USD 5K - 15K</div></div>
+          <div class="step-opt" onclick="selectOpt(this,'presupuesto')" data-value="USD 15,000+"><div class="opt-icon">$$$$</div><div class="opt-label">USD 15K+</div></div>
+        </div>
+        <input type="hidden" name="presupuesto" id="fPresupuesto">
+        <div class="step-nav"><button type="button" class="btn-step-back" onclick="prevStep()" data-es="← Atrás" data-en="← Back">← Atrás</button><button type="button" class="btn-primary" onclick="nextStep()" data-es="Siguiente →" data-en="Next →">Siguiente →</button></div>
       </div>
-      <div class="fg"><label data-es="Mensaje" data-en="Message">Mensaje</label><textarea name="mensaje" placeholder="Contanos sobre tu negocio..."></textarea></div>
-      <button type="submit" class="btn-primary" data-es="Solicitar Auditoría de Crecimiento IA →" data-en="Request AI Growth Audit →">Solicitar Auditoría de Crecimiento IA →</button>
-      <div class="f-success" id="fSuccess"><div class="tick">✓</div><h4 data-es="¡Solicitud recibida!" data-en="Request received!">¡Solicitud recibida!</h4><p data-es="Te contactamos en menos de 24 horas." data-en="We'll contact you within 24 hours.">Te contactamos en menos de 24 horas.</p></div>
+
+      <!-- Step 3: Timeline -->
+      <div class="step" data-step="2">
+        <h4 data-es="¿Cuándo necesitas empezar?" data-en="When do you need to start?">¿Cuándo necesitas empezar?</h4>
+        <p class="step-sub" data-es="Nos ayuda a planificar la disponibilidad del equipo." data-en="Helps us plan team availability.">Nos ayuda a planificar la disponibilidad del equipo.</p>
+        <div class="step-options">
+          <div class="step-opt" onclick="selectOpt(this,'timeline')" data-value="Inmediato"><div class="opt-icon">&#9889;</div><div class="opt-label" data-es="Inmediato" data-en="Immediately">Inmediato</div></div>
+          <div class="step-opt" onclick="selectOpt(this,'timeline')" data-value="1-2 semanas"><div class="opt-icon">&#128197;</div><div class="opt-label" data-es="1-2 semanas" data-en="1-2 weeks">1-2 semanas</div></div>
+          <div class="step-opt" onclick="selectOpt(this,'timeline')" data-value="1 mes"><div class="opt-icon">&#128198;</div><div class="opt-label" data-es="En 1 mes" data-en="In 1 month">En 1 mes</div></div>
+          <div class="step-opt" onclick="selectOpt(this,'timeline')" data-value="Solo explorando"><div class="opt-icon">&#128270;</div><div class="opt-label" data-es="Solo explorando" data-en="Just exploring">Solo explorando</div></div>
+        </div>
+        <input type="hidden" name="timeline" id="fTimeline">
+        <div class="step-nav"><button type="button" class="btn-step-back" onclick="prevStep()" data-es="← Atrás" data-en="← Back">← Atrás</button><button type="button" class="btn-primary" onclick="nextStep()" data-es="Siguiente →" data-en="Next →">Siguiente →</button></div>
+      </div>
+
+      <!-- Step 4: Contact Info -->
+      <div class="step" data-step="3">
+        <h4 data-es="Último paso: tus datos" data-en="Last step: your info">Último paso: tus datos</h4>
+        <p class="step-sub" data-es="Te contactamos en menos de 24 horas con una propuesta personalizada." data-en="We'll contact you within 24 hours with a personalized proposal.">Te contactamos en menos de 24 horas con una propuesta personalizada.</p>
+        <div class="f-row">
+          <div class="fg"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" name="nombre" required placeholder="Tu nombre"></div>
+          <div class="fg"><label>Email</label><input type="email" name="email" required placeholder="tu@email.com"></div>
+        </div>
+        <div class="fg" style="margin-top:16px"><label data-es="Empresa" data-en="Company">Empresa</label><input type="text" name="empresa" placeholder="Nombre de tu empresa"></div>
+        <div class="fg" style="margin-top:16px"><label data-es="Contanos brevemente sobre tu negocio" data-en="Tell us briefly about your business">Contanos brevemente sobre tu negocio</label><textarea name="mensaje" placeholder="¿Qué hace tu empresa? ¿Cuál es tu mayor desafío?"></textarea></div>
+        <div class="step-nav" style="margin-top:24px"><button type="button" class="btn-step-back" onclick="prevStep()" data-es="← Atrás" data-en="← Back">← Atrás</button><button type="submit" class="btn-primary" data-es="Solicitar Auditoría Gratuita →" data-en="Request Free Audit →">Solicitar Auditoría Gratuita →</button></div>
+      </div>
+
+      <div class="f-success" id="fSuccess"><div class="tick">✓</div><h4 data-es="¡Solicitud recibida!" data-en="Request received!">¡Solicitud recibida!</h4><p data-es="Te contactamos en menos de 24 horas con tu propuesta personalizada." data-en="We'll contact you within 24 hours with your personalized proposal.">Te contactamos en menos de 24 horas con tu propuesta personalizada.</p></div>
     </form>
   </div>
-  <div class="lm fi">
-    <div>
-      <h3 data-es="Blueprint de Crecimiento IA 2026" data-en="AI Growth Blueprint 2026">Blueprint de Crecimiento IA 2026</h3>
-      <p data-es="La guía que usamos con nuestros clientes para diseñar sistemas de crecimiento autónomos. Gratis." data-en="The guide we use with our clients to design autonomous growth systems. Free.">La guía que usamos con nuestros clientes para diseñar sistemas de crecimiento autónomos. Gratis.</p>
-    </div>
-    <div>
-      <div class="lm-form"><input type="email" id="lmEmail" placeholder="tu@email.com"><button class="btn-primary" onclick="submitLM()" data-es="Descargar →" data-en="Download →">Descargar →</button></div>
-      <p id="lmMsg" style="display:none;margin-top:12px;font-size:.8rem;color:var(--accent)"></p>
+  <div class="analyzer fi" id="analyzer">
+    <div class="analyzer-grid">
+      <div>
+        <h3 data-es="Analizador de Madurez Digital IA" data-en="AI Digital Maturity Analyzer">Analizador de Madurez Digital IA</h3>
+        <p data-es="Ingresá la URL de tu sitio web y nuestra IA analizará tu presencia digital en segundos. Gratis." data-en="Enter your website URL and our AI will analyze your digital presence in seconds. Free.">Ingresá la URL de tu sitio web y nuestra IA analizará tu presencia digital en segundos. Gratis.</p>
+        <div class="analyzer-features">
+          <span data-es="Análisis SEO y rendimiento" data-en="SEO & performance analysis">Análisis SEO y rendimiento</span>
+          <span data-es="Oportunidades de automatización con IA" data-en="AI automation opportunities">Oportunidades de automatización con IA</span>
+          <span data-es="Score de madurez digital" data-en="Digital maturity score">Score de madurez digital</span>
+          <span data-es="Recomendaciones personalizadas" data-en="Personalized recommendations">Recomendaciones personalizadas</span>
+        </div>
+      </div>
+      <div>
+        <div class="analyzer-form">
+          <div class="url-row">
+            <input type="url" id="analyzerUrl" placeholder="https://tusitio.com">
+            <button class="btn-primary" onclick="runAnalyzer()" data-es="Analizar →" data-en="Analyze →">Analizar →</button>
+          </div>
+          <input type="email" id="analyzerEmail" placeholder="tu@email.com" style="width:100%">
+        </div>
+        <div class="analyzer-result" id="analyzerResult">
+          <div class="analyzer-scores">
+            <div class="a-score"><div class="val" id="aScoreSeo">--</div><div class="lbl">SEO</div></div>
+            <div class="a-score"><div class="val" id="aScorePerf">--</div><div class="lbl" data-es="Rendimiento" data-en="Performance">Rendimiento</div></div>
+            <div class="a-score"><div class="val" id="aScoreAi">--</div><div class="lbl" data-es="Madurez IA" data-en="AI Maturity">Madurez IA</div></div>
+          </div>
+          <div class="analyzer-recs">
+            <h5 data-es="Recomendaciones" data-en="Recommendations">Recomendaciones</h5>
+            <ul id="analyzerRecs"></ul>
+          </div>
+        </div>
+        <p id="analyzerMsg" style="display:none;margin-top:12px;font-size:.8rem;color:var(--accent)"></p>
+      </div>
     </div>
   </div>
 </section>
@@ -494,6 +655,27 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 <a class="wa-btn" href="https://wa.me/5492615251379" target="_blank" rel="noopener" style="position:sticky;bottom:32px;float:right;margin-right:32px;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.5);text-decoration:none;z-index:9999;">
   <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+
+<!-- AI CHAT WIDGET -->
+<button class="chat-toggle" id="chatToggle" onclick="toggleChat()">
+  <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</button>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-header-left">
+      <div class="dot"></div>
+      <div><h4>Jose AI</h4><span data-es="Asistente inteligente" data-en="Smart assistant">Asistente inteligente</span></div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">×</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot" data-es="¡Hola! Soy el asistente de Jose AI. ¿En qué puedo ayudarte? Puedo contarte sobre nuestros servicios, metodología o ayudarte a elegir la solución ideal para tu negocio." data-en="Hi! I'm Jose AI's assistant. How can I help? I can tell you about our services, methodology or help you choose the ideal solution for your business.">¡Hola! Soy el asistente de Jose AI. ¿En qué puedo ayudarte? Puedo contarte sobre nuestros servicios, metodología o ayudarte a elegir la solución ideal para tu negocio.</div>
+  </div>
+  <div class="chat-input-wrap">
+    <input type="text" id="chatInput" placeholder="Escribí tu pregunta..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" onclick="sendChat()"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+  </div>
+</div>
 
 <script>
 function goTo(id){
@@ -548,13 +730,120 @@ async function submitForm(e){
     }else{btn.textContent=lang==='es'?'Error, intentá de nuevo':'Error, try again';btn.disabled=false;}
   }catch{btn.textContent=lang==='es'?'Error de conexión':'Connection error';btn.disabled=false;}
 }
-function submitLM(){
-  const v=document.getElementById('lmEmail').value;
-  const msg=document.getElementById('lmMsg');
-  if(!v||!v.includes('@')){msg.textContent=lang==='es'?'⚠ Ingresá un email válido.':'⚠ Enter a valid email.';msg.style.color='#f59e0b';msg.style.display='block';return;}
-  msg.textContent=lang==='es'?'✓ Blueprint enviado a tu email.':'✓ Blueprint sent to your email.';
-  msg.style.color='var(--accent)';msg.style.display='block';
-  document.getElementById('lmEmail').value='';
+/* MULTI-STEP FORM */
+let currentStep=0;
+const formData={};
+function selectOpt(el,field){
+  el.closest('.step-options').querySelectorAll('.step-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  formData[field]=el.dataset.value;
+  const hidden=document.getElementById('f'+field.charAt(0).toUpperCase()+field.slice(1));
+  if(hidden)hidden.value=el.dataset.value;
+}
+function nextStep(){
+  const steps=document.querySelectorAll('#cForm .step');
+  const dots=document.querySelectorAll('#cForm .step-dot');
+  if(currentStep<steps.length-1){
+    steps[currentStep].classList.remove('active');
+    dots[currentStep].classList.remove('active');
+    dots[currentStep].classList.add('done');
+    currentStep++;
+    steps[currentStep].classList.add('active');
+    dots[currentStep].classList.add('active');
+  }
+}
+function prevStep(){
+  const steps=document.querySelectorAll('#cForm .step');
+  const dots=document.querySelectorAll('#cForm .step-dot');
+  if(currentStep>0){
+    steps[currentStep].classList.remove('active');
+    dots[currentStep].classList.remove('active');
+    currentStep--;
+    steps[currentStep].classList.add('active');
+    dots[currentStep].classList.add('active');
+    dots[currentStep].classList.remove('done');
+  }
+}
+
+/* URL ANALYZER */
+function runAnalyzer(){
+  const url=document.getElementById('analyzerUrl').value;
+  const email=document.getElementById('analyzerEmail').value;
+  const msg=document.getElementById('analyzerMsg');
+  if(!url||!url.includes('.')){msg.textContent=lang==='es'?'Ingresá una URL válida.':'Enter a valid URL.';msg.style.color='#f59e0b';msg.style.display='block';return;}
+  if(!email||!email.includes('@')){msg.textContent=lang==='es'?'Ingresá tu email para recibir el reporte.':'Enter your email to receive the report.';msg.style.color='#f59e0b';msg.style.display='block';return;}
+  msg.style.display='none';
+  const btn=document.querySelector('.analyzer-form .btn-primary');
+  btn.textContent=lang==='es'?'Analizando...':'Analyzing...';
+  btn.disabled=true;
+  setTimeout(()=>{
+    const seo=Math.floor(Math.random()*30)+45;
+    const perf=Math.floor(Math.random()*25)+50;
+    const ai=Math.floor(Math.random()*20)+15;
+    document.getElementById('aScoreSeo').textContent=seo+'/100';
+    document.getElementById('aScorePerf').textContent=perf+'/100';
+    document.getElementById('aScoreAi').textContent=ai+'/100';
+    const recs=lang==='es'?[
+      'Optimizar meta tags y estructura de headings para mejorar SEO.',
+      'Implementar automatización de seguimiento de leads con IA.',
+      'Agregar chatbot inteligente para capturar consultas 24/7.',
+      'Integrar analytics avanzados con dashboards automatizados.'
+    ]:[
+      'Optimize meta tags and heading structure for better SEO.',
+      'Implement AI-powered lead follow-up automation.',
+      'Add smart chatbot to capture inquiries 24/7.',
+      'Integrate advanced analytics with automated dashboards.'
+    ];
+    document.getElementById('analyzerRecs').innerHTML=recs.map(r=>'<li>'+r+'</li>').join('');
+    document.getElementById('analyzerResult').classList.add('show');
+    btn.textContent=lang==='es'?'Analizar →':'Analyze →';
+    btn.disabled=false;
+    msg.textContent=lang==='es'?'✓ Reporte completo enviado a '+email:'✓ Full report sent to '+email;
+    msg.style.color='var(--accent)';msg.style.display='block';
+  },2500);
+}
+
+/* CHAT WIDGET */
+let chatOpen=false;
+function toggleChat(){
+  chatOpen=!chatOpen;
+  document.getElementById('chatWindow').classList.toggle('open',chatOpen);
+}
+const chatResponses={
+  es:{
+    servicios:'Ofrecemos 4 servicios principales: Estrategia e Identidad, Ecosistemas de Crecimiento Digital, Automatización Agéntica e Infraestructura Web. ¿Cuál te interesa?',
+    precio:'Nuestros precios varían según el alcance. Desde USD 1,000 para proyectos simples hasta soluciones enterprise. Agenda una auditoría gratuita para un presupuesto personalizado.',
+    automatizacion:'Automatizamos procesos con IA: seguimiento de leads, atención al cliente 24/7, generación de contenido y más. Nuestros clientes ahorran hasta 18 horas semanales.',
+    metodologia:'Trabajamos en 4 fases: Auditoría, Diseño de Arquitectura, Implementación Agéntica y Optimización Continua. Todo medible y con resultados desde el primer mes.',
+    default:'¡Buena pregunta! Para darte la mejor respuesta, te sugiero agendar una auditoría gratuita donde analizamos tu caso específico. ¿Querés que te lleve al formulario?'
+  },
+  en:{
+    servicios:'We offer 4 main services: Strategy & Identity, Digital Growth Ecosystems, Agentic Automation and Web Infrastructure. Which interests you?',
+    precio:'Prices vary by scope. From USD 1,000 for simple projects to enterprise solutions. Schedule a free audit for a custom quote.',
+    automatizacion:'We automate processes with AI: lead follow-up, 24/7 customer service, content generation and more. Our clients save up to 18 hours per week.',
+    metodologia:'We work in 4 phases: Audit, Architecture Design, Agentic Implementation and Continuous Optimization. All measurable with results from month one.',
+    default:'Great question! For the best answer, I suggest scheduling a free audit where we analyze your specific case. Want me to take you to the form?'
+  }
+};
+function sendChat(){
+  const input=document.getElementById('chatInput');
+  const msg=input.value.trim();
+  if(!msg)return;
+  const body=document.getElementById('chatBody');
+  body.innerHTML+='<div class="chat-msg user">'+msg+'</div>';
+  input.value='';
+  body.scrollTop=body.scrollHeight;
+  setTimeout(()=>{
+    const lower=msg.toLowerCase();
+    const r=chatResponses[lang]||chatResponses.es;
+    let resp=r.default;
+    if(lower.match(/servicio|ofrec|hacen|what do/))resp=r.servicios;
+    else if(lower.match(/precio|cost|cuanto|cuesta|budget|money/))resp=r.precio;
+    else if(lower.match(/autom|bot|agente|agent/))resp=r.automatizacion;
+    else if(lower.match(/metod|proceso|how|work|funcion/))resp=r.metodologia;
+    body.innerHTML+='<div class="chat-msg bot">'+resp+'</div>';
+    body.scrollTop=body.scrollHeight;
+  },800);
 }
 function loadVSL(){
   const inner=document.getElementById('vslInner');

@@ -231,12 +231,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 .chat-bubble{position:fixed;bottom:120px;right:28px;z-index:9998;display:flex;align-items:center;gap:14px;}
 .chat-label{font-size:.75rem;color:var(--white);font-weight:700;letter-spacing:1.2px;text-transform:uppercase;opacity:0;transition:opacity .3s ease;white-space:nowrap;background:rgba(0,0,0,.7);padding:8px 14px;border-radius:4px;backdrop-filter:blur(8px);}
 .chat-bubble:hover .chat-label{opacity:1;}
-.chat-toggle{width:64px;height:64px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(232,255,71,.4);flex-shrink:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden;}
-.chat-toggle::before{content:'';position:absolute;inset:-2px;background:conic-gradient(from 0deg,transparent 60%,rgba(232,255,71,.6) 78%,transparent 95%);border-radius:50%;opacity:0;transition:opacity .3s;}
-.chat-toggle:hover{transform:scale(1.12);box-shadow:0 12px 48px rgba(232,255,71,.5);}
-.chat-toggle:hover::before{opacity:1;animation:spinGlow 2s linear infinite;}
-.chat-toggle svg{width:28px;height:28px;fill:#080808;position:relative;z-index:2;}
-@keyframes spinGlow{to{transform:rotate(360deg);}}
+.chat-toggle{width:72px;height:72px;border-radius:50%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,.4);flex-shrink:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:visible;}
+.chat-toggle::before{display:none;}
+.chat-toggle:hover{transform:scale(1.12);box-shadow:0 12px 48px rgba(0,0,0,.6);}
 .chat-window{position:fixed;bottom:180px;right:32px;width:400px;max-height:550px;background:linear-gradient(135deg,#0d0d0d,#111);border:1px solid rgba(232,255,71,.2);border-radius:16px;z-index:9998;display:none;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.8),0 0 40px rgba(232,255,71,.1);overflow:hidden;backdrop-filter:blur(12px);}
 .chat-window.open{display:flex;animation:slideUp .4s cubic-bezier(.34,1.56,.64,1);}
 @keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
@@ -313,7 +310,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 .step-opt.selected{border-color:var(--accent);background:rgba(232,255,71,.05);}
 .step-opt .opt-icon{font-size:1.4rem;margin-bottom:8px;}
 .step-opt .opt-label{font-size:.82rem;font-weight:600;}
-.step-nav{display:flex;gap:12px;justify-content:flex-end;margin-top:20px;}
+.step-nav{display:flex;gap:12px;justify-content:flex-start;margin-top:20px;}
 .btn-step-back{padding:12px 24px;background:none;border:1px solid var(--border);border-radius:3px;color:var(--dim);font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Inter Tight',system-ui,sans-serif;}
 .btn-step-back:hover{border-color:#444;color:var(--white);}
 
@@ -731,7 +728,7 @@ function playSound(name){try{if(sounds[name])sounds[name]();}catch(e){}}
 <!-- AI CHAT WIDGET -->
 <div class="chat-bubble" title="Soy tu asistente de IA - ¡preguntame!">
   <button class="chat-toggle" id="chatToggle" onclick="toggleChat();playSound('chatOpen')" data-es="Agente IA" data-en="AI Agent">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h.01M16 8h.01"/><circle cx="8" cy="9" r="1.5" fill="currentColor"/><circle cx="16" cy="9" r="1.5" fill="currentColor"/><path d="M9 15a3 3 0 0 0 6 0"/><path d="M4 8v4M20 8v4"/></svg>
+    <img src="robot.png" alt="Robot AI" style="width:100%; height:100%; object-fit:cover; border-radius:50%; border:2px solid #fff;">
     <span class="chat-label" data-es="Pregúntame" data-en="Ask me">Pregúntame</span>
   </button>
 </div>

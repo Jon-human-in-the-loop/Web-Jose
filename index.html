@@ -231,13 +231,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 .chat-bubble{position:fixed;bottom:120px;right:24px;z-index:9998;display:flex;align-items:center;gap:14px;}
 .chat-label{font-size:.75rem;color:var(--white);font-weight:700;letter-spacing:1.2px;text-transform:uppercase;opacity:0;transition:opacity .3s ease;white-space:nowrap;background:rgba(0,0,0,.7);padding:8px 14px;border-radius:4px;backdrop-filter:blur(8px);}
 .chat-bubble:hover .chat-label{opacity:1;}
-.chat-toggle{width:72px;height:72px;border-radius:50%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:visible;}
+.chat-toggle{width:80px;height:80px;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:visible;}
 @keyframes floatRobot { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-.robot-wrapper { width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--accent); background: #0d0d1a; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.5); animation: floatRobot 3.5s ease-in-out infinite; display: flex; align-items: center; justify-content: center; transition: box-shadow 0.3s; }
-.robot-wrapper img { width: 100%; height: 100%; object-fit: cover; transform: scale(2.8) translateY(5%); pointer-events: none; }
+.robot-wrapper { width: 100%; height: 100%; animation: floatRobot 3.5s ease-in-out infinite; display: flex; align-items: center; justify-content: center; }
+.robot-wrapper img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; filter: drop-shadow(1.5px 0 0 var(--accent)) drop-shadow(-1.5px 0 0 var(--accent)) drop-shadow(0 1.5px 0 var(--accent)) drop-shadow(0 -1.5px 0 var(--accent)) drop-shadow(0 6px 12px rgba(0,0,0,0.6)); transition: filter 0.3s; }
 .chat-toggle::before{display:none;}
 .chat-toggle:hover{transform:scale(1.12);}
-.chat-toggle:hover .robot-wrapper { box-shadow:0 12px 48px rgba(0,0,0,.6); }
+.chat-toggle:hover .robot-wrapper img { filter: drop-shadow(1.5px 0 0 var(--accent)) drop-shadow(-1.5px 0 0 var(--accent)) drop-shadow(0 1.5px 0 var(--accent)) drop-shadow(0 -1.5px 0 var(--accent)) drop-shadow(0 12px 24px rgba(232,255,71,0.5)); }
 .chat-window{position:fixed;bottom:180px;right:32px;width:400px;max-height:550px;background:linear-gradient(135deg,#0d0d0d,#111);border:1px solid rgba(232,255,71,.2);border-radius:16px;z-index:9998;display:none;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.8),0 0 40px rgba(232,255,71,.1);overflow:hidden;backdrop-filter:blur(12px);}
 .chat-window.open{display:flex;animation:slideUp .4s cubic-bezier(.34,1.56,.64,1);}
 @keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
@@ -734,7 +734,7 @@ function playSound(name){try{if(sounds[name])sounds[name]();}catch(e){}}
   <span class="chat-label" data-es="Pregúntame" data-en="Ask me">Pregúntame</span>
   <button class="chat-toggle" id="chatToggle" onclick="toggleChat();playSound('chatOpen')" data-es="Agente IA" data-en="AI Agent">
     <div class="robot-wrapper">
-      <img src="robot.svg" alt="Robot AI">
+      <img src="robot.png" alt="Robot AI">
     </div>
   </button>
 </div>

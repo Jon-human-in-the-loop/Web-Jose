@@ -228,7 +228,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 .trust-badge svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:2;flex-shrink:0;}
 
 /* AI CHAT WIDGET */
-.chat-bubble{position:fixed;bottom:120px;right:24px;z-index:9998;display:flex;align-items:center;gap:14px;}
+.chat-bubble{position:fixed;bottom:120px;right:32px;z-index:9998;display:flex;align-items:center;gap:14px;}
 .chat-label{font-size:.75rem;color:var(--white);font-weight:700;letter-spacing:1.2px;text-transform:uppercase;opacity:0;transition:opacity .3s ease;white-space:nowrap;background:rgba(0,0,0,.7);padding:8px 14px;border-radius:4px;backdrop-filter:blur(8px);}
 .chat-bubble:hover .chat-label{opacity:1;}
 .chat-toggle{width:80px;height:80px;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:visible;}
@@ -352,7 +352,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 
 /* RESPONSIVE */
 @media(max-width:1024px){nav{padding:0 28px;}section{padding:100px 28px;}.srv-row{grid-template-columns:60px 1fr 1fr auto;gap:24px;}.contact-wrap{grid-template-columns:1fr;gap:60px;}.analyzer{padding:60px 40px;}.analyzer-grid{grid-template-columns:1fr;gap:32px;}}
-@media(max-width:768px){.nav-center,.lang-sw,.btn-nav{display:none;}.ham{display:flex;}nav{padding:0 24px;}section{padding:60px 20px;}h1.hero-h{letter-spacing:-2px;font-size:clamp(2.5rem,12vw,4.5rem);margin-bottom:40px;}.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:32px;}.hstat{text-align:center;}.hstat .n{font-size:clamp(2.5rem,8vw,3.5rem);}.prob-grid,.t-grid{grid-template-columns:1fr;gap:0;}.prob-item,.t-card{border-right:none;border-bottom:1px solid var(--border);padding:32px 24px;}.prob-item:last-child,.t-card:last-child{border-bottom:none;}.method-grid{grid-template-columns:1fr 1fr;gap:20px;}.method-step{padding:32px 24px;}.faq-q{padding:24px 0;}.faq-a-inner{padding:0 0 24px;}.srv-row{grid-template-columns:1fr;gap:20px;padding:24px 0;}.srv-idx{font-size:2rem;}.analyzer{padding:40px 24px;}.analyzer-grid{grid-template-columns:1fr;gap:24px;}.url-row{flex-direction:column;}.chat-window{right:16px;left:16px;width:auto;bottom:140px;}.chat-toggle{right:16px;bottom:96px;}.step-options{grid-template-columns:1fr 1fr;}.f-top{flex-direction:column;gap:40px;}.f-links{flex-direction:column;gap:32px;}footer{padding:40px 20px;}.f-bottom{flex-direction:column;align-items:flex-start;gap:24px;}.hero-bottom{flex-direction:column;align-items:flex-start;gap:24px;}}
+@media(max-width:768px){.nav-center,.lang-sw,.btn-nav{display:none;}.ham{display:flex;}nav{padding:0 24px;}section{padding:60px 20px;}h1.hero-h{letter-spacing:-2px;font-size:clamp(2.5rem,12vw,4.5rem);margin-bottom:40px;}.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:32px;}.hstat{text-align:center;}.hstat .n{font-size:clamp(2.5rem,8vw,3.5rem);}.prob-grid,.t-grid{grid-template-columns:1fr;gap:0;}.prob-item,.t-card{border-right:none;border-bottom:1px solid var(--border);padding:32px 24px;}.prob-item:last-child,.t-card:last-child{border-bottom:none;}.method-grid{grid-template-columns:1fr 1fr;gap:20px;}.method-step{padding:32px 24px;}.faq-q{padding:24px 0;}.faq-a-inner{padding:0 0 24px;}.srv-row{grid-template-columns:1fr;gap:20px;padding:24px 0;}.srv-idx{font-size:2rem;}.analyzer{padding:40px 24px;}.analyzer-grid{grid-template-columns:1fr;gap:24px;}.url-row{flex-direction:column;}.chat-window{right:16px;left:16px;width:auto;bottom:140px;}.chat-bubble{right:20px;bottom:96px;}.step-options{grid-template-columns:1fr 1fr;}.f-top{flex-direction:column;gap:40px;}.f-links{flex-direction:column;gap:32px;}footer{padding:40px 20px;}.f-bottom{flex-direction:column;align-items:flex-start;gap:24px;}.hero-bottom{flex-direction:column;align-items:flex-start;gap:24px;}.wa-btn{margin-right:20px;bottom:24px;}}
 @media(max-width:480px){section{padding:40px 16px;}nav{padding:0 16px;}h1.hero-h{font-size:clamp(2rem,10vw,3.5rem);margin-bottom:32px;}.hero-stats{gap:24px;}.hstat .n{font-size:2.2rem;}.prob-item,.t-card{padding:24px 16px;}.t-roi{font-size:2.8rem;}.method-grid{grid-template-columns:1fr;gap:12px;}.method-step{border-right:none!important;border-bottom:1px solid var(--border)!important;padding:20px 16px;}.faq-q{padding:20px 0;}.faq-a-inner{padding:0 0 20px;}.method-step:last-child{border-bottom:none!important;}.f-row{grid-template-columns:1fr;gap:16px;}h2{font-size:clamp(1.8rem,8vw,3rem);margin-bottom:32px;}p{font-size:0.95rem;line-height:1.7;}}
 </style>
 </head>
@@ -360,13 +360,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 
 <!-- DRAWER -->
 <div class="drawer" id="drawer">
-  <a onclick="goTo('inicio')"><span data-es="Inicio" data-en="Home">Inicio</span></a>
-  <a onclick="goTo('servicios')"><span data-es="Servicios" data-en="Services">Servicios</span></a>
-  <a onclick="goTo('resultados')"><span data-es="Resultados" data-en="Results">Resultados</span></a>
-  <a onclick="goTo('metodologia')"><span data-es="Metodología" data-en="Methodology">Metodología</span></a>
-  <a onclick="goTo('faq')">FAQ</a>
+  <a onclick="closeDrawer();goTo('inicio')"><span data-es="Inicio" data-en="Home">Inicio</span></a>
+  <a onclick="closeDrawer();goTo('servicios')"><span data-es="Servicios" data-en="Services">Servicios</span></a>
+  <a onclick="closeDrawer();goTo('resultados')"><span data-es="Resultados" data-en="Results">Resultados</span></a>
+  <a onclick="closeDrawer();goTo('metodologia')"><span data-es="Metodología" data-en="Methodology">Metodología</span></a>
+  <a onclick="closeDrawer();goTo('faq')">FAQ</a>
   <a href="portfolio.html" data-es="Portafolio" data-en="Portfolio">Portafolio</a>
-  <a onclick="goTo('contacto')"><span data-es="Contacto" data-en="Contact">Contacto</span></a>
+  <a onclick="closeDrawer();goTo('contacto')"><span data-es="Contacto" data-en="Contact">Contacto</span></a>
   <button class="drawer-cta" onclick="closeDrawer();goTo('contacto')" data-es="Solicitar Auditoría" data-en="Request Audit">Solicitar Auditoría</button>
 </div>
 
@@ -759,6 +759,7 @@ function playSound(name){try{if(sounds[name])sounds[name]();}catch(e){}}
 
 <script>
 function goTo(id){
+  closeDrawer();
   const el=document.getElementById(id);
   if(!el)return;
   const y=el.getBoundingClientRect().top+document.documentElement.scrollTop-68;

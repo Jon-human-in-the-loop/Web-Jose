@@ -67,7 +67,7 @@ TU OBJETIVO Y PERSONALIDAD:
     }));
 
     const coherePayload = JSON.stringify({
-      model: 'command-r',
+      model: 'command-r-plus-08-2024',
       message: lastMessage,
       chat_history: chatHistory,
       preamble: systemPrompt
@@ -90,7 +90,7 @@ TU OBJETIVO Y PERSONALIDAD:
     try {
       const groqMessages = [{ role: 'system', content: systemPrompt }, ...messages];
       const groqPayload = JSON.stringify({
-        model: 'llama3-8b-8192', 
+        model: 'llama-3.1-8b-instant', 
         messages: groqMessages,
         max_tokens: 300,
         temperature: 0.6

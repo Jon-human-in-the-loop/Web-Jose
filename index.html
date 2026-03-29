@@ -262,6 +262,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 .chat-send{background:var(--accent);border:none;border-radius:6px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0;}
 .chat-send:hover{background:#fff;transform:scale(1.05);}
 .chat-send svg{width:16px;height:16px;fill:#080808;}
+.chat-msg.typing { opacity: 0.7; animation: blink 1.2s infinite; }
+@keyframes blink { 0%, 100%{opacity:.4;} 50%{opacity:1;} }
 
 /* URL ANALYZER */
 .analyzer{margin-top:120px;padding:100px 60px;border:1px solid var(--border);border-radius:8px;background:linear-gradient(135deg,rgba(232,255,71,.06),rgba(232,255,71,.02),transparent);position:relative;overflow:hidden;}
@@ -944,41 +946,46 @@ function toggleChat(){
   chatOpen=!chatOpen;
   document.getElementById('chatWindow').classList.toggle('open',chatOpen);
 }
-const chatResponses={
-  es:{
-    servicios:'Ofrecemos 4 servicios principales: Estrategia e Identidad, Ecosistemas de Crecimiento Digital, Automatización Agéntica e Infraestructura Web. ¿Cuál te interesa?',
-    precio:'Nuestros precios varían según el alcance. Desde USD 1,000 para proyectos simples hasta soluciones enterprise. Agenda una auditoría gratuita para un presupuesto personalizado.',
-    automatizacion:'Automatizamos procesos con IA: seguimiento de leads, atención al cliente 24/7, generación de contenido y más. Nuestros clientes ahorran hasta 18 horas semanales.',
-    metodologia:'Trabajamos en 4 fases: Auditoría, Diseño de Arquitectura, Implementación Agéntica y Optimización Continua. Todo medible y con resultados desde el primer mes.',
-    default:'¡Buena pregunta! Para darte la mejor respuesta, te sugiero agendar una auditoría gratuita donde analizamos tu caso específico. ¿Querés que te lleve al formulario?'
-  },
-  en:{
-    servicios:'We offer 4 main services: Strategy & Identity, Digital Growth Ecosystems, Agentic Automation and Web Infrastructure. Which interests you?',
-    precio:'Prices vary by scope. From USD 1,000 for simple projects to enterprise solutions. Schedule a free audit for a custom quote.',
-    automatizacion:'We automate processes with AI: lead follow-up, 24/7 customer service, content generation and more. Our clients save up to 18 hours per week.',
-    metodologia:'We work in 4 phases: Audit, Architecture Design, Agentic Implementation and Continuous Optimization. All measurable with results from month one.',
-    default:'Great question! For the best answer, I suggest scheduling a free audit where we analyze your specific case. Want me to take you to the form?'
-  }
-};
-function sendChat(){
+
+let chatHistory = [];
+async function sendChat(){
   const input=document.getElementById('chatInput');
   const msg=input.value.trim();
   if(!msg)return;
   const body=document.getElementById('chatBody');
-  body.innerHTML+='<div class="chat-msg user">'+msg+'</div>';
+  body.innerHTML+=`<div class="chat-msg user">${msg}</div>`;
   input.value='';
   body.scrollTop=body.scrollHeight;
-  setTimeout(()=>{
-    const lower=msg.toLowerCase();
-    const r=chatResponses[lang]||chatResponses.es;
-    let resp=r.default;
-    if(lower.match(/servicio|ofrec|hacen|what do/))resp=r.servicios;
-    else if(lower.match(/precio|cost|cuanto|cuesta|budget|money/))resp=r.precio;
-    else if(lower.match(/autom|bot|agente|agent/))resp=r.automatizacion;
-    else if(lower.match(/metod|proceso|how|work|funcion/))resp=r.metodologia;
-    body.innerHTML+='<div class="chat-msg bot">'+resp+'</div>';
-    body.scrollTop=body.scrollHeight;
-  },800);
+  
+  const loaderId = 'loader-' + Date.now();
+  body.innerHTML+=`<div class="chat-msg bot typing" id="${loaderId}">...</div>`;
+  body.scrollTop=body.scrollHeight;
+  
+  try {
+    chatHistory.push({ role: 'user', content: msg });
+    if (chatHistory.length > 8) chatHistory = chatHistory.slice(chatHistory.length - 8);
+
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: chatHistory })
+    });
+    
+    document.getElementById(loaderId)?.remove();
+    
+    if(res.ok){
+      const data = await res.json();
+      chatHistory.push({ role: 'assistant', content: data.reply });
+      const formattedReply = data.reply.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+      body.innerHTML+=`<div class="chat-msg bot">${formattedReply}</div>`;
+    } else {
+      body.innerHTML+=`<div class="chat-msg bot">${lang==='es'?'Hubo un error al contactar al asistente.':'Error contacting the assistant.'}</div>`;
+    }
+  } catch (error) {
+    document.getElementById(loaderId)?.remove();
+    body.innerHTML+=`<div class="chat-msg bot">${lang==='es'?'Hubo un error de conexión.':'Connection error.'}</div>`;
+  }
+  body.scrollTop=body.scrollHeight;
 }
 function loadVSL(){
   const inner=document.getElementById('vslInner');

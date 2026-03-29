@@ -133,6 +133,10 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 <nav>
   <a class="nav-logo" href="index.html">JOSE <em>·</em> AI</a>
   <div class="nav-right">
+    <div class="lang-sw" style="display:flex;background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;">
+      <button class="on" onclick="setLang('es')" style="padding:6px 14px;font-size:.75rem;font-weight:700;letter-spacing:1px;background:var(--accent);border:none;color:#080808;cursor:pointer;transition:all .2s;">ES</button>
+      <button onclick="setLang('en')" style="padding:6px 14px;font-size:.75rem;font-weight:700;letter-spacing:1px;background:none;border:none;color:var(--dim);cursor:pointer;transition:all .2s;">EN</button>
+    </div>
     <a class="btn-back" href="index.html" data-es="← Volver al inicio" data-en="← Back to home">← Volver al inicio</a>
     <a class="btn-cta" href="index.html#contacto" data-es="Solicitar Auditoría" data-en="Request Audit">Solicitar Auditoría</a>
   </div>
@@ -141,8 +145,8 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 <!-- HERO -->
 <div class="port-hero">
   <div class="label fi" data-es="Proyectos realizados" data-en="Completed projects">Proyectos realizados</div>
-  <h1 class="port-title fi"><span data-es="Nuestro" data-en="Our">Nuestro</span><br><em data-es="portafolio." data-en="portfolio.">portafolio.</em></h1>
-  <p class="port-sub fi" data-es="Proyectos reales, resultados medibles. Cada trabajo refleja nuestra metodología de crecimiento aplicada a negocios concretos." data-en="Real projects, measurable results. Each work reflects our growth methodology applied to concrete businesses.">Proyectos reales, resultados medibles. Cada trabajo refleja nuestra metodología de crecimiento aplicada a negocios concretos.</p>
+  <h1 class="port-title fi"><span data-es="Nuestro" data-en="Our">Nuestro</span><br><em data-es="portafolio" data-en="portfolio">portafolio</em></h1>
+  <p class="port-sub fi" data-es="Proyectos reales, resultados medibles. Cada trabajo refleja nuestra metodología de crecimiento aplicada a negocios concretos" data-en="Real projects, measurable results. Each work reflects our growth methodology applied to concrete businesses">Proyectos reales, resultados medibles. Cada trabajo refleja nuestra metodología de crecimiento aplicada a negocios concretos</p>
 </div>
 
 <!-- FILTERS -->
@@ -247,22 +251,47 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 <script>
 // MODAL DATA — Jose completa esto con sus proyectos reales
 const projects = [
-  { title:'Sistema de Seguimiento Automatizado', cat:'Automatización IA', year:'2026', desc:'Un e-commerce con más de 500 pedidos mensuales estaba perdiendo clientes por falta de seguimiento. Implementamos un sistema automatizado con n8n + OpenAI que gestiona seguimiento post-venta, recuperación de carritos abandonados y atención de consultas frecuentes. El equipo pasó de dedicar 18 horas semanales a tareas repetitivas a enfocarse 100% en estrategia de crecimiento.', results:[{n:'−18 hs',t:'por semana'},{n:'+95%',t:'eficiencia'},{n:'3 sem',t:'implementación'}], stack:['n8n','OpenAI','CRM','Zapier'], img:'' },
-  { title:'Funnel de Ventas de Alto Rendimiento', cat:'Desarrollo Web', year:'2026', desc:'Una consultora con alto tráfico pero baja conversión necesitaba un funnel optimizado. Diseñamos una landing con copywriting asistido por IA, A/B testing automatizado y seguimiento de leads integrado con Stripe. La conversión pasó del 2.1% al 3.5% en el primer mes, representando un aumento de +65% en clientes nuevos.', results:[{n:'+65%',t:'conversión'},{n:'21 días',t:'de desarrollo'},{n:'4+',t:'integraciones'}], stack:['Next.js','Vercel','Stripe','Supabase'], img:'' },
-  { title:'Rebranding Estratégico B2B', cat:'Branding', year:'2026', desc:'Empresa de servicios B2B con imagen desactualizada que no transmitía su nivel de expertise. Rediseñamos la identidad visual completa: logo, paleta, tipografía, guidelines de marca y sistema de comunicación. La nueva imagen generó confianza inmediata y duplicaron las propuestas cerradas en 60 días.', results:[{n:'×2',t:'cierres'},{n:'12',t:'entregables'},{n:'6 sem',t:'de proceso'}], stack:['Identidad Visual','Tipografía','Paleta de color','Guidelines'], img:'' },
-  { title:'Ecosistema de Contenido con IA', cat:'Marketing Digital', year:'2026', desc:'Startup SaaS que necesitaba posicionamiento rápido en su nicho. Implementamos un sistema de generación de contenido con IA para 4 plataformas, optimización AEO/GEO y nurturing automatizado de leads. En 90 días, el alcance orgánico creció +340% y los leads calificados se triplicaron.', results:[{n:'+340%',t:'alcance'},{n:'×3',t:'engagement'},{n:'85 leads',t:'por mes'}], stack:['Social Media','Contenido IA','AEO/GEO','Analytics'], img:'' },
-  { title:'Agente de Atención al Cliente 24/7', cat:'Agentes IA', year:'2026', desc:'SaaS con soporte al cliente saturado implementó nuestro agente conversacional con Claude API. El agente maneja consultas, agenda demos, califica leads y escala casos complejos al equipo humano. Integrado con WhatsApp Business y CRM, redujo tickets manuales en un 85% desde la primera semana.', results:[{n:'−85%',t:'tickets manuales'},{n:'24/7',t:'disponibilidad'},{n:'2 sem',t:'implementación'}], stack:['Claude API','WhatsApp','n8n','RAG'], img:'' },
-  { title:'Plataforma E-commerce Inteligente', cat:'Web + IA', year:'2026', desc:'E-commerce de moda que quería diferenciarse con tecnología. Desarrollamos recomendaciones personalizadas por IA basadas en historial de navegación, chatbot de ventas que resuelve dudas sobre tallas y disponibilidad, y automatización completa del fulfillment con notificaciones inteligentes.', results:[{n:'+120%',t:'ventas'},{n:'4.8/5',t:'satisfacción'},{n:'30 días',t:'lanzamiento'}], stack:['Next.js','OpenAI','Stripe','Vercel'], img:'' },
+  { title_es:'Sistema de Seguimiento Automatizado', title_en:'Automated Follow-up System', cat_es:'Automatización IA', cat_en:'AI Automation', year:'2026', desc_es:'Un e-commerce con más de 500 pedidos mensuales estaba perdiendo clientes por falta de seguimiento. Implementamos un sistema automatizado con n8n + OpenAI que gestiona seguimiento post-venta, recuperación de carritos abandonados y atención de consultas frecuentes. El equipo pasó de dedicar 18 horas semanales a tareas repetitivas a enfocarse 100% en estrategia de crecimiento.', desc_en:'An e-commerce with over 500 monthly orders was losing clients due to lack of follow-up. We implemented an automated system with n8n + OpenAI that handles post-sale follow-up, abandoned cart recovery, and frequent queries. The team went from spending 18 hours a week on repetitive tasks to focusing 100% on growth strategy.', results_es:[{n:'−18 hs',t:'por semana'},{n:'+95%',t:'eficiencia'},{n:'3 sem',t:'implementación'}], results_en:[{n:'−18 hrs',t:'per week'},{n:'+95%',t:'efficiency'},{n:'3 wks',t:'implementation'}], stack:['n8n','OpenAI','CRM','Zapier'], img:'' },
+  { title_es:'Funnel de Ventas de Alto Rendimiento', title_en:'High-Performance Sales Funnel', cat_es:'Desarrollo Web', cat_en:'Web Development', year:'2026', desc_es:'Una consultora con alto tráfico pero baja conversión necesitaba un funnel optimizado. Diseñamos una landing con copywriting asistido por IA, A/B testing automatizado y seguimiento de leads integrado con Stripe. La conversión pasó del 2.1% al 3.5% en el primer mes, representando un aumento de +65% en clientes nuevos.', desc_en:'A consulting firm with high traffic but low conversion needed an optimized funnel. We designed a landing page with AI-assisted copywriting, automated A/B testing, and lead tracking integrated with Stripe. Conversion went from 2.1% to 3.5% in the first month, representing a +65% increase in new clients.', results_es:[{n:'+65%',t:'conversión'},{n:'21 días',t:'de desarrollo'},{n:'4+',t:'integraciones'}], results_en:[{n:'+65%',t:'conversion'},{n:'21 days',t:'development'},{n:'4+',t:'integrations'}], stack:['Next.js','Vercel','Stripe','Supabase'], img:'' },
+  { title_es:'Rebranding Estratégico B2B', title_en:'Strategic B2B Rebranding', cat_es:'Branding', cat_en:'Branding', year:'2026', desc_es:'Empresa de servicios B2B con imagen desactualizada que no transmitía su nivel de expertise. Rediseñamos la identidad visual completa: logo, paleta, tipografía, guidelines de marca y sistema de comunicación. La nueva imagen generó confianza inmediata y duplicaron las propuestas cerradas en 60 días.', desc_en:'B2B services company with an outdated image that did not convey its level of expertise. We completely redesigned the visual identity: logo, palette, typography, brand guidelines, and communication system. The new image generated immediate trust and doubled closed proposals in 60 days.', results_es:[{n:'×2',t:'cierres'},{n:'12',t:'entregables'},{n:'6 sem',t:'de proceso'}], results_en:[{n:'×2',t:'closings'},{n:'12',t:'deliverables'},{n:'6 wks',t:'process'}], stack:['Identidad Visual','Tipografía','Paleta de color','Guidelines'], img:'' },
+  { title_es:'Ecosistema de Contenido con IA', title_en:'AI Content Ecosystem', cat_es:'Marketing Digital', cat_en:'Digital Marketing', year:'2026', desc_es:'Startup SaaS que necesitaba posicionamiento rápido en su nicho. Implementamos un sistema de generación de contenido con IA para 4 plataformas, optimización AEO/GEO y nurturing automatizado de leads. En 90 días, el alcance orgánico creció +340% y los leads calificados se triplicaron.', desc_en:'SaaS startup that needed rapid positioning in its niche. We implemented an AI content generation system for 4 platforms, AEO/GEO optimization, and automated lead nurturing. In 90 days, organic reach grew +340% and qualified leads tripled.', results_es:[{n:'+340%',t:'alcance'},{n:'×3',t:'engagement'},{n:'85 leads',t:'por mes'}], results_en:[{n:'+340%',t:'reach'},{n:'×3',t:'engagement'},{n:'85 leads',t:'per month'}], stack:['Social Media','Contenido IA','AEO/GEO','Analytics'], img:'' },
+  { title_es:'Agente de Atención al Cliente 24/7', title_en:'24/7 Customer Service Agent', cat_es:'Agentes IA', cat_en:'AI Agents', year:'2026', desc_es:'SaaS con soporte al cliente saturado implementó nuestro agente conversacional con Claude API. El agente maneja consultas, agenda demos, califica leads y escala casos complejos al equipo humano. Integrado con WhatsApp Business y CRM, redujo tickets manuales en un 85% desde la primera semana.', desc_en:'SaaS with saturated customer support implemented our conversational agent with Claude API. The agent handles queries, schedules demos, qualifies leads, and escalates complex cases to the human team. Integrated with WhatsApp Business and CRM, it reduced manual tickets by 85% from the first week.', results_es:[{n:'−85%',t:'tickets manuales'},{n:'24/7',t:'disponibilidad'},{n:'2 sem',t:'implementación'}], results_en:[{n:'−85%',t:'manual tickets'},{n:'24/7',t:'availability'},{n:'2 wks',t:'implementation'}], stack:['Claude API','WhatsApp','n8n','RAG'], img:'' },
+  { title_es:'Plataforma E-commerce Inteligente', title_en:'Smart E-commerce Platform', cat_es:'Web + IA', cat_en:'Web + AI', year:'2026', desc_es:'E-commerce de moda que quería diferenciarse con tecnología. Desarrollamos recomendaciones personalizadas por IA basadas en historial de navegación, chatbot de ventas que resuelve dudas sobre tallas y disponibilidad, y automatización completa del fulfillment con notificaciones inteligentes.', desc_en:'Fashion e-commerce that wanted to differentiate itself with technology. We developed AI personalized recommendations based on browsing history, a sales chatbot that resolves doubts about sizes and availability, and complete fulfillment automation with smart notifications.', results_es:[{n:'+120%',t:'ventas'},{n:'4.8/5',t:'satisfacción'},{n:'30 días',t:'lanzamiento'}], results_en:[{n:'+120%',t:'sales'},{n:'4.8/5',t:'satisfaction'},{n:'30 days',t:'launch'}], stack:['Next.js','OpenAI','Stripe','Vercel'], img:'' },
 ];
 
+let lang=localStorage.getItem('lang') || 'es';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lang', l);
+  document.querySelectorAll('[data-es]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+l)||el.getAttribute('data-es');
+  });
+  document.querySelectorAll('.lang-sw button').forEach((b,i)=>{
+    b.style.background = (i===0&&l==='es')||(i===1&&l==='en') ? 'var(--accent)' : 'none';
+    b.style.color = (i===0&&l==='es')||(i===1&&l==='en') ? '#080808' : 'var(--dim)';
+  });
+  document.documentElement.lang=l;
+  
+  if(document.getElementById('modalOverlay').classList.contains('open') && window.currentModalIdx !== undefined) {
+    openModal(window.currentModalIdx);
+  }
+}
+window.addEventListener('DOMContentLoaded', () => setLang(lang));
+
 function openModal(idx){
+  window.currentModalIdx = idx;
   const p = projects[idx];
+  const title = lang === 'en' ? p.title_en : p.title_es;
+  const cat = lang === 'en' ? p.cat_en : p.cat_es;
+  const desc = lang === 'en' ? p.desc_en : p.desc_es;
+  const results = lang === 'en' ? p.results_en : p.results_es;
+  
   document.getElementById('modalContent').innerHTML = `
-    <div class="modal-cat">${p.cat} · ${p.year}</div>
-    <h2>${p.title}</h2>
-    <div class="modal-img">${p.img ? `<img src="${p.img}" alt="${p.title}"/>` : '<span style="font-size:.75rem;color:#333;letter-spacing:2px;text-transform:uppercase;">Imagen del proyecto</span>'}</div>
-    <div class="modal-body">${p.desc}</div>
-    <div class="modal-results">${p.results.map(r=>`<div class="modal-stat"><div class="n">${r.n}</div><div class="t">${r.t}</div></div>`).join('')}</div>
+    <div class="modal-cat">${cat} · ${p.year}</div>
+    <h2>${title}</h2>
+    <div class="modal-img">${p.img ? `<img src="${p.img}" alt="${title}"/>` : '<span style="font-size:.75rem;color:#333;letter-spacing:2px;text-transform:uppercase;">Imagen del proyecto</span>'}</div>
+    <div class="modal-body">${desc}</div>
+    <div class="modal-results">${results.map(r=>`<div class="modal-stat"><div class="n">${r.n}</div><div class="t">${r.t}</div></div>`).join('')}</div>
     <div class="modal-stack">${p.stack.map(s=>`<span>${s}</span>`).join('')}</div>
   `;
   document.getElementById('modalOverlay').classList.add('open');

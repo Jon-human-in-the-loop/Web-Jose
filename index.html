@@ -732,7 +732,7 @@ function playSound(name){try{if(sounds[name])sounds[name]();}catch(e){}}
 <!-- AI CHAT WIDGET -->
 <div class="chat-bubble" title="Soy tu asistente de IA - ¡preguntame!">
   <span class="chat-label" data-es="Pregúntame" data-en="Ask me">Pregúntame</span>
-  <button class="chat-toggle" id="chatToggle" onclick="toggleChat();playSound('chatOpen')" data-es="Agente IA" data-en="AI Agent">
+  <button class="chat-toggle" id="chatToggle" onclick="toggleChat();playSound('chatOpen')" aria-label="AI Agent">
     <div class="robot-wrapper">
       <img src="robot.png" alt="Robot AI">
     </div>
@@ -769,6 +769,9 @@ function setLang(l){
   localStorage.setItem('lang', l);
   document.querySelectorAll('[data-es]').forEach(el=>{
     el.innerHTML=el.getAttribute('data-'+l)||el.getAttribute('data-es');
+  });
+  document.querySelectorAll('[data-es-placeholder]').forEach(el=>{
+    el.placeholder=el.getAttribute('data-'+l+'-placeholder')||el.getAttribute('data-es-placeholder');
   });
   document.querySelectorAll('.lang-sw button').forEach((b,i)=>{
     b.classList.toggle('on',(i===0&&l==='es')||(i===1&&l==='en'));

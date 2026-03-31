@@ -361,6 +361,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 .carousel-dot.active{background:var(--accent);transform:scale(1.2);}
 @media(max-width:1024px){.carousel-track .t-card{flex:0 0 50%;}.carousel-track .t-card:nth-child(2n){border-right:none;}}
 @media(max-width:768px){.carousel-track .t-card{flex:0 0 100%;border-right:none!important;}.carousel-prev{left:-16px;}.carousel-next{right:-16px;}}
+/* DESKTOP: metodología como grid 4 cols (igual que antes) */
+@media(min-width:769px){.carousel-metodologia .carousel-inner{overflow:visible;border:none;}.carousel-metodologia .carousel-track{display:grid;grid-template-columns:repeat(4,1fr);transform:none!important;transition:none!important;border:1px solid var(--border);border-radius:4px;overflow:hidden;}.carousel-metodologia .method-step{flex:unset;min-width:unset;}.carousel-metodologia .carousel-prev,.carousel-metodologia .carousel-next,.carousel-metodologia .carousel-dots{display:none;}}
+/* DESKTOP: servicios como flex column (igual que antes) */
+@media(min-width:769px){.carousel-servicios .carousel-inner{overflow:visible;border:none;}.carousel-servicios .carousel-track{display:flex;flex-direction:column;transform:none!important;transition:none!important;}.carousel-servicios .srv-row{flex:unset;min-width:unset;border-top:1px solid var(--border);}.carousel-servicios .srv-row:first-child{border-top:none;}.carousel-servicios .carousel-prev,.carousel-servicios .carousel-next,.carousel-servicios .carousel-dots{display:none;}}
+/* MOBILE: metodología y servicios como carrusel 1 item */
+@media(max-width:768px){.carousel-metodologia .carousel-track .method-step{flex:0 0 100%;border-right:none!important;}.carousel-servicios .carousel-track .srv-row{flex:0 0 100%;border-top:1px solid var(--border);}.carousel-servicios .carousel-track .srv-row:first-child{border-top:none;}}
 
 /* RESPONSIVE */
 @media(max-width:1024px){nav{padding:0 28px;}section{padding:100px 28px;}.srv-row{grid-template-columns:60px 1fr 1fr auto;gap:24px;}.contact-wrap{grid-template-columns:1fr;gap:60px;}.analyzer{padding:60px 40px;}.analyzer-grid{grid-template-columns:1fr;gap:32px;}}
@@ -520,11 +526,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
     <div><div class="label fi" data-es="Sistemas de crecimiento" data-en="Growth systems">Sistemas de crecimiento</div><h2 class="big fi" style="margin-bottom:0"><span data-es="Nuestros" data-en="Our">Nuestros</span><br><em data-es="servicios" data-en="services">servicios</em></h2></div>
     <p class="sub fi" data-es="No vendemos servicios aislados. Diseñamos ecosistemas de crecimiento autónomos integrados con IA." data-en="We don't sell isolated services. We design autonomous growth ecosystems integrated with AI.">No vendemos servicios aislados. Diseñamos ecosistemas de crecimiento autónomos integrados con IA.</p>
   </div>
-  <div class="srv-grid fi">
-    <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')"><div class="srv-idx">01</div><div class="srv-name" data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</div><div class="srv-desc" data-es="Desarrollo de identidad visual, diseño de marca desde cero y estrategia de posicionamiento para escalar en mercados globales." data-en="Visual identity development, brand design from scratch and positioning strategy to scale in global markets.">Desarrollo de identidad visual, diseño de marca desde cero y estrategia de posicionamiento para escalar en mercados globales.</div><div class="srv-items"><span data-es="Identidad Visual" data-en="Visual Identity">Identidad Visual</span><span data-es="Posicionamiento" data-en="Positioning">Posicionamiento</span><span data-es="Branding Global" data-en="Global Branding">Branding Global</span></div><div class="srv-arrow">↗</div></div>
-    <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')"><div class="srv-idx">02</div><div class="srv-name" data-es="Ecosistemas de Crecimiento" data-en="Growth Ecosystems">Ecosistemas de Crecimiento</div><div class="srv-desc" data-es="Gestión estratégica de redes sociales, contenido orientado a conversión y posicionamiento AEO/GEO en motores generativos." data-en="Strategic social media management, conversion-oriented content and AEO/GEO positioning in generative engines.">Gestión estratégica de redes sociales, contenido orientado a conversión y posicionamiento AEO/GEO en motores generativos.</div><div class="srv-items"><span data-es="Social Media" data-en="Social Media">Social Media</span><span>AEO / GEO</span><span data-es="Contenido IA" data-en="AI Content">Contenido IA</span></div><div class="srv-arrow">↗</div></div>
-    <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')"><div class="srv-idx">03</div><div class="srv-name" data-es="Automatización Agéntica" data-en="Agentic Automation">Automatización Agéntica</div><div class="srv-desc" data-es="Automatización de procesos, integración de CRM y calendarios, y desarrollo de agentes de IA que operan 24/7 por tu negocio." data-en="Process automation, CRM and calendar integration, and AI agents that operate 24/7 for your business.">Automatización de procesos, integración de CRM y calendarios, y desarrollo de agentes de IA que operan 24/7 por tu negocio.</div><div class="srv-items"><span data-es="Agentes IA" data-en="AI Agents">Agentes IA</span><span data-es="Integraciones" data-en="Integrations">Integraciones</span><span>CRM / Email</span></div><div class="srv-arrow">↗</div></div>
-    <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')"><div class="srv-idx">04</div><div class="srv-name" data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</div><div class="srv-desc" data-es="E-commerce, sitios corporativos, landing pages y funnels de alto rendimiento integrados con sistemas de IA y automatización." data-en="E-commerce, corporate sites, high-performance landing pages and funnels integrated with AI systems.">E-commerce, sitios corporativos, landing pages y funnels de alto rendimiento integrados con sistemas de IA y automatización.</div><div class="srv-items"><span>E-commerce</span><span data-es="Funnels de Venta" data-en="Sales Funnels">Funnels de Venta</span><span data-es="Integración IA" data-en="AI Integration">Integración IA</span></div><div class="srv-arrow">↗</div></div>
+  <div class="carousel-servicios fi">
+    <div class="carousel-inner">
+      <div class="carousel-track">
+        <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')"><div class="srv-idx">01</div><div class="srv-name" data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</div><div class="srv-desc" data-es="Desarrollo de identidad visual, diseño de marca desde cero y estrategia de posicionamiento para escalar en mercados globales." data-en="Visual identity development, brand design from scratch and positioning strategy to scale in global markets.">Desarrollo de identidad visual, diseño de marca desde cero y estrategia de posicionamiento para escalar en mercados globales.</div><div class="srv-items"><span data-es="Identidad Visual" data-en="Visual Identity">Identidad Visual</span><span data-es="Posicionamiento" data-en="Positioning">Posicionamiento</span><span data-es="Branding Global" data-en="Global Branding">Branding Global</span></div><div class="srv-arrow">↗</div></div>
+        <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')"><div class="srv-idx">02</div><div class="srv-name" data-es="Ecosistemas de Crecimiento" data-en="Growth Ecosystems">Ecosistemas de Crecimiento</div><div class="srv-desc" data-es="Gestión estratégica de redes sociales, contenido orientado a conversión y posicionamiento AEO/GEO en motores generativos." data-en="Strategic social media management, conversion-oriented content and AEO/GEO positioning in generative engines.">Gestión estratégica de redes sociales, contenido orientado a conversión y posicionamiento AEO/GEO en motores generativos.</div><div class="srv-items"><span data-es="Social Media" data-en="Social Media">Social Media</span><span>AEO / GEO</span><span data-es="Contenido IA" data-en="AI Content">Contenido IA</span></div><div class="srv-arrow">↗</div></div>
+        <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')"><div class="srv-idx">03</div><div class="srv-name" data-es="Automatización Agéntica" data-en="Agentic Automation">Automatización Agéntica</div><div class="srv-desc" data-es="Automatización de procesos, integración de CRM y calendarios, y desarrollo de agentes de IA que operan 24/7 por tu negocio." data-en="Process automation, CRM and calendar integration, and AI agents that operate 24/7 for your business.">Automatización de procesos, integración de CRM y calendarios, y desarrollo de agentes de IA que operan 24/7 por tu negocio.</div><div class="srv-items"><span data-es="Agentes IA" data-en="AI Agents">Agentes IA</span><span data-es="Integraciones" data-en="Integrations">Integraciones</span><span>CRM / Email</span></div><div class="srv-arrow">↗</div></div>
+        <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')"><div class="srv-idx">04</div><div class="srv-name" data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</div><div class="srv-desc" data-es="E-commerce, sitios corporativos, landing pages y funnels de alto rendimiento integrados con sistemas de IA y automatización." data-en="E-commerce, corporate sites, high-performance landing pages and funnels integrated with AI systems.">E-commerce, sitios corporativos, landing pages y funnels de alto rendimiento integrados con sistemas de IA y automatización.</div><div class="srv-items"><span>E-commerce</span><span data-es="Funnels de Venta" data-en="Sales Funnels">Funnels de Venta</span><span data-es="Integración IA" data-en="AI Integration">Integración IA</span></div><div class="srv-arrow">↗</div></div>
+      </div>
+      <button class="carousel-prev" aria-label="Anterior">&#8592;</button>
+      <button class="carousel-next" aria-label="Siguiente">&#8594;</button>
+    </div>
+    <div class="carousel-dots"></div>
   </div>
 </section>
 
@@ -562,11 +575,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 <section id="metodologia">
   <div class="label fi" data-es="Cómo trabajamos" data-en="How we work">Cómo trabajamos</div>
   <h2 class="big text-reveal fi"><span data-es="La metodología" data-en="The methodology">La metodología</span><br><em data-es="que funciona." data-en="that works.">que funciona.</em></h2>
-  <div class="method-grid fi">
-    <div class="method-step" onmouseenter="playSound('hover')"><div class="m-num">01</div><div class="m-title" data-es="Auditoría y Diagnóstico" data-en="Audit & Diagnosis">Auditoría y Diagnóstico</div><div class="m-text" data-es="Analizamos tu negocio, procesos y presencia digital para detectar oportunidades reales de crecimiento." data-en="We analyze your business, processes and digital presence to identify real growth opportunities.">Analizamos tu negocio, procesos y presencia digital para detectar oportunidades reales de crecimiento.</div></div>
-    <div class="method-step" onmouseenter="playSound('hover')"><div class="m-num">02</div><div class="m-title" data-es="Diseño de Arquitectura" data-en="Architecture Design">Diseño de Arquitectura</div><div class="m-text" data-es="Definimos el sistema de crecimiento personalizado: branding, marketing y automatización integrados." data-en="We define your custom growth system: branding, marketing and automation integrated.">Definimos el sistema de crecimiento personalizado: branding, marketing y automatización integrados.</div></div>
-    <div class="method-step" onmouseenter="playSound('hover')"><div class="m-num">03</div><div class="m-title" data-es="Implementación Agéntica" data-en="Agentic Implementation">Implementación Agéntica</div><div class="m-text" data-es="Desplegamos los sistemas y agentes de IA que operan de forma autónoma para escalar tu negocio." data-en="We deploy the systems and AI agents that operate autonomously to scale your business.">Desplegamos los sistemas y agentes de IA que operan de forma autónoma para escalar tu negocio.</div></div>
-    <div class="method-step" onmouseenter="playSound('hover')"><div class="m-num">04</div><div class="m-title" data-es="Optimización Continua" data-en="Continuous Optimization">Optimización Continua</div><div class="m-text" data-es="Medimos, analizamos y optimizamos el sistema constantemente para seguir escalando con datos reales." data-en="We measure, analyze and optimize constantly to keep scaling with real data.">Medimos, analizamos y optimizamos el sistema constantemente para seguir escalando con datos reales.</div></div>
+  <div class="carousel-metodologia fi">
+    <div class="carousel-inner">
+      <div class="carousel-track">
+        <div class="method-step" onmouseenter="playSound('hover')"><div class="m-num">01</div><div class="m-title" data-es="Auditoría y Diagnóstico" data-en="Audit & Diagnosis">Auditoría y Diagnóstico</div><div class="m-text" data-es="Analizamos tu negocio, procesos y presencia digital para detectar oportunidades reales de crecimiento." data-en="We analyze your business, processes and digital presence to identify real growth opportunities.">Analizamos tu negocio, procesos y presencia digital para detectar oportunidades reales de crecimiento.</div></div>
+        <div class="method-step" onmouseenter="playSound('hover')"><div class="m-num">02</div><div class="m-title" data-es="Diseño de Arquitectura" data-en="Architecture Design">Diseño de Arquitectura</div><div class="m-text" data-es="Definimos el sistema de crecimiento personalizado: branding, marketing y automatización integrados." data-en="We define your custom growth system: branding, marketing and automation integrated.">Definimos el sistema de crecimiento personalizado: branding, marketing y automatización integrados.</div></div>
+        <div class="method-step" onmouseenter="playSound('hover')"><div class="m-num">03</div><div class="m-title" data-es="Implementación Agéntica" data-en="Agentic Implementation">Implementación Agéntica</div><div class="m-text" data-es="Desplegamos los sistemas y agentes de IA que operan de forma autónoma para escalar tu negocio." data-en="We deploy the systems and AI agents that operate autonomously to scale your business.">Desplegamos los sistemas y agentes de IA que operan de forma autónoma para escalar tu negocio.</div></div>
+        <div class="method-step" onmouseenter="playSound('hover')"><div class="m-num">04</div><div class="m-title" data-es="Optimización Continua" data-en="Continuous Optimization">Optimización Continua</div><div class="m-text" data-es="Medimos, analizamos y optimizamos el sistema constantemente para seguir escalando con datos reales." data-en="We measure, analyze and optimize constantly to keep scaling with real data.">Medimos, analizamos y optimizamos el sistema constantemente para seguir escalando con datos reales.</div></div>
+      </div>
+      <button class="carousel-prev" aria-label="Anterior">&#8592;</button>
+      <button class="carousel-next" aria-label="Siguiente">&#8594;</button>
+    </div>
+    <div class="carousel-dots"></div>
   </div>
 </section>
 
@@ -1013,19 +1033,21 @@ async function sendChat(){
   }
   body.scrollTop=body.scrollHeight;
 }
-/* CAROUSEL TESTIMONIOS */
-(function(){
-  const track=document.querySelector('.carousel-track');
-  if(!track)return;
-  const cards=track.querySelectorAll('.t-card');
-  const dotsWrap=document.querySelector('.carousel-dots');
+/* CAROUSEL — función genérica reutilizable */
+function initCarousel(wrap,autoplay){
+  if(!wrap)return;
+  const track=wrap.querySelector('.carousel-track');
+  const dotsWrap=wrap.querySelector('.carousel-dots');
+  if(!track||!dotsWrap)return;
+  const cards=Array.from(track.children);
   const total=cards.length;
   let current=0,autoTimer;
 
   function getVisible(){
+    const isTestimonios=wrap.classList.contains('carousel-testimonios');
     if(window.innerWidth<=768)return 1;
-    if(window.innerWidth<=1024)return 2;
-    return 3;
+    if(window.innerWidth<=1024)return isTestimonios?2:1;
+    return isTestimonios?3:1;
   }
 
   function buildDots(){
@@ -1035,7 +1057,7 @@ async function sendChat(){
     for(let i=0;i<count;i++){
       const d=document.createElement('button');
       d.className='carousel-dot'+(i===current?' active':'');
-      d.setAttribute('aria-label','Ir al testimonio '+(i+1));
+      d.setAttribute('aria-label','Ir al item '+(i+1));
       d.addEventListener('click',()=>{current=i;render();resetAuto();});
       dotsWrap.appendChild(d);
     }
@@ -1053,10 +1075,9 @@ async function sendChat(){
   function next(){const vis=getVisible();current=current>=Math.max(0,total-vis)?0:current+1;render();}
   function prev(){const vis=getVisible();const max=Math.max(0,total-vis);current=current<=0?max:current-1;render();}
 
-  document.querySelector('.carousel-next').addEventListener('click',()=>{next();resetAuto();});
-  document.querySelector('.carousel-prev').addEventListener('click',()=>{prev();resetAuto();});
+  wrap.querySelector('.carousel-next')?.addEventListener('click',()=>{next();resetAuto();});
+  wrap.querySelector('.carousel-prev')?.addEventListener('click',()=>{prev();resetAuto();});
 
-  // Touch swipe
   let tx=0;
   track.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
   track.addEventListener('touchend',e=>{
@@ -1064,16 +1085,22 @@ async function sendChat(){
     if(Math.abs(diff)>50){diff>0?next():prev();resetAuto();}
   },{passive:true});
 
-  // Pause on hover
-  track.closest('.carousel-inner').addEventListener('mouseenter',()=>clearInterval(autoTimer));
-  track.closest('.carousel-inner').addEventListener('mouseleave',startAuto);
+  const inner=track.closest('.carousel-inner');
+  if(inner){
+    inner.addEventListener('mouseenter',()=>clearInterval(autoTimer));
+    inner.addEventListener('mouseleave',startAuto);
+  }
 
-  function startAuto(){autoTimer=setInterval(next,5000);}
+  function startAuto(){if(autoplay)autoTimer=setInterval(next,5000);}
   function resetAuto(){clearInterval(autoTimer);startAuto();}
 
   window.addEventListener('resize',()=>{buildDots();render();});
   buildDots();render();startAuto();
-})();
+}
+
+initCarousel(document.querySelector('.carousel-testimonios'),true);
+initCarousel(document.querySelector('.carousel-metodologia'),false);
+initCarousel(document.querySelector('.carousel-servicios'),false);
 
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
 document.querySelectorAll('.fi').forEach(el=>obs.observe(el));

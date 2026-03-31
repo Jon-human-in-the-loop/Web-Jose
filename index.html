@@ -100,12 +100,8 @@ h1.hero-h .outline{color:var(--bg);text-shadow:-1px -1px 0 var(--white),1px -1px
 
 /* VSL */
 .vsl-block{margin-top:100px;border:1px solid var(--border);border-radius:4px;overflow:hidden;background:var(--surface);}
-.vsl-inner{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;cursor:pointer;position:relative;}
-.vsl-inner::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,255,71,.03),transparent);}
-.play-btn{width:72px;height:72px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;transition:transform .3s,background .2s;}
-.play-btn:hover{transform:scale(1.08);background:#fff;}
-.play-btn svg{width:28px;fill:#080808;margin-left:5px;}
-.vsl-label{font-size:.8rem;color:var(--dim);letter-spacing:2px;text-transform:uppercase;}
+.vsl-yt{position:relative;width:100%;aspect-ratio:16/9;}
+.vsl-yt iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block;}
 
 /* PROBLEMS */
 #problemas{background:var(--bg);border-bottom:1px solid var(--border);}
@@ -350,10 +346,26 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 .fi{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
 .fi.in{opacity:1;transform:none;}
 
+/* CAROUSEL TESTIMONIOS */
+.carousel-testimonios{position:relative;margin-top:80px;}
+.carousel-inner{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:4px;}
+.carousel-track{display:flex;transition:transform .5s cubic-bezier(.77,0,.18,1);}
+.carousel-track .t-card{flex:0 0 calc(100%/3);min-width:0;border-radius:0;border-right:1px solid var(--border);border-bottom:none!important;}
+.carousel-track .t-card:last-child{border-right:none;}
+.carousel-prev,.carousel-next{position:absolute;top:50%;transform:translateY(-50%);z-index:2;background:var(--surface);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;color:var(--white);transition:all .2s;line-height:1;flex-shrink:0;}
+.carousel-prev{left:-20px;}
+.carousel-next{right:-20px;}
+.carousel-prev:hover,.carousel-next:hover{background:var(--accent);color:#080808;border-color:var(--accent);}
+.carousel-dots{display:flex;gap:8px;justify-content:center;margin-top:24px;}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .3s;border:none;padding:0;flex-shrink:0;}
+.carousel-dot.active{background:var(--accent);transform:scale(1.2);}
+@media(max-width:1024px){.carousel-track .t-card{flex:0 0 50%;}.carousel-track .t-card:nth-child(2n){border-right:none;}}
+@media(max-width:768px){.carousel-track .t-card{flex:0 0 100%;border-right:none!important;}.carousel-prev{left:-16px;}.carousel-next{right:-16px;}}
+
 /* RESPONSIVE */
 @media(max-width:1024px){nav{padding:0 28px;}section{padding:100px 28px;}.srv-row{grid-template-columns:60px 1fr 1fr auto;gap:24px;}.contact-wrap{grid-template-columns:1fr;gap:60px;}.analyzer{padding:60px 40px;}.analyzer-grid{grid-template-columns:1fr;gap:32px;}}
-@media(max-width:768px){.nav-center,.lang-sw,.btn-nav{display:none;}.ham{display:flex;}nav{padding:0 24px;}section{padding:60px 20px;}h1.hero-h{letter-spacing:-2px;font-size:clamp(2.5rem,12vw,4.5rem);margin-bottom:40px;}.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:32px;}.hstat{text-align:center;}.hstat .n{font-size:clamp(2.5rem,8vw,3.5rem);}.prob-grid,.t-grid{grid-template-columns:1fr;gap:0;}.prob-item,.t-card{border-right:none;border-bottom:1px solid var(--border);padding:32px 24px;}.prob-item:last-child,.t-card:last-child{border-bottom:none;}.method-grid{grid-template-columns:1fr 1fr;gap:20px;}.method-step{padding:32px 24px;}.faq-q{padding:24px 0;}.faq-a-inner{padding:0 0 24px;}.srv-row{grid-template-columns:1fr;gap:20px;padding:24px 0;}.srv-idx{font-size:2rem;}.analyzer{padding:40px 24px;}.analyzer-grid{grid-template-columns:1fr;gap:24px;}.url-row{flex-direction:column;}.chat-window{right:16px;left:16px;width:auto;bottom:140px;}.chat-bubble{right:20px;bottom:96px;}.step-options{grid-template-columns:1fr 1fr;}.f-top{flex-direction:column;gap:40px;}.f-links{flex-direction:column;gap:32px;}footer{padding:40px 20px;}.f-bottom{flex-direction:column;align-items:flex-start;gap:24px;}.hero-bottom{flex-direction:column;align-items:flex-start;gap:24px;}.wa-btn{margin-right:20px;bottom:24px;}}
-@media(max-width:480px){section{padding:40px 16px;}nav{padding:0 16px;}h1.hero-h{font-size:clamp(2rem,10vw,3.5rem);margin-bottom:32px;}.hero-stats{gap:24px;}.hstat .n{font-size:2.2rem;}.prob-item,.t-card{padding:24px 16px;}.t-roi{font-size:2.8rem;}.method-grid{grid-template-columns:1fr;gap:12px;}.method-step{border-right:none!important;border-bottom:1px solid var(--border)!important;padding:20px 16px;}.faq-q{padding:20px 0;}.faq-a-inner{padding:0 0 20px;}.method-step:last-child{border-bottom:none!important;}.f-row{grid-template-columns:1fr;gap:16px;}h2{font-size:clamp(1.8rem,8vw,3rem);margin-bottom:32px;}p{font-size:0.95rem;line-height:1.7;}}
+@media(max-width:768px){.nav-center,.lang-sw,.btn-nav{display:none;}.ham{display:flex;}nav{padding:0 24px;}section{padding:60px 20px;}h1.hero-h{letter-spacing:-2px;font-size:clamp(2.5rem,12vw,4.5rem);margin-bottom:40px;}.hero-stats{display:none;}.prob-grid{grid-template-columns:1fr;gap:0;}.prob-item{border-right:none;border-bottom:1px solid var(--border);padding:32px 24px;}.prob-item:last-child{border-bottom:none;}.method-grid{grid-template-columns:1fr 1fr;gap:20px;}.method-step{padding:32px 24px;}.faq-q{padding:24px 0;}.faq-a-inner{padding:0 0 24px;}.srv-row{grid-template-columns:1fr;gap:20px;padding:24px 0;}.srv-idx{font-size:2rem;}.analyzer{display:none;}.chat-window{right:16px;left:16px;width:auto;bottom:140px;}.chat-bubble{right:20px;bottom:96px;}.step-options{grid-template-columns:1fr 1fr;}.f-top{flex-direction:column;gap:40px;}.f-links{flex-direction:column;gap:32px;}footer{padding:40px 20px;}.f-bottom{flex-direction:column;align-items:flex-start;gap:24px;}.hero-bottom{flex-direction:column;align-items:flex-start;gap:24px;}.wa-btn{margin-right:20px;bottom:24px;}}
+@media(max-width:480px){section{padding:40px 16px;}nav{padding:0 16px;}h1.hero-h{font-size:clamp(2rem,10vw,3.5rem);margin-bottom:32px;}.prob-item,.carousel-track .t-card{padding:24px 16px;}.t-roi{font-size:2.8rem;}.method-grid{grid-template-columns:1fr;gap:12px;}.method-step{border-right:none!important;border-bottom:1px solid var(--border)!important;padding:20px 16px;}.faq-q{padding:20px 0;}.faq-a-inner{padding:0 0 20px;}.method-step:last-child{border-bottom:none!important;}.f-row{grid-template-columns:1fr;gap:16px;}h2{font-size:clamp(1.8rem,8vw,3rem);margin-bottom:32px;}p{font-size:0.95rem;line-height:1.7;}.logos-clients{display:none;}.carousel-prev{left:-12px;}.carousel-next{right:-12px;}}
 </style>
 </head>
 <body>
@@ -478,9 +490,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
     <div class="hstat"><div class="n"><em>50+</em></div><div class="t" data-es="Negocios escalados" data-en="Businesses scaled">Negocios escalados</div></div>
   </div>
   <div class="vsl-block fi">
-    <div class="vsl-inner" id="vslInner" onclick="loadVSL()">
-      <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="vsl-label" data-es="Ver la propuesta de valor · ES / EN" data-en="Watch the value proposition · ES / EN">Ver la propuesta de valor · ES / EN</div>
+    <div class="vsl-yt">
+      <!-- Reemplazá VIDEO_ID con el ID real de tu video de YouTube -->
+      <iframe
+        src="https://www.youtube.com/embed/VIDEO_ID?controls=1&rel=0&modestbranding=1"
+        title="Propuesta de valor — Jose AI Growth"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
     </div>
   </div>
 </section>
@@ -514,10 +532,17 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 <section id="resultados">
   <div class="label fi" data-es="Prueba social" data-en="Social proof">Prueba social</div>
   <h2 class="big text-reveal fi"><span data-es="Resultados" data-en="Results">Resultados</span><br><em data-es="reales." data-en="that matter.">reales.</em></h2>
-  <div class="t-grid fi">
-    <div class="t-card glow-card"><div class="t-roi">−18 hs/sem</div><div class="t-company">E-commerce</div><div class="t-quote" data-es='"Automatizamos el seguimiento de clientes y la gestión de pedidos. Recuperamos casi 3 horas por día que antes perdíamos en tareas manuales."' data-en='"We automated client follow-up and order management. We recovered almost 3 hours per day that we used to waste on manual tasks."'>"Automatizamos el seguimiento de clientes y la gestión de pedidos. Recuperamos casi 3 horas por día que antes perdíamos en tareas manuales."</div><div class="t-author"><div class="t-av">CM</div><div><div class="t-name">Carlos M.</div><div class="t-role">CEO</div></div></div></div>
-    <div class="t-card glow-card"><div class="t-roi">+65%</div><div class="t-company" data-es="Consultoría" data-en="Consulting">Consultoría</div><div class="t-quote" data-es='"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."' data-en='"They redesigned our digital presence and within two months we noticed a clear increase in inbound inquiries."'>"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."</div><div class="t-author"><div class="t-av" style="background:#222">SR</div><div><div class="t-name">Sofia R.</div><div class="t-role" data-es="Fundadora" data-en="Founder">Fundadora</div></div></div></div>
-    <div class="t-card glow-card"><div class="t-roi">×2 cierres</div><div class="t-company" data-es="Servicios B2B" data-en="B2B Services">Servicios B2B</div><div class="t-quote" data-es='"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."' data-en='"They implemented an automated follow-up flow that helped us close twice as many proposals in the same time."'>"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."</div><div class="t-author"><div class="t-av" style="background:#1a1a1a">ML</div><div><div class="t-name">Miguel L.</div><div class="t-role" data-es="Director" data-en="Director">Director</div></div></div></div>
+  <div class="carousel-testimonios fi">
+    <div class="carousel-inner">
+      <div class="carousel-track">
+        <div class="t-card glow-card"><div class="t-roi">−18 hs/sem</div><div class="t-company">E-commerce</div><div class="t-quote" data-es='"Automatizamos el seguimiento de clientes y la gestión de pedidos. Recuperamos casi 3 horas por día que antes perdíamos en tareas manuales."' data-en='"We automated client follow-up and order management. We recovered almost 3 hours per day that we used to waste on manual tasks."'>"Automatizamos el seguimiento de clientes y la gestión de pedidos. Recuperamos casi 3 horas por día que antes perdíamos en tareas manuales."</div><div class="t-author"><div class="t-av">CM</div><div><div class="t-name">Carlos M.</div><div class="t-role">CEO</div></div></div></div>
+        <div class="t-card glow-card"><div class="t-roi">+65%</div><div class="t-company" data-es="Consultoría" data-en="Consulting">Consultoría</div><div class="t-quote" data-es='"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."' data-en='"They redesigned our digital presence and within two months we noticed a clear increase in inbound inquiries."'>"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."</div><div class="t-author"><div class="t-av" style="background:#222">SR</div><div><div class="t-name">Sofia R.</div><div class="t-role" data-es="Fundadora" data-en="Founder">Fundadora</div></div></div></div>
+        <div class="t-card glow-card"><div class="t-roi">×2 cierres</div><div class="t-company" data-es="Servicios B2B" data-en="B2B Services">Servicios B2B</div><div class="t-quote" data-es='"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."' data-en='"They implemented an automated follow-up flow that helped us close twice as many proposals in the same time."'>"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."</div><div class="t-author"><div class="t-av" style="background:#1a1a1a">ML</div><div><div class="t-name">Miguel L.</div><div class="t-role" data-es="Director" data-en="Director">Director</div></div></div></div>
+      </div>
+      <button class="carousel-prev" aria-label="Anterior">&#8592;</button>
+      <button class="carousel-next" aria-label="Siguiente">&#8594;</button>
+    </div>
+    <div class="carousel-dots"></div>
   </div>
   <div class="logos-clients fi">
     <div class="ls-label" data-es="Confían en nosotros" data-en="They trust us">Confían en nosotros</div>
@@ -988,11 +1013,68 @@ async function sendChat(){
   }
   body.scrollTop=body.scrollHeight;
 }
-function loadVSL(){
-  const inner=document.getElementById('vslInner');
-  inner.innerHTML=`<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" style="width:100%;aspect-ratio:16/9;border:none;" allowfullscreen allow="autoplay"></iframe>`;
-  inner.style.cursor='default';
-}
+/* CAROUSEL TESTIMONIOS */
+(function(){
+  const track=document.querySelector('.carousel-track');
+  if(!track)return;
+  const cards=track.querySelectorAll('.t-card');
+  const dotsWrap=document.querySelector('.carousel-dots');
+  const total=cards.length;
+  let current=0,autoTimer;
+
+  function getVisible(){
+    if(window.innerWidth<=768)return 1;
+    if(window.innerWidth<=1024)return 2;
+    return 3;
+  }
+
+  function buildDots(){
+    dotsWrap.innerHTML='';
+    const vis=getVisible();
+    const count=Math.max(1,total-vis+1);
+    for(let i=0;i<count;i++){
+      const d=document.createElement('button');
+      d.className='carousel-dot'+(i===current?' active':'');
+      d.setAttribute('aria-label','Ir al testimonio '+(i+1));
+      d.addEventListener('click',()=>{current=i;render();resetAuto();});
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function render(){
+    const vis=getVisible();
+    const max=Math.max(0,total-vis);
+    current=Math.min(current,max);
+    const pct=(100/vis)*current;
+    track.style.transform='translateX(-'+pct+'%)';
+    dotsWrap.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===current));
+  }
+
+  function next(){const vis=getVisible();current=current>=Math.max(0,total-vis)?0:current+1;render();}
+  function prev(){const vis=getVisible();const max=Math.max(0,total-vis);current=current<=0?max:current-1;render();}
+
+  document.querySelector('.carousel-next').addEventListener('click',()=>{next();resetAuto();});
+  document.querySelector('.carousel-prev').addEventListener('click',()=>{prev();resetAuto();});
+
+  // Touch swipe
+  let tx=0;
+  track.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+  track.addEventListener('touchend',e=>{
+    const diff=tx-e.changedTouches[0].clientX;
+    if(Math.abs(diff)>50){diff>0?next():prev();resetAuto();}
+  },{passive:true});
+
+  // Pause on hover
+  track.closest('.carousel-inner').addEventListener('mouseenter',()=>clearInterval(autoTimer));
+  track.closest('.carousel-inner').addEventListener('mouseleave',startAuto);
+
+  function startAuto(){autoTimer=setInterval(next,5000);}
+  function resetAuto(){clearInterval(autoTimer);startAuto();}
+
+  window.addEventListener('resize',()=>{buildDots();render();});
+  buildDots();render();startAuto();
+})();
+
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
 document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
 </script>

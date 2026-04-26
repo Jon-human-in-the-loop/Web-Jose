@@ -78,7 +78,7 @@ METODOLOGÍA 4 PASOS:
 7. PoC Persona Digital IA: Valida arquetipos de Influencer IA antes de inversión. Resultado: 16 referentes analizados, riesgo mitigado.
 8. ClawSuite Security: Auditoría + hardening Tauri+Rust. Resultado: 47 vulnerabilidades → Zero críticas, certificado producción.
 9. Kultur Atelier Branding: Sistema modular unificó 2 sedes alemanas. Resultado: 100% coherencia digital, 5+ líneas merchandising.
-10. Entremares E-commerce Multiidioma: Creación completa de plataforma de venta para emprendimiento argentino de alfajores gourmet artesanales operando en Portugal. Next.js 14 + Supabase + Stripe. Arquitectura escalable, integración de pasarelas de pago, multiidioma con next-intl, autenticación, emails con Resend. Resultado: De venta boca-a-boca/Instagram a e-commerce 24/7, alcance global (PT/ES/EN), integración WhatsApp, −90% fricción en compra.
+10. Entremares E-commerce Multiidioma: Creación completa de plataforma de venta para emprendimiento argentino de alfajores gourmet artesanales operando en Portugal. Next.js 14 + Supabase + Stripe. Integraciones de pago locales: Stripe, MB Way (Portugal), Multibanco (Portugal/España). Arquitectura escalable, multiidioma con next-intl, autenticación, emails con Resend. Resultado: De venta boca-a-boca/Instagram a e-commerce 24/7, ventas en Portugal/España, múltiples métodos de pago locales, −90% fricción en compra.
 
 STACK TECNOLÓGICO:
 - Automatización: n8n, MCP (Model Context Protocol), Python, Claude AI

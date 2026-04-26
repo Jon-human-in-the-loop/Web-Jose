@@ -91,6 +91,8 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 .modal-section{margin-bottom:28px;padding:20px;background:var(--surface);border-left:3px solid var(--accent);border-radius:4px;}
 .modal-section-title{color:var(--accent);font-size:1rem;font-weight:800;margin-bottom:16px;letter-spacing:.5px;}
 .modal-section-content{color:var(--dim);font-size:.92rem;line-height:1.9;}
+.modal-section-content span[style*="margin-left"]{color:var(--dim)!important;font-size:.92rem!important;line-height:1.8!important;margin-bottom:12px!important;display:block!important;margin-left:20px!important;position:relative!important;padding-left:8px!important;}
+.modal-section-content span[style*="margin-left"]::before{content:'▪';color:var(--accent);font-size:.6rem;position:absolute;left:0;}
 .modal-results{display:flex;gap:32px;margin-bottom:32px;flex-wrap:wrap;}
 .modal-stat .n{font-size:2.2rem;font-weight:900;color:var(--accent);letter-spacing:-1px;}
 .modal-stat .t{font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:4px;}
@@ -321,7 +323,7 @@ function formatDescription(desc){
   html = html.replace(/📊 EL IMPACTO/g, '</div></div><div class="modal-section"><div class="modal-section-title">📊 EL IMPACTO</div><div class="modal-section-content">');
   html += '</div></div>';
   html = html.replace(/\n/g, '<br>');
-  html = html.replace(/• /g, '<span style="margin-left:12px;display:block;margin-bottom:8px;">• </span>');
+  html = html.replace(/• (.+?)(?=<br>|$)/g, '<span style="margin-left:12px;display:block;margin-bottom:12px;">$1</span>');
   return html;
 }
 

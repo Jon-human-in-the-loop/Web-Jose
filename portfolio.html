@@ -89,10 +89,8 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 .modal-img img{width:100%;height:100%;object-fit:cover;}
 .modal-body{color:var(--dim);font-size:.92rem;line-height:1.9;margin-bottom:24px;}
 .modal-section{margin-bottom:28px;padding:20px;background:var(--surface);border-left:3px solid var(--accent);border-radius:4px;}
-.modal-section-title{color:var(--accent);font-size:1rem;font-weight:800;margin-bottom:12px;letter-spacing:.5px;}
-.modal-subsection{margin-bottom:16px;}
-.modal-subsection-title{color:#f2f2f2;font-weight:700;margin-bottom:8px;font-size:.95rem;}
-.modal-subsection-content{color:var(--dim);font-size:.88rem;line-height:1.8;}
+.modal-section-title{color:var(--accent);font-size:1rem;font-weight:800;margin-bottom:16px;letter-spacing:.5px;}
+.modal-section-content{color:var(--dim);font-size:.92rem;line-height:1.9;}
 .modal-results{display:flex;gap:32px;margin-bottom:32px;flex-wrap:wrap;}
 .modal-stat .n{font-size:2.2rem;font-weight:900;color:var(--accent);letter-spacing:-1px;}
 .modal-stat .t{font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:4px;}
@@ -317,42 +315,14 @@ function setLang(l){
 window.addEventListener('DOMContentLoaded', () => setLang(lang));
 
 function formatDescription(desc){
-  const sections = desc.split('📊');
-  const reto = sections[0].split('🛠️')[0];
-  const solucion = sections[0].split('🛠️')[1] || '';
-  const impacto = sections[1] || '';
-
-  const formatSection = (content) => {
-    const lines = content.trim().split('\n').filter(l=>l.trim());
-    let html = '';
-    let i = 0;
-    while(i < lines.length){
-      const line = lines[i].trim();
-      if(line.includes(':') && !line.includes('•')){
-        const [title, ...rest] = line.split(':');
-        html += `<div class="modal-subsection"><div class="modal-subsection-title">${title.trim()}:</div><div class="modal-subsection-content">${rest.join(':').trim()}</div></div>`;
-      } else if(line.startsWith('•')){
-        html += `<div style="margin-left:12px;margin-bottom:8px;color:var(--dim);font-size:.88rem;line-height:1.8;">${line.substring(1).trim()}</div>`;
-      }
-      i++;
-    }
-    return html;
-  };
-
-  return `
-    <div class="modal-section">
-      <div class="modal-section-title">🎯 EL RETO</div>
-      ${formatSection(reto)}
-    </div>
-    <div class="modal-section">
-      <div class="modal-section-title">🛠️ LA SOLUCIÓN</div>
-      ${formatSection(solucion)}
-    </div>
-    <div class="modal-section">
-      <div class="modal-section-title">📊 EL IMPACTO</div>
-      ${formatSection(impacto)}
-    </div>
-  `;
+  let html = desc;
+  html = html.replace(/🎯 EL RETO/g, '<div class="modal-section-title">🎯 EL RETO</div><div class="modal-section-content">');
+  html = html.replace(/🛠️ LA SOLUCIÓN/g, '</div></div><div class="modal-section"><div class="modal-section-title">🛠️ LA SOLUCIÓN</div><div class="modal-section-content">');
+  html = html.replace(/📊 EL IMPACTO/g, '</div></div><div class="modal-section"><div class="modal-section-title">📊 EL IMPACTO</div><div class="modal-section-content">');
+  html += '</div></div>';
+  html = html.replace(/\n/g, '<br>');
+  html = html.replace(/• /g, '<span style="margin-left:12px;display:block;margin-bottom:8px;">• </span>');
+  return html;
 }
 
 function openModal(idx){

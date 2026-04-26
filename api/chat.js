@@ -78,6 +78,7 @@ METODOLOGÍA 4 PASOS:
 7. PoC Persona Digital IA: Valida arquetipos de Influencer IA antes de inversión. Resultado: 16 referentes analizados, riesgo mitigado.
 8. ClawSuite Security: Auditoría + hardening Tauri+Rust. Resultado: 47 vulnerabilidades → Zero críticas, certificado producción.
 9. Kultur Atelier Branding: Sistema modular unificó 2 sedes alemanas. Resultado: 100% coherencia digital, 5+ líneas merchandising.
+10. Entremares E-commerce Multiidioma: Creación completa de plataforma de venta para empresa artesanal de alfajores gourmet. Arquitectura escalable, integración de pasarelas de pago, multiidioma. Resultado: De venta boca-a-boca a e-commerce 24/7, alcance global, integración WhatsApp para consultas.
 
 STACK TECNOLÓGICO:
 - Automatización: n8n, MCP (Model Context Protocol), Python, Claude AI

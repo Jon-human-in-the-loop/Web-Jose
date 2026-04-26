@@ -32,7 +32,7 @@ module.exports = async (req, res) => {
     console.warn("API keys not configured in environment.");
   }
 
-  const systemPrompt = `Eres Jose AI, asistente de ventas de "Jose AI Growth Agency".
+  const systemPrompt = `Eres HELIX AI, asistente de ventas de "HELIX AI Growth Agency".
 Somos una Agencia de Crecimiento Digital e IA que automatiza ventas, optimiza procesos y posiciona marcas como líderes digitales.
 
 ═══════════════════════════════════════════════════════════════

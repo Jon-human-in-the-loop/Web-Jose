@@ -57,7 +57,7 @@ h1.port-title em{font-style:normal;color:var(--accent);}
 .card-tags{display:flex;gap:8px;flex-wrap:wrap;}
 .card-tag-item{font-size:.72rem;padding:4px 10px;border:1px solid var(--border);border-radius:2px;color:var(--dim);}
 .card-img{width:100%;aspect-ratio:16/9;background:var(--surface);border-radius:4px;margin-bottom:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
-.card-img img{width:100%;height:100%;object-fit:cover;}
+.card-img img{width:100%;height:100%;object-fit:contain;}
 .card-img .img-placeholder{font-size:.75rem;color:#333;letter-spacing:2px;text-transform:uppercase;}
 .card-meta{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
 .card-year{font-size:.75rem;color:var(--dim);}
@@ -240,7 +240,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
   <!-- PROYECTO 8 — ClawSuite Security -->
   <div class="port-card fi" data-category="web" onclick="openModal(7)">
     <div class="card-tag" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</div>
-    <div class="card-img"><img src="/images/09-kultur-atelier.webp" alt="ClawSuite Security"/></div>
+    <div class="card-img"><span class="img-placeholder" data-es="Imagen del proyecto" data-en="Project Image">Imagen del proyecto</span></div>
     <div class="card-title" data-es="ClawSuite: Security Audit & Hardening" data-en="ClawSuite: Security Audit & Hardening">ClawSuite: Security Audit & Hardening</div>
     <div class="card-desc" data-es="Auditoría forense y blindaje de plataforma IA local usando Tauri + Rust con Sandboxing, PBKDF encryption y mitigación de RCE." data-en="Forensic audit and hardening of local AI platform using Tauri + Rust with Sandboxing, PBKDF encryption and RCE mitigation.">Auditoría forense y blindaje de plataforma IA local usando Tauri + Rust con Sandboxing, PBKDF encryption y mitigación de RCE.</div>
     <div class="card-tags"><span class="card-tag-item">Tauri</span><span class="card-tag-item">Rust</span><span class="card-tag-item">Sandboxing</span><span class="card-tag-item">PBKDF</span></div>

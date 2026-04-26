@@ -42,7 +42,7 @@ h1.port-title em{font-style:normal;color:var(--accent);}
 /* GRID */
 .port-grid{padding:60px 48px 120px;display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1px;background:var(--border);}
 .port-card{background:var(--bg);padding:48px 40px;transition:background .3s,transform .3s,box-shadow .3s;cursor:pointer;position:relative;overflow:hidden;}
-.port-card:hover{background:var(--surface);transform:translateY(-4px);box-shadow:0 16px 32px rgba(232,255,71,.12);}
+.port-card:hover{background:transparent;transform:translateY(-4px);box-shadow:0 16px 32px rgba(232,255,71,.12);}
 .port-card::after{content:'↗';position:absolute;top:40px;right:40px;font-size:1.2rem;color:var(--dim);transition:color .3s,transform .3s;}
 .port-card:hover::after{color:var(--accent);transform:translate(3px,-3px);}
 
@@ -56,7 +56,7 @@ h1.port-title em{font-style:normal;color:var(--accent);}
 .card-desc{font-size:.88rem;color:var(--dim);line-height:1.8;margin-bottom:28px;}
 .card-tags{display:flex;gap:8px;flex-wrap:wrap;}
 .card-tag-item{font-size:.72rem;padding:4px 10px;border:1px solid var(--border);border-radius:2px;color:var(--dim);}
-.card-img{width:100%;aspect-ratio:16/9;background:var(--surface);border-radius:4px;margin-bottom:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
+.card-img{width:100%;aspect-ratio:16/9;background:transparent;border-radius:4px;margin-bottom:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
 .card-img img{width:100%;height:100%;object-fit:contain;}
 .card-img .img-placeholder{font-size:.75rem;color:#333;letter-spacing:2px;text-transform:uppercase;}
 .card-meta{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);}
@@ -70,7 +70,7 @@ h1.port-title em{font-style:normal;color:var(--accent);}
 .add-project p{color:var(--dim);font-size:.9rem;margin-top:8px;}
 
 /* FOOTER */
-footer{background:var(--surface);border-top:1px solid var(--border);padding:40px 48px;}
+footer{background:transparent;border-top:1px solid var(--border);padding:40px 48px;}
 .f-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
 .f-copy{font-size:.75rem;color:#444;}
 .f-links{display:flex;gap:24px;}
@@ -85,10 +85,10 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 .modal-close:hover{color:#f2f2f2;}
 .modal h2{font-size:1.8rem;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;}
 .modal-cat{font-size:.7rem;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;}
-.modal-img{width:100%;aspect-ratio:16/9;background:var(--surface);border-radius:4px;margin-bottom:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
+.modal-img{width:100%;aspect-ratio:16/9;background:transparent;border-radius:4px;margin-bottom:28px;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
 .modal-img img{width:100%;height:100%;object-fit:contain;}
 .modal-body{color:var(--dim);font-size:.92rem;line-height:1.9;margin-bottom:24px;}
-.modal-section{margin-bottom:28px;padding:20px;background:var(--surface);border-left:3px solid var(--accent);border-radius:4px;}
+.modal-section{margin-bottom:28px;padding:20px;background:transparent;border-left:3px solid var(--accent);border-radius:4px;}
 .modal-section-title{color:var(--accent);font-size:1rem;font-weight:800;margin-bottom:8px;letter-spacing:.5px;}
 .modal-section-content{color:var(--dim);font-size:.92rem;line-height:1.9;}
 .modal-section-content span[style*="margin-left"]{color:var(--dim)!important;font-size:.92rem!important;line-height:1.8!important;margin-bottom:12px!important;display:block!important;margin-left:20px!important;position:relative!important;padding-left:8px!important;}
@@ -138,7 +138,7 @@ footer{background:var(--surface);border-top:1px solid var(--border);padding:40px
 <nav>
   <a class="nav-logo" href="index.html">JOSE <em>·</em> AI</a>
   <div class="nav-right">
-    <div class="lang-sw" style="display:flex;background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;">
+    <div class="lang-sw" style="display:flex;background:transparent;border:1px solid var(--border);border-radius:4px;overflow:hidden;">
       <button class="on" onclick="setLang('es')" style="padding:6px 14px;font-size:.75rem;font-weight:700;letter-spacing:1px;background:var(--accent);border:none;color:#080808;cursor:pointer;transition:all .2s;">ES</button>
       <button onclick="setLang('en')" style="padding:6px 14px;font-size:.75rem;font-weight:700;letter-spacing:1px;background:none;border:none;color:var(--dim);cursor:pointer;transition:all .2s;">EN</button>
     </div>

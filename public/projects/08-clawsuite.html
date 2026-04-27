@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClawSuite: Security Audit & Hardening | HELIX AI Growth Agency</title>
+  <meta name="description" content="🎯 EL RETO
+
+Contexto & Situación Inicial:
+Una empresa desarrolladora de plataforma de agentes IA local enfrentaba un problema crítico: su aplicación de escritor...">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:#080808;color:#f2f2f2;font-family:'Inter Tight',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;}
+    :root{--accent:#e8ff47;--dim:#888;--border:#1e1e1e;--surface:#111;--bg:#080808;}
+    ::-webkit-scrollbar{width:4px;}
+    ::-webkit-scrollbar-thumb{background:#333;}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(16px);}
+    .nav-logo{font-size:.8rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#f2f2f2;text-decoration:none;cursor:pointer;}
+    .nav-logo em{color:var(--accent);font-style:normal;}
+    .nav-right{display:flex;align-items:center;gap:16px;}
+    .lang-sw{display:flex;background:transparent;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+    .lang-sw button{padding:6px 14px;font-size:.75rem;font-weight:700;letter-spacing:1px;background:none;border:none;color:var(--dim);cursor:pointer;transition:all .2s;}
+    .lang-sw button.on{background:var(--accent);color:#080808;}
+    .btn-back{padding:9px 20px;background:none;border:1px solid var(--border);border-radius:4px;color:var(--dim);font-size:.8rem;font-weight:600;text-decoration:none;transition:all .2s;}
+    .btn-back:hover{color:#f2f2f2;border-color:#444;}
+    .btn-cta{padding:9px 20px;background:var(--accent);color:#080808;border:none;border-radius:4px;font-size:.8rem;font-weight:800;text-decoration:none;transition:background .2s;white-space:nowrap;cursor:pointer;}
+    .btn-cta:hover{background:#fff;}
+
+    /* CASE STUDY STYLING */
+    .case-hero{padding:120px 48px 80px;border-bottom:1px solid var(--border);}
+    .case-hero h1{font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.95;letter-spacing:-3px;margin-bottom:24px;color:#f2f2f2;}
+    .case-hero .subtitle{font-size:1.2rem;color:var(--dim);line-height:1.6;max-width:600px;margin-bottom:32px;}
+    .hero-meta{display:flex;gap:24px;color:var(--dim);font-size:.9rem;}
+    .hero-meta span{display:flex;align-items:center;gap:8px;}
+
+    /* CHALLENGE SECTION */
+    .case-challenge{padding:80px 48px;border-bottom:1px solid var(--border);}
+    .case-challenge h2,.case-solution h2,.case-results h2,.case-cta h2{font-size:2rem;font-weight:900;letter-spacing:-1px;margin-bottom:32px;color:#f2f2f2;}
+    .case-challenge h2 em{color:var(--accent);font-style:normal;}
+    .case-challenge > p{color:var(--dim);font-size:1rem;line-height:1.9;margin-bottom:48px;max-width:800px;white-space:pre-wrap;}
+    .challenge-sidebar{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;padding:40px;background:transparent;border-left:3px solid var(--accent);border-radius:4px;}
+    .metric{padding:20px;}
+    .metric .n{font-size:2rem;font-weight:900;color:var(--accent);}
+    .metric .t{font-size:.75rem;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:8px;}
+
+    /* SOLUTION SECTION */
+    .case-solution{padding:80px 48px;border-bottom:1px solid var(--border);}
+    .case-solution > p{color:var(--dim);font-size:1rem;line-height:1.9;margin-bottom:40px;max-width:800px;white-space:pre-wrap;}
+    .solution-stack{display:flex;gap:12px;flex-wrap:wrap;}
+    .solution-stack span{font-size:.8rem;padding:8px 16px;border:1px solid var(--border);border-radius:4px;color:var(--dim);transition:all .2s;}
+    .solution-stack span:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* RESULTS SECTION */
+    .case-results{padding:80px 48px;border-bottom:1px solid var(--border);}
+    .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;margin-top:40px;}
+    .result-card{padding:32px;border:1px solid var(--border);border-radius:4px;transition:all .3s;}
+    .result-card:hover{border-color:var(--accent);background:rgba(232,255,71,.05);}
+    .result-card .n{font-size:2.5rem;font-weight:900;color:var(--accent);margin-bottom:8px;}
+    .result-card .t{font-size:.9rem;color:var(--dim);}
+
+    /* CTA SECTION */
+    .case-cta{padding:80px 48px;text-align:center;border-bottom:1px solid var(--border);}
+    .case-cta p{font-size:1.1rem;color:var(--dim);margin:16px 0 40px;}
+    .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px;}
+    .btn-ghost{padding:12px 28px;background:none;border:1px solid var(--border);border-radius:4px;color:var(--dim);font-size:.9rem;font-weight:700;text-decoration:none;cursor:pointer;transition:all .2s;}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* FOOTER */
+    footer{background:transparent;border-top:1px solid var(--border);padding:40px 48px;}
+    .f-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+    .f-copy{font-size:.75rem;color:#444;}
+    .f-links{display:flex;gap:24px;}
+    .f-links a{font-size:.8rem;color:var(--dim);text-decoration:none;transition:color .2s;}
+    .f-links a:hover{color:#f2f2f2;}
+
+    @media(max-width:768px){
+      nav{padding:0 24px;}
+      .case-hero,.case-challenge,.case-solution,.case-results,.case-cta,footer{padding-left:24px;padding-right:24px;}
+      .case-hero h1{font-size:2rem;}
+      .challenge-sidebar,.results-grid{grid-template-columns:1fr;}
+      .cta-buttons{flex-direction:column;align-items:center;}
+      .cta-buttons .btn-cta,.cta-buttons .btn-ghost{width:100%;}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="../../index.html">HELIX <em>·</em> AI</a>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <button class="on" onclick="setLang('es')">ES</button>
+        <button class="" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="btn-back" href="../../index.html" data-es="← Volver al inicio" data-en="← Back to home" data-pt="← Voltar ao início">
+        ← Volver al inicio
+      </a>
+      <a class="btn-cta" href="../../index.html#contacto" data-es="Solicitar Auditoría" data-en="Request Audit" data-pt="Solicitar Auditoria">
+        Solicitar Auditoría
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="case-hero">
+    <h1>ClawSuite: Security Audit & Hardening</h1>
+    <p class="subtitle" data-es="ClawSuite: Security Audit & Hardening" data-en="ClawSuite: Security Audit & Hardening" data-pt="ClawSuite: Security Audit & Hardening">ClawSuite: Security Audit & Hardening</p>
+    <div class="hero-meta">
+      <span data-es="Desarrollo Web" data-en="Desarrollo Web" data-pt="Desarrollo Web">Desarrollo Web</span>
+      <span>2026</span>
+    </div>
+  </section>
+
+  <!-- CHALLENGE -->
+  <section class="case-challenge">
+    <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
+    <p data-es="🎯 EL RETO  Contexto & Situación Inicial: Una empresa desarrolladora de plataforma de agentes IA local enfrentaba un problema crítico: su aplicación de escritorio (construida en Electron) permitía que atacantes ejecutaran código remoto (RCE) a través de directorios accesibles.  El Problema Crítico: Una auditoría externa identificó 47 vulnerabilidades críticas: ReDoS (Regular Expression Denial of Service), acceso irrestricto al filesystem, protecciones débiles contra CSRF, y múltiples vectores de ataque que podían comprometer sistemas de clientes. El cliente no podía desplegar en producción.  Limitaciones Existentes: Arquitectura heredada de Electron con capas defensivas &quot;agregadas después&quot;. Cada nueva feature era un riesgo de inyección. Vulnerabilidades parqueadas pero no eliminadas en raíz.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Fundamental: rediseñar la arquitectura con &quot;Security-by-Default&quot;, no parchar vulnerabilidades después del hecho. Imposibilitar el ataque a nivel arquitectónico.  Arquitectura & Tecnología: Migración de Electron a Tauri usando Rust para toda lógica crítica. Tauri aisla de forma nativa el acceso al filesystem mediante Sandboxing estricto: cada proceso corre en contexto restringido con permisos explícitos. Validación de doble capa contra CSRF: tokens únicos por sesión + confirmación adicional en operaciones sensibles. Encriptación PBKDF2 con salts aleatorios para identidades.  Características Clave Implementadas: • Sandboxing absoluto del filesystem (acceso restringido por defecto) • Eliminación de todas las ReDoS vulnerables (reemplazo con parsers deterministas) • PBKDF encryption con salts únicos (imposible forzar con diccionario) • CSRF double-validation en operaciones críticas • Zero RCE attack vectors en arquitectura  📊 EL IMPACTO  Resultados Medibles: De 47 vulnerabilidades a Zero críticas | Zero high-risk issues | Auditoría final: certificada para producción  Beneficios Operacionales: Cada vector de ataque contemporáneo está bloqueado en la arquitectura misma, no en capas de defensa agregadas. Interfaz más fluida porque se eliminaron cuellos de botella asíncronos durante el hardening. Security team puede enfocarse en amenazas estratégicas.  Transformación del Negocio: De &quot;vulnerable a producción&quot; a &quot;defensive shield completo&quot;. Clientes pueden desplegar con confianza absoluta. La plataforma IA es segura por construcción, no por remendos." data-en="🎯 EL RETO  Contexto & Situación Inicial: Una empresa desarrolladora de plataforma de agentes IA local enfrentaba un problema crítico: su aplicación de escritorio (construida en Electron) permitía que atacantes ejecutaran código remoto (RCE) a través de directorios accesibles.  El Problema Crítico: Una auditoría externa identificó 47 vulnerabilidades críticas: ReDoS (Regular Expression Denial of Service), acceso irrestricto al filesystem, protecciones débiles contra CSRF, y múltiples vectores de ataque que podían comprometer sistemas de clientes. El cliente no podía desplegar en producción.  Limitaciones Existentes: Arquitectura heredada de Electron con capas defensivas &quot;agregadas después&quot;. Cada nueva feature era un riesgo de inyección. Vulnerabilidades parqueadas pero no eliminadas en raíz.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Fundamental: rediseñar la arquitectura con &quot;Security-by-Default&quot;, no parchar vulnerabilidades después del hecho. Imposibilitar el ataque a nivel arquitectónico.  Arquitectura & Tecnología: Migración de Electron a Tauri usando Rust para toda lógica crítica. Tauri aisla de forma nativa el acceso al filesystem mediante Sandboxing estricto: cada proceso corre en contexto restringido con permisos explícitos. Validación de doble capa contra CSRF: tokens únicos por sesión + confirmación adicional en operaciones sensibles. Encriptación PBKDF2 con salts aleatorios para identidades.  Características Clave Implementadas: • Sandboxing absoluto del filesystem (acceso restringido por defecto) • Eliminación de todas las ReDoS vulnerables (reemplazo con parsers deterministas) • PBKDF encryption con salts únicos (imposible forzar con diccionario) • CSRF double-validation en operaciones críticas • Zero RCE attack vectors en arquitectura  📊 EL IMPACTO  Resultados Medibles: De 47 vulnerabilidades a Zero críticas | Zero high-risk issues | Auditoría final: certificada para producción  Beneficios Operacionales: Cada vector de ataque contemporáneo está bloqueado en la arquitectura misma, no en capas de defensa agregadas. Interfaz más fluida porque se eliminaron cuellos de botella asíncronos durante el hardening. Security team puede enfocarse en amenazas estratégicas.  Transformación del Negocio: De &quot;vulnerable a producción&quot; a &quot;defensive shield completo&quot;. Clientes pueden desplegar con confianza absoluta. La plataforma IA es segura por construcción, no por remendos." data-pt="🎯 EL RETO  Contexto & Situación Inicial: Una empresa desarrolladora de plataforma de agentes IA local enfrentaba un problema crítico: su aplicación de escritorio (construida en Electron) permitía que atacantes ejecutaran código remoto (RCE) a través de directorios accesibles.  El Problema Crítico: Una auditoría externa identificó 47 vulnerabilidades críticas: ReDoS (Regular Expression Denial of Service), acceso irrestricto al filesystem, protecciones débiles contra CSRF, y múltiples vectores de ataque que podían comprometer sistemas de clientes. El cliente no podía desplegar en producción.  Limitaciones Existentes: Arquitectura heredada de Electron con capas defensivas &quot;agregadas después&quot;. Cada nueva feature era un riesgo de inyección. Vulnerabilidades parqueadas pero no eliminadas en raíz.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Fundamental: rediseñar la arquitectura con &quot;Security-by-Default&quot;, no parchar vulnerabilidades después del hecho. Imposibilitar el ataque a nivel arquitectónico.  Arquitectura & Tecnología: Migración de Electron a Tauri usando Rust para toda lógica crítica. Tauri aisla de forma nativa el acceso al filesystem mediante Sandboxing estricto: cada proceso corre en contexto restringido con permisos explícitos. Validación de doble capa contra CSRF: tokens únicos por sesión + confirmación adicional en operaciones sensibles. Encriptación PBKDF2 con salts aleatorios para identidades.  Características Clave Implementadas: • Sandboxing absoluto del filesystem (acceso restringido por defecto) • Eliminación de todas las ReDoS vulnerables (reemplazo con parsers deterministas) • PBKDF encryption con salts únicos (imposible forzar con diccionario) • CSRF double-validation en operaciones críticas • Zero RCE attack vectors en arquitectura  📊 EL IMPACTO  Resultados Medibles: De 47 vulnerabilidades a Zero críticas | Zero high-risk issues | Auditoría final: certificada para producción  Beneficios Operacionales: Cada vector de ataque contemporáneo está bloqueado en la arquitectura misma, no en capas de defensa agregadas. Interfaz más fluida porque se eliminaron cuellos de botella asíncronos durante el hardening. Security team puede enfocarse en amenazas estratégicas.  Transformación del Negocio: De &quot;vulnerable a producción&quot; a &quot;defensive shield completo&quot;. Clientes pueden desplegar con confianza absoluta. La plataforma IA es segura por construcción, no por remendos.">🎯 EL RETO
+
+Contexto & Situación Inicial:
+Una empresa desarrolladora de plataforma de agentes IA local enfrentaba un problema crítico: su aplicación de escritorio (construida en Electron) permitía que atacantes ejecutaran código remoto (RCE) a través de directorios accesibles.
+
+El Problema Crítico:
+Una auditoría externa identificó 47 vulnerabilidades críticas: ReDoS (Regular Expression Denial of Service), acceso irrestricto al filesystem, protecciones débiles contra CSRF, y múltiples vectores de ataque que podían comprometer sistemas de clientes. El cliente no podía desplegar en producción.
+
+Limitaciones Existentes:
+Arquitectura heredada de Electron con capas defensivas "agregadas después". Cada nueva feature era un riesgo de inyección. Vulnerabilidades parqueadas pero no eliminadas en raíz.
+
+🛠️ LA SOLUCIÓN
+
+El Enfoque Adoptado:
+Fundamental: rediseñar la arquitectura con "Security-by-Default", no parchar vulnerabilidades después del hecho. Imposibilitar el ataque a nivel arquitectónico.
+
+Arquitectura & Tecnología:
+Migración de Electron a Tauri usando Rust para toda lógica crítica. Tauri aisla de forma nativa el acceso al filesystem mediante Sandboxing estricto: cada proceso corre en contexto restringido con permisos explícitos. Validación de doble capa contra CSRF: tokens únicos por sesión + confirmación adicional en operaciones sensibles. Encriptación PBKDF2 con salts aleatorios para identidades.
+
+Características Clave Implementadas:
+• Sandboxing absoluto del filesystem (acceso restringido por defecto)
+• Eliminación de todas las ReDoS vulnerables (reemplazo con parsers deterministas)
+• PBKDF encryption con salts únicos (imposible forzar con diccionario)
+• CSRF double-validation en operaciones críticas
+• Zero RCE attack vectors en arquitectura
+
+📊 EL IMPACTO
+
+Resultados Medibles:
+De 47 vulnerabilidades a Zero críticas | Zero high-risk issues | Auditoría final: certificada para producción
+
+Beneficios Operacionales:
+Cada vector de ataque contemporáneo está bloqueado en la arquitectura misma, no en capas de defensa agregadas. Interfaz más fluida porque se eliminaron cuellos de botella asíncronos durante el hardening. Security team puede enfocarse en amenazas estratégicas.
+
+Transformación del Negocio:
+De "vulnerable a producción" a "defensive shield completo". Clientes pueden desplegar con confianza absoluta. La plataforma IA es segura por construcción, no por remendos.</p>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="case-solution">
+    <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
+    <p data-es="Stack tecnológico utilizado" data-en="Technology stack used" data-pt="Stack tecnológico utilizado">Stack tecnológico utilizado:</p>
+    <div class="solution-stack">
+      <span>Tauri</span><span>Rust</span><span>Sandboxing</span><span>PBKDF</span><span>CSRF Protection</span>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="case-results">
+    <h2 data-es="📊 Resultados" data-en="📊 Results" data-pt="📊 Resultados">📊 Resultados</h2>
+    <div class="results-grid">
+      <div class="result-card"><div class="n">Zero</div><div class="t" data-es="RCE vulnerabilidades" data-en="RCE vulnerabilidades" data-pt="RCE vulnerabilidades">RCE vulnerabilidades</div></div><div class="result-card"><div class="n">Sandboxing</div><div class="t" data-es="aislamiento total" data-en="aislamiento total" data-pt="aislamiento total">aislamiento total</div></div><div class="result-card"><div class="n">PBKDF</div><div class="t" data-es="encriptación identidades" data-en="encriptación identidades" data-pt="encriptación identidades">encriptación identidades</div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="case-cta">
+    <h2 data-es="¿Listo para tu proyecto?" data-en="Ready for your project?" data-pt="Pronto para seu projeto?">¿Listo para tu proyecto?</h2>
+    <div class="cta-buttons">
+      <a class="btn-cta" href="../../index.html#contacto" data-es="Solicitar Auditoría" data-en="Request Audit" data-pt="Solicitar Auditoria">Solicitar Auditoría</a>
+      <a class="btn-ghost" href="../../portfolio.html" data-es="Explorar más proyectos" data-en="Explore more projects" data-pt="Explorar mais projetos">Explorar más proyectos</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-bottom">
+      <span class="f-copy">© 2026 HELIX AI Growth Agency.</span>
+      <div class="f-links">
+        <a href="../../index.html" data-es="Inicio" data-en="Home" data-pt="Início">Inicio</a>
+        <a href="../../privacy.html" data-es="Privacidad" data-en="Privacy" data-pt="Privacidade">Privacidad</a>
+        <a href="../../terms.html" data-es="Términos" data-en="Terms" data-pt="Termos">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let lang = localStorage.getItem('lang') || 'es';
+    function setLang(l) {
+      lang = l;
+      localStorage.setItem('lang', l);
+      document.querySelectorAll('[data-es]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+      });
+      document.querySelectorAll('.lang-sw button').forEach((b, i) => {
+        b.classList.toggle('on', (i === 0 && l === 'es') || (i === 1 && l === 'en'));
+      });
+      document.documentElement.lang = l === 'es' ? 'es' : l === 'pt' ? 'pt' : 'en';
+    }
+    window.addEventListener('DOMContentLoaded', () => setLang(lang));
+  </script>
+</body>
+</html>

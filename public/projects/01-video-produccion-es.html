@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Producción de Video IA | HELIX AI Growth Agency</title>
+  <meta name="description" content="🎯 EL RETO
+
+Contexto & Situación Inicial:
+Una marca D2C con estrategia agresiva en redes sociales necesitaba escalar masivamente la producción de anuncios UGC (...">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:#080808;color:#f2f2f2;font-family:'Inter Tight',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;}
+    :root{--accent:#e8ff47;--dim:#888;--border:#1e1e1e;--surface:#111;--bg:#080808;}
+    ::-webkit-scrollbar{width:4px;}
+    ::-webkit-scrollbar-thumb{background:#333;}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(16px);}
+    .nav-logo{font-size:.8rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#f2f2f2;text-decoration:none;cursor:pointer;}
+    .nav-logo em{color:var(--accent);font-style:normal;}
+    .nav-right{display:flex;align-items:center;gap:16px;}
+    .lang-sw{display:flex;background:transparent;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+    .lang-sw button{padding:6px 14px;font-size:.75rem;font-weight:700;letter-spacing:1px;background:none;border:none;color:var(--dim);cursor:pointer;transition:all .2s;}
+    .lang-sw button.on{background:var(--accent);color:#080808;}
+    .btn-back{padding:9px 20px;background:none;border:1px solid var(--border);border-radius:4px;color:var(--dim);font-size:.8rem;font-weight:600;text-decoration:none;transition:all .2s;}
+    .btn-back:hover{color:#f2f2f2;border-color:#444;}
+    .btn-cta{padding:9px 20px;background:var(--accent);color:#080808;border:none;border-radius:4px;font-size:.8rem;font-weight:800;text-decoration:none;transition:background .2s;white-space:nowrap;cursor:pointer;}
+    .btn-cta:hover{background:#fff;}
+
+    /* CASE STUDY STYLING */
+    .case-hero{padding:120px 48px 80px;border-bottom:1px solid var(--border);}
+    .case-hero h1{font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:.95;letter-spacing:-3px;margin-bottom:24px;color:#f2f2f2;}
+    .case-hero .subtitle{font-size:1.2rem;color:var(--dim);line-height:1.6;max-width:600px;margin-bottom:32px;}
+    .hero-meta{display:flex;gap:24px;color:var(--dim);font-size:.9rem;}
+    .hero-meta span{display:flex;align-items:center;gap:8px;}
+
+    /* CHALLENGE SECTION */
+    .case-challenge{padding:80px 48px;border-bottom:1px solid var(--border);}
+    .case-challenge h2,.case-solution h2,.case-results h2,.case-cta h2{font-size:2rem;font-weight:900;letter-spacing:-1px;margin-bottom:32px;color:#f2f2f2;}
+    .case-challenge h2 em{color:var(--accent);font-style:normal;}
+    .case-challenge > p{color:var(--dim);font-size:1rem;line-height:1.9;margin-bottom:48px;max-width:800px;white-space:pre-wrap;}
+    .challenge-sidebar{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;padding:40px;background:transparent;border-left:3px solid var(--accent);border-radius:4px;}
+    .metric{padding:20px;}
+    .metric .n{font-size:2rem;font-weight:900;color:var(--accent);}
+    .metric .t{font-size:.75rem;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:8px;}
+
+    /* SOLUTION SECTION */
+    .case-solution{padding:80px 48px;border-bottom:1px solid var(--border);}
+    .case-solution > p{color:var(--dim);font-size:1rem;line-height:1.9;margin-bottom:40px;max-width:800px;white-space:pre-wrap;}
+    .solution-stack{display:flex;gap:12px;flex-wrap:wrap;}
+    .solution-stack span{font-size:.8rem;padding:8px 16px;border:1px solid var(--border);border-radius:4px;color:var(--dim);transition:all .2s;}
+    .solution-stack span:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* RESULTS SECTION */
+    .case-results{padding:80px 48px;border-bottom:1px solid var(--border);}
+    .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;margin-top:40px;}
+    .result-card{padding:32px;border:1px solid var(--border);border-radius:4px;transition:all .3s;}
+    .result-card:hover{border-color:var(--accent);background:rgba(232,255,71,.05);}
+    .result-card .n{font-size:2.5rem;font-weight:900;color:var(--accent);margin-bottom:8px;}
+    .result-card .t{font-size:.9rem;color:var(--dim);}
+
+    /* CTA SECTION */
+    .case-cta{padding:80px 48px;text-align:center;border-bottom:1px solid var(--border);}
+    .case-cta p{font-size:1.1rem;color:var(--dim);margin:16px 0 40px;}
+    .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px;}
+    .btn-ghost{padding:12px 28px;background:none;border:1px solid var(--border);border-radius:4px;color:var(--dim);font-size:.9rem;font-weight:700;text-decoration:none;cursor:pointer;transition:all .2s;}
+    .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* FOOTER */
+    footer{background:transparent;border-top:1px solid var(--border);padding:40px 48px;}
+    .f-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+    .f-copy{font-size:.75rem;color:#444;}
+    .f-links{display:flex;gap:24px;}
+    .f-links a{font-size:.8rem;color:var(--dim);text-decoration:none;transition:color .2s;}
+    .f-links a:hover{color:#f2f2f2;}
+
+    @media(max-width:768px){
+      nav{padding:0 24px;}
+      .case-hero,.case-challenge,.case-solution,.case-results,.case-cta,footer{padding-left:24px;padding-right:24px;}
+      .case-hero h1{font-size:2rem;}
+      .challenge-sidebar,.results-grid{grid-template-columns:1fr;}
+      .cta-buttons{flex-direction:column;align-items:center;}
+      .cta-buttons .btn-cta,.cta-buttons .btn-ghost{width:100%;}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="../../index.html">HELIX <em>·</em> AI</a>
+    <div class="nav-right">
+      <div class="lang-sw">
+        <button class="on" onclick="setLang('es')">ES</button>
+        <button class="" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="btn-back" href="../../index.html" data-es="← Volver al inicio" data-en="← Back to home" data-pt="← Voltar ao início">
+        ← Volver al inicio
+      </a>
+      <a class="btn-cta" href="../../index.html#contacto" data-es="Solicitar Auditoría" data-en="Request Audit" data-pt="Solicitar Auditoria">
+        Solicitar Auditoría
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="case-hero">
+    <h1>Sistema de Producción de Video IA</h1>
+    <p class="subtitle" data-es="Sistema de Producción de Video IA" data-en="AI Video Production System" data-pt="AI Video Production System">Sistema de Producción de Video IA</p>
+    <div class="hero-meta">
+      <span data-es="Automatización IA" data-en="Automatización IA" data-pt="Automatización IA">Automatización IA</span>
+      <span>2026</span>
+    </div>
+  </section>
+
+  <!-- CHALLENGE -->
+  <section class="case-challenge">
+    <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
+    <p data-es="🎯 EL RETO  Contexto & Situación Inicial: Una marca D2C con estrategia agresiva en redes sociales necesitaba escalar masivamente la producción de anuncios UGC (User Generated Content) pero enfrentaba un cuello de botella crítico que la paralizaba.  El Problema Crítico: Dependencia total de actores físicos, costos de producción dispares según región, ciclos de edición manual que tomaban 3-4 semanas por variación, y imposibilidad de iterar rápido sobre mensaje-audiencia.  Limitaciones Existentes: Cada nuevo segmento demográfico requería un nuevo set de filmación y talento. El costo de producir 10 variaciones de un mismo anuncio era prohibitivo. No había forma de testear rápidamente qué mensaje resonaba mejor.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Automatizar completamente el pipeline de producción usando orquestación de IA. Cada paso (tendencias → guión → avatar) ejecutarse sin intervención humana, permitiendo generar cientos de variaciones en paralelo.  Arquitectura & Tecnología: n8n orquesta el flujo completo. Pinecone (base de datos vectorial) almacena contexto de marca y tendencias usando RAG para extraer información relevante. Gemini 2.5 Flash genera guiones persuasivos en tiempo real. HeyGen API renderiza avatares digitales ultrarrealistas.  Características Clave Implementadas: • Pipeline completamente asincrónico (sin esperas de usuario) • Generación de variantes demográficas automáticas • Renderización de avatares con naturalidad de expresión • Entrega directa a cloud sin intervención  📊 EL IMPACTO  Resultados Medibles: −85% en costos de producción | 100+ variaciones por semana (vs. 2-3 antes) | Ciclo de 4 semanas → 4 horas  Beneficios Operacionales: Zero intervención humana después del setup inicial. El equipo creativo ahora dedica tiempo a estrategia en lugar de tareas repetitivas. Capacidad de responder a tendencias en horas.  Transformación del Negocio: La marca pasó de &quot;testeamos 3 anuncios al mes&quot; a &quot;probamos 50 variaciones por semana&quot;. Cada variante es una hipótesis. La retención de audiencia mejoró porque el contenido ahora es relevante a nivel micro-segmento." data-en="🎯 EL RETO  Contexto & Situación Inicial: Una marca D2C con estrategia agresiva en redes sociales necesitaba escalar masivamente la producción de anuncios UGC (User Generated Content) pero enfrentaba un cuello de botella crítico que la paralizaba.  El Problema Crítico: Dependencia total de actores físicos, costos de producción dispares según región, ciclos de edición manual que tomaban 3-4 semanas por variación, y imposibilidad de iterar rápido sobre mensaje-audiencia.  Limitaciones Existentes: Cada nuevo segmento demográfico requería un nuevo set de filmación y talento. El costo de producir 10 variaciones de un mismo anuncio era prohibitivo. No había forma de testear rápidamente qué mensaje resonaba mejor.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Automatizar completamente el pipeline de producción usando orquestación de IA. Cada paso (tendencias → guión → avatar) ejecutarse sin intervención humana, permitiendo generar cientos de variaciones en paralelo.  Arquitectura & Tecnología: n8n orquesta el flujo completo. Pinecone (base de datos vectorial) almacena contexto de marca y tendencias usando RAG para extraer información relevante. Gemini 2.5 Flash genera guiones persuasivos en tiempo real. HeyGen API renderiza avatares digitales ultrarrealistas.  Características Clave Implementadas: • Pipeline completamente asincrónico (sin esperas de usuario) • Generación de variantes demográficas automáticas • Renderización de avatares con naturalidad de expresión • Entrega directa a cloud sin intervención  📊 EL IMPACTO  Resultados Medibles: −85% en costos de producción | 100+ variaciones por semana (vs. 2-3 antes) | Ciclo de 4 semanas → 4 horas  Beneficios Operacionales: Zero intervención humana después del setup inicial. El equipo creativo ahora dedica tiempo a estrategia en lugar de tareas repetitivas. Capacidad de responder a tendencias en horas.  Transformación del Negocio: La marca pasó de &quot;testeamos 3 anuncios al mes&quot; a &quot;probamos 50 variaciones por semana&quot;. Cada variante es una hipótesis. La retención de audiencia mejoró porque el contenido ahora es relevante a nivel micro-segmento." data-pt="🎯 EL RETO  Contexto & Situación Inicial: Una marca D2C con estrategia agresiva en redes sociales necesitaba escalar masivamente la producción de anuncios UGC (User Generated Content) pero enfrentaba un cuello de botella crítico que la paralizaba.  El Problema Crítico: Dependencia total de actores físicos, costos de producción dispares según región, ciclos de edición manual que tomaban 3-4 semanas por variación, y imposibilidad de iterar rápido sobre mensaje-audiencia.  Limitaciones Existentes: Cada nuevo segmento demográfico requería un nuevo set de filmación y talento. El costo de producir 10 variaciones de un mismo anuncio era prohibitivo. No había forma de testear rápidamente qué mensaje resonaba mejor.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Automatizar completamente el pipeline de producción usando orquestación de IA. Cada paso (tendencias → guión → avatar) ejecutarse sin intervención humana, permitiendo generar cientos de variaciones en paralelo.  Arquitectura & Tecnología: n8n orquesta el flujo completo. Pinecone (base de datos vectorial) almacena contexto de marca y tendencias usando RAG para extraer información relevante. Gemini 2.5 Flash genera guiones persuasivos en tiempo real. HeyGen API renderiza avatares digitales ultrarrealistas.  Características Clave Implementadas: • Pipeline completamente asincrónico (sin esperas de usuario) • Generación de variantes demográficas automáticas • Renderización de avatares con naturalidad de expresión • Entrega directa a cloud sin intervención  📊 EL IMPACTO  Resultados Medibles: −85% en costos de producción | 100+ variaciones por semana (vs. 2-3 antes) | Ciclo de 4 semanas → 4 horas  Beneficios Operacionales: Zero intervención humana después del setup inicial. El equipo creativo ahora dedica tiempo a estrategia en lugar de tareas repetitivas. Capacidad de responder a tendencias en horas.  Transformación del Negocio: La marca pasó de &quot;testeamos 3 anuncios al mes&quot; a &quot;probamos 50 variaciones por semana&quot;. Cada variante es una hipótesis. La retención de audiencia mejoró porque el contenido ahora es relevante a nivel micro-segmento.">🎯 EL RETO
+
+Contexto & Situación Inicial:
+Una marca D2C con estrategia agresiva en redes sociales necesitaba escalar masivamente la producción de anuncios UGC (User Generated Content) pero enfrentaba un cuello de botella crítico que la paralizaba.
+
+El Problema Crítico:
+Dependencia total de actores físicos, costos de producción dispares según región, ciclos de edición manual que tomaban 3-4 semanas por variación, y imposibilidad de iterar rápido sobre mensaje-audiencia.
+
+Limitaciones Existentes:
+Cada nuevo segmento demográfico requería un nuevo set de filmación y talento. El costo de producir 10 variaciones de un mismo anuncio era prohibitivo. No había forma de testear rápidamente qué mensaje resonaba mejor.
+
+🛠️ LA SOLUCIÓN
+
+El Enfoque Adoptado:
+Automatizar completamente el pipeline de producción usando orquestación de IA. Cada paso (tendencias → guión → avatar) ejecutarse sin intervención humana, permitiendo generar cientos de variaciones en paralelo.
+
+Arquitectura & Tecnología:
+n8n orquesta el flujo completo. Pinecone (base de datos vectorial) almacena contexto de marca y tendencias usando RAG para extraer información relevante. Gemini 2.5 Flash genera guiones persuasivos en tiempo real. HeyGen API renderiza avatares digitales ultrarrealistas.
+
+Características Clave Implementadas:
+• Pipeline completamente asincrónico (sin esperas de usuario)
+• Generación de variantes demográficas automáticas
+• Renderización de avatares con naturalidad de expresión
+• Entrega directa a cloud sin intervención
+
+📊 EL IMPACTO
+
+Resultados Medibles:
+−85% en costos de producción | 100+ variaciones por semana (vs. 2-3 antes) | Ciclo de 4 semanas → 4 horas
+
+Beneficios Operacionales:
+Zero intervención humana después del setup inicial. El equipo creativo ahora dedica tiempo a estrategia en lugar de tareas repetitivas. Capacidad de responder a tendencias en horas.
+
+Transformación del Negocio:
+La marca pasó de "testeamos 3 anuncios al mes" a "probamos 50 variaciones por semana". Cada variante es una hipótesis. La retención de audiencia mejoró porque el contenido ahora es relevante a nivel micro-segmento.</p>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="case-solution">
+    <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
+    <p data-es="Stack tecnológico utilizado" data-en="Technology stack used" data-pt="Stack tecnológico utilizado">Stack tecnológico utilizado:</p>
+    <div class="solution-stack">
+      <span>n8n</span><span>Pinecone</span><span>Gemini 2.5 Flash</span><span>HeyGen API</span><span>RAG</span>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="case-results">
+    <h2 data-es="📊 Resultados" data-en="📊 Results" data-pt="📊 Resultados">📊 Resultados</h2>
+    <div class="results-grid">
+      <div class="result-card"><div class="n">−85%</div><div class="t" data-es="costos de producción" data-en="costos de producción" data-pt="costos de producción">costos de producción</div></div><div class="result-card"><div class="n">Zero-Touch</div><div class="t" data-es="sin intervención humana" data-en="sin intervención humana" data-pt="sin intervención humana">sin intervención humana</div></div><div class="result-card"><div class="n">100%</div><div class="t" data-es="automatizado" data-en="automatizado" data-pt="automatizado">automatizado</div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="case-cta">
+    <h2 data-es="¿Listo para tu proyecto?" data-en="Ready for your project?" data-pt="Pronto para seu projeto?">¿Listo para tu proyecto?</h2>
+    <div class="cta-buttons">
+      <a class="btn-cta" href="../../index.html#contacto" data-es="Solicitar Auditoría" data-en="Request Audit" data-pt="Solicitar Auditoria">Solicitar Auditoría</a>
+      <a class="btn-ghost" href="../../portfolio.html" data-es="Explorar más proyectos" data-en="Explore more projects" data-pt="Explorar mais projetos">Explorar más proyectos</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-bottom">
+      <span class="f-copy">© 2026 HELIX AI Growth Agency.</span>
+      <div class="f-links">
+        <a href="../../index.html" data-es="Inicio" data-en="Home" data-pt="Início">Inicio</a>
+        <a href="../../privacy.html" data-es="Privacidad" data-en="Privacy" data-pt="Privacidade">Privacidad</a>
+        <a href="../../terms.html" data-es="Términos" data-en="Terms" data-pt="Termos">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let lang = localStorage.getItem('lang') || 'es';
+    function setLang(l) {
+      lang = l;
+      localStorage.setItem('lang', l);
+      document.querySelectorAll('[data-es]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+      });
+      document.querySelectorAll('.lang-sw button').forEach((b, i) => {
+        b.classList.toggle('on', (i === 0 && l === 'es') || (i === 1 && l === 'en'));
+      });
+      document.documentElement.lang = l === 'es' ? 'es' : l === 'pt' ? 'pt' : 'en';
+    }
+    window.addEventListener('DOMContentLoaded', () => setLang(lang));
+  </script>
+</body>
+</html>

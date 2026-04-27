@@ -41,28 +41,33 @@ Una marca EdTech/STEM planeaba crear un Influencer Virtual (Avatar IA) para cone
 
     /* CHALLENGE SECTION */
     .case-challenge{padding:80px 48px;border-bottom:1px solid var(--border);}
-    .case-challenge h2,.case-solution h2,.case-results h2,.case-cta h2{font-size:2rem;font-weight:900;letter-spacing:-1px;margin-bottom:32px;color:#f2f2f2;}
-    .case-challenge h2 em{color:var(--accent);font-style:normal;}
-    .case-challenge > p{color:var(--dim);font-size:1rem;line-height:1.9;margin-bottom:48px;max-width:800px;white-space:pre-wrap;}
-    .challenge-sidebar{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;padding:40px;background:transparent;border-left:3px solid var(--accent);border-radius:4px;}
-    .metric{padding:20px;}
-    .metric .n{font-size:2rem;font-weight:900;color:var(--accent);}
-    .metric .t{font-size:.75rem;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:8px;}
+    .case-challenge h2{font-size:2.5rem;font-weight:900;letter-spacing:-1px;margin-bottom:48px;color:#f2f2f2;}
+    .case-challenge-content{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+    .case-challenge-text{max-width:500px;}
+    .case-challenge-text p{color:var(--dim);font-size:1rem;line-height:1.8;margin-bottom:24px;}
+    .metrics-grid{display:grid;gap:24px;}
+    .metric-box{padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:6px;transition:all .3s;}
+    .metric-box:hover{border-color:var(--accent);background:rgba(232,255,71,.02);}
+    .metric-box .n{font-size:2.2rem;font-weight:900;color:var(--accent);margin-bottom:8px;}
+    .metric-box .t{font-size:.85rem;color:var(--dim);line-height:1.5;}
 
     /* SOLUTION SECTION */
     .case-solution{padding:80px 48px;border-bottom:1px solid var(--border);}
-    .case-solution > p{color:var(--dim);font-size:1rem;line-height:1.9;margin-bottom:40px;max-width:800px;white-space:pre-wrap;}
-    .solution-stack{display:flex;gap:12px;flex-wrap:wrap;}
-    .solution-stack span{font-size:.8rem;padding:8px 16px;border:1px solid var(--border);border-radius:4px;color:var(--dim);transition:all .2s;}
-    .solution-stack span:hover{border-color:var(--accent);color:var(--accent);}
+    .case-solution h2{font-size:2.5rem;font-weight:900;letter-spacing:-1px;margin-bottom:48px;color:#f2f2f2;}
+    .case-solution h3{font-size:1.3rem;font-weight:700;margin-bottom:32px;color:#f2f2f2;}
+    .solution-text{max-width:800px;margin-bottom:48px;color:var(--dim);font-size:1rem;line-height:1.8;}
+    .solution-stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;}
+    .solution-stack span{font-size:.85rem;padding:12px 16px;border:1px solid var(--border);border-radius:6px;color:var(--dim);text-align:center;transition:all .2s;background:var(--surface);}
+    .solution-stack span:hover{border-color:var(--accent);color:var(--accent);background:rgba(232,255,71,.05);}
 
     /* RESULTS SECTION */
     .case-results{padding:80px 48px;border-bottom:1px solid var(--border);}
-    .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;margin-top:40px;}
-    .result-card{padding:32px;border:1px solid var(--border);border-radius:4px;transition:all .3s;}
-    .result-card:hover{border-color:var(--accent);background:rgba(232,255,71,.05);}
-    .result-card .n{font-size:2.5rem;font-weight:900;color:var(--accent);margin-bottom:8px;}
-    .result-card .t{font-size:.9rem;color:var(--dim);}
+    .case-results h2{font-size:2.5rem;font-weight:900;letter-spacing:-1px;margin-bottom:48px;color:#f2f2f2;}
+    .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;margin-top:48px;}
+    .result-card{padding:40px;background:var(--surface);border:1px solid var(--border);border-radius:6px;transition:all .3s;text-center;}
+    .result-card:hover{border-color:var(--accent);background:rgba(232,255,71,.05);transform:translateY(-4px);}
+    .result-card .n{font-size:3rem;font-weight:900;color:var(--accent);margin-bottom:16px;}
+    .result-card .t{font-size:1rem;color:#f2f2f2;font-weight:600;line-height:1.6;}
 
     /* CTA SECTION */
     .case-cta{padding:80px 48px;text-align:center;border-bottom:1px solid var(--border);}
@@ -120,48 +125,33 @@ Una marca EdTech/STEM planeaba crear un Influencer Virtual (Avatar IA) para cone
   <!-- CHALLENGE -->
   <section class="case-challenge">
     <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
-    <p data-es="🎯 EL RETO  Contexto & Situación Inicial: Una marca EdTech/STEM planeaba crear un Influencer Virtual (Avatar IA) para conectar con audiencia de estudiantes y profesionales. Es una inversión de $500K+ en desarrollo full-stack. Pero tenía una pregunta crítica sin responder: ¿cuál es la personalidad que realmente genera retención?  El Problema Crítico: Tenían hipótesis: &quot;quizás los estudiantes prefieren un tono relajado&quot;. Pero eso es especulación. Invertir $500K basado en una hipótesis es catastrófico. El riesgo era lanzar un avatar que nadie quisiera seguir.  Limitaciones Existentes: No hay forma de validar &quot;personalidad&quot; sin datos reales. No conocían exactamente qué rasgos (tono, estética, valores expresados) resonaban con su audiencia específica.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Construir un laboratorio de investigación que validara cada dimensión de la persona digital ANTES de invertir en desarrollo full-stack.  Arquitectura & Tecnología: Dashboard interactivo de investigación Data-Driven conectado a base de datos curada (entrevistas con 100+ comunidad). Integración de Gemini API para procesar datos cualitativos en masa. Microservicio Flask con TTS para evaluar variaciones de voz sintética.  Características Clave Implementadas: • Análisis de 16 referentes humanos (líderes EdTech reconocidos) • Extracción de arquetipos de personalidad mediante Gemini • Análisis de patrones de lenguaje y triggers emocionales • Pruebas de síntesis de voz: generaba guión, lo vocalizaba, medía respuesta en usuarios reales • Sensibilidad: &quot;¿Qué tono genera más engagement? ¿Corporativo vs. Conversacional?&quot;  📊 EL IMPACTO  Resultados Medibles: 16 referentes analizados profundamente | Zero suposiciones de diseño (todo basado en datos) | Persona IA completamente validada  Beneficios Operacionales: Perfil exacto definido: &quot;Educadora accesible, tono conversacional NO corporativo, minimalista, valores: transparencia-curiosidad-comunidad&quot;. Esto se convirtió en briefing ejecutable para desarrollo. Cero ambigüedad.  Transformación del Negocio: Ese PoC mitigó completamente el riesgo financiero. La marca procedió a invertir $500K en Maia Kode (avatar final) con certeza de que estaba construyendo exactamente lo que su audiencia quería. El avatar se convirtió en mascota de la comunidad." data-en="🎯 EL RETO  Contexto & Situación Inicial: Una marca EdTech/STEM planeaba crear un Influencer Virtual (Avatar IA) para conectar con audiencia de estudiantes y profesionales. Es una inversión de $500K+ en desarrollo full-stack. Pero tenía una pregunta crítica sin responder: ¿cuál es la personalidad que realmente genera retención?  El Problema Crítico: Tenían hipótesis: &quot;quizás los estudiantes prefieren un tono relajado&quot;. Pero eso es especulación. Invertir $500K basado en una hipótesis es catastrófico. El riesgo era lanzar un avatar que nadie quisiera seguir.  Limitaciones Existentes: No hay forma de validar &quot;personalidad&quot; sin datos reales. No conocían exactamente qué rasgos (tono, estética, valores expresados) resonaban con su audiencia específica.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Construir un laboratorio de investigación que validara cada dimensión de la persona digital ANTES de invertir en desarrollo full-stack.  Arquitectura & Tecnología: Dashboard interactivo de investigación Data-Driven conectado a base de datos curada (entrevistas con 100+ comunidad). Integración de Gemini API para procesar datos cualitativos en masa. Microservicio Flask con TTS para evaluar variaciones de voz sintética.  Características Clave Implementadas: • Análisis de 16 referentes humanos (líderes EdTech reconocidos) • Extracción de arquetipos de personalidad mediante Gemini • Análisis de patrones de lenguaje y triggers emocionales • Pruebas de síntesis de voz: generaba guión, lo vocalizaba, medía respuesta en usuarios reales • Sensibilidad: &quot;¿Qué tono genera más engagement? ¿Corporativo vs. Conversacional?&quot;  📊 EL IMPACTO  Resultados Medibles: 16 referentes analizados profundamente | Zero suposiciones de diseño (todo basado en datos) | Persona IA completamente validada  Beneficios Operacionales: Perfil exacto definido: &quot;Educadora accesible, tono conversacional NO corporativo, minimalista, valores: transparencia-curiosidad-comunidad&quot;. Esto se convirtió en briefing ejecutable para desarrollo. Cero ambigüedad.  Transformación del Negocio: Ese PoC mitigó completamente el riesgo financiero. La marca procedió a invertir $500K en Maia Kode (avatar final) con certeza de que estaba construyendo exactamente lo que su audiencia quería. El avatar se convirtió en mascota de la comunidad." data-pt="🎯 EL RETO  Contexto & Situación Inicial: Una marca EdTech/STEM planeaba crear un Influencer Virtual (Avatar IA) para conectar con audiencia de estudiantes y profesionales. Es una inversión de $500K+ en desarrollo full-stack. Pero tenía una pregunta crítica sin responder: ¿cuál es la personalidad que realmente genera retención?  El Problema Crítico: Tenían hipótesis: &quot;quizás los estudiantes prefieren un tono relajado&quot;. Pero eso es especulación. Invertir $500K basado en una hipótesis es catastrófico. El riesgo era lanzar un avatar que nadie quisiera seguir.  Limitaciones Existentes: No hay forma de validar &quot;personalidad&quot; sin datos reales. No conocían exactamente qué rasgos (tono, estética, valores expresados) resonaban con su audiencia específica.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Construir un laboratorio de investigación que validara cada dimensión de la persona digital ANTES de invertir en desarrollo full-stack.  Arquitectura & Tecnología: Dashboard interactivo de investigación Data-Driven conectado a base de datos curada (entrevistas con 100+ comunidad). Integración de Gemini API para procesar datos cualitativos en masa. Microservicio Flask con TTS para evaluar variaciones de voz sintética.  Características Clave Implementadas: • Análisis de 16 referentes humanos (líderes EdTech reconocidos) • Extracción de arquetipos de personalidad mediante Gemini • Análisis de patrones de lenguaje y triggers emocionales • Pruebas de síntesis de voz: generaba guión, lo vocalizaba, medía respuesta en usuarios reales • Sensibilidad: &quot;¿Qué tono genera más engagement? ¿Corporativo vs. Conversacional?&quot;  📊 EL IMPACTO  Resultados Medibles: 16 referentes analizados profundamente | Zero suposiciones de diseño (todo basado en datos) | Persona IA completamente validada  Beneficios Operacionales: Perfil exacto definido: &quot;Educadora accesible, tono conversacional NO corporativo, minimalista, valores: transparencia-curiosidad-comunidad&quot;. Esto se convirtió en briefing ejecutable para desarrollo. Cero ambigüedad.  Transformación del Negocio: Ese PoC mitigó completamente el riesgo financiero. La marca procedió a invertir $500K en Maia Kode (avatar final) con certeza de que estaba construyendo exactamente lo que su audiencia quería. El avatar se convirtió en mascota de la comunidad.">🎯 EL RETO
-
-Contexto & Situación Inicial:
-Una marca EdTech/STEM planeaba crear un Influencer Virtual (Avatar IA) para conectar con audiencia de estudiantes y profesionales. Es una inversión de $500K+ en desarrollo full-stack. Pero tenía una pregunta crítica sin responder: ¿cuál es la personalidad que realmente genera retención?
-
-El Problema Crítico:
-Tenían hipótesis: "quizás los estudiantes prefieren un tono relajado". Pero eso es especulación. Invertir $500K basado en una hipótesis es catastrófico. El riesgo era lanzar un avatar que nadie quisiera seguir.
-
-Limitaciones Existentes:
-No hay forma de validar "personalidad" sin datos reales. No conocían exactamente qué rasgos (tono, estética, valores expresados) resonaban con su audiencia específica.
-
-🛠️ LA SOLUCIÓN
-
-El Enfoque Adoptado:
-Construir un laboratorio de investigación que validara cada dimensión de la persona digital ANTES de invertir en desarrollo full-stack.
-
-Arquitectura & Tecnología:
-Dashboard interactivo de investigación Data-Driven conectado a base de datos curada (entrevistas con 100+ comunidad). Integración de Gemini API para procesar datos cualitativos en masa. Microservicio Flask con TTS para evaluar variaciones de voz sintética.
-
-Características Clave Implementadas:
-• Análisis de 16 referentes humanos (líderes EdTech reconocidos)
-• Extracción de arquetipos de personalidad mediante Gemini
-• Análisis de patrones de lenguaje y triggers emocionales
-• Pruebas de síntesis de voz: generaba guión, lo vocalizaba, medía respuesta en usuarios reales
-• Sensibilidad: "¿Qué tono genera más engagement? ¿Corporativo vs. Conversacional?"
-
-📊 EL IMPACTO
-
-Resultados Medibles:
-16 referentes analizados profundamente | Zero suposiciones de diseño (todo basado en datos) | Persona IA completamente validada
-
-Beneficios Operacionales:
-Perfil exacto definido: "Educadora accesible, tono conversacional NO corporativo, minimalista, valores: transparencia-curiosidad-comunidad". Esto se convirtió en briefing ejecutable para desarrollo. Cero ambigüedad.
-
-Transformación del Negocio:
-Ese PoC mitigó completamente el riesgo financiero. La marca procedió a invertir $500K en Maia Kode (avatar final) con certeza de que estaba construyendo exactamente lo que su audiencia quería. El avatar se convirtió en mascota de la comunidad.</p>
+    <div class="case-challenge-content">
+      <div class="case-challenge-text">
+        <p>🎯 EL RETO</p>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <div class="n">16</div>
+          <div class="t">referentes analizados</div>
+        </div>
+        <div class="metric-box">
+          <div class="n">Zero</div>
+          <div class="t">suposiciones de diseño</div>
+        </div>
+        <div class="metric-box">
+          <div class="n">Persona IA</div>
+          <div class="t">validada</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- SOLUTION -->
   <section class="case-solution">
     <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
-    <p data-es="Stack tecnológico utilizado" data-en="Technology stack used" data-pt="Stack tecnológico utilizado">Stack tecnológico utilizado:</p>
+    <div class="solution-text">Contexto & Situación Inicial:
+Una marca EdTech/STEM planeaba crear un Influencer Virtual (Avatar IA) para conectar con audiencia de estudiantes y profesionales. Es una inversión de $500K+ en desarrollo full-stack. Pero tenía una pregunta crítica sin responder: ¿cuál es la personalidad que realmente genera retención?</div>
+    <h3 data-es="Stack Tecnológico" data-en="Technology Stack" data-pt="Stack Tecnológico">Stack Tecnológico</h3>
     <div class="solution-stack">
       <span>Gemini API</span><span>Python</span><span>Flask</span><span>TTS</span><span>LLM</span>
     </div>

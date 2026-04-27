@@ -41,28 +41,33 @@ Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de i
 
     /* CHALLENGE SECTION */
     .case-challenge{padding:80px 48px;border-bottom:1px solid var(--border);}
-    .case-challenge h2,.case-solution h2,.case-results h2,.case-cta h2{font-size:2rem;font-weight:900;letter-spacing:-1px;margin-bottom:32px;color:#f2f2f2;}
-    .case-challenge h2 em{color:var(--accent);font-style:normal;}
-    .case-challenge > p{color:var(--dim);font-size:1rem;line-height:1.9;margin-bottom:48px;max-width:800px;white-space:pre-wrap;}
-    .challenge-sidebar{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;padding:40px;background:transparent;border-left:3px solid var(--accent);border-radius:4px;}
-    .metric{padding:20px;}
-    .metric .n{font-size:2rem;font-weight:900;color:var(--accent);}
-    .metric .t{font-size:.75rem;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:8px;}
+    .case-challenge h2{font-size:2.5rem;font-weight:900;letter-spacing:-1px;margin-bottom:48px;color:#f2f2f2;}
+    .case-challenge-content{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+    .case-challenge-text{max-width:500px;}
+    .case-challenge-text p{color:var(--dim);font-size:1rem;line-height:1.8;margin-bottom:24px;}
+    .metrics-grid{display:grid;gap:24px;}
+    .metric-box{padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:6px;transition:all .3s;}
+    .metric-box:hover{border-color:var(--accent);background:rgba(232,255,71,.02);}
+    .metric-box .n{font-size:2.2rem;font-weight:900;color:var(--accent);margin-bottom:8px;}
+    .metric-box .t{font-size:.85rem;color:var(--dim);line-height:1.5;}
 
     /* SOLUTION SECTION */
     .case-solution{padding:80px 48px;border-bottom:1px solid var(--border);}
-    .case-solution > p{color:var(--dim);font-size:1rem;line-height:1.9;margin-bottom:40px;max-width:800px;white-space:pre-wrap;}
-    .solution-stack{display:flex;gap:12px;flex-wrap:wrap;}
-    .solution-stack span{font-size:.8rem;padding:8px 16px;border:1px solid var(--border);border-radius:4px;color:var(--dim);transition:all .2s;}
-    .solution-stack span:hover{border-color:var(--accent);color:var(--accent);}
+    .case-solution h2{font-size:2.5rem;font-weight:900;letter-spacing:-1px;margin-bottom:48px;color:#f2f2f2;}
+    .case-solution h3{font-size:1.3rem;font-weight:700;margin-bottom:32px;color:#f2f2f2;}
+    .solution-text{max-width:800px;margin-bottom:48px;color:var(--dim);font-size:1rem;line-height:1.8;}
+    .solution-stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;}
+    .solution-stack span{font-size:.85rem;padding:12px 16px;border:1px solid var(--border);border-radius:6px;color:var(--dim);text-align:center;transition:all .2s;background:var(--surface);}
+    .solution-stack span:hover{border-color:var(--accent);color:var(--accent);background:rgba(232,255,71,.05);}
 
     /* RESULTS SECTION */
     .case-results{padding:80px 48px;border-bottom:1px solid var(--border);}
-    .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;margin-top:40px;}
-    .result-card{padding:32px;border:1px solid var(--border);border-radius:4px;transition:all .3s;}
-    .result-card:hover{border-color:var(--accent);background:rgba(232,255,71,.05);}
-    .result-card .n{font-size:2.5rem;font-weight:900;color:var(--accent);margin-bottom:8px;}
-    .result-card .t{font-size:.9rem;color:var(--dim);}
+    .case-results h2{font-size:2.5rem;font-weight:900;letter-spacing:-1px;margin-bottom:48px;color:#f2f2f2;}
+    .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;margin-top:48px;}
+    .result-card{padding:40px;background:var(--surface);border:1px solid var(--border);border-radius:6px;transition:all .3s;text-center;}
+    .result-card:hover{border-color:var(--accent);background:rgba(232,255,71,.05);transform:translateY(-4px);}
+    .result-card .n{font-size:3rem;font-weight:900;color:var(--accent);margin-bottom:16px;}
+    .result-card .t{font-size:1rem;color:#f2f2f2;font-weight:600;line-height:1.6;}
 
     /* CTA SECTION */
     .case-cta{padding:80px 48px;text-align:center;border-bottom:1px solid var(--border);}
@@ -120,52 +125,33 @@ Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de i
   <!-- CHALLENGE -->
   <section class="case-challenge">
     <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
-    <p data-es="🎯 EL RETO  Contexto & Situación Inicial: Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de invertir millones, necesitaban validar si un modelo de negocio era viable. Pero tenían solo hojas de cálculo estáticas.  El Problema Crítico: Analistas usaban Excel para modelar financiero: &quot;Si nuestro CAC es $50 y LTV es $500, la TIR es 34%&quot;. Pero eso es UNA realidad. ¿Qué pasa si: - El CAC sube a $70 (competencia agresiva)? - El LTV cae a $400 (churn acelerado)? - El market timing se retrasa 6 meses? Cada escenario requería recalcular manualmente. Cambiar 5 variables y recomputar la TIR tomaba horas. VCs no podían explorar el &quot;espacio de soluciones&quot;.  Limitaciones Existentes: Excel no permite interactividad real. Un slider que cambies no recalcula automáticamente. Los análisis eran puntuales, no exploratorios.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Crear un simulador financiero interactivo donde cambiar una variable instantáneamente recalculase todos los resultados dependientes.  Arquitectura & Tecnología: Motor resolutivo en Vanilla JavaScript puro (sin frameworks pesados). Implementé algoritmos numéricos exactos: Newton-Raphson para calcular TIR con convergencia garantizada. Todo corre en el cliente (navegador), eliminando latencias de servidor.  Características Clave Implementadas: • Cálculos deterministas de VPN, TIR, Payback Period • Sliders interactivos: mueve CAC, recalcula TIR instantáneamente • Stress testing: reduce ingresos 40%, ve impacto en financieras • Sensibilidad: grafico automático mostrando &quot;qué variable es más crítica&quot; • Reportes PDF: exporta análisis con gráficos integrados (Chart.js)  📊 EL IMPACTO  Resultados Medibles: Analistas de días para modelar → 2 horas explorando 20+ escenarios | Zero latencia de servidor | Reportes certificables para auditorías  Beneficios Operacionales: VCs ahora pueden decir &quot;¿Qué pasa si el churn es 5% vs 8%?&quot; y ver respuesta instantáneamente. Cada stakeholder en una pitch room puede mover sliders y testear hipótesis. Decisiones más fundamentadas.  Transformación del Negocio: De &quot;modelar es trabajo de especialista&quot; a &quot;cualquiera con números básicos puede explorar viabilidad&quot;. VCs reducen tiempo de due diligence. Startups pueden auto-validar antes de buscar funding. Se democratizó el análisis financiero." data-en="🎯 EL RETO  Contexto & Situación Inicial: Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de invertir millones, necesitaban validar si un modelo de negocio era viable. Pero tenían solo hojas de cálculo estáticas.  El Problema Crítico: Analistas usaban Excel para modelar financiero: &quot;Si nuestro CAC es $50 y LTV es $500, la TIR es 34%&quot;. Pero eso es UNA realidad. ¿Qué pasa si: - El CAC sube a $70 (competencia agresiva)? - El LTV cae a $400 (churn acelerado)? - El market timing se retrasa 6 meses? Cada escenario requería recalcular manualmente. Cambiar 5 variables y recomputar la TIR tomaba horas. VCs no podían explorar el &quot;espacio de soluciones&quot;.  Limitaciones Existentes: Excel no permite interactividad real. Un slider que cambies no recalcula automáticamente. Los análisis eran puntuales, no exploratorios.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Crear un simulador financiero interactivo donde cambiar una variable instantáneamente recalculase todos los resultados dependientes.  Arquitectura & Tecnología: Motor resolutivo en Vanilla JavaScript puro (sin frameworks pesados). Implementé algoritmos numéricos exactos: Newton-Raphson para calcular TIR con convergencia garantizada. Todo corre en el cliente (navegador), eliminando latencias de servidor.  Características Clave Implementadas: • Cálculos deterministas de VPN, TIR, Payback Period • Sliders interactivos: mueve CAC, recalcula TIR instantáneamente • Stress testing: reduce ingresos 40%, ve impacto en financieras • Sensibilidad: grafico automático mostrando &quot;qué variable es más crítica&quot; • Reportes PDF: exporta análisis con gráficos integrados (Chart.js)  📊 EL IMPACTO  Resultados Medibles: Analistas de días para modelar → 2 horas explorando 20+ escenarios | Zero latencia de servidor | Reportes certificables para auditorías  Beneficios Operacionales: VCs ahora pueden decir &quot;¿Qué pasa si el churn es 5% vs 8%?&quot; y ver respuesta instantáneamente. Cada stakeholder en una pitch room puede mover sliders y testear hipótesis. Decisiones más fundamentadas.  Transformación del Negocio: De &quot;modelar es trabajo de especialista&quot; a &quot;cualquiera con números básicos puede explorar viabilidad&quot;. VCs reducen tiempo de due diligence. Startups pueden auto-validar antes de buscar funding. Se democratizó el análisis financiero." data-pt="🎯 EL RETO  Contexto & Situación Inicial: Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de invertir millones, necesitaban validar si un modelo de negocio era viable. Pero tenían solo hojas de cálculo estáticas.  El Problema Crítico: Analistas usaban Excel para modelar financiero: &quot;Si nuestro CAC es $50 y LTV es $500, la TIR es 34%&quot;. Pero eso es UNA realidad. ¿Qué pasa si: - El CAC sube a $70 (competencia agresiva)? - El LTV cae a $400 (churn acelerado)? - El market timing se retrasa 6 meses? Cada escenario requería recalcular manualmente. Cambiar 5 variables y recomputar la TIR tomaba horas. VCs no podían explorar el &quot;espacio de soluciones&quot;.  Limitaciones Existentes: Excel no permite interactividad real. Un slider que cambies no recalcula automáticamente. Los análisis eran puntuales, no exploratorios.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Crear un simulador financiero interactivo donde cambiar una variable instantáneamente recalculase todos los resultados dependientes.  Arquitectura & Tecnología: Motor resolutivo en Vanilla JavaScript puro (sin frameworks pesados). Implementé algoritmos numéricos exactos: Newton-Raphson para calcular TIR con convergencia garantizada. Todo corre en el cliente (navegador), eliminando latencias de servidor.  Características Clave Implementadas: • Cálculos deterministas de VPN, TIR, Payback Period • Sliders interactivos: mueve CAC, recalcula TIR instantáneamente • Stress testing: reduce ingresos 40%, ve impacto en financieras • Sensibilidad: grafico automático mostrando &quot;qué variable es más crítica&quot; • Reportes PDF: exporta análisis con gráficos integrados (Chart.js)  📊 EL IMPACTO  Resultados Medibles: Analistas de días para modelar → 2 horas explorando 20+ escenarios | Zero latencia de servidor | Reportes certificables para auditorías  Beneficios Operacionales: VCs ahora pueden decir &quot;¿Qué pasa si el churn es 5% vs 8%?&quot; y ver respuesta instantáneamente. Cada stakeholder en una pitch room puede mover sliders y testear hipótesis. Decisiones más fundamentadas.  Transformación del Negocio: De &quot;modelar es trabajo de especialista&quot; a &quot;cualquiera con números básicos puede explorar viabilidad&quot;. VCs reducen tiempo de due diligence. Startups pueden auto-validar antes de buscar funding. Se democratizó el análisis financiero.">🎯 EL RETO
-
-Contexto & Situación Inicial:
-Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de invertir millones, necesitaban validar si un modelo de negocio era viable. Pero tenían solo hojas de cálculo estáticas.
-
-El Problema Crítico:
-Analistas usaban Excel para modelar financiero: "Si nuestro CAC es $50 y LTV es $500, la TIR es 34%". Pero eso es UNA realidad. ¿Qué pasa si:
-- El CAC sube a $70 (competencia agresiva)?
-- El LTV cae a $400 (churn acelerado)?
-- El market timing se retrasa 6 meses?
-Cada escenario requería recalcular manualmente. Cambiar 5 variables y recomputar la TIR tomaba horas. VCs no podían explorar el "espacio de soluciones".
-
-Limitaciones Existentes:
-Excel no permite interactividad real. Un slider que cambies no recalcula automáticamente. Los análisis eran puntuales, no exploratorios.
-
-🛠️ LA SOLUCIÓN
-
-El Enfoque Adoptado:
-Crear un simulador financiero interactivo donde cambiar una variable instantáneamente recalculase todos los resultados dependientes.
-
-Arquitectura & Tecnología:
-Motor resolutivo en Vanilla JavaScript puro (sin frameworks pesados). Implementé algoritmos numéricos exactos: Newton-Raphson para calcular TIR con convergencia garantizada. Todo corre en el cliente (navegador), eliminando latencias de servidor.
-
-Características Clave Implementadas:
-• Cálculos deterministas de VPN, TIR, Payback Period
-• Sliders interactivos: mueve CAC, recalcula TIR instantáneamente
-• Stress testing: reduce ingresos 40%, ve impacto en financieras
-• Sensibilidad: grafico automático mostrando "qué variable es más crítica"
-• Reportes PDF: exporta análisis con gráficos integrados (Chart.js)
-
-📊 EL IMPACTO
-
-Resultados Medibles:
-Analistas de días para modelar → 2 horas explorando 20+ escenarios | Zero latencia de servidor | Reportes certificables para auditorías
-
-Beneficios Operacionales:
-VCs ahora pueden decir "¿Qué pasa si el churn es 5% vs 8%?" y ver respuesta instantáneamente. Cada stakeholder en una pitch room puede mover sliders y testear hipótesis. Decisiones más fundamentadas.
-
-Transformación del Negocio:
-De "modelar es trabajo de especialista" a "cualquiera con números básicos puede explorar viabilidad". VCs reducen tiempo de due diligence. Startups pueden auto-validar antes de buscar funding. Se democratizó el análisis financiero.</p>
+    <div class="case-challenge-content">
+      <div class="case-challenge-text">
+        <p>🎯 EL RETO</p>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <div class="n">Newton-Raphson</div>
+          <div class="t">algoritmo exacto TIR</div>
+        </div>
+        <div class="metric-box">
+          <div class="n">Zero latencia</div>
+          <div class="t">cálculos en cliente</div>
+        </div>
+        <div class="metric-box">
+          <div class="n">PDF</div>
+          <div class="t">reportería automática</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- SOLUTION -->
   <section class="case-solution">
     <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
-    <p data-es="Stack tecnológico utilizado" data-en="Technology stack used" data-pt="Stack tecnológico utilizado">Stack tecnológico utilizado:</p>
+    <div class="solution-text">Contexto & Situación Inicial:
+Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de invertir millones, necesitaban validar si un modelo de negocio era viable. Pero tenían solo hojas de cálculo estáticas.</div>
+    <h3 data-es="Stack Tecnológico" data-en="Technology Stack" data-pt="Stack Tecnológico">Stack Tecnológico</h3>
     <div class="solution-stack">
       <span>Vanilla JS</span><span>Newton-Raphson</span><span>Chart.js</span><span>PDF</span>
     </div>

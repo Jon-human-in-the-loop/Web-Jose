@@ -41,28 +41,33 @@ Una empresa con cientos de flujos de n8n en producción (críticos para operacio
 
     /* CHALLENGE SECTION */
     .case-challenge{padding:80px 48px;border-bottom:1px solid var(--border);}
-    .case-challenge h2,.case-solution h2,.case-results h2,.case-cta h2{font-size:2rem;font-weight:900;letter-spacing:-1px;margin-bottom:32px;color:#f2f2f2;}
-    .case-challenge h2 em{color:var(--accent);font-style:normal;}
-    .case-challenge > p{color:var(--dim);font-size:1rem;line-height:1.9;margin-bottom:48px;max-width:800px;white-space:pre-wrap;}
-    .challenge-sidebar{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;padding:40px;background:transparent;border-left:3px solid var(--accent);border-radius:4px;}
-    .metric{padding:20px;}
-    .metric .n{font-size:2rem;font-weight:900;color:var(--accent);}
-    .metric .t{font-size:.75rem;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:8px;}
+    .case-challenge h2{font-size:2.5rem;font-weight:900;letter-spacing:-1px;margin-bottom:48px;color:#f2f2f2;}
+    .case-challenge-content{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+    .case-challenge-text{max-width:500px;}
+    .case-challenge-text p{color:var(--dim);font-size:1rem;line-height:1.8;margin-bottom:24px;}
+    .metrics-grid{display:grid;gap:24px;}
+    .metric-box{padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:6px;transition:all .3s;}
+    .metric-box:hover{border-color:var(--accent);background:rgba(232,255,71,.02);}
+    .metric-box .n{font-size:2.2rem;font-weight:900;color:var(--accent);margin-bottom:8px;}
+    .metric-box .t{font-size:.85rem;color:var(--dim);line-height:1.5;}
 
     /* SOLUTION SECTION */
     .case-solution{padding:80px 48px;border-bottom:1px solid var(--border);}
-    .case-solution > p{color:var(--dim);font-size:1rem;line-height:1.9;margin-bottom:40px;max-width:800px;white-space:pre-wrap;}
-    .solution-stack{display:flex;gap:12px;flex-wrap:wrap;}
-    .solution-stack span{font-size:.8rem;padding:8px 16px;border:1px solid var(--border);border-radius:4px;color:var(--dim);transition:all .2s;}
-    .solution-stack span:hover{border-color:var(--accent);color:var(--accent);}
+    .case-solution h2{font-size:2.5rem;font-weight:900;letter-spacing:-1px;margin-bottom:48px;color:#f2f2f2;}
+    .case-solution h3{font-size:1.3rem;font-weight:700;margin-bottom:32px;color:#f2f2f2;}
+    .solution-text{max-width:800px;margin-bottom:48px;color:var(--dim);font-size:1rem;line-height:1.8;}
+    .solution-stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;}
+    .solution-stack span{font-size:.85rem;padding:12px 16px;border:1px solid var(--border);border-radius:6px;color:var(--dim);text-align:center;transition:all .2s;background:var(--surface);}
+    .solution-stack span:hover{border-color:var(--accent);color:var(--accent);background:rgba(232,255,71,.05);}
 
     /* RESULTS SECTION */
     .case-results{padding:80px 48px;border-bottom:1px solid var(--border);}
-    .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;margin-top:40px;}
-    .result-card{padding:32px;border:1px solid var(--border);border-radius:4px;transition:all .3s;}
-    .result-card:hover{border-color:var(--accent);background:rgba(232,255,71,.05);}
-    .result-card .n{font-size:2.5rem;font-weight:900;color:var(--accent);margin-bottom:8px;}
-    .result-card .t{font-size:.9rem;color:var(--dim);}
+    .case-results h2{font-size:2.5rem;font-weight:900;letter-spacing:-1px;margin-bottom:48px;color:#f2f2f2;}
+    .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;margin-top:48px;}
+    .result-card{padding:40px;background:var(--surface);border:1px solid var(--border);border-radius:6px;transition:all .3s;text-center;}
+    .result-card:hover{border-color:var(--accent);background:rgba(232,255,71,.05);transform:translateY(-4px);}
+    .result-card .n{font-size:3rem;font-weight:900;color:var(--accent);margin-bottom:16px;}
+    .result-card .t{font-size:1rem;color:#f2f2f2;font-weight:600;line-height:1.6;}
 
     /* CTA SECTION */
     .case-cta{padding:80px 48px;text-align:center;border-bottom:1px solid var(--border);}
@@ -120,48 +125,33 @@ Una empresa con cientos de flujos de n8n en producción (críticos para operacio
   <!-- CHALLENGE -->
   <section class="case-challenge">
     <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
-    <p data-es="🎯 EL RETO  Contexto & Situación Inicial: Una empresa con cientos de flujos de n8n en producción (críticos para operaciones diarias) enfrentaba un problema recurrente e impredecible: fallos masivos causados por cambios en APIs externas o datos corruptos.  El Problema Crítico: Cada vez que un vendor externo (Stripe, SendGrid, Zapier) cambiaba levemente su formato de respuesta, o cuando datos se corrompían en tránsito, docenas de flujos colapsaban simultáneamente. El equipo de DevOps gastaba 20+ horas semanales investigando errores, diagnosticando root causes, y reparando flujos manualmente.  Limitaciones Existentes: No había forma de anticipar cambios en APIs de terceros. El monitoreo era reactivo, no preventivo. Los rate-limits causaban cascadas de timeouts. Cada pequeño cambio requería intervención humana experta.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Crear un &quot;doctor invisible&quot; que monitoreara continuamente todos los flujos, detectara errores en tiempo real, diagnosticara automáticamente la causa, generara un parche dinámico y lo aplicara sin intervención.  Arquitectura & Tecnología: Arquitectura supervisora en Python respaldada por GPT-4. Monitorea cada ejecución de cada flujo. Cuando ocurre un error (JSON malformado, cambio de estructura, timeout, rate-limit), intercepta la excepción.  Características Clave Implementadas: • Diagnóstico automático usando LLM para interpretar errores técnicos • Generación dinámica de parches que limpian datos corruptos • Reinyección automática de datos reparados en el flujo • Smart Waits: anticipan rate-limits y pausan antes de que ocurran • Recovery sin intervención: el flujo continúa como si nada hubiera pasado  📊 EL IMPACTO  Resultados Medibles: 99.99% uptime garantizado en operaciones críticas | Zero intervenciones manuales de DevOps después del primer mes | 20+ horas semanales de trabajo de ingeniería recuperadas  Beneficios Operacionales: Errores que antes paralizaban el negocio por horas ahora se resuelven en segundos. El equipo de DevOps pasó de &quot;apagar fuegos&quot; a &quot;actividades estratégicas&quot;. No hay más &quot;3am emergencies&quot; por cambios en APIs.  Transformación del Negocio: La confiabilidad de las automatizaciones ahora es comparable a infraestructura empresarial. Operaciones que dependían de DevOps 24/7 ahora son completamente autónomas. El sistema es tan estable que la empresa pudo agregar 5x más flujos sin agregar personal." data-en="🎯 EL RETO  Contexto & Situación Inicial: Una empresa con cientos de flujos de n8n en producción (críticos para operaciones diarias) enfrentaba un problema recurrente e impredecible: fallos masivos causados por cambios en APIs externas o datos corruptos.  El Problema Crítico: Cada vez que un vendor externo (Stripe, SendGrid, Zapier) cambiaba levemente su formato de respuesta, o cuando datos se corrompían en tránsito, docenas de flujos colapsaban simultáneamente. El equipo de DevOps gastaba 20+ horas semanales investigando errores, diagnosticando root causes, y reparando flujos manualmente.  Limitaciones Existentes: No había forma de anticipar cambios en APIs de terceros. El monitoreo era reactivo, no preventivo. Los rate-limits causaban cascadas de timeouts. Cada pequeño cambio requería intervención humana experta.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Crear un &quot;doctor invisible&quot; que monitoreara continuamente todos los flujos, detectara errores en tiempo real, diagnosticara automáticamente la causa, generara un parche dinámico y lo aplicara sin intervención.  Arquitectura & Tecnología: Arquitectura supervisora en Python respaldada por GPT-4. Monitorea cada ejecución de cada flujo. Cuando ocurre un error (JSON malformado, cambio de estructura, timeout, rate-limit), intercepta la excepción.  Características Clave Implementadas: • Diagnóstico automático usando LLM para interpretar errores técnicos • Generación dinámica de parches que limpian datos corruptos • Reinyección automática de datos reparados en el flujo • Smart Waits: anticipan rate-limits y pausan antes de que ocurran • Recovery sin intervención: el flujo continúa como si nada hubiera pasado  📊 EL IMPACTO  Resultados Medibles: 99.99% uptime garantizado en operaciones críticas | Zero intervenciones manuales de DevOps después del primer mes | 20+ horas semanales de trabajo de ingeniería recuperadas  Beneficios Operacionales: Errores que antes paralizaban el negocio por horas ahora se resuelven en segundos. El equipo de DevOps pasó de &quot;apagar fuegos&quot; a &quot;actividades estratégicas&quot;. No hay más &quot;3am emergencies&quot; por cambios en APIs.  Transformación del Negocio: La confiabilidad de las automatizaciones ahora es comparable a infraestructura empresarial. Operaciones que dependían de DevOps 24/7 ahora son completamente autónomas. El sistema es tan estable que la empresa pudo agregar 5x más flujos sin agregar personal." data-pt="🎯 EL RETO  Contexto & Situación Inicial: Una empresa con cientos de flujos de n8n en producción (críticos para operaciones diarias) enfrentaba un problema recurrente e impredecible: fallos masivos causados por cambios en APIs externas o datos corruptos.  El Problema Crítico: Cada vez que un vendor externo (Stripe, SendGrid, Zapier) cambiaba levemente su formato de respuesta, o cuando datos se corrompían en tránsito, docenas de flujos colapsaban simultáneamente. El equipo de DevOps gastaba 20+ horas semanales investigando errores, diagnosticando root causes, y reparando flujos manualmente.  Limitaciones Existentes: No había forma de anticipar cambios en APIs de terceros. El monitoreo era reactivo, no preventivo. Los rate-limits causaban cascadas de timeouts. Cada pequeño cambio requería intervención humana experta.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Crear un &quot;doctor invisible&quot; que monitoreara continuamente todos los flujos, detectara errores en tiempo real, diagnosticara automáticamente la causa, generara un parche dinámico y lo aplicara sin intervención.  Arquitectura & Tecnología: Arquitectura supervisora en Python respaldada por GPT-4. Monitorea cada ejecución de cada flujo. Cuando ocurre un error (JSON malformado, cambio de estructura, timeout, rate-limit), intercepta la excepción.  Características Clave Implementadas: • Diagnóstico automático usando LLM para interpretar errores técnicos • Generación dinámica de parches que limpian datos corruptos • Reinyección automática de datos reparados en el flujo • Smart Waits: anticipan rate-limits y pausan antes de que ocurran • Recovery sin intervención: el flujo continúa como si nada hubiera pasado  📊 EL IMPACTO  Resultados Medibles: 99.99% uptime garantizado en operaciones críticas | Zero intervenciones manuales de DevOps después del primer mes | 20+ horas semanales de trabajo de ingeniería recuperadas  Beneficios Operacionales: Errores que antes paralizaban el negocio por horas ahora se resuelven en segundos. El equipo de DevOps pasó de &quot;apagar fuegos&quot; a &quot;actividades estratégicas&quot;. No hay más &quot;3am emergencies&quot; por cambios en APIs.  Transformación del Negocio: La confiabilidad de las automatizaciones ahora es comparable a infraestructura empresarial. Operaciones que dependían de DevOps 24/7 ahora son completamente autónomas. El sistema es tan estable que la empresa pudo agregar 5x más flujos sin agregar personal.">🎯 EL RETO
-
-Contexto & Situación Inicial:
-Una empresa con cientos de flujos de n8n en producción (críticos para operaciones diarias) enfrentaba un problema recurrente e impredecible: fallos masivos causados por cambios en APIs externas o datos corruptos.
-
-El Problema Crítico:
-Cada vez que un vendor externo (Stripe, SendGrid, Zapier) cambiaba levemente su formato de respuesta, o cuando datos se corrompían en tránsito, docenas de flujos colapsaban simultáneamente. El equipo de DevOps gastaba 20+ horas semanales investigando errores, diagnosticando root causes, y reparando flujos manualmente.
-
-Limitaciones Existentes:
-No había forma de anticipar cambios en APIs de terceros. El monitoreo era reactivo, no preventivo. Los rate-limits causaban cascadas de timeouts. Cada pequeño cambio requería intervención humana experta.
-
-🛠️ LA SOLUCIÓN
-
-El Enfoque Adoptado:
-Crear un "doctor invisible" que monitoreara continuamente todos los flujos, detectara errores en tiempo real, diagnosticara automáticamente la causa, generara un parche dinámico y lo aplicara sin intervención.
-
-Arquitectura & Tecnología:
-Arquitectura supervisora en Python respaldada por GPT-4. Monitorea cada ejecución de cada flujo. Cuando ocurre un error (JSON malformado, cambio de estructura, timeout, rate-limit), intercepta la excepción.
-
-Características Clave Implementadas:
-• Diagnóstico automático usando LLM para interpretar errores técnicos
-• Generación dinámica de parches que limpian datos corruptos
-• Reinyección automática de datos reparados en el flujo
-• Smart Waits: anticipan rate-limits y pausan antes de que ocurran
-• Recovery sin intervención: el flujo continúa como si nada hubiera pasado
-
-📊 EL IMPACTO
-
-Resultados Medibles:
-99.99% uptime garantizado en operaciones críticas | Zero intervenciones manuales de DevOps después del primer mes | 20+ horas semanales de trabajo de ingeniería recuperadas
-
-Beneficios Operacionales:
-Errores que antes paralizaban el negocio por horas ahora se resuelven en segundos. El equipo de DevOps pasó de "apagar fuegos" a "actividades estratégicas". No hay más "3am emergencies" por cambios en APIs.
-
-Transformación del Negocio:
-La confiabilidad de las automatizaciones ahora es comparable a infraestructura empresarial. Operaciones que dependían de DevOps 24/7 ahora son completamente autónomas. El sistema es tan estable que la empresa pudo agregar 5x más flujos sin agregar personal.</p>
+    <div class="case-challenge-content">
+      <div class="case-challenge-text">
+        <p>🎯 EL RETO</p>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-box">
+          <div class="n">99.99%</div>
+          <div class="t">uptime garantizado</div>
+        </div>
+        <div class="metric-box">
+          <div class="n">Zero</div>
+          <div class="t">intervención DevOps</div>
+        </div>
+        <div class="metric-box">
+          <div class="n">Smart Waits</div>
+          <div class="t">rate-limit handling</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- SOLUTION -->
   <section class="case-solution">
     <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
-    <p data-es="Stack tecnológico utilizado" data-en="Technology stack used" data-pt="Stack tecnológico utilizado">Stack tecnológico utilizado:</p>
+    <div class="solution-text">Contexto & Situación Inicial:
+Una empresa con cientos de flujos de n8n en producción (críticos para operaciones diarias) enfrentaba un problema recurrente e impredecible: fallos masivos causados por cambios en APIs externas o datos corruptos.</div>
+    <h3 data-es="Stack Tecnológico" data-en="Technology Stack" data-pt="Stack Tecnológico">Stack Tecnológico</h3>
     <div class="solution-stack">
       <span>Python</span><span>GPT-4</span><span>n8n</span>
     </div>

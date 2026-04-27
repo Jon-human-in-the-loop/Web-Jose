@@ -45,6 +45,11 @@ h1.port-title em{font-style:normal;color:var(--accent);}
 .port-card:hover{background:transparent;transform:translateY(-4px);box-shadow:0 16px 32px rgba(232,255,71,.12);}
 .port-card::after{content:'↗';position:absolute;top:40px;right:40px;font-size:1.2rem;color:var(--dim);transition:color .3s,transform .3s;}
 .port-card:hover::after{color:var(--accent);transform:translate(3px,-3px);}
+.port-card{text-decoration:none;color:inherit;}
+.port-card:visited{color:inherit;}
+.port-card .card-title{color:#f2f2f2;text-decoration:none;}
+.port-card .card-desc{color:var(--dim);text-decoration:none;}
+.port-card .card-tags{text-decoration:none;}
 
 /* PLACEHOLDER CARD */
 .port-card.placeholder{opacity:.35;cursor:default;}

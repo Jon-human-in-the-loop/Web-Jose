@@ -127,20 +127,35 @@ Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de i
     <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
     <div class="case-challenge-content">
       <div class="case-challenge-text">
-        <p>🎯 EL RETO  Contexto & Situación Inicial: Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de invertir millones, necesitaban validar si un modelo de negocio era viable. Pero tenían solo hojas de cálculo estáticas.  El Problema Crítico: Analistas usaban Excel para modelar financiero: "Si nuestro CAC es $50 y LTV es $500, la TIR es 34%". Pero eso es UNA realidad. ¿Qué pasa</p>
+        <p class="lang-content" data-es="🎯 EL RETO</p><p>Contexto &amp; Situación Inicial:<br>Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de invertir millones, necesitaban validar si un modelo de negocio era viable. Pero tenían solo hojas de cálculo estáticas.</p><p>El Problema Crítico:<br>Analistas usaban Excel para modelar financiero: &quot;Si nuestro CAC es $50 y LTV es $500, la TIR es 34%&quot;. Pero eso es UNA realidad. ¿Qué pasa si:<br>- El CAC sube a $70 (competencia agresiva)?<br>- El LTV cae a $400 (churn acelerado)?<br>- El market timing se retrasa 6 meses?<br>Cada escenario requería recalcular manualmente. Cambiar 5 variables y recomputar la TIR tomaba horas. VCs no podían explorar el &quot;espacio de soluciones&quot;.</p><p>Limitaciones Existentes:<br>Excel no permite interactividad real. Un slider que cambies no recalcula automáticamente. Los análisis eran puntuales, no exploratorios.</p><p>" data-en="🎯 THE CHALLENGE</p><p>Context &amp; Current Situation:<br>Venture Capitalists and entrepreneurs faced a recurring dilemma: before investing millions, they needed to validate whether a business model was viable. But they had only static spreadsheets.</p><p>The Critical Problem:<br>Analysts used Excel for financial modeling: &quot;If our CAC is $50 and LTV is $500, the IRR is 34%&quot;. But that&#39;s ONE reality. What if:<br>- CAC rises to $70 (aggressive competition)?<br>- LTV drops to $400 (accelerated churn)?<br>- Market timing delays 6 months?<br>Each scenario required manual recalculation. Changing 5 variables and recomputing IRR took hours. VCs couldn&#39;t explore the &quot;solution space&quot;.</p><p>Existing Limitations:<br>Excel doesn&#39;t allow real interactivity. A slider you move doesn&#39;t automatically recalculate. Analyses were point-in-time, not exploratory.</p><p>" data-pt="Simulador financeiro interativo com zero latência, análise de cenários em tempo real.">🎯 EL RETO
+
+Contexto & Situación Inicial:
+Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de invertir millones, necesitaban validar si un modelo de negocio era viable. Pero tenían solo hojas de cálculo estáticas.
+
+El Problema Crítico:
+Analistas usaban Excel para modelar financiero: "Si nuestro CAC es $50 y LTV es $500, la TIR es 34%". Pero eso es UNA realidad. ¿Qué pasa si:
+- El CAC sube a $70 (competencia agresiva)?
+- El LTV cae a $400 (churn acelerado)?
+- El market timing se retrasa 6 meses?
+Cada escenario requería recalcular manualmente. Cambiar 5 variables y recomputar la TIR tomaba horas. VCs no podían explorar el "espacio de soluciones".
+
+Limitaciones Existentes:
+Excel no permite interactividad real. Un slider que cambies no recalcula automáticamente. Los análisis eran puntuales, no exploratorios.
+
+</p>
       </div>
       <div class="metrics-grid">
         <div class="metric-box">
           <div class="n">Newton-Raphson</div>
-          <div class="t">algoritmo exacto TIR</div>
+          <div class="t" data-es="algoritmo exacto TIR" data-en="algoritmo exacto TIR" data-pt="algoritmo exacto TIR">algoritmo exacto TIR</div>
         </div>
         <div class="metric-box">
           <div class="n">Zero latencia</div>
-          <div class="t">cálculos en cliente</div>
+          <div class="t" data-es="cálculos en cliente" data-en="cálculos en cliente" data-pt="cálculos en cliente">cálculos en cliente</div>
         </div>
         <div class="metric-box">
           <div class="n">PDF</div>
-          <div class="t">reportería automática</div>
+          <div class="t" data-es="reportería automática" data-en="reportería automática" data-pt="reportería automática">reportería automática</div>
         </div>
       </div>
     </div>
@@ -149,7 +164,22 @@ Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de i
   <!-- SOLUTION -->
   <section class="case-solution">
     <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
-    <div class="solution-text"> si: - El CAC sube a $70 (competencia agresiva)? - El LTV cae a $400 (churn acelerado)? - El market timing se retrasa 6 meses? Cada escenario requería recalcular manualmente. Cambiar 5 variables y recomputar la TIR tomaba horas. VCs no podían explorar el "espacio de soluciones".  Limitaciones Existentes: Excel no permite interactividad real. Un slider que cambies no recalcula automáticamente. Los análisis eran puntuales, no exploratorios.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Crear un simulador</div>
+    <div class="solution-text lang-content" data-es="🛠️ LA SOLUCIÓN</p><p>El Enfoque Adoptado:<br>Crear un simulador financiero interactivo donde cambiar una variable instantáneamente recalculase todos los resultados dependientes.</p><p>Arquitectura &amp; Tecnología:<br>Motor resolutivo en Vanilla JavaScript puro (sin frameworks pesados). Implementé algoritmos numéricos exactos: Newton-Raphson para calcular TIR con convergencia garantizada. Todo corre en el cliente (navegador), eliminando latencias de servidor.</p><p>Características Clave Implementadas:<br>• Cálculos deterministas de VPN, TIR, Payback Period<br>• Sliders interactivos: mueve CAC, recalcula TIR instantáneamente<br>• Stress testing: reduce ingresos 40%, ve impacto en financieras<br>• Sensibilidad: grafico automático mostrando &quot;qué variable es más crítica&quot;<br>• Reportes PDF: exporta análisis con gráficos integrados (Chart.js)</p><p>" data-en="🛠️ THE SOLUTION</p><p>Adopted Approach:<br>Create an interactive financial simulator where changing one variable instantly recalculated all dependent results.</p><p>Architecture &amp; Technology:<br>Resolution engine in pure Vanilla JavaScript (no heavy frameworks). I implemented exact numerical algorithms: Newton-Raphson to calculate IRR with guaranteed convergence. Everything runs on the client (browser), eliminating server latency.</p><p>Key Features Implemented:<br>• Deterministic calculations of NPV, IRR, Payback Period<br>• Interactive sliders: move CAC, IRR recalculates instantly<br>• Stress testing: reduce revenue 40%, see impact on financials<br>• Sensitivity: automatic chart showing &quot;which variable is most critical&quot;<br>• PDF reports: export analysis with integrated charts (Chart.js)</p><p>" data-pt="Simulador financeiro interativo com zero latência, análise de cenários em tempo real.">🛠️ LA SOLUCIÓN
+
+El Enfoque Adoptado:
+Crear un simulador financiero interactivo donde cambiar una variable instantáneamente recalculase todos los resultados dependientes.
+
+Arquitectura & Tecnología:
+Motor resolutivo en Vanilla JavaScript puro (sin frameworks pesados). Implementé algoritmos numéricos exactos: Newton-Raphson para calcular TIR con convergencia garantizada. Todo corre en el cliente (navegador), eliminando latencias de servidor.
+
+Características Clave Implementadas:
+• Cálculos deterministas de VPN, TIR, Payback Period
+• Sliders interactivos: mueve CAC, recalcula TIR instantáneamente
+• Stress testing: reduce ingresos 40%, ve impacto en financieras
+• Sensibilidad: grafico automático mostrando "qué variable es más crítica"
+• Reportes PDF: exporta análisis con gráficos integrados (Chart.js)
+
+</div>
     <h3 data-es="Stack Tecnológico" data-en="Technology Stack" data-pt="Stack Tecnológico">Stack Tecnológico</h3>
     <div class="solution-stack">
       <span>Vanilla JS</span><span>Newton-Raphson</span><span>Chart.js</span><span>PDF</span>
@@ -191,7 +221,11 @@ Venture Capitalists y emprendedores enfrentaban un dilema recurrente: antes de i
       lang = l;
       localStorage.setItem('lang', l);
       document.querySelectorAll('[data-es]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        if(el.classList.contains('lang-content')) {
+          el.innerHTML = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        } else {
+          el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        }
       });
       document.querySelectorAll('.lang-sw button').forEach((b, i) => {
         b.classList.toggle('on', (i === 0 && l === 'es') || (i === 1 && l === 'en'));

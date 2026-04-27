@@ -127,20 +127,31 @@ Una empresa desarrolladora de plataforma de agentes IA local enfrentaba un probl
     <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
     <div class="case-challenge-content">
       <div class="case-challenge-text">
-        <p>🎯 EL RETO  Contexto & Situación Inicial: Una empresa desarrolladora de plataforma de agentes IA local enfrentaba un problema crítico: su aplicación de escritorio (construida en Electron) permitía que atacantes ejecutaran código remoto (RCE) a través de directorios accesibles.  El Problema Crítico: Una auditoría externa identificó 47 vulnerabilidades críticas: ReDoS (Regular Expression Denial of S</p>
+        <p class="lang-content" data-es="🎯 EL RETO</p><p>Contexto &amp; Situación Inicial:<br>Una empresa desarrolladora de plataforma de agentes IA local enfrentaba un problema crítico: su aplicación de escritorio (construida en Electron) permitía que atacantes ejecutaran código remoto (RCE) a través de directorios accesibles.</p><p>El Problema Crítico:<br>Una auditoría externa identificó 47 vulnerabilidades críticas: ReDoS (Regular Expression Denial of Service), acceso irrestricto al filesystem, protecciones débiles contra CSRF, y múltiples vectores de ataque que podían comprometer sistemas de clientes. El cliente no podía desplegar en producción.</p><p>Limitaciones Existentes:<br>Arquitectura heredada de Electron con capas defensivas &quot;agregadas después&quot;. Cada nueva feature era un riesgo de inyección. Vulnerabilidades parqueadas pero no eliminadas en raíz.</p><p>" data-en="🎯 THE CHALLENGE</p><p>Context &amp; Current Situation:<br>A company developing a local AI agent platform faced a critical problem: their desktop application (built in Electron) allowed attackers to execute remote code (RCE) through accessible directories.</p><p>The Critical Problem:<br>An external audit identified 47 critical vulnerabilities: ReDoS (Regular Expression Denial of Service), unrestricted filesystem access, weak CSRF protections, and multiple attack vectors that could compromise customer systems. Client couldn&#39;t deploy to production.</p><p>Existing Limitations:<br>Legacy Electron architecture with defensive layers &quot;added after&quot;. Each new feature was injection risk. Vulnerabilities patched but not eliminated at root.</p><p>" data-pt="Auditoria de segurança com Tauri+Rust, zero vulnerabilidades RCE, sandboxing total.">🎯 EL RETO
+
+Contexto & Situación Inicial:
+Una empresa desarrolladora de plataforma de agentes IA local enfrentaba un problema crítico: su aplicación de escritorio (construida en Electron) permitía que atacantes ejecutaran código remoto (RCE) a través de directorios accesibles.
+
+El Problema Crítico:
+Una auditoría externa identificó 47 vulnerabilidades críticas: ReDoS (Regular Expression Denial of Service), acceso irrestricto al filesystem, protecciones débiles contra CSRF, y múltiples vectores de ataque que podían comprometer sistemas de clientes. El cliente no podía desplegar en producción.
+
+Limitaciones Existentes:
+Arquitectura heredada de Electron con capas defensivas "agregadas después". Cada nueva feature era un riesgo de inyección. Vulnerabilidades parqueadas pero no eliminadas en raíz.
+
+</p>
       </div>
       <div class="metrics-grid">
         <div class="metric-box">
           <div class="n">Zero</div>
-          <div class="t">RCE vulnerabilidades</div>
+          <div class="t" data-es="RCE vulnerabilidades" data-en="RCE vulnerabilidades" data-pt="RCE vulnerabilidades">RCE vulnerabilidades</div>
         </div>
         <div class="metric-box">
           <div class="n">Sandboxing</div>
-          <div class="t">aislamiento total</div>
+          <div class="t" data-es="aislamiento total" data-en="aislamiento total" data-pt="aislamiento total">aislamiento total</div>
         </div>
         <div class="metric-box">
           <div class="n">PBKDF</div>
-          <div class="t">encriptación identidades</div>
+          <div class="t" data-es="encriptación identidades" data-en="encriptación identidades" data-pt="encriptación identidades">encriptación identidades</div>
         </div>
       </div>
     </div>
@@ -149,7 +160,22 @@ Una empresa desarrolladora de plataforma de agentes IA local enfrentaba un probl
   <!-- SOLUTION -->
   <section class="case-solution">
     <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
-    <div class="solution-text">ervice), acceso irrestricto al filesystem, protecciones débiles contra CSRF, y múltiples vectores de ataque que podían comprometer sistemas de clientes. El cliente no podía desplegar en producción.  Limitaciones Existentes: Arquitectura heredada de Electron con capas defensivas "agregadas después". Cada nueva feature era un riesgo de inyección. Vulnerabilidades parqueadas pero no eliminadas en raíz.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Fundamental: rediseñar la arquitectura con "Security-by-De</div>
+    <div class="solution-text lang-content" data-es="🛠️ LA SOLUCIÓN</p><p>El Enfoque Adoptado:<br>Fundamental: rediseñar la arquitectura con &quot;Security-by-Default&quot;, no parchar vulnerabilidades después del hecho. Imposibilitar el ataque a nivel arquitectónico.</p><p>Arquitectura &amp; Tecnología:<br>Migración de Electron a Tauri usando Rust para toda lógica crítica. Tauri aisla de forma nativa el acceso al filesystem mediante Sandboxing estricto: cada proceso corre en contexto restringido con permisos explícitos. Validación de doble capa contra CSRF: tokens únicos por sesión + confirmación adicional en operaciones sensibles. Encriptación PBKDF2 con salts aleatorios para identidades.</p><p>Características Clave Implementadas:<br>• Sandboxing absoluto del filesystem (acceso restringido por defecto)<br>• Eliminación de todas las ReDoS vulnerables (reemplazo con parsers deterministas)<br>• PBKDF encryption con salts únicos (imposible forzar con diccionario)<br>• CSRF double-validation en operaciones críticas<br>• Zero RCE attack vectors en arquitectura</p><p>" data-en="🛠️ THE SOLUTION</p><p>Adopted Approach:<br>Fundamental: redesign architecture with &quot;Security-by-Default&quot;, not patch vulnerabilities after the fact. Prevent the attack at architectural level.</p><p>Architecture &amp; Technology:<br>Migration from Electron to Tauri using Rust for all critical logic. Tauri natively isolates filesystem access through strict Sandboxing: each process runs in restricted context with explicit permissions. Double-layer validation against CSRF: unique tokens per session + additional confirmation on sensitive operations. PBKDF2 encryption with random salts for identities.</p><p>Key Features Implemented:<br>• Absolute filesystem sandboxing (restricted access by default)<br>• Elimination of all vulnerable ReDoS (replacement with deterministic parsers)<br>• PBKDF encryption with unique salts (impossible to force with dictionary)<br>• CSRF double-validation on critical operations<br>• Zero RCE attack vectors in architecture</p><p>" data-pt="Auditoria de segurança com Tauri+Rust, zero vulnerabilidades RCE, sandboxing total.">🛠️ LA SOLUCIÓN
+
+El Enfoque Adoptado:
+Fundamental: rediseñar la arquitectura con "Security-by-Default", no parchar vulnerabilidades después del hecho. Imposibilitar el ataque a nivel arquitectónico.
+
+Arquitectura & Tecnología:
+Migración de Electron a Tauri usando Rust para toda lógica crítica. Tauri aisla de forma nativa el acceso al filesystem mediante Sandboxing estricto: cada proceso corre en contexto restringido con permisos explícitos. Validación de doble capa contra CSRF: tokens únicos por sesión + confirmación adicional en operaciones sensibles. Encriptación PBKDF2 con salts aleatorios para identidades.
+
+Características Clave Implementadas:
+• Sandboxing absoluto del filesystem (acceso restringido por defecto)
+• Eliminación de todas las ReDoS vulnerables (reemplazo con parsers deterministas)
+• PBKDF encryption con salts únicos (imposible forzar con diccionario)
+• CSRF double-validation en operaciones críticas
+• Zero RCE attack vectors en arquitectura
+
+</div>
     <h3 data-es="Stack Tecnológico" data-en="Technology Stack" data-pt="Stack Tecnológico">Stack Tecnológico</h3>
     <div class="solution-stack">
       <span>Tauri</span><span>Rust</span><span>Sandboxing</span><span>PBKDF</span><span>CSRF Protection</span>
@@ -191,7 +217,11 @@ Una empresa desarrolladora de plataforma de agentes IA local enfrentaba un probl
       lang = l;
       localStorage.setItem('lang', l);
       document.querySelectorAll('[data-es]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        if(el.classList.contains('lang-content')) {
+          el.innerHTML = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        } else {
+          el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        }
       });
       document.querySelectorAll('.lang-sw button').forEach((b, i) => {
         b.classList.toggle('on', (i === 0 && l === 'es') || (i === 1 && l === 'en'));

@@ -42,6 +42,27 @@ const projectSlugs = [
   '10-entremares'
 ];
 
+// Helper function to split description by sections
+function splitDescription(desc, lang) {
+  const challengeMarker = lang === 'en' ? '🎯 THE CHALLENGE' : (lang === 'pt' ? '🎯 O Desafio' : '🎯 EL RETO');
+  const solutionMarker = lang === 'en' ? '🛠️ THE SOLUTION' : (lang === 'pt' ? '🛠️ A Solução' : '🛠️ LA SOLUCIÓN');
+  const impactMarker = lang === 'en' ? '📊 THE IMPACT' : (lang === 'pt' ? '📊 Resultados' : '📊 EL IMPACTO');
+
+  const challengeIdx = desc.indexOf(challengeMarker);
+  const solutionIdx = desc.indexOf(solutionMarker);
+  const impactIdx = desc.indexOf(impactMarker);
+
+  let challenge = desc;
+  let solution = desc;
+
+  if(challengeIdx >= 0 && solutionIdx > challengeIdx) {
+    challenge = desc.substring(challengeIdx, solutionIdx);
+    solution = desc.substring(solutionIdx, impactIdx >= 0 ? impactIdx : desc.length);
+  }
+
+  return { challenge, solution };
+}
+
 // Template function
 function generateHTML(proj, lang) {
   const project = fullProjects[projects.find(p => p.slug === proj).idx];
@@ -51,8 +72,16 @@ function generateHTML(proj, lang) {
 
   const title = langCode === 'en' ? project.title_en : (langCode === 'pt' ? project.title_en : project.title_es);
   const cat = langCode === 'en' ? project.cat_en : (langCode === 'pt' ? project.cat_en : project.cat_es);
-  const desc = langCode === 'en' ? project.desc_en : (langCode === 'pt' ? project.desc_pt : project.desc_es);
+  const fullDesc = langCode === 'en' ? project.desc_en : (langCode === 'pt' ? project.desc_pt : project.desc_es);
   const results = langCode === 'en' ? project.results_en : (langCode === 'pt' ? project.results_pt : project.results_es);
+
+  // Get descriptions for all languages for data attributes
+  const descEs = splitDescription(project.desc_es, 'es');
+  const descEn = splitDescription(project.desc_en, 'en');
+  const descPt = splitDescription(project.desc_pt, 'pt');
+
+  // Current language split
+  const descSplit = langCode === 'en' ? descEn : (langCode === 'pt' ? descPt : descEs);
 
   return `<!DOCTYPE html>
 <html lang="${langCode === 'es' ? 'es' : langCode === 'pt' ? 'pt' : 'en'}">
@@ -60,7 +89,7 @@ function generateHTML(proj, lang) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title} | HELIX AI Growth Agency</title>
-  <meta name="description" content="${desc.substring(0, 160)}...">
+  <meta name="description" content="${fullDesc.substring(0, 160)}...">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -180,20 +209,20 @@ function generateHTML(proj, lang) {
     <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
     <div class="case-challenge-content">
       <div class="case-challenge-text">
-        <p>${desc.substring(0, 400).replace(/\n/g, ' ')}</p>
+        <p class="lang-content" data-es="${escape(descEs.challenge)}" data-en="${escape(descEn.challenge)}" data-pt="${escape(descPt.challenge)}">${descSplit.challenge}</p>
       </div>
       <div class="metrics-grid">
         <div class="metric-box">
           <div class="n">${results[0]?.n || '−85%'}</div>
-          <div class="t">${results[0]?.t || 'Improvement'}</div>
+          <div class="t" data-es="${results[0]?.t}" data-en="${results.find(r => r.t === results[0]?.t)?.t || results[0]?.t}" data-pt="${results[0]?.t}">${results[0]?.t || 'Improvement'}</div>
         </div>
         <div class="metric-box">
           <div class="n">${results[1]?.n || '100+'}</div>
-          <div class="t">${results[1]?.t || 'Impact'}</div>
+          <div class="t" data-es="${results[1]?.t}" data-en="${results.find(r => r.t === results[1]?.t)?.t || results[1]?.t}" data-pt="${results[1]?.t}">${results[1]?.t || 'Impact'}</div>
         </div>
         <div class="metric-box">
           <div class="n">${results[2]?.n || 'Zero'}</div>
-          <div class="t">${results[2]?.t || 'Downtime'}</div>
+          <div class="t" data-es="${results[2]?.t}" data-en="${results.find(r => r.t === results[2]?.t)?.t || results[2]?.t}" data-pt="${results[2]?.t}">${results[2]?.t || 'Downtime'}</div>
         </div>
       </div>
     </div>
@@ -202,7 +231,7 @@ function generateHTML(proj, lang) {
   <!-- SOLUTION -->
   <section class="case-solution">
     <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
-    <div class="solution-text">${desc.substring(400, 900).replace(/\n/g, ' ')}</div>
+    <div class="solution-text lang-content" data-es="${escape(descEs.solution)}" data-en="${escape(descEn.solution)}" data-pt="${escape(descPt.solution)}">${descSplit.solution}</div>
     <h3 data-es="Stack Tecnológico" data-en="Technology Stack" data-pt="Stack Tecnológico">Stack Tecnológico</h3>
     <div class="solution-stack">
       ${project.stack.map(s => `<span>${s}</span>`).join('')}
@@ -244,7 +273,11 @@ function generateHTML(proj, lang) {
       lang = l;
       localStorage.setItem('lang', l);
       document.querySelectorAll('[data-es]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        if(el.classList.contains('lang-content')) {
+          el.innerHTML = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        } else {
+          el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        }
       });
       document.querySelectorAll('.lang-sw button').forEach((b, i) => {
         b.classList.toggle('on', (i === 0 && l === 'es') || (i === 1 && l === 'en'));
@@ -258,7 +291,14 @@ function generateHTML(proj, lang) {
 }
 
 function escape(str) {
-  return str.replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/\n/g, ' ');
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/\n/g, '<br>');
 }
 
 // Create all files

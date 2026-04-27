@@ -127,20 +127,31 @@ Una empresa con cientos de flujos de n8n en producción (críticos para operacio
     <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
     <div class="case-challenge-content">
       <div class="case-challenge-text">
-        <p>🎯 EL RETO  Contexto & Situación Inicial: Una empresa con cientos de flujos de n8n en producción (críticos para operaciones diarias) enfrentaba un problema recurrente e impredecible: fallos masivos causados por cambios en APIs externas o datos corruptos.  El Problema Crítico: Cada vez que un vendor externo (Stripe, SendGrid, Zapier) cambiaba levemente su formato de respuesta, o cuando datos se cor</p>
+        <p class="lang-content" data-es="🎯 EL RETO</p><p>Contexto &amp; Situación Inicial:<br>Una empresa con cientos de flujos de n8n en producción (críticos para operaciones diarias) enfrentaba un problema recurrente e impredecible: fallos masivos causados por cambios en APIs externas o datos corruptos.</p><p>El Problema Crítico:<br>Cada vez que un vendor externo (Stripe, SendGrid, Zapier) cambiaba levemente su formato de respuesta, o cuando datos se corrompían en tránsito, docenas de flujos colapsaban simultáneamente. El equipo de DevOps gastaba 20+ horas semanales investigando errores, diagnosticando root causes, y reparando flujos manualmente.</p><p>Limitaciones Existentes:<br>No había forma de anticipar cambios en APIs de terceros. El monitoreo era reactivo, no preventivo. Los rate-limits causaban cascadas de timeouts. Cada pequeño cambio requería intervención humana experta.</p><p>" data-en="🎯 THE CHALLENGE</p><p>Context &amp; Current Situation:<br>A company with hundreds of n8n workflows in production (critical to daily operations) faced a recurring and unpredictable problem: massive failures caused by changes in external APIs or corrupted data.</p><p>The Critical Problem:<br>Every time an external vendor (Stripe, SendGrid, Zapier) slightly changed their response format, or when data became corrupted in transit, dozens of workflows would collapse simultaneously. The DevOps team spent 20+ hours weekly investigating errors, diagnosing root causes, and manually repairing workflows.</p><p>Existing Limitations:<br>No way to anticipate changes in third-party APIs. Monitoring was reactive, not preventive. Rate-limits caused cascades of timeouts. Every small change required expert human intervention.</p><p>" data-pt="Sistema auto-curável com IA, 99.99% uptime garantido, zero intervenções manuais.">🎯 EL RETO
+
+Contexto & Situación Inicial:
+Una empresa con cientos de flujos de n8n en producción (críticos para operaciones diarias) enfrentaba un problema recurrente e impredecible: fallos masivos causados por cambios en APIs externas o datos corruptos.
+
+El Problema Crítico:
+Cada vez que un vendor externo (Stripe, SendGrid, Zapier) cambiaba levemente su formato de respuesta, o cuando datos se corrompían en tránsito, docenas de flujos colapsaban simultáneamente. El equipo de DevOps gastaba 20+ horas semanales investigando errores, diagnosticando root causes, y reparando flujos manualmente.
+
+Limitaciones Existentes:
+No había forma de anticipar cambios en APIs de terceros. El monitoreo era reactivo, no preventivo. Los rate-limits causaban cascadas de timeouts. Cada pequeño cambio requería intervención humana experta.
+
+</p>
       </div>
       <div class="metrics-grid">
         <div class="metric-box">
           <div class="n">99.99%</div>
-          <div class="t">uptime garantizado</div>
+          <div class="t" data-es="uptime garantizado" data-en="uptime garantizado" data-pt="uptime garantizado">uptime garantizado</div>
         </div>
         <div class="metric-box">
           <div class="n">Zero</div>
-          <div class="t">intervención DevOps</div>
+          <div class="t" data-es="intervención DevOps" data-en="intervención DevOps" data-pt="intervención DevOps">intervención DevOps</div>
         </div>
         <div class="metric-box">
           <div class="n">Smart Waits</div>
-          <div class="t">rate-limit handling</div>
+          <div class="t" data-es="rate-limit handling" data-en="rate-limit handling" data-pt="rate-limit handling">rate-limit handling</div>
         </div>
       </div>
     </div>
@@ -149,7 +160,22 @@ Una empresa con cientos de flujos de n8n en producción (críticos para operacio
   <!-- SOLUTION -->
   <section class="case-solution">
     <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
-    <div class="solution-text">rompían en tránsito, docenas de flujos colapsaban simultáneamente. El equipo de DevOps gastaba 20+ horas semanales investigando errores, diagnosticando root causes, y reparando flujos manualmente.  Limitaciones Existentes: No había forma de anticipar cambios en APIs de terceros. El monitoreo era reactivo, no preventivo. Los rate-limits causaban cascadas de timeouts. Cada pequeño cambio requería intervención humana experta.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Crear un "doctor invisible" que mo</div>
+    <div class="solution-text lang-content" data-es="🛠️ LA SOLUCIÓN</p><p>El Enfoque Adoptado:<br>Crear un &quot;doctor invisible&quot; que monitoreara continuamente todos los flujos, detectara errores en tiempo real, diagnosticara automáticamente la causa, generara un parche dinámico y lo aplicara sin intervención.</p><p>Arquitectura &amp; Tecnología:<br>Arquitectura supervisora en Python respaldada por GPT-4. Monitorea cada ejecución de cada flujo. Cuando ocurre un error (JSON malformado, cambio de estructura, timeout, rate-limit), intercepta la excepción.</p><p>Características Clave Implementadas:<br>• Diagnóstico automático usando LLM para interpretar errores técnicos<br>• Generación dinámica de parches que limpian datos corruptos<br>• Reinyección automática de datos reparados en el flujo<br>• Smart Waits: anticipan rate-limits y pausan antes de que ocurran<br>• Recovery sin intervención: el flujo continúa como si nada hubiera pasado</p><p>" data-en="🛠️ THE SOLUTION</p><p>Adopted Approach:<br>Create an &quot;invisible doctor&quot; that continuously monitored all workflows, detected errors in real time, automatically diagnosed the cause, generated a dynamic patch and applied it without intervention.</p><p>Architecture &amp; Technology:<br>Supervisor architecture in Python backed by GPT-4. Monitors every execution of every workflow. When an error occurs (malformed JSON, structure change, timeout, rate-limit), intercepts the exception.</p><p>Key Features Implemented:<br>• Automatic diagnosis using LLM to interpret technical errors<br>• Dynamic patch generation that cleans corrupted data<br>• Automatic reinject of repaired data into workflow<br>• Smart Waits: anticipate rate-limits and pause before they occur<br>• Recovery without intervention: workflow continues as if nothing happened</p><p>" data-pt="Sistema auto-curável com IA, 99.99% uptime garantido, zero intervenções manuais.">🛠️ LA SOLUCIÓN
+
+El Enfoque Adoptado:
+Crear un "doctor invisible" que monitoreara continuamente todos los flujos, detectara errores en tiempo real, diagnosticara automáticamente la causa, generara un parche dinámico y lo aplicara sin intervención.
+
+Arquitectura & Tecnología:
+Arquitectura supervisora en Python respaldada por GPT-4. Monitorea cada ejecución de cada flujo. Cuando ocurre un error (JSON malformado, cambio de estructura, timeout, rate-limit), intercepta la excepción.
+
+Características Clave Implementadas:
+• Diagnóstico automático usando LLM para interpretar errores técnicos
+• Generación dinámica de parches que limpian datos corruptos
+• Reinyección automática de datos reparados en el flujo
+• Smart Waits: anticipan rate-limits y pausan antes de que ocurran
+• Recovery sin intervención: el flujo continúa como si nada hubiera pasado
+
+</div>
     <h3 data-es="Stack Tecnológico" data-en="Technology Stack" data-pt="Stack Tecnológico">Stack Tecnológico</h3>
     <div class="solution-stack">
       <span>Python</span><span>GPT-4</span><span>n8n</span>
@@ -191,7 +217,11 @@ Una empresa con cientos de flujos de n8n en producción (críticos para operacio
       lang = l;
       localStorage.setItem('lang', l);
       document.querySelectorAll('[data-es]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        if(el.classList.contains('lang-content')) {
+          el.innerHTML = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        } else {
+          el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        }
       });
       document.querySelectorAll('.lang-sw button').forEach((b, i) => {
         b.classList.toggle('on', (i === 0 && l === 'es') || (i === 1 && l === 'en'));

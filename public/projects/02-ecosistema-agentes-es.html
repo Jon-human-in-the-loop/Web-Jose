@@ -127,20 +127,31 @@ Una empresa multinacional con equipos distribuidos en 5 países operaba con 14+ 
     <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
     <div class="case-challenge-content">
       <div class="case-challenge-text">
-        <p>🎯 EL RETO  Contexto & Situación Inicial: Una empresa multinacional con equipos distribuidos en 5 países operaba con 14+ herramientas SaaS dispares. Cada departamento elegía sus propias soluciones: desarrollo en GitHub, ventas en Salesforce, soporte en Jira, documentación en Notion y Google Drive.  El Problema Crítico: Esas plataformas nunca se hablaban entre sí. El resultado era caos operativo: c</p>
+        <p class="lang-content" data-es="🎯 EL RETO</p><p>Contexto &amp; Situación Inicial:<br>Una empresa multinacional con equipos distribuidos en 5 países operaba con 14+ herramientas SaaS dispares. Cada departamento elegía sus propias soluciones: desarrollo en GitHub, ventas en Salesforce, soporte en Jira, documentación en Notion y Google Drive.</p><p>El Problema Crítico:<br>Esas plataformas nunca se hablaban entre sí. El resultado era caos operativo: cambios en un sistema no se propagaban a otros, información duplicada en múltiples lugares, y empleados dedicando 3-4 horas diarias solo a transferir datos manualmente de un sistema a otro.</p><p>Limitaciones Existentes:<br>Modificar cada integración requería acuerdos con cada SaaS vendor. Las APIs eran incompatibles en formato y velocidad. No había forma de ejecutar lógica transversal (ej: &quot;cuando un cliente es onboardeado en Salesforce, crea automáticamente un proyecto en Jira y un documento en Notion&quot;).</p><p>" data-en="🎯 THE CHALLENGE</p><p>Context &amp; Current Situation:<br>A multinational company with teams distributed across 5 countries operated with 14+ disparate SaaS tools. Each department chose its own solutions: development in GitHub, sales in Salesforce, support in Jira, documentation in Notion and Google Drive.</p><p>The Critical Problem:<br>These platforms never communicated with each other. The result was operational chaos: changes in one system didn&#39;t propagate to others, information was duplicated across multiple places, and employees spent 3-4 hours daily just transferring data manually between systems.</p><p>Existing Limitations:<br>Modifying each integration required agreements with each SaaS vendor. APIs were incompatible in format and speed. No way to execute cross-cutting logic (e.g., &quot;when a customer is onboarded in Salesforce, automatically create a project in Jira and a document in Notion&quot;).</p><p>" data-pt="Ecossistema de agentes IA inteligentes conectando 14+ aplicações, zero transferências manuais.">🎯 EL RETO
+
+Contexto & Situación Inicial:
+Una empresa multinacional con equipos distribuidos en 5 países operaba con 14+ herramientas SaaS dispares. Cada departamento elegía sus propias soluciones: desarrollo en GitHub, ventas en Salesforce, soporte en Jira, documentación en Notion y Google Drive.
+
+El Problema Crítico:
+Esas plataformas nunca se hablaban entre sí. El resultado era caos operativo: cambios en un sistema no se propagaban a otros, información duplicada en múltiples lugares, y empleados dedicando 3-4 horas diarias solo a transferir datos manualmente de un sistema a otro.
+
+Limitaciones Existentes:
+Modificar cada integración requería acuerdos con cada SaaS vendor. Las APIs eran incompatibles en formato y velocidad. No había forma de ejecutar lógica transversal (ej: "cuando un cliente es onboardeado en Salesforce, crea automáticamente un proyecto en Jira y un documento en Notion").
+
+</p>
       </div>
       <div class="metrics-grid">
         <div class="metric-box">
           <div class="n">14+</div>
-          <div class="t">apps integradas</div>
+          <div class="t" data-es="apps integradas" data-en="apps integradas" data-pt="apps integradas">apps integradas</div>
         </div>
         <div class="metric-box">
           <div class="n">Zero</div>
-          <div class="t">transferencia manual</div>
+          <div class="t" data-es="transferencia manual" data-en="transferencia manual" data-pt="transferencia manual">transferencia manual</div>
         </div>
         <div class="metric-box">
           <div class="n">3</div>
-          <div class="t">departamentos unificados</div>
+          <div class="t" data-es="departamentos unificados" data-en="departamentos unificados" data-pt="departamentos unificados">departamentos unificados</div>
         </div>
       </div>
     </div>
@@ -149,7 +160,21 @@ Una empresa multinacional con equipos distribuidos en 5 países operaba con 14+ 
   <!-- SOLUTION -->
   <section class="case-solution">
     <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
-    <div class="solution-text">ambios en un sistema no se propagaban a otros, información duplicada en múltiples lugares, y empleados dedicando 3-4 horas diarias solo a transferir datos manualmente de un sistema a otro.  Limitaciones Existentes: Modificar cada integración requería acuerdos con cada SaaS vendor. Las APIs eran incompatibles en formato y velocidad. No había forma de ejecutar lógica transversal (ej: "cuando un cliente es onboardeado en Salesforce, crea automáticamente un proyecto en Jira y un documento en Notion"</div>
+    <div class="solution-text lang-content" data-es="🛠️ LA SOLUCIÓN</p><p>El Enfoque Adoptado:<br>Crear un ecosistema de Agentes IA que razonaran sobre los contextos de cada plataforma y ejecutaran acciones de forma autónoma, actuando como traductores inteligentes entre sistemas.</p><p>Arquitectura &amp; Tecnología:<br>Programé los Agentes en Python y n8n usando el estándar MCP (Model Context Protocol). Cada agente puede razonar sobre contextos complejos y ejecutar acciones mediante Tool Calling. Los agentes tienen acceso a APIs de todas las 14 plataformas.</p><p>Características Clave Implementadas:<br>• Agentes escuchan comandos en lenguaje natural desde Slack<br>• Razonamiento multi-paso: busca contexto en Drive → localiza ticket en Jira → extrae info de GitHub<br>• Sincronización bidireccional automática entre plataformas<br>• Smart routing: cada tarea se distribuye al agente con permisos apropiados</p><p>" data-en="🛠️ THE SOLUTION</p><p>Adopted Approach:<br>Create an ecosystem of AI Agents that would reason about each platform&#39;s context and execute actions autonomously, acting as intelligent translators between systems.</p><p>Architecture &amp; Technology:<br>I programmed the Agents in Python and n8n using the MCP (Model Context Protocol) standard. Each agent can reason about complex contexts and execute actions through Tool Calling. Agents have access to APIs of all 14 platforms.</p><p>Key Features Implemented:<br>• Agents listen for natural language commands from Slack<br>• Multi-step reasoning: search context in Drive → locate ticket in Jira → extract info from GitHub<br>• Automatic bidirectional synchronization between platforms<br>• Smart routing: each task distributed to agent with appropriate permissions</p><p>" data-pt="Ecossistema de agentes IA inteligentes conectando 14+ aplicações, zero transferências manuais.">🛠️ LA SOLUCIÓN
+
+El Enfoque Adoptado:
+Crear un ecosistema de Agentes IA que razonaran sobre los contextos de cada plataforma y ejecutaran acciones de forma autónoma, actuando como traductores inteligentes entre sistemas.
+
+Arquitectura & Tecnología:
+Programé los Agentes en Python y n8n usando el estándar MCP (Model Context Protocol). Cada agente puede razonar sobre contextos complejos y ejecutar acciones mediante Tool Calling. Los agentes tienen acceso a APIs de todas las 14 plataformas.
+
+Características Clave Implementadas:
+• Agentes escuchan comandos en lenguaje natural desde Slack
+• Razonamiento multi-paso: busca contexto en Drive → localiza ticket en Jira → extrae info de GitHub
+• Sincronización bidireccional automática entre plataformas
+• Smart routing: cada tarea se distribuye al agente con permisos apropiados
+
+</div>
     <h3 data-es="Stack Tecnológico" data-en="Technology Stack" data-pt="Stack Tecnológico">Stack Tecnológico</h3>
     <div class="solution-stack">
       <span>Python</span><span>n8n</span><span>MCP</span><span>Slack</span><span>Notion</span><span>Jira</span><span>Google Drive</span><span>GitHub</span>
@@ -191,7 +216,11 @@ Una empresa multinacional con equipos distribuidos en 5 países operaba con 14+ 
       lang = l;
       localStorage.setItem('lang', l);
       document.querySelectorAll('[data-es]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        if(el.classList.contains('lang-content')) {
+          el.innerHTML = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        } else {
+          el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        }
       });
       document.querySelectorAll('.lang-sw button').forEach((b, i) => {
         b.classList.toggle('on', (i === 0 && l === 'es') || (i === 1 && l === 'en'));

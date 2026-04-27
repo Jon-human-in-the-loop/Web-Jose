@@ -127,20 +127,31 @@ Un retailer con presencia multi-sucursal planeaba expansión digital masiva. Bla
     <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
     <div class="case-challenge-content">
       <div class="case-challenge-text">
-        <p>🎯 EL RETO  Contexto & Situación Inicial: Un retailer con presencia multi-sucursal planeaba expansión digital masiva. Black Friday proyectaba 50,000+ compradores simultáneos. Pero el mayor riesgo no era solo el tráfico: era la seguridad contra ataques que típicamente ocurren en picos (inyecciones SQL, token hijacking, credential stuffing).  El Problema Crítico: Los arquitectos convencionales propo</p>
+        <p class="lang-content" data-es="🎯 EL RETO</p><p>Contexto &amp; Situación Inicial:<br>Un retailer con presencia multi-sucursal planeaba expansión digital masiva. Black Friday proyectaba 50,000+ compradores simultáneos. Pero el mayor riesgo no era solo el tráfico: era la seguridad contra ataques que típicamente ocurren en picos (inyecciones SQL, token hijacking, credential stuffing).</p><p>El Problema Crítico:<br>Los arquitectos convencionales proponían soluciones costosas: múltiples capas defensivas agregadas &quot;después&quot; del desarrollo. Pero eso es arquitectura de parches. El verdadero riesgo es que si construyes inseguro, no hay cantidad de firewalls que lo salven.</p><p>Limitaciones Existentes:<br>Arquitecturas tradicionales: escribes código, luego lo endureces. Eso deja brechas. Cada nueva feature es un riesgo de inyección. Cada cambio en infraestructura es una oportunidad de error.</p><p>" data-en="🎯 THE CHALLENGE</p><p>Context &amp; Current Situation:<br>A retailer with multi-location presence planned massive digital expansion. Black Friday projected 50,000+ simultaneous shoppers. But the biggest risk wasn&#39;t just traffic: it was security against attacks that typically occur during peaks (SQL injections, token hijacking, credential stuffing).</p><p>The Critical Problem:<br>Conventional architects proposed expensive solutions: multiple defensive layers added &quot;after&quot; development. But that&#39;s patch architecture. The real risk is that if you build insecurely, no amount of firewalls can save you.</p><p>Existing Limitations:<br>Traditional architectures: write code, then harden it. That leaves gaps. Every new feature is injection risk. Every infrastructure change is an error opportunity.</p><p>" data-pt="E-commerce seguro por design, 10K+ requisições simultâneas, zero injeções SQL.">🎯 EL RETO
+
+Contexto & Situación Inicial:
+Un retailer con presencia multi-sucursal planeaba expansión digital masiva. Black Friday proyectaba 50,000+ compradores simultáneos. Pero el mayor riesgo no era solo el tráfico: era la seguridad contra ataques que típicamente ocurren en picos (inyecciones SQL, token hijacking, credential stuffing).
+
+El Problema Crítico:
+Los arquitectos convencionales proponían soluciones costosas: múltiples capas defensivas agregadas "después" del desarrollo. Pero eso es arquitectura de parches. El verdadero riesgo es que si construyes inseguro, no hay cantidad de firewalls que lo salven.
+
+Limitaciones Existentes:
+Arquitecturas tradicionales: escribes código, luego lo endureces. Eso deja brechas. Cada nueva feature es un riesgo de inyección. Cada cambio en infraestructura es una oportunidad de error.
+
+</p>
       </div>
       <div class="metrics-grid">
         <div class="metric-box">
           <div class="n">10K+</div>
-          <div class="t">requests soportados</div>
+          <div class="t" data-es="requests soportados" data-en="requests soportados" data-pt="requests soportados">requests soportados</div>
         </div>
         <div class="metric-box">
           <div class="n">Zero</div>
-          <div class="t">inyecciones SQL</div>
+          <div class="t" data-es="inyecciones SQL" data-en="inyecciones SQL" data-pt="inyecciones SQL">inyecciones SQL</div>
         </div>
         <div class="metric-box">
           <div class="n">Secure-by-design</div>
-          <div class="t">desde el diseño</div>
+          <div class="t" data-es="desde el diseño" data-en="desde el diseño" data-pt="desde el diseño">desde el diseño</div>
         </div>
       </div>
     </div>
@@ -149,7 +160,22 @@ Un retailer con presencia multi-sucursal planeaba expansión digital masiva. Bla
   <!-- SOLUTION -->
   <section class="case-solution">
     <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
-    <div class="solution-text">nían soluciones costosas: múltiples capas defensivas agregadas "después" del desarrollo. Pero eso es arquitectura de parches. El verdadero riesgo es que si construyes inseguro, no hay cantidad de firewalls que lo salven.  Limitaciones Existentes: Arquitecturas tradicionales: escribes código, luego lo endureces. Eso deja brechas. Cada nueva feature es un riesgo de inyección. Cada cambio en infraestructura es una oportunidad de error.  🛠️ LA SOLUCIÓN  El Enfoque Adoptado: Fundamental: "Secure-by-</div>
+    <div class="solution-text lang-content" data-es="🛠️ LA SOLUCIÓN</p><p>El Enfoque Adoptado:<br>Fundamental: &quot;Secure-by-Design&quot;. No agregar seguridad después. Construir de forma que sea imposible ser inseguro.</p><p>Arquitectura &amp; Tecnología:<br>Backend completamente en Node.js con Drizzle ORM. Drizzle elimina por defecto la posibilidad de escribir queries SQL vulnerables: todo pasa por mapeos tipados que bloquean inyecciones antes de ocurrir. CSP a nivel de red (restringe qué recursos se cargan). Directivas HttpOnly (previenen JavaScript malicioso). Rate Limiting inteligente (detecta patrones: 100+ requests/IP en 10s, pero sin penalizar compradores reales).</p><p>Características Clave Implementadas:<br>• Imposibilidad técnica de inyección SQL (no es decisión, es arquitectura)<br>• Token hijacking prevenido con HttpOnly<br>• CSRF protegido con tokens únicos por sesión<br>• Botnet detection mediante análisis de patrones<br>• Zero human intervention requerida en operaciones seguras</p><p>" data-en="🛠️ THE SOLUTION</p><p>Adopted Approach:<br>Fundamental: &quot;Secure-by-Design&quot;. Don&#39;t add security later. Build so that it&#39;s impossible to be insecure.</p><p>Architecture &amp; Technology:<br>Backend entirely in Node.js with Drizzle ORM. Drizzle eliminates by default the possibility of writing vulnerable SQL queries: everything goes through typed mappings that block injections before they occur. CSP at network level (restricts what resources load). HttpOnly directives (prevent malicious JavaScript). Intelligent Rate Limiting (detects patterns: 100+ requests/IP in 10s, but doesn&#39;t penalize real shoppers).</p><p>Key Features Implemented:<br>• Technical impossibility of SQL injection (not a decision, it&#39;s architecture)<br>• Token hijacking prevented with HttpOnly<br>• CSRF protected with unique tokens per session<br>• Botnet detection through pattern analysis<br>• Zero human intervention required in secure operations</p><p>" data-pt="E-commerce seguro por design, 10K+ requisições simultâneas, zero injeções SQL.">🛠️ LA SOLUCIÓN
+
+El Enfoque Adoptado:
+Fundamental: "Secure-by-Design". No agregar seguridad después. Construir de forma que sea imposible ser inseguro.
+
+Arquitectura & Tecnología:
+Backend completamente en Node.js con Drizzle ORM. Drizzle elimina por defecto la posibilidad de escribir queries SQL vulnerables: todo pasa por mapeos tipados que bloquean inyecciones antes de ocurrir. CSP a nivel de red (restringe qué recursos se cargan). Directivas HttpOnly (previenen JavaScript malicioso). Rate Limiting inteligente (detecta patrones: 100+ requests/IP en 10s, pero sin penalizar compradores reales).
+
+Características Clave Implementadas:
+• Imposibilidad técnica de inyección SQL (no es decisión, es arquitectura)
+• Token hijacking prevenido con HttpOnly
+• CSRF protegido con tokens únicos por sesión
+• Botnet detection mediante análisis de patrones
+• Zero human intervention requerida en operaciones seguras
+
+</div>
     <h3 data-es="Stack Tecnológico" data-en="Technology Stack" data-pt="Stack Tecnológico">Stack Tecnológico</h3>
     <div class="solution-stack">
       <span>Node.js</span><span>Drizzle ORM</span><span>CSP</span><span>HttpOnly</span><span>Rate Limiting</span>
@@ -191,7 +217,11 @@ Un retailer con presencia multi-sucursal planeaba expansión digital masiva. Bla
       lang = l;
       localStorage.setItem('lang', l);
       document.querySelectorAll('[data-es]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        if(el.classList.contains('lang-content')) {
+          el.innerHTML = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        } else {
+          el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        }
       });
       document.querySelectorAll('.lang-sw button').forEach((b, i) => {
         b.classList.toggle('on', (i === 0 && l === 'es') || (i === 1 && l === 'en'));

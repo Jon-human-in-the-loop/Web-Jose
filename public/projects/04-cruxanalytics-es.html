@@ -127,20 +127,31 @@ La gerencia de una empresa financiera con cartera de inversiones millonarias dep
     <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
     <div class="case-challenge-content">
       <div class="case-challenge-text">
-        <p>🎯 EL RETO  Contexto & Situación Inicial: La gerencia de una empresa financiera con cartera de inversiones millonarias dependía completamente de spreadsheets Excel compartidos para tomar decisiones críticas de inversión. El sistema era frágil y humanamente imposible de validar.  El Problema Crítico: Planillas nunca estaban actualizadas porque múltiples personas las editaban simultáneamente. Los nú</p>
+        <p class="lang-content" data-es="🎯 EL RETO</p><p>Contexto &amp; Situación Inicial:<br>La gerencia de una empresa financiera con cartera de inversiones millonarias dependía completamente de spreadsheets Excel compartidos para tomar decisiones críticas de inversión. El sistema era frágil y humanamente imposible de validar.</p><p>El Problema Crítico:<br>Planillas nunca estaban actualizadas porque múltiples personas las editaban simultáneamente. Los números variaban según quién los calculara (errores en fórmulas Excel). Los ejecutivos no podían confiar en los datos para respaldar inversiones de millones. Un CFO pedía cálculos de VPN y TIR, pero no sabía cómo la planilla llegaba a esos números.</p><p>Limitaciones Existentes:<br>No había auditoría de cambios. Las fórmulas eran cajas negras. Cambios externos (tasas de interés, inflación) requerían recalcular manualmente toda la planilla. Análisis de sensibilidad tomaba días.</p><p>" data-en="🎯 THE CHALLENGE</p><p>Context &amp; Current Situation:<br>Management of a financial company with a million-dollar investment portfolio was completely dependent on shared Excel spreadsheets to make critical investment decisions. The system was fragile and humanly impossible to validate.</p><p>The Critical Problem:<br>Spreadsheets were never updated because multiple people edited them simultaneously. Numbers varied depending on who calculated them (errors in Excel formulas). Executives couldn&#39;t trust the data to support million-dollar investments. A CFO asked for NPV and IRR calculations, but didn&#39;t know how the spreadsheet arrived at those numbers.</p><p>Existing Limitations:<br>No audit trail of changes. Formulas were black boxes. External changes (interest rates, inflation) required manually recalculating entire spreadsheet. Sensitivity analysis took days.</p><p>" data-pt="Análise financeira IA com cálculos determinísticos, zero dependência de planilhas Excel.">🎯 EL RETO
+
+Contexto & Situación Inicial:
+La gerencia de una empresa financiera con cartera de inversiones millonarias dependía completamente de spreadsheets Excel compartidos para tomar decisiones críticas de inversión. El sistema era frágil y humanamente imposible de validar.
+
+El Problema Crítico:
+Planillas nunca estaban actualizadas porque múltiples personas las editaban simultáneamente. Los números variaban según quién los calculara (errores en fórmulas Excel). Los ejecutivos no podían confiar en los datos para respaldar inversiones de millones. Un CFO pedía cálculos de VPN y TIR, pero no sabía cómo la planilla llegaba a esos números.
+
+Limitaciones Existentes:
+No había auditoría de cambios. Las fórmulas eran cajas negras. Cambios externos (tasas de interés, inflación) requerían recalcular manualmente toda la planilla. Análisis de sensibilidad tomaba días.
+
+</p>
       </div>
       <div class="metrics-grid">
         <div class="metric-box">
           <div class="n">Zero</div>
-          <div class="t">dependencia de planillas</div>
+          <div class="t" data-es="dependencia de planillas" data-en="dependencia de planillas" data-pt="dependencia de planillas">dependencia de planillas</div>
         </div>
         <div class="metric-box">
           <div class="n">XAI</div>
-          <div class="t">diagnósticos ejecutivos</div>
+          <div class="t" data-es="diagnósticos ejecutivos" data-en="diagnósticos ejecutivos" data-pt="diagnósticos ejecutivos">diagnósticos ejecutivos</div>
         </div>
         <div class="metric-box">
           <div class="n">DDD</div>
-          <div class="t">arquitectura modular</div>
+          <div class="t" data-es="arquitectura modular" data-en="arquitectura modular" data-pt="arquitectura modular">arquitectura modular</div>
         </div>
       </div>
     </div>
@@ -149,7 +160,22 @@ La gerencia de una empresa financiera con cartera de inversiones millonarias dep
   <!-- SOLUTION -->
   <section class="case-solution">
     <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
-    <div class="solution-text">meros variaban según quién los calculara (errores en fórmulas Excel). Los ejecutivos no podían confiar en los datos para respaldar inversiones de millones. Un CFO pedía cálculos de VPN y TIR, pero no sabía cómo la planilla llegaba a esos números.  Limitaciones Existentes: No había auditoría de cambios. Las fórmulas eran cajas negras. Cambios externos (tasas de interés, inflación) requerían recalcular manualmente toda la planilla. Análisis de sensibilidad tomaba días.  🛠️ LA SOLUCIÓN  El Enfoque</div>
+    <div class="solution-text lang-content" data-es="🛠️ LA SOLUCIÓN</p><p>El Enfoque Adoptado:<br>Construir un entorno de análisis financiero donde las matemáticas fueran 100% deterministas, auditables, y donde los resultados se explicaran automáticamente en lenguaje de negocios.</p><p>Arquitectura &amp; Tecnología:<br>DDD (Domain-Driven Design) para separar lógica pura de presentación. Node.js ejecuta funciones matemáticas puras: algoritmos exactos para VPN, TIR, sensibilidad. React Native renderiza interfaz (móvil + escritorio). Integración de Explainable AI (XAI) que traduce lógica matemática a narrativa ejecutiva.</p><p>Características Clave Implementadas:<br>• Cálculos VPN y TIR completamente deterministas (sin aproximaciones)<br>• Cada resultado acompañado de auditoría técnica completa<br>• XAI genera diagnósticos ejecutivos automáticos<br>• Análisis de sensibilidad en tiempo real (mueve un slider, recalcula instantáneamente)<br>• Reportes PDF certificables para auditorías</p><p>" data-en="🛠️ THE SOLUTION</p><p>Adopted Approach:<br>Build a financial analysis environment where mathematics were 100% deterministic, auditable, and where results automatically explained themselves in business language.</p><p>Architecture &amp; Technology:<br>DDD (Domain-Driven Design) to separate pure logic from presentation. Node.js executes pure mathematical functions: exact algorithms for NPV, IRR, sensitivity. React Native renders interface (mobile + desktop). Integration of Explainable AI (XAI) that translates mathematical logic to executive narrative.</p><p>Key Features Implemented:<br>• NPV and IRR calculations completely deterministic (no approximations)<br>• Every result accompanied by complete technical audit<br>• XAI automatically generates executive diagnostics<br>• Real-time sensitivity analysis (move a slider, instantly recalculates)<br>• PDF reports certifiable for audits</p><p>" data-pt="Análise financeira IA com cálculos determinísticos, zero dependência de planilhas Excel.">🛠️ LA SOLUCIÓN
+
+El Enfoque Adoptado:
+Construir un entorno de análisis financiero donde las matemáticas fueran 100% deterministas, auditables, y donde los resultados se explicaran automáticamente en lenguaje de negocios.
+
+Arquitectura & Tecnología:
+DDD (Domain-Driven Design) para separar lógica pura de presentación. Node.js ejecuta funciones matemáticas puras: algoritmos exactos para VPN, TIR, sensibilidad. React Native renderiza interfaz (móvil + escritorio). Integración de Explainable AI (XAI) que traduce lógica matemática a narrativa ejecutiva.
+
+Características Clave Implementadas:
+• Cálculos VPN y TIR completamente deterministas (sin aproximaciones)
+• Cada resultado acompañado de auditoría técnica completa
+• XAI genera diagnósticos ejecutivos automáticos
+• Análisis de sensibilidad en tiempo real (mueve un slider, recalcula instantáneamente)
+• Reportes PDF certificables para auditorías
+
+</div>
     <h3 data-es="Stack Tecnológico" data-en="Technology Stack" data-pt="Stack Tecnológico">Stack Tecnológico</h3>
     <div class="solution-stack">
       <span>Node.js</span><span>React Native</span><span>XAI</span><span>DDD</span><span>Open Source</span>
@@ -191,7 +217,11 @@ La gerencia de una empresa financiera con cartera de inversiones millonarias dep
       lang = l;
       localStorage.setItem('lang', l);
       document.querySelectorAll('[data-es]').forEach(el => {
-        el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        if(el.classList.contains('lang-content')) {
+          el.innerHTML = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        } else {
+          el.textContent = el.getAttribute('data-' + l) || el.getAttribute('data-es');
+        }
       });
       document.querySelectorAll('.lang-sw button').forEach((b, i) => {
         b.classList.toggle('on', (i === 0 && l === 'es') || (i === 1 && l === 'en'));

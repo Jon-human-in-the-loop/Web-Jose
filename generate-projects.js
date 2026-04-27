@@ -180,7 +180,7 @@ function generateHTML(proj, lang) {
     <h2 data-es="🎯 El Reto" data-en="🎯 The Challenge" data-pt="🎯 O Desafio">🎯 El Reto</h2>
     <div class="case-challenge-content">
       <div class="case-challenge-text">
-        <p>${desc.split('\n\n')[0] || desc}</p>
+        <p>${desc.substring(0, 400).replace(/\n/g, ' ')}</p>
       </div>
       <div class="metrics-grid">
         <div class="metric-box">
@@ -202,7 +202,7 @@ function generateHTML(proj, lang) {
   <!-- SOLUTION -->
   <section class="case-solution">
     <h2 data-es="🛠️ La Solución" data-en="🛠️ The Solution" data-pt="🛠️ A Solução">🛠️ La Solución</h2>
-    <div class="solution-text">${desc.split('\n\n')[1] || 'Solución arquitectónica implementada.'}</div>
+    <div class="solution-text">${desc.substring(400, 900).replace(/\n/g, ' ')}</div>
     <h3 data-es="Stack Tecnológico" data-en="Technology Stack" data-pt="Stack Tecnológico">Stack Tecnológico</h3>
     <div class="solution-stack">
       ${project.stack.map(s => `<span>${s}</span>`).join('')}

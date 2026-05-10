@@ -651,6 +651,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
           <div class="n" id="calcCostVal">$0</div>
           <div class="t" data-es="USD mensuales en trabajo improductivo" data-en="USD monthly in unproductive work">USD mensuales en trabajo improductivo</div>
         </div>
+        <div class="calc-number">
+          <div class="n" id="calcAnnualVal">$0</div>
+          <div class="t" data-es="USD perdidos por año" data-en="USD lost per year">USD perdidos por año</div>
+        </div>
       </div>
       <div class="calc-result-services">
         <div class="calc-result-label" data-es="Para eliminar estas pérdidas necesitás:" data-en="To eliminate these losses you need:">Para eliminar estas pérdidas necesitás:</div>
@@ -1341,10 +1345,13 @@ document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
 
     if (result) result.style.display = 'block';
 
-    var hoursEl = document.getElementById('calcHoursVal');
-    var costEl  = document.getElementById('calcCostVal');
-    if (hoursEl) hoursEl.textContent = weekly + 'h';
-    if (costEl)  costEl.textContent  = formatCost(monthly);
+    var annual   = monthly * 12;
+    var hoursEl  = document.getElementById('calcHoursVal');
+    var costEl   = document.getElementById('calcCostVal');
+    var annualEl = document.getElementById('calcAnnualVal');
+    if (hoursEl)  hoursEl.textContent  = weekly + 'h';
+    if (costEl)   costEl.textContent   = formatCost(monthly);
+    if (annualEl) annualEl.textContent = formatCost(annual);
 
     ['agente', 'contenido', 'ecosistema'].forEach(function(s) {
       var tag = document.getElementById('tag-' + s);

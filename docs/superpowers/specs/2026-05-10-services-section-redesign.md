@@ -36,6 +36,7 @@ Replaces the current services section. Appears before the 3 service cards.
   .calc-header         ← title + subtitle
   .calc-tasks          ← 8 checkboxes with task labels + hours/week
   .calc-team           ← team size selector (1, 3, 5, 10, 20)
+  .calc-rate           ← hourly rate input (user-defined, default $5)
   .calc-result         ← dynamic output (hidden until ≥1 task selected)
     .calc-hours        ← "Tu equipo pierde X horas/semana"
     .calc-cost         ← "~$Y USD mensuales en trabajo improductivo"
@@ -67,11 +68,21 @@ Replaces the current services section. Appears before the 3 service cards.
 ### Team size multiplier
 Buttons: 1 · 3 · 5 · 10 · 20 (default: 5)
 
+### Hourly rate input
+A text input field where the user enters what they pay per hour (in USD).
+
+- **Label ES:** "¿Cuánto pagás por hora de empleado? (USD)"
+- **Label EN:** "How much do you pay per employee hour? (USD)"
+- **Placeholder:** "ej: 5"
+- **Default value:** 5 (pre-filled, editable)
+- **Type:** `number`, min: 1, max: 500
+- Updates the result in real time on `input` event (no submit needed)
+
 ### Calculation logic (JavaScript)
 ```
 selectedHours = sum of hours for checked tasks
 weeklyHours   = selectedHours × teamSize
-monthlyCost   = weeklyHours × 4 × 15   // $15 USD/h — avg Latam/Spain rate
+monthlyCost   = weeklyHours × 4 × hourlyRate   // user-defined rate
 ```
 
 ### Dynamic result display

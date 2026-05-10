@@ -105,7 +105,7 @@ h1.hero-h .outline{color:var(--bg);text-shadow:-1px -1px 0 var(--white),1px -1px
 
 /* PROBLEMS */
 #problemas{background:var(--bg);border-bottom:1px solid var(--border);}
-.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:80px;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:24px;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
 .prob-item{padding:48px 40px;border-right:1px solid var(--border);transition:background .3s;}
 .prob-item:last-child{border-right:none;}
 .prob-item:hover{background:var(--surface);}
@@ -113,6 +113,15 @@ h1.hero-h .outline{color:var(--bg);text-shadow:-1px -1px 0 var(--white),1px -1px
 .prob-q{font-size:1.15rem;font-weight:700;margin-bottom:14px;line-height:1.3;}
 .prob-a{font-size:.88rem;color:var(--dim);line-height:1.85;}
 .prob-a strong{color:var(--accent);}
+
+/* TECH LOGOS STRIP */
+.tech-strip{margin-bottom:72px;}
+.tech-strip-label{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:#333;margin-bottom:24px;}
+.tech-logos-row{display:flex;align-items:center;gap:40px;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 0;}
+.tech-logo{display:flex;align-items:center;gap:7px;opacity:.28;transition:opacity .3s;cursor:default;user-select:none;flex-shrink:0;}
+.tech-logo:hover{opacity:.65;}
+.tech-logo svg{width:18px;height:18px;fill:var(--white);flex-shrink:0;}
+.tech-logo-name{font-size:.82rem;font-weight:800;color:var(--white);letter-spacing:-.5px;line-height:1;}
 
 /* SERVICES — índices decorativos grandes */
 #servicios{background:var(--surface);border-bottom:1px solid var(--border);}
@@ -557,8 +566,66 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 
 <!-- PROBLEMS -->
 <section id="problemas">
-  <div class="label fi" data-es="¿Te identificas?" data-en="Do you relate?">¿Te identificas?</div>
+
+  <!-- TECH PARTNER LOGOS -->
+  <div class="tech-strip fi">
+    <div class="tech-strip-label" data-es="Tecnologías con las que trabajamos" data-en="Technologies we work with">Tecnologías con las que trabajamos</div>
+    <div class="tech-logos-row">
+      <!-- OpenAI -->
+      <div class="tech-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.28 9.28a6.06 6.06 0 0 0-.52-4.97 6.12 6.12 0 0 0-6.6-2.93A6.07 6.07 0 0 0 10.58.07a6.12 6.12 0 0 0-5.83 4.24 6.07 6.07 0 0 0-4.05 2.95 6.12 6.12 0 0 0 .75 7.17 6.07 6.07 0 0 0 .52 4.97 6.12 6.12 0 0 0 6.6 2.93 6.07 6.07 0 0 0 4.58 2.31 6.12 6.12 0 0 0 5.84-4.24 6.07 6.07 0 0 0 4.05-2.95 6.12 6.12 0 0 0-.76-7.17zM13.42 21.36a4.54 4.54 0 0 1-2.91-1.05l.14-.08 4.83-2.79a.8.8 0 0 0 .4-.69v-6.82l2.04 1.18a.07.07 0 0 1 .04.06v5.64a4.56 4.56 0 0 1-4.54 4.55zM3.7 17.53a4.54 4.54 0 0 1-.54-3.05l.14.09 4.83 2.79a.79.79 0 0 0 .8 0l5.9-3.4v2.36a.08.08 0 0 1-.03.06L9.7 19.2a4.56 4.56 0 0 1-6-1.67zm-1.2-10.53a4.53 4.53 0 0 1 2.37-2l-.01.17V10.8a.79.79 0 0 0 .4.69l5.9 3.4-2.05 1.18a.08.08 0 0 1-.07 0L4.1 13.35A4.56 4.56 0 0 1 2.5 7zm16.76 3.92-5.9-3.41 2.05-1.18a.08.08 0 0 1 .07 0l4.93 2.85a4.55 4.55 0 0 1-.7 8.22V12.1a.79.79 0 0 0-.4-.69zm2.04-3.07-.15-.09-4.82-2.8a.8.8 0 0 0-.8 0l-5.9 3.4V6.5a.07.07 0 0 1 .03-.06l4.93-2.85a4.55 4.55 0 0 1 6.71 4.72zm-12.77 4.2-2.05-1.18a.07.07 0 0 1-.04-.06V5.66a4.55 4.55 0 0 1 7.47-3.5l-.14.08-4.83 2.79a.8.8 0 0 0-.4.69zm1.11-2.4 2.62-1.51 2.62 1.51v3.02l-2.62 1.51-2.62-1.51z"/></svg>
+        <span class="tech-logo-name">OpenAI</span>
+      </div>
+      <!-- Anthropic -->
+      <div class="tech-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.827 3.52h3.603L24 20h-3.603l-6.57-16.48zm-7.258 0h3.603L16.744 20h-3.603L6.57 3.52z"/></svg>
+        <span class="tech-logo-name">Anthropic</span>
+      </div>
+      <!-- n8n -->
+      <div class="tech-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 3A2.5 2.5 0 0 0 3 5.5v3A2.5 2.5 0 0 0 5.5 11H7v2H5.5A2.5 2.5 0 0 0 3 15.5v3A2.5 2.5 0 0 0 5.5 21h3A2.5 2.5 0 0 0 11 18.5V17h2v1.5A2.5 2.5 0 0 0 15.5 21h3A2.5 2.5 0 0 0 21 18.5v-3A2.5 2.5 0 0 0 18.5 13H17v-2h1.5A2.5 2.5 0 0 0 21 8.5v-3A2.5 2.5 0 0 0 18.5 3h-3A2.5 2.5 0 0 0 13 5.5V7h-2V5.5A2.5 2.5 0 0 0 8.5 3h-3zm0 2h3a.5.5 0 0 1 .5.5V9H5a.5.5 0 0 1-.5-.5v-3A.5.5 0 0 1 5.5 5zM16 5h2.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H15V5.5a.5.5 0 0 1 .5-.5zM9 11h6v2H9zm-4 4h3.5a.5.5 0 0 1 .5.5V19H5.5a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5zm9.5 0H19a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3v-3.5a.5.5 0 0 1 .5-.5z"/></svg>
+        <span class="tech-logo-name">n8n</span>
+      </div>
+      <!-- Make -->
+      <div class="tech-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 2a8 8 0 1 1 0 16A8 8 0 0 1 12 4zm0 2a6 6 0 1 0 0 12A6 6 0 0 0 12 6zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+        <span class="tech-logo-name">Make</span>
+      </div>
+      <!-- WhatsApp -->
+      <div class="tech-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        <span class="tech-logo-name">WhatsApp</span>
+      </div>
+      <!-- Vercel -->
+      <div class="tech-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg>
+        <span class="tech-logo-name">Vercel</span>
+      </div>
+      <!-- Airtable -->
+      <div class="tech-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.386.657L1.59 4.27a.9.9 0 0 0 0 1.676l9.796 3.614a2.396 2.396 0 0 0 1.64 0L22.82 5.946a.9.9 0 0 0 0-1.676L13.027.657a2.396 2.396 0 0 0-1.641 0zm10.55 7.536l-2.628 1.03v4.98l-7.1 2.62v-4.916l-2.637 1.033v5.784c0 .352.215.666.54.793l8.292 3.14a.9.9 0 0 0 .64 0l3.433-1.3a.9.9 0 0 0 .581-.84v-11.5a.9.9 0 0 0-1.12-.824zm-12.365.025l-2.61 1.02v11.503a.9.9 0 0 0 .58.84l2.03.77V9.218z"/></svg>
+        <span class="tech-logo-name">Airtable</span>
+      </div>
+      <!-- Meta / Instagram -->
+      <div class="tech-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        <span class="tech-logo-name">Instagram</span>
+      </div>
+      <!-- Stripe -->
+      <div class="tech-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.831 3.47 1.426 3.47 2.338 0 .892-.734 1.411-2.013 1.411-2.136 0-4.727-.921-6.538-2.083L4.23 21.49C6.11 22.688 8.913 24 12.677 24c2.554 0 4.695-.657 6.18-1.904 1.6-1.328 2.394-3.224 2.394-5.477 0-4.157-2.498-5.797-7.275-7.469z"/></svg>
+        <span class="tech-logo-name">Stripe</span>
+      </div>
+      <!-- Notion -->
+      <div class="tech-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.047.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>
+        <span class="tech-logo-name">Notion</span>
+      </div>
+    </div>
+  </div>
+
   <h2 class="big text-reveal fi"><span data-es="Los problemas" data-en="The problems">Los problemas</span><br><em data-es="que resolvemos" data-en="we solve">que resolvemos</em></h2>
+  <div class="label fi" style="margin-top:48px;margin-bottom:0" data-es="¿Te identificas?" data-en="Do you relate?">¿Te identificas?</div>
   <div class="prob-grid fi">
     <div class="prob-item"><div class="prob-num">01</div><div class="prob-q" data-es="¿Tu contenido no convierte?" data-en="Your content doesn't convert?">¿Tu contenido no convierte?</div><div class="prob-a"><span data-es="Lo resolvemos con " data-en="We fix it with ">Lo resolvemos con </span><strong data-es="Social Media Estratégico" data-en="Strategic Social Media">Social Media Estratégico</strong><span data-es=" orientado a posicionamiento y crecimiento real." data-en=" focused on positioning and real growth."> orientado a posicionamiento y crecimiento real.</span></div></div>
     <div class="prob-item"><div class="prob-num">02</div><div class="prob-q" data-es="¿Procesos manuales que te frenan?" data-en="Manual processes holding you back?">¿Procesos manuales que te frenan?</div><div class="prob-a"><span data-es="Implementamos " data-en="We implement ">Implementamos </span><strong data-es="automatizaciones con IA" data-en="AI automations">automatizaciones con IA</strong><span data-es=" que liberan el 80% de tu tiempo operativo." data-en=" that free 80% of your operational time."> que liberan el 80% de tu tiempo operativo.</span></div></div>

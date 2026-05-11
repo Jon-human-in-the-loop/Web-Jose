@@ -1402,15 +1402,28 @@ document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
 
 // ─── MOBILE CAROUSEL DOTS ─────────────────────────────────────
 (function(){
+  function applyCarouselStyle(el,children){
+    Object.assign(el.style,{
+      display:'flex',overflowX:'scroll',overflowY:'hidden',
+      scrollSnapType:'x mandatory',WebkitOverflowScrolling:'touch',
+      scrollbarWidth:'none',msOverflowStyle:'none'
+    });
+    el.style.setProperty('-webkit-overflow-scrolling','touch');
+    children.forEach(function(child){
+      Object.assign(child.style,{flex:'0 0 100%',minWidth:'100%',scrollSnapAlign:'start',boxSizing:'border-box'});
+    });
+  }
   function initDots(){
     if(window.innerWidth>768)return;
     var carousels=[
-      {el:document.querySelector('.prob-grid'),count:3},
-      {el:document.getElementById('srv-premium'),count:3},
-      {el:document.querySelector('.t-grid'),count:3}
+      {el:document.querySelector('.prob-grid'),selector:'.prob-item',count:3},
+      {el:document.getElementById('srv-premium'),selector:'.srv-row',count:3},
+      {el:document.querySelector('.t-grid'),selector:'.t-card',count:3}
     ];
     carousels.forEach(function(c){
       if(!c.el)return;
+      var children=Array.from(c.el.querySelectorAll(c.selector));
+      applyCarouselStyle(c.el,children);
       var wrap=document.createElement('div');
       wrap.className='carousel-dots';
       var dots=[];

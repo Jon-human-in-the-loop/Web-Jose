@@ -1400,48 +1400,68 @@ document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
 })();
 // ─── END CALCULATOR ───────────────────────────────────────────
 
-// ─── MOBILE CAROUSEL DOTS ─────────────────────────────────────
+// ─── MOBILE CAROUSEL (wrapper-based, bypasses CSS conflicts) ──
 (function(){
-  function applyCarouselStyle(el,children){
-    Object.assign(el.style,{
-      display:'flex',overflowX:'scroll',overflowY:'hidden',
-      scrollSnapType:'x mandatory',WebkitOverflowScrolling:'touch',
-      scrollbarWidth:'none',msOverflowStyle:'none'
-    });
-    el.style.setProperty('-webkit-overflow-scrolling','touch');
+  function buildCarousel(grid,childSelector){
+    if(!grid||grid.dataset.carouselDone)return null;
+    grid.dataset.carouselDone='1';
+    var children=Array.from(grid.querySelectorAll(childSelector));
+    if(children.length<2)return null;
+
+    var track=document.createElement('div');
+    track.className='carousel-track-mobile';
+    track.style.cssText='display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;width:100%;scrollbar-width:none;';
+    track.style.setProperty('-ms-overflow-style','none');
+
     children.forEach(function(child){
-      Object.assign(child.style,{flex:'0 0 100%',minWidth:'100%',scrollSnapAlign:'start',boxSizing:'border-box'});
+      child.style.cssText+=';flex:0 0 100%;min-width:100%;max-width:100%;scroll-snap-align:start;box-sizing:border-box;border-right:none;';
+      track.appendChild(child);
     });
+
+    grid.innerHTML='';
+    grid.style.cssText='display:block;overflow:visible;padding:0;width:100%;';
+    grid.appendChild(track);
+
+    return {track:track,count:children.length};
   }
-  function initDots(){
+
+  function addDots(grid,carousel){
+    var wrap=document.createElement('div');
+    wrap.className='carousel-dots';
+    wrap.style.cssText='display:flex;justify-content:center;gap:8px;padding:16px 0 4px;';
+    var dots=[];
+    for(var i=0;i<carousel.count;i++){
+      var d=document.createElement('span');
+      d.className='c-dot-i'+(i===0?' on':'');
+      d.style.cssText='width:7px;height:7px;border-radius:50%;transition:background .3s;background:'+(i===0?'#e8ff47':'#1e1e1e')+';';
+      wrap.appendChild(d);
+      dots.push(d);
+    }
+    grid.parentNode.insertBefore(wrap,grid.nextSibling);
+    carousel.track.addEventListener('scroll',function(){
+      var idx=Math.round(carousel.track.scrollLeft/carousel.track.offsetWidth);
+      dots.forEach(function(d,i){
+        d.style.background=i===idx?'#e8ff47':'#1e1e1e';
+        d.classList.toggle('on',i===idx);
+      });
+    },{passive:true});
+  }
+
+  function init(){
     if(window.innerWidth>768)return;
-    var carousels=[
-      {el:document.querySelector('.prob-grid'),selector:'.prob-item',count:3},
-      {el:document.getElementById('srv-premium'),selector:'.srv-row',count:3},
-      {el:document.querySelector('.t-grid'),selector:'.t-card',count:3}
+    var targets=[
+      {el:document.querySelector('.prob-grid'),sel:'.prob-item'},
+      {el:document.getElementById('srv-premium'),sel:'.srv-row'},
+      {el:document.querySelector('.t-grid'),sel:'.t-card'}
     ];
-    carousels.forEach(function(c){
-      if(!c.el)return;
-      var children=Array.from(c.el.querySelectorAll(c.selector));
-      applyCarouselStyle(c.el,children);
-      var wrap=document.createElement('div');
-      wrap.className='carousel-dots';
-      var dots=[];
-      for(var i=0;i<c.count;i++){
-        var d=document.createElement('span');
-        d.className='c-dot-i'+(i===0?' on':'');
-        wrap.appendChild(d);
-        dots.push(d);
-      }
-      c.el.parentNode.insertBefore(wrap,c.el.nextSibling);
-      c.el.addEventListener('scroll',function(){
-        var idx=Math.round(c.el.scrollLeft/c.el.offsetWidth);
-        dots.forEach(function(d,i){d.classList.toggle('on',i===idx);});
-      },{passive:true});
+    targets.forEach(function(t){
+      var c=buildCarousel(t.el,t.sel);
+      if(c)addDots(t.el,c);
     });
   }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initDots);}
-  else{initDots();}
+
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
+  else{init();}
 })();
 </script>
 </body>

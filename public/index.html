@@ -1450,6 +1450,19 @@ initCarousel(document.querySelector('.carousel-servicios'),false);
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.08});
 document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
 
+// Reiniciar animación del chat cada vez que la sección entra en vista
+(function(){
+  var section=document.getElementById('agente-demo');
+  if(!section)return;
+  new IntersectionObserver(function(entries){
+    if(!entries[0].isIntersecting)return;
+    var msgs=section.querySelector('.chat-messages');
+    if(!msgs)return;
+    var fresh=msgs.cloneNode(true);
+    msgs.parentNode.replaceChild(fresh,msgs);
+  },{threshold:0.4}).observe(section);
+})();
+
 // ─── CALCULATOR ───────────────────────────────────────────────
 (function() {
   var calcTeamSize = 5;

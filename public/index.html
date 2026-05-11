@@ -268,18 +268,6 @@ h1.hero-h .outline{color:var(--bg);text-shadow:-1px -1px 0 var(--white),1px -1px
 .m-title{font-size:1rem;font-weight:700;margin-bottom:12px;}
 .m-text{font-size:.85rem;color:var(--dim);line-height:1.8;}
 
-/* FAQ */
-#faq{background:var(--bg);border-bottom:1px solid var(--border);}
-.faq-wrap{max-width:800px;margin-top:80px;}
-.faq-item{border-top:1px solid var(--border);}
-.faq-item:last-child{border-bottom:1px solid var(--border);}
-.faq-q{display:flex;justify-content:space-between;align-items:center;padding:28px 0;cursor:pointer;gap:24px;font-size:.95rem;font-weight:600;transition:color .2s;user-select:none;}
-.faq-q:hover{color:var(--accent);}
-.faq-icon{width:28px;height:28px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--dim);flex-shrink:0;transition:all .3s;}
-.faq-item.open .faq-icon{background:var(--accent);color:#080808;border-color:var(--accent);transform:rotate(45deg);}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
-.faq-item.open .faq-a{max-height:300px;}
-.faq-a-inner{padding:0 0 28px;color:var(--dim);font-size:.88rem;line-height:1.9;max-width:660px;}
 
 /* CONTACT */
 #contacto{background:var(--surface);}
@@ -460,7 +448,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
   <a onclick="closeDrawer();goTo('servicios')"><span data-es="Servicios" data-en="Services">Servicios</span></a>
   <a onclick="closeDrawer();goTo('resultados')"><span data-es="Resultados" data-en="Results">Resultados</span></a>
   <a onclick="closeDrawer();goTo('metodologia')"><span data-es="Metodología" data-en="Methodology">Metodología</span></a>
-  <a onclick="closeDrawer();goTo('faq')">FAQ</a>
+  <a onclick="window.location.href='/faq.html'">FAQ</a>
   <a href="portfolio.html" data-es="Portafolio" data-en="Portfolio">Portafolio</a>
   <a onclick="closeDrawer();goTo('contacto')"><span data-es="Contacto" data-en="Contact">Contacto</span></a>
   <button class="drawer-cta" onclick="closeDrawer();goTo('contacto')" data-es="Solicitar Auditoría" data-en="Request Audit">Solicitar Auditoría</button>
@@ -536,7 +524,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
     </li>
     <li><a onclick="goTo('resultados')" data-es="Resultados" data-en="Results">Resultados</a></li>
     <li><a onclick="goTo('metodologia')" data-es="Metodología" data-en="Methodology">Metodología</a></li>
-    <li><a onclick="goTo('faq')">FAQ</a></li>
+    <li><a href="/faq.html">FAQ</a></li>
     <li><a href="portfolio.html" data-es="Portafolio" data-en="Portfolio">Portafolio</a></li>
   </ul>
   <div class="nav-right">
@@ -886,18 +874,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq">
-  <div class="label fi">FAQ</div>
-  <h2 class="big text-reveal fi"><em data-es="Preguntas" data-en="Frequently">Preguntas</em><br><span data-es="frecuentes" data-en="asked questions">frecuentes</span></h2>
-  <div class="faq-wrap fi">
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Qué tipo de negocios atienden?" data-en="What type of businesses do you work with?">¿Qué tipo de negocios atienden?</span><div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner" data-es="Trabajamos con negocios que buscan escalar, desde startups hasta empresas medianas. Nuestros sistemas se adaptan a cualquier industria que quiera integrar IA y automatización para crecer de forma sostenible." data-en="We work with businesses looking to scale, from startups to mid-size companies. Our systems adapt to any industry that wants to integrate AI and automation to grow sustainably.">Trabajamos con negocios que buscan escalar, desde startups hasta empresas medianas.</div></div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Cuánto tiempo tarda ver resultados?" data-en="How long until I see results?">¿Cuánto tiempo tarda ver resultados?</span><div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner" data-es="Los primeros resultados son visibles entre 30 y 90 días. Las automatizaciones y agentes de IA generan retorno desde las primeras semanas de operación." data-en="First results are visible within 30-90 days. Automations and AI agents generate returns from the first weeks of operation.">Los primeros resultados son visibles entre 30 y 90 días.</div></div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-es="¿En qué consiste la Auditoría de Crecimiento IA?" data-en="What does the AI Growth Audit consist of?">¿En qué consiste la Auditoría de Crecimiento IA?</span><div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner" data-es="Es una sesión estratégica donde analizamos tu negocio, identificamos cuellos de botella y diseñamos un plan de crecimiento personalizado con mapa de automatizaciones y oportunidades de IA." data-en="It's a strategic session where we analyze your business, identify bottlenecks and design a personalized growth plan with automation map and AI opportunities.">Es una sesión estratégica donde analizamos tu negocio e identificamos oportunidades.</div></div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Trabajan con clientes internacionales?" data-en="Do you work with international clients?">¿Trabajan con clientes internacionales?</span><div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner" data-es="Sí. Operamos con clientes en Latinoamérica, Europa y Estados Unidos de forma 100% remota." data-en="Yes. We operate with clients in Latin America, Europe and the United States 100% remotely.">Sí. Operamos con clientes en Latinoamérica, Europa y Estados Unidos de forma 100% remota.</div></div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Qué diferencia a esta agencia de las demás?" data-en="What differentiates this agency from others?">¿Qué diferencia a esta agencia de las demás?</span><div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner" data-es="No somos una agencia tradicional. Construimos ecosistemas de crecimiento autónomos que combinan branding, marketing, automatización e IA en un sistema integrado." data-en="We're not a traditional agency. We build autonomous growth ecosystems combining branding, marketing, automation and AI in one integrated system.">No somos una agencia tradicional. Construimos ecosistemas de crecimiento autónomos.</div></div></div>
-  </div>
-</section>
 
 <!-- CONTACT -->
 <section id="contacto">
@@ -989,7 +965,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
         <a onclick="goTo('servicios')" data-es="Servicios" data-en="Services">Servicios</a>
         <a onclick="goTo('resultados')" data-es="Resultados" data-en="Results">Resultados</a>
         <a onclick="goTo('metodologia')" data-es="Metodología" data-en="Methodology">Metodología</a>
-        <a onclick="goTo('faq')">FAQ</a>
+        <a href="/faq.html">FAQ</a>
       </div>
       <div class="f-col">
         <h5 data-es="Servicios" data-en="Services">Servicios</h5>
@@ -1099,12 +1075,6 @@ function closeDrawer(){
   document.getElementById('drawer').classList.remove('open');
   document.getElementById('ham').classList.remove('open');
   document.body.style.overflow='';
-}
-function toggleFaq(el){
-  const item=el.closest('.faq-item');
-  const isOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
-  if(!isOpen)item.classList.add('open');
 }
 async function submitForm(e){
   e.preventDefault();

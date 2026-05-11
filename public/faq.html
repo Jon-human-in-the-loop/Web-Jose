@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>FAQ | HELIX AI Growth Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#080808;color:#f2f2f2;font-family:'Inter Tight',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased;}
+:root{--accent:#e8ff47;--dim:#888;--border:#1e1e1e;--surface:#111;--bg:#080808;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:#333;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(8,8,8,0.95);border-bottom:1px solid var(--border);backdrop-filter:blur(16px);}
+.nav-logo{font-size:.8rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#f2f2f2;text-decoration:none;cursor:pointer;}
+.nav-logo em{color:var(--accent);font-style:normal;}
+.nav-right{display:flex;align-items:center;gap:16px;}
+.btn-back{padding:9px 20px;background:none;border:1px solid var(--border);border-radius:4px;color:var(--dim);font-size:.8rem;font-weight:600;text-decoration:none;transition:all .2s;}
+.btn-back:hover{color:#f2f2f2;border-color:#444;}
+.btn-cta{padding:9px 20px;background:var(--accent);color:#080808;border:none;border-radius:4px;font-size:.8rem;font-weight:800;text-decoration:none;transition:background .2s;white-space:nowrap;}
+.btn-cta:hover{background:#fff;}
+
+/* HERO */
+.faq-hero{padding:120px 48px 80px;border-bottom:1px solid var(--border);}
+.label{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--dim);margin-bottom:28px;display:flex;align-items:center;gap:12px;}
+.label::before{content:'';width:24px;height:1px;background:var(--dim);}
+h1.faq-title{font-size:clamp(3rem,7vw,7rem);font-weight:900;line-height:.95;letter-spacing:-3px;margin-bottom:24px;}
+h1.faq-title em{font-style:normal;color:var(--accent);}
+.faq-sub{color:var(--dim);font-size:1rem;line-height:1.9;max-width:520px;}
+
+/* FAQ LIST */
+.faq-body{padding:80px 48px 160px;max-width:800px;}
+.faq-item{border-top:1px solid var(--border);}
+.faq-item:last-child{border-bottom:1px solid var(--border);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:28px 0;cursor:pointer;gap:24px;font-size:.95rem;font-weight:600;transition:color .2s;user-select:none;}
+.faq-q:hover{color:var(--accent);}
+.faq-icon{width:28px;height:28px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--dim);flex-shrink:0;transition:all .3s;}
+.faq-item.open .faq-icon{background:var(--accent);color:#080808;border-color:var(--accent);transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-item.open .faq-a{max-height:400px;}
+.faq-a-inner{padding:0 0 28px;color:var(--dim);font-size:.88rem;line-height:1.9;max-width:660px;}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 48px;display:flex;justify-content:space-between;align-items:center;color:var(--dim);font-size:.75rem;}
+.f-logo{font-size:.75rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#f2f2f2;}
+.f-logo em{color:var(--accent);font-style:normal;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">HELIX <em>·</em> AI</a>
+  <div class="nav-right">
+    <a class="btn-back" href="/">← Volver</a>
+    <a class="btn-cta" href="/#contacto">Solicitar Auditoría</a>
+  </div>
+</nav>
+
+<div class="faq-hero">
+  <div class="label">FAQ</div>
+  <h1 class="faq-title"><em>Preguntas</em><br>frecuentes</h1>
+  <p class="faq-sub">Todo lo que necesitás saber antes de dar el primer paso.</p>
+</div>
+
+<div class="faq-body">
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span>¿Qué tipo de negocios atienden?</span>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">Trabajamos con negocios que buscan escalar, desde startups hasta empresas medianas. Nuestros sistemas se adaptan a cualquier industria que quiera integrar IA y automatización para crecer de forma sostenible.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span>¿Cuánto tiempo tarda ver resultados?</span>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">Los primeros resultados son visibles entre 30 y 90 días. Las automatizaciones y agentes de IA generan retorno desde las primeras semanas de operación.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span>¿En qué consiste la Auditoría de Crecimiento IA?</span>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">Es una sesión estratégica donde analizamos tu negocio, identificamos cuellos de botella y diseñamos un plan de crecimiento personalizado con mapa de automatizaciones y oportunidades de IA.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span>¿Trabajan con clientes internacionales?</span>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">Sí. Operamos con clientes en Latinoamérica, Europa y Estados Unidos de forma 100% remota.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span>¿Qué diferencia a esta agencia de las demás?</span>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">No somos una agencia tradicional. Construimos ecosistemas de crecimiento autónomos que combinan branding, marketing, automatización e IA en un sistema integrado.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span>¿Necesito conocimientos técnicos para trabajar con ustedes?</span>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">No. Nos encargamos de toda la implementación técnica. Vos solo necesitás conocer tu negocio. Explicamos todo en términos de negocio, sin jerga técnica.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span>¿Cuánto cuesta una auditoría?</span>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-a">
+      <div class="faq-a-inner">La Auditoría de Crecimiento IA es gratuita y sin compromiso. Es una sesión de diagnóstico donde evaluamos si realmente podemos ayudarte. Si hay fit, diseñamos juntos un plan a medida.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-logo">HELIX <em>·</em> AI</div>
+  <span>© 2026 HELIX AI Growth Agency</span>
+</footer>
+
+<script>
+function toggleFaq(el){
+  const item=el.closest('.faq-item');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

@@ -126,12 +126,12 @@ h1.hero-h .outline{color:var(--bg);text-shadow:-1px -1px 0 var(--white),1px -1px
 .tech-logos-marquee:hover .tech-logos-track{animation-play-state:paused;}
 @keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 .tech-logo{display:flex;align-items:center;gap:9px;cursor:default;user-select:none;flex-shrink:0;}
-.tech-logo:hover svg{fill:var(--hc,var(--white));opacity:1;}
-.tech-logo:hover .tech-logo-name{color:var(--hc,var(--white));opacity:1;}
+.tech-logo:hover svg{opacity:1;}
+.tech-logo:hover .tech-logo-name{color:var(--hc,var(--white));}
 .tech-logo-ig:hover svg{fill:url(#ig-grad)!important;opacity:1;}
-.tech-logo-ig:hover .tech-logo-name{color:#c837ab;opacity:1;}
-.tech-logo svg{width:24px;height:24px;fill:var(--white);flex-shrink:0;transition:fill .3s,opacity .3s;opacity:.35;}
-.tech-logo-name{font-size:.88rem;font-weight:800;color:var(--white);letter-spacing:-.5px;line-height:1;transition:color .3s,opacity .3s;opacity:0;}
+.tech-logo-ig:hover .tech-logo-name{color:#c837ab;}
+.tech-logo svg{width:24px;height:24px;fill:var(--hc,var(--white));flex-shrink:0;transition:opacity .3s,fill .3s;opacity:.3;}
+.tech-logo-name{font-size:.88rem;font-weight:800;color:var(--white);letter-spacing:-.5px;line-height:1;transition:color .3s;}
 
 /* SERVICES — índices decorativos grandes */
 #servicios{background:var(--surface);border-bottom:1px solid var(--border);}

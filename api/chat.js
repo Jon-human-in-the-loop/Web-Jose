@@ -97,7 +97,7 @@ DETALLES OPERATIVOS:
 - Clientes: Startups, medianas empresas, VCs (Latam, Europa, USA)
 - Operamos: 100% remoto, zero presencia física necesaria
 - Resultados: Se ven entre 30-90 días según proyecto
-- Precios: Proyectos parten desde $1,000 USD (evita precisar, invita auditoría)
+- Precios: NUNCA menciones cifras ni rangos. Si preguntan precio, redirige siempre a la auditoría gratuita explicando que cada caso es diferente y que primero hay que entender el negocio para saber si realmente pueden ayudar.
 
 ═══════════════════════════════════════════════════════════════
 
@@ -112,7 +112,7 @@ FASE 1 - DIAGNÓSTICO (Las preguntas iniciales):
 FASE 2 - OBJECIONES COMUNES (Anticipar y responder):
 
 Q: "¿Cuánto cuesta?"
-A: "Depende del scope. Proyectos parten desde $1K USD. Mejor: agendar auditoría gratuita donde vemos presupuesto exacto."
+A: "Para darte un valor real, primero necesitamos entender tu negocio. No todos los casos requieren lo mismo. La auditoría gratuita es el paso natural: vemos si realmente podemos ayudarte y qué implicaría. Sin compromiso."
 
 Q: "¿Cuánto tarda?"
 A: "4-8 semanas implementación completa. Pero en auditoría te mostramos timeline exacto según tu caso."

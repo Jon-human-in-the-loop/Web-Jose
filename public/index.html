@@ -370,7 +370,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 .chat-send:hover{background:#fff;transform:scale(1.05);}
 .chat-send svg{width:16px;height:16px;fill:#080808;}
 .chat-msg.typing{opacity:.7;animation:blink 1.2s infinite;}
-@keyframes blink{0%,100%{opacity:.4;}50%{opacity:1;}}
+@keyframes blink{0%,100%{opacity:.4;}50%{opacity:1;}}.chat-audit-btn{align-self:flex-start;background:var(--accent);color:#080808;border:none;padding:13px 22px;border-radius:8px;font-size:.88rem;font-weight:800;cursor:pointer;letter-spacing:.3px;transition:all .2s;animation:fadeIn .4s ease-out forwards;font-family:'Inter Tight',system-ui,sans-serif;}
+.chat-audit-btn:hover{background:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,255,71,.3);}
 
 /* URL ANALYZER */
 .analyzer{margin-top:120px;padding:100px 60px;border:1px solid var(--border);border-radius:8px;background:linear-gradient(135deg,rgba(232,255,71,.06),rgba(232,255,71,.02),transparent);position:relative;overflow:hidden;}
@@ -1377,8 +1378,13 @@ async function sendChat(){
     if(res.ok){
       const data = await res.json();
       chatHistory.push({ role: 'assistant', content: data.reply });
-      const formattedReply = data.reply.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+      const hasAuditBtn = data.reply.includes('[AUDIT_BTN]');
+      const cleanReply = data.reply.replace('[AUDIT_BTN]','').trim();
+      const formattedReply = cleanReply.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
       body.innerHTML+=`<div class="chat-msg bot">${formattedReply}</div>`;
+      if(hasAuditBtn){
+        body.innerHTML+=`<button class="chat-audit-btn" onclick="goTo('contacto')">Solicitar Auditoría Gratuita →</button>`;
+      }
     } else {
       body.innerHTML+=`<div class="chat-msg bot">${lang==='es'?'Hubo un error al contactar al asistente.':'Error contacting the assistant.'}</div>`;
     }

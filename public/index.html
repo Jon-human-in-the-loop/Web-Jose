@@ -1352,6 +1352,7 @@ async function sendChat(){
   const input=document.getElementById('chatInput');
   const msg=input.value.trim();
   if(!msg)return;
+  document.getElementById('chatSuggestions')?.remove();
   const body=document.getElementById('chatBody');
   body.innerHTML+=`<div class="chat-msg user">${msg}</div>`;
   input.value='';

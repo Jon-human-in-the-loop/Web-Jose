@@ -237,6 +237,20 @@ h1.hero-h .outline{color:var(--bg);text-shadow:-1px -1px 0 var(--white),1px -1px
   .calc-options{flex-direction:column;gap:24px;}
   .calc-numbers{gap:24px;}
   .calc-result{padding:24px;}
+  .calc-block{display:flex;flex-direction:column;}
+  .calc-options{order:-1;}
+  .prob-grid{display:flex;overflow-x:scroll;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:4px;}
+  .prob-grid::-webkit-scrollbar{display:none;}
+  .prob-grid .prob-item{flex:0 0 85%;scroll-snap-align:start;border-right:1px solid var(--border);}
+  .prob-grid .prob-item:last-child{border-right:none;}
+  #srv-premium{display:flex;overflow-x:scroll;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  #srv-premium::-webkit-scrollbar{display:none;}
+  #srv-premium .srv-row{flex:0 0 92%;scroll-snap-align:start;border-bottom:none;border-right:1px solid var(--border);}
+  #srv-premium .srv-row:last-child{border-right:none;}
+  .t-grid{display:flex;overflow-x:scroll;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:4px;}
+  .t-grid::-webkit-scrollbar{display:none;}
+  .t-grid .t-card{flex:0 0 88%;scroll-snap-align:start;border-right:1px solid var(--border);}
+  .t-grid .t-card:last-child{border-right:none;}
 }
 
 /* SOCIAL PROOF — métricas más grandes */
@@ -977,7 +991,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
     </div>
   </div>
   <div class="f-bottom">
-    <span class="f-copy" data-es="Todos los derechos reservados. | Desarrollado por Vanguard Crux." data-en="All rights reserved. | Developed by Vanguard Crux.">Todos los derechos reservados. | Desarrollado por Vanguard Crux.</span>
+    <span class="f-copy" data-es="Todos los derechos reservados. | Desarrollado por Vanguard Crux." data-en="All rights reserved. | Developed by Vanguard Crux.">Todos los derechos reservados. | Desarrollado por <a href="https://www.vanguardcrux.com/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Vanguard Crux</a>.</span>
     <div class="lang-sw" style="display:flex"><button class="on" onclick="setLang('es')">ES</button><button onclick="setLang('en')">EN</button></div>
   </div>
 </footer>

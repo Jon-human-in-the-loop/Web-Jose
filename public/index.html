@@ -172,8 +172,12 @@ h1.hero-h .outline{color:var(--bg);text-shadow:-1px -1px 0 var(--white),1px -1px
   .demo-grid{grid-template-columns:1fr;gap:48px;}
   .demo-grid>.demo-copy{order:2;}
   .demo-grid>.demo-phone-wrap{order:1;}
-  .iphone-wrap{max-width:320px;}
+  .iphone-wrap{max-width:none;width:200%;margin:0 -50%;}
+  .demo-phone-wrap{overflow:visible;}
   .demo-badge{display:none;}
+}
+@media(max-width:480px){
+  .iphone-wrap{width:220%;margin:0 -60%;}
 }
 
 /* SERVICES — índices decorativos grandes */

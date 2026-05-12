@@ -9,8 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:#080808;color:#f2f2f2;font-family:'Inter Tight',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{background:#080808;color:#f2f2f2;font-family:'Inter Tight',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;position:relative;}
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-thumb{background:#333;}
 :root{--white:#f2f2f2;--dim:#888;--border:#1e1e1e;--surface:#111;--accent:#e8ff47;--bg:#080808;}
@@ -134,7 +134,7 @@ h1.hero-h .outline{color:var(--bg);text-shadow:-1px -1px 0 var(--white),1px -1px
 .tech-logo-name{font-size:.88rem;font-weight:800;color:var(--white);letter-spacing:-.5px;line-height:1;transition:color .3s;}
 
 /* AGENTE DEMO */
-#agente-demo{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding-top:80px;padding-bottom:80px;}
+#agente-demo{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding-top:80px;padding-bottom:80px;overflow:hidden;}
 #agente-demo .wrap{max-width:1280px;margin:0 auto;}
 .demo-grid{display:grid;grid-template-columns:40fr 60fr;gap:48px;align-items:center;}
 .demo-copy{display:flex;flex-direction:column;gap:20px;}

@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+
+# Local preview tooling (Claude Code)
+.claude/
+
+# Vercel / local secrets (add dotenv files here if you create any)
+.vercel
+*.local
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/

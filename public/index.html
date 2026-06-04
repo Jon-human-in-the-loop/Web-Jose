@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Jose | AI Growth Agency</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#0C0B0A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HELIX AI Growth Agency">
+<meta property="og:title" content="HELIX · AI — Agencia de Crecimiento Digital e IA">
+<meta property="og:description" content="Agentes IA, automatización y contenido. Sistemas de crecimiento que operan solos — tu competencia ya automatizó.">
+<meta property="og:image" content="https://web-jose-psi.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HELIX · AI — Agencia de Crecimiento Digital e IA">
+<meta name="twitter:description" content="Agentes IA, automatización y contenido. Tu competencia ya automatizó.">
+<meta name="twitter:image" content="https://web-jose-psi.vercel.app/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{background:#0C0B0A;color:#EDEAE3;font-family:'General Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;width:100%;position:relative;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:#333;}
+:root{--white:#EDEAE3;--dim:#888;--border:#1e1e1e;--surface:#111;--accent:#FF5C35;--bg:#0C0B0A;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;border-bottom:1px solid var(--border);background:rgba(8,8,8,0.95);backdrop-filter:blur(16px);}
+.nav-logo{font-size:.8rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;cursor:pointer;}
+.nav-logo em{color:var(--accent);font-style:normal;}
+.nav-center{display:flex;gap:0;list-style:none;height:68px;}
+.nav-center>li{position:relative;display:flex;align-items:center;}
+.nav-center>li>a{font-size:.82rem;color:var(--dim);text-decoration:none;letter-spacing:.3px;transition:color .2s;font-weight:500;cursor:pointer;padding:0 18px;height:100%;display:flex;align-items:center;gap:5px;}
+.nav-center>li>a:hover{color:var(--white);}
+.nav-center>li>a .arr{font-size:.6rem;transition:transform .2s;}
+.nav-center>li:hover>a{color:var(--white);}
+.nav-center>li:hover>a .arr{transform:rotate(180deg);}
+
+/* MEGA MENU */
+.mega{position:fixed;top:68px;left:0;right:0;background:#0d0d0d;border-bottom:1px solid var(--border);display:none;padding:32px 48px;gap:40px;box-shadow:0 24px 48px rgba(0,0,0,.6);z-index:800;}
+.nav-center>li:hover .mega{display:flex;}
+.mega-col{display:flex;flex-direction:column;gap:2px;min-width:190px;}
+.mega-label{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:#444;margin-bottom:14px;font-weight:700;padding:0 8px;}
+.mega-item{display:flex;align-items:flex-start;gap:12px;padding:9px 8px;border-radius:6px;cursor:pointer;transition:background .2s;text-decoration:none;}
+.mega-item:hover{background:rgba(255,255,255,.04);}
+.mega-icon{width:30px;height:30px;border:1px solid #1e1e1e;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;background:#111;transition:border-color .2s;overflow:hidden;}
+.mega-item:hover .mega-icon{border-color:#333;}
+.mega-title{font-size:.81rem;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:2px;}
+.mega-sub{font-size:.72rem;color:#555;line-height:1.3;}
+.nav-right{display:flex;align-items:center;gap:16px;}
+.lang-sw{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.lang-sw button{padding:6px 14px;font-size:.75rem;font-weight:700;letter-spacing:1px;background:none;border:none;color:var(--dim);cursor:pointer;transition:all .2s;}
+.lang-sw button.on{background:var(--accent);color:#0C0B0A;}
+.btn-nav{padding:9px 20px;background:var(--white);color:#0C0B0A;border:none;border-radius:4px;font-size:.8rem;font-weight:700;cursor:pointer;transition:background .2s;letter-spacing:.3px;white-space:nowrap;}
+.btn-nav:hover{background:var(--accent);}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.ham span{display:block;width:22px;height:1.5px;background:var(--white);transition:all .3s;}
+.ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.ham.open span:nth-child(2){opacity:0;}
+.ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+/* DRAWER */
+.drawer{position:fixed;inset:0;background:#0C0B0A;z-index:800;display:flex;flex-direction:column;justify-content:center;padding:80px 40px 40px;transform:translateX(100%);transition:transform .4s cubic-bezier(.77,0,.18,1);}
+.drawer.open{transform:translateX(0);}
+.drawer a{font-size:2.2rem;font-weight:800;color:var(--white);text-decoration:none;border-bottom:1px solid var(--border);padding:20px 0;transition:color .2s;display:block;cursor:pointer;}
+.drawer a:hover{color:var(--accent);}
+.drawer .drawer-cta{margin-top:32px;padding:16px 24px;background:var(--accent);color:#0C0B0A;border:none;border-radius:4px;font-size:1rem;font-weight:800;cursor:pointer;width:fit-content;}
+
+/* SECTIONS */
+section{padding:88px 48px;position:relative;}
+.label{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--dim);margin-bottom:28px;display:flex;align-items:center;gap:12px;}
+.label::before{content:'';width:24px;height:1px;background:var(--dim);}
+h2.big{font-size:clamp(2.8rem,5vw,5.5rem);font-weight:900;line-height:1.02;letter-spacing:-2px;margin-bottom:24px;}
+h2.big em{font-style:normal;color:var(--accent);}
+.sub{color:var(--dim);font-size:1rem;line-height:1.9;max-width:520px;font-weight:400;}
+
+/* HERO */
+#inicio{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:72px;padding-top:84px;border-bottom:1px solid var(--border);background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(255,92,53,.04) 0%,transparent 70%);}
+.hero-eyebrow{font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--dim);margin-bottom:20px;}
+.hero-eyebrow span{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);padding:6px 14px;border-radius:2px;}
+.hero-eyebrow span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}
+
+/* HERO TITLE — grande y dramático */
+h1.hero-h{font-size:clamp(3.8rem,9.5vw,10rem);font-weight:900;line-height:.92;letter-spacing:-4px;max-width:1200px;margin-bottom:40px;}
+h1.hero-h em{font-style:normal;color:var(--accent);}
+h1.hero-h .outline{color:var(--bg);text-shadow:-1px -1px 0 var(--white),1px -1px 0 var(--white),-1px 1px 0 var(--white),1px 1px 0 var(--white);-webkit-text-stroke:0;}@media(max-width:768px){h1.hero-h .outline{text-shadow:none;color:var(--white);}}
+
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;}
+.hero-desc{color:var(--dim);font-size:1rem;line-height:1.85;max-width:420px;}
+.hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.btn-primary{padding:14px 28px;background:var(--accent);color:#0C0B0A;border:none;border-radius:3px;font-size:1.05rem;font-weight:800;cursor:pointer;letter-spacing:.5px;transition:all .2s;white-space:nowrap;position:relative;}
+.btn-primary:hover{background:#fff;}
+/* GLOW CTA */
+.btn-glow{overflow:hidden;z-index:1;}
+.btn-glow::before{content:'';position:absolute;inset:-2px;background:conic-gradient(from var(--glow-angle,0deg),transparent 60%,var(--accent) 78%,transparent 95%);border-radius:5px;z-index:-2;animation:glowSpin 3s linear infinite;}
+.btn-glow::after{content:'';position:absolute;inset:1px;background:var(--accent);border-radius:3px;z-index:-1;transition:background .2s;}
+.btn-glow:hover::after{background:#fff;}
+@keyframes glowSpin{to{--glow-angle:360deg;}}
+@property --glow-angle{syntax:'<angle>';initial-value:0deg;inherits:false;}
+.btn-ghost{padding:14px 28px;background:none;color:var(--dim);border:1px solid var(--border);border-radius:3px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.btn-ghost:hover{color:var(--white);border-color:#444;}
+
+/* HERO STATS — más grandes */
+.hero-stats{display:flex;gap:100px;padding-top:80px;border-top:1px solid var(--border);margin-top:80px;flex-wrap:wrap;align-items:flex-start;}
+.hstat .n{font-size:5.5rem;font-weight:900;letter-spacing:-2px;color:var(--white);line-height:1;}
+.hstat .n em{font-style:normal;color:var(--accent);}
+.hstat .t{font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:6px;}
+
+/* VSL */
+.vsl-block{margin-top:100px;border:1px solid var(--border);border-radius:4px;overflow:hidden;background:var(--surface);}
+.vsl-yt{position:relative;width:100%;aspect-ratio:16/9;}
+.vsl-yt iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block;}
+
+/* PROBLEMS */
+#problemas{background:var(--bg);border-bottom:1px solid var(--border);}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:24px;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.prob-item{padding:48px 40px;border-right:1px solid var(--border);transition:background .3s;}
+.prob-item:last-child{border-right:none;}
+.prob-item:hover{background:var(--surface);}
+.prob-num{font-size:.7rem;color:var(--dim);letter-spacing:3px;margin-bottom:24px;font-weight:600;}
+.prob-q{font-size:1.15rem;font-weight:700;margin-bottom:14px;line-height:1.3;}
+.prob-a{font-size:.88rem;color:var(--dim);line-height:1.85;}
+.prob-a strong{color:var(--accent);}
+
+/* TECH LOGOS STRIP */
+#problemas{padding-top:80px;}
+.tech-strip{margin-bottom:0;}
+.tech-strip-label{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:24px;}
+.tech-logos-marquee{overflow:hidden;position:relative;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:26px 0;}
+.tech-logos-marquee::before,.tech-logos-marquee::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;}
+.tech-logos-marquee::before{left:0;background:linear-gradient(to right,#0C0B0A,transparent);}
+.tech-logos-marquee::after{right:0;background:linear-gradient(to left,#0C0B0A,transparent);}
+.tech-logos-track{display:flex;gap:56px;width:max-content;animation:marquee 35s linear infinite;}
+.tech-logos-marquee:hover .tech-logos-track{animation-play-state:paused;}
+@keyframes marquee{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.tech-logo{display:flex;align-items:center;gap:9px;cursor:default;user-select:none;flex-shrink:0;}
+.tech-logo:hover svg{opacity:1;}
+.tech-logo:hover .tech-logo-name{color:var(--hc,var(--white));}
+.tech-logo-ig:hover svg{fill:url(#ig-grad)!important;opacity:1;}
+.tech-logo-ig:hover .tech-logo-name{color:#c837ab;}
+.tech-logo svg{width:24px;height:24px;fill:var(--hc,var(--white));flex-shrink:0;transition:opacity .3s,fill .3s;opacity:.3;}
+.tech-logo-name{font-size:.88rem;font-weight:800;color:var(--white);letter-spacing:-.5px;line-height:1;transition:color .3s;}
+
+/* AGENTE DEMO */
+#agente-demo{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding-top:80px;padding-bottom:80px;overflow:hidden;}
+#agente-demo .wrap{max-width:1280px;margin:0 auto;}
+.demo-grid{display:grid;grid-template-columns:40fr 60fr;gap:48px;align-items:center;}
+.demo-copy{display:flex;flex-direction:column;gap:20px;}
+#agente-demo .demo-copy h2.big{font-size:clamp(2rem,3.8vw,4.5rem);}
+.demo-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px;}
+.demo-bullets li{color:var(--dim);font-size:.95rem;line-height:1.6;}
+.demo-bullets li strong{color:var(--white);}
+.demo-phone-wrap{display:flex;justify-content:center;align-items:center;position:relative;}
+.iphone-wrap{position:relative;width:110%;max-width:none;flex-shrink:0;}
+.iphone-screen{position:absolute;top:8%;left:36%;right:36%;bottom:3%;border-radius:5%;overflow:hidden;background:#0d0d0d;z-index:1;}
+.iphone-screen video{width:100%;height:100%;object-fit:cover;}
+.iphone-frame{position:relative;z-index:2;width:100%;pointer-events:none;display:block;}
+/* Chat placeholder */
+.chat-placeholder{width:100%;height:100%;display:flex;flex-direction:column;background:#0d0d0d;overflow:hidden;}
+.chat-header{background:#1a1a1a;padding:10px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #222;flex-shrink:0;}
+.chat-avatar{width:28px;height:28px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;color:#0C0B0A;font-weight:900;}
+.chat-name{font-size:11px;font-weight:700;color:#fff;}
+.chat-status{font-size:9px;color:#25D366;}
+.chat-messages{flex:1;padding:10px 8px;display:flex;flex-direction:column;gap:8px;overflow:hidden;}
+.chat-msg{max-width:80%;padding:7px 10px;border-radius:12px;font-size:9.5px;line-height:1.4;opacity:0;animation:msgIn .4s ease forwards;}
+.chat-msg.bot{background:#1e3a2f;color:#e0e0e0;align-self:flex-start;border-bottom-left-radius:3px;}
+.chat-msg.user{background:#2a2a2a;color:#ccc;align-self:flex-end;border-bottom-right-radius:3px;}
+.chat-msg.bot .tick{color:#25D366;font-size:8px;margin-left:4px;}
+.chat-typing{align-self:flex-start;background:#1e3a2f;border-radius:12px;border-bottom-left-radius:3px;padding:8px 12px;display:flex;gap:4px;align-items:center;opacity:0;animation:typingFade 4s ease forwards;}
+.chat-typing span{width:5px;height:5px;border-radius:50%;background:#25D366;animation:typing .9s ease infinite;}
+.chat-typing span:nth-child(2){animation-delay:.2s;}
+.chat-typing span:nth-child(3){animation-delay:.4s;}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes typingFade{0%{opacity:0;transform:translateY(6px)}15%{opacity:1;transform:none}75%{opacity:1}100%{opacity:0}}
+@keyframes typing{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-4px)}}
+.demo-badge{position:absolute;background:var(--bg);border:1px solid var(--accent);border-radius:999px;padding:9px 18px;display:flex;align-items:center;gap:10px;white-space:nowrap;z-index:3;box-shadow:0 0 20px rgba(255,92,53,.08);}
+.demo-badge-value{font-weight:900;color:var(--accent);font-size:1.05rem;line-height:1;}
+.demo-badge-label{font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:1px;}
+@media(max-width:900px){
+  .demo-grid{grid-template-columns:1fr;gap:48px;}
+  .demo-grid>.demo-copy{order:2;}
+  .demo-grid>.demo-phone-wrap{order:1;}
+  .iphone-wrap{max-width:none;width:200%;margin:0 -50%;}
+  .demo-phone-wrap{overflow:visible;}
+  .demo-badge{display:none;}
+}
+@media(max-width:480px){
+  .iphone-wrap{width:220%;margin:0 -60%;}
+}
+
+/* SERVICES — índices decorativos grandes */
+#servicios{background:var(--surface);border-bottom:1px solid var(--border);}
+.srv-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:80px;flex-wrap:wrap;gap:24px;}
+.srv-grid{display:flex;flex-direction:column;}
+.srv-row{display:grid;grid-template-columns:100px 1fr 2fr auto;align-items:start;gap:40px;padding:48px 0;border-top:1px solid var(--border);transition:all .3s;cursor:pointer;position:relative;}
+.srv-row:last-child{border-bottom:1px solid var(--border);}
+.srv-row:hover .srv-name{color:var(--accent);}
+.srv-row:hover .srv-arrow{transform:translate(4px,-4px);color:var(--accent);}
+.srv-idx{font-size:4rem;font-weight:900;color:var(--border);letter-spacing:-2px;line-height:1;padding-top:4px;transition:color .3s;}
+.srv-row:hover .srv-idx{color:var(--accent);}
+.srv-name{font-size:clamp(1.6rem,2.8vw,2.6rem);font-weight:800;letter-spacing:-.5px;transition:color .3s;line-height:1.05;}
+.srv-desc{color:var(--dim);font-size:.88rem;line-height:1.85;padding-top:8px;}
+.srv-items{display:flex;flex-direction:column;gap:8px;padding-top:6px;}
+.srv-items span{font-size:.78rem;color:var(--dim);padding:5px 12px;border:1px solid var(--border);border-radius:2px;width:fit-content;transition:border-color .2s,color .2s;}
+.srv-row:hover .srv-items span{border-color:#333;color:#aaa;}
+.srv-arrow{font-size:1.3rem;color:var(--dim);transition:transform .3s,color .3s;padding-top:4px;}
+/* CALCULATOR */
+.calc-block{margin-bottom:80px;}
+.calc-tasks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:40px;}
+.calc-task-item{display:flex;align-items:center;gap:12px;padding:16px 20px;border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:border-color .2s,background .2s;user-select:none;}
+.calc-task-item:hover{border-color:#333;}
+.calc-task-item.checked{border-color:var(--accent);background:rgba(255,92,53,.04);}
+.calc-task-item input[type="checkbox"]{display:none;}
+.calc-task-check{width:18px;height:18px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.calc-task-item.checked .calc-task-check{background:var(--accent);border-color:var(--accent);}
+.calc-task-check::after{content:'✓';font-size:.7rem;color:#0C0B0A;opacity:0;transition:opacity .2s;}
+.calc-task-item.checked .calc-task-check::after{opacity:1;}
+.calc-task-label{flex:1;font-size:.88rem;color:var(--dim);line-height:1.4;transition:color .2s;}
+.calc-task-item.checked .calc-task-label{color:#EDEAE3;}
+.calc-task-hours{font-size:.75rem;color:var(--dim);white-space:nowrap;padding:3px 8px;border:1px solid var(--border);border-radius:2px;}
+.calc-options{display:flex;align-items:flex-end;gap:48px;margin-bottom:40px;flex-wrap:wrap;}
+.calc-option-group{display:flex;flex-direction:column;gap:12px;}
+.calc-option-label{font-size:.75rem;color:var(--dim);font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.calc-team-btns{display:flex;gap:8px;}
+.calc-team-btn{padding:8px 20px;background:none;border:1px solid var(--border);border-radius:4px;color:var(--dim);font-size:.85rem;font-weight:700;cursor:pointer;transition:all .2s;}
+.calc-team-btn.on{background:var(--accent);border-color:var(--accent);color:#0C0B0A;}
+.calc-rate-input{padding:8px 16px;background:var(--surface);border:1px solid var(--border);border-radius:4px;color:#EDEAE3;font-size:.85rem;font-weight:700;width:120px;font-family:inherit;}
+.calc-rate-input:focus{outline:none;border-color:var(--accent);}
+.calc-result{padding:32px 40px;background:var(--surface);border:1px solid var(--border);border-radius:6px;margin-bottom:40px;}
+.calc-numbers{display:flex;gap:48px;margin-bottom:24px;flex-wrap:wrap;}
+.calc-number .n{font-size:2.5rem;font-weight:900;color:var(--accent);letter-spacing:-1px;}
+.calc-number .t{font-size:.8rem;color:var(--dim);margin-top:4px;}
+.calc-result-label{font-size:.8rem;color:var(--dim);margin-bottom:12px;}
+.calc-tags{display:flex;gap:10px;flex-wrap:wrap;}
+.calc-tag{padding:6px 14px;border:1px solid var(--accent);border-radius:3px;font-size:.78rem;font-weight:700;color:var(--accent);opacity:0;transform:translateY(4px);transition:all .3s;}
+.calc-tag.visible{opacity:1;transform:translateY(0);}
+.calc-scroll-cta{font-size:.85rem;color:var(--dim);cursor:pointer;text-decoration:underline;text-underline-offset:3px;transition:color .2s;background:none;border:none;padding:0;font-family:inherit;}
+.calc-scroll-cta:hover{color:#EDEAE3;}
+/* UPDATED SERVICE CARD ELEMENTS */
+.srv-badge{font-size:.72rem;font-weight:700;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
+.srv-pain{font-size:clamp(1.4rem,2.2vw,2rem);font-weight:800;letter-spacing:-.3px;line-height:1.1;}
+.srv-body{color:var(--dim);font-size:.88rem;line-height:1.85;padding-top:8px;margin-bottom:16px;}
+.srv-metric{font-size:.78rem;color:var(--accent);padding:8px 0;border-top:1px solid var(--border);}
+.srv-premium-intro{padding:24px 0 16px;}
+.srv-premium-intro p{font-size:.9rem;color:var(--dim);}
+.srv-premium-intro strong{color:var(--accent);}
+
+/* SOCIAL PROOF — métricas más grandes */
+#resultados{background:var(--bg);border-bottom:1px solid var(--border);}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:80px;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.t-card{padding:52px 44px;border-right:1px solid var(--border);transition:background .3s;}
+.t-card:last-child{border-right:none;}
+.t-card:hover{background:var(--surface);}
+.t-roi{font-size:4.5rem;font-weight:900;letter-spacing:-3px;color:var(--accent);margin-bottom:4px;line-height:1;}
+.t-company{font-size:.65rem;color:var(--dim);letter-spacing:3px;text-transform:uppercase;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+.t-quote{font-size:.92rem;color:var(--dim);line-height:1.85;font-style:italic;margin-bottom:28px;}
+.t-author{display:flex;align-items:center;gap:12px;}
+.t-av{width:36px;height:36px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--dim);flex-shrink:0;}
+.t-name{font-size:.82rem;font-weight:600;}
+.t-role{font-size:.75rem;color:var(--dim);}
+.logos-strip{margin-top:80px;padding-top:48px;border-top:1px solid var(--border);display:flex;align-items:center;gap:48px;flex-wrap:wrap;}
+.ls-label{font-size:.7rem;color:var(--dim);letter-spacing:3px;text-transform:uppercase;white-space:nowrap;}
+.ls-logos{display:flex;gap:32px;flex-wrap:wrap;align-items:center;}
+.ls-logo{font-size:.8rem;color:#444;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+
+/* METHODOLOGY */
+#metodologia{background:var(--surface);border-bottom:1px solid var(--border);}
+.method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:80px;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.method-step{padding:48px 36px;border-right:1px solid var(--border);transition:background .3s;}
+.method-step:last-child{border-right:none;}
+.method-step:hover{background:#0f0f0f;}
+.m-num{font-size:4rem;font-weight:900;color:var(--border);letter-spacing:-2px;line-height:1;margin-bottom:24px;transition:color .3s;}
+.method-step:hover .m-num{color:var(--accent);}
+.m-title{font-size:1rem;font-weight:700;margin-bottom:12px;}
+.m-text{font-size:.85rem;color:var(--dim);line-height:1.8;}
+
+
+/* CONTACT */
+#contacto{background:var(--surface);}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:100px;margin-top:80px;}
+.c-info h3{font-size:1.8rem;font-weight:800;letter-spacing:-.5px;margin-bottom:20px;line-height:1.2;}
+.c-info p{color:var(--dim);font-size:.9rem;line-height:1.9;margin-bottom:36px;}
+.c-detail{display:flex;align-items:center;gap:14px;margin-bottom:16px;font-size:.85rem;color:var(--dim);}
+.c-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+.c-form{display:flex;flex-direction:column;gap:16px;}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.fg{display:flex;flex-direction:column;gap:6px;}
+.fg label{font-size:.7rem;color:var(--dim);letter-spacing:2px;text-transform:uppercase;font-weight:600;}
+.fg input,.fg textarea,.fg select{background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:13px 16px;color:var(--white);font-size:.88rem;outline:none;transition:border-color .2s;font-family:'General Sans',system-ui,sans-serif;}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:#444;}
+.fg textarea{resize:vertical;min-height:110px;}
+.fg select option{background:var(--surface);}
+.f-success{display:none;background:rgba(255,92,53,.06);border:1px solid rgba(255,92,53,.2);border-radius:3px;padding:40px 32px;text-align:center;}
+.f-success .tick{font-size:2rem;margin-bottom:12px;}
+.f-success h4{font-size:1.1rem;font-weight:700;margin-bottom:6px;}
+.f-success p{color:var(--dim);font-size:.85rem;}
+
+/* LEAD MAGNET */
+.lm{margin-top:120px;padding:80px 60px;border:1px solid var(--border);border-radius:4px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;background:linear-gradient(135deg,rgba(255,92,53,.03),transparent);}
+.lm h3{font-size:2rem;font-weight:800;letter-spacing:-.5px;margin-bottom:12px;}
+.lm p{color:var(--dim);font-size:.9rem;line-height:1.8;}
+.lm-form{display:flex;gap:12px;}
+.lm-form input{flex:1;background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:13px 16px;color:var(--white);font-size:.88rem;outline:none;font-family:'General Sans',system-ui,sans-serif;transition:border-color .2s;}
+.lm-form input:focus{border-color:#444;}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px;}
+.f-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:60px;flex-wrap:wrap;gap:40px;}
+.f-logo{font-size:.8rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px;}
+.f-logo em{color:var(--accent);font-style:normal;}
+.f-tagline{font-size:.78rem;color:var(--dim);}
+.f-links{display:flex;gap:48px;flex-wrap:wrap;}
+.f-col h5{font-size:.7rem;color:var(--dim);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;font-weight:600;}
+.f-col a{display:block;font-size:.82rem;color:var(--dim);text-decoration:none;margin-bottom:10px;transition:color .2s;cursor:pointer;}
+.f-col a:hover{color:var(--white);}
+.f-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+.f-copy{font-size:.75rem;color:#444;}
+
+/* WHATSAPP */
+.wa-btn{position:sticky;bottom:32px;float:right;margin-right:44px;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.5);text-decoration:none;transition:transform .3s;z-index:9999;}
+.wa-btn:hover{transform:scale(1.1);}
+
+/* TRUST BADGES */
+.trust-strip{display:flex;gap:24px;margin-top:32px;flex-wrap:wrap;}
+.trust-badge{display:flex;align-items:center;gap:8px;font-size:.72rem;color:#555;letter-spacing:1px;text-transform:uppercase;font-weight:600;}
+.trust-badge svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:2;flex-shrink:0;}
+
+/* AI CHAT WIDGET */
+.chat-bubble{position:fixed;bottom:120px;right:32px;z-index:9998;display:flex;align-items:center;gap:14px;}
+.chat-label{font-size:.75rem;color:var(--white);font-weight:700;letter-spacing:1.2px;text-transform:uppercase;opacity:0;transition:opacity .3s ease;white-space:nowrap;background:rgba(0,0,0,.7);padding:8px 14px;border-radius:4px;backdrop-filter:blur(8px);}
+.chat-bubble:hover .chat-label{opacity:1;}
+.chat-toggle{width:80px;height:80px;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:visible;}
+@keyframes floatRobot { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+.robot-wrapper { width: 100%; height: 100%; animation: floatRobot 3.5s ease-in-out infinite; display: flex; align-items: center; justify-content: center; }
+.robot-wrapper img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; filter: drop-shadow(1.5px 0 0 var(--accent)) drop-shadow(-1.5px 0 0 var(--accent)) drop-shadow(0 1.5px 0 var(--accent)) drop-shadow(0 -1.5px 0 var(--accent)) drop-shadow(0 6px 12px rgba(0,0,0,0.6)); transition: filter 0.3s; }
+.chat-toggle::before{display:none;}
+.chat-toggle:hover{transform:scale(1.12);}
+.chat-toggle:hover .robot-wrapper img { filter: drop-shadow(1.5px 0 0 var(--accent)) drop-shadow(-1.5px 0 0 var(--accent)) drop-shadow(0 1.5px 0 var(--accent)) drop-shadow(0 -1.5px 0 var(--accent)) drop-shadow(0 12px 24px rgba(255,92,53,0.5)); }
+.chat-window{position:fixed;bottom:180px;right:32px;width:400px;max-height:550px;background:linear-gradient(135deg,#0d0d0d,#111);border:1px solid rgba(255,92,53,.2);border-radius:16px;z-index:9998;display:none;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.8),0 0 40px rgba(255,92,53,.1);overflow:hidden;backdrop-filter:blur(12px);}
+.chat-window.open{display:flex;animation:slideUp .4s cubic-bezier(.34,1.56,.64,1);}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.chat-header{display:flex;align-items:center;justify-content:space-between;padding:20px;border-bottom:1px solid rgba(255,92,53,.1);background:rgba(255,92,53,.05);}
+.chat-header-left{display:flex;align-items:center;gap:12px;}
+.chat-header-left .dot{width:10px;height:10px;border-radius:50%;background:#25d366;animation:pulse 2s infinite;box-shadow:0 0 8px #25d366;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+.chat-header h4{font-size:.9rem;font-weight:800;color:var(--white);}
+.chat-header span{font-size:.72rem;color:var(--dim);}
+.chat-close{background:none;border:none;font-size:1.5rem;color:var(--dim);cursor:pointer;transition:color .2s;padding:0;width:28px;height:28px;display:flex;align-items:center;justify-content:center;}
+.chat-close:hover{color:var(--white);}
+.chat-body{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px;}
+.chat-body::-webkit-scrollbar{width:4px;}
+.chat-body::-webkit-scrollbar-thumb{background:rgba(255,92,53,.2);border-radius:4px;}
+.chat-msg{padding:12px 16px;border-radius:8px;font-size:.85rem;line-height:1.6;max-width:85%;word-wrap:break-word;animation:fadeIn .3s ease-out forwards;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.chat-msg.user{align-self:flex-end;background:var(--accent);color:#0C0B0A;font-weight:600;border-radius:8px 2px 8px 8px;}
+.chat-msg.bot{align-self:flex-start;background:rgba(255,92,53,.08);color:var(--white);border:1px solid rgba(255,92,53,.15);border-radius:2px 8px 8px 8px;}
+.chat-suggestions{display:flex;flex-wrap:wrap;gap:8px;padding:4px 20px 16px;animation:fadeIn .4s ease-out forwards;}
+.chat-chip{background:rgba(255,92,53,.07);border:1px solid rgba(255,92,53,.22);color:var(--white);padding:7px 13px;border-radius:20px;font-size:.78rem;cursor:pointer;transition:all .18s;white-space:nowrap;font-family:'General Sans',system-ui,sans-serif;}
+.chat-chip:hover{background:rgba(255,92,53,.18);border-color:var(--accent);color:var(--accent);}
+.chat-input-wrap{display:flex;gap:8px;padding:16px;border-top:1px solid rgba(255,92,53,.1);background:rgba(0,0,0,.3);}
+.chat-input-wrap input{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--white);font-size:.85rem;outline:none;font-family:'General Sans',system-ui,sans-serif;transition:all .2s;}
+.chat-input-wrap input:focus{border-color:var(--accent);background:rgba(0,0,0,.4);box-shadow:0 0 12px rgba(255,92,53,.1);}
+.chat-send{background:var(--accent);border:none;border-radius:6px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0;}
+.chat-send:hover{background:#fff;transform:scale(1.05);}
+.chat-send svg{width:16px;height:16px;fill:#0C0B0A;}
+.chat-msg.typing{opacity:.7;animation:blink 1.2s infinite;}
+@keyframes blink{0%,100%{opacity:.4;}50%{opacity:1;}}.chat-audit-btn{align-self:flex-start;background:var(--accent);color:#0C0B0A;border:none;padding:13px 22px;border-radius:8px;font-size:.88rem;font-weight:800;cursor:pointer;letter-spacing:.3px;transition:all .2s;animation:fadeIn .4s ease-out forwards;font-family:'General Sans',system-ui,sans-serif;}
+.chat-audit-btn:hover{background:#fff;transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,92,53,.3);}
+
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* MULTI-STEP FORM */
+.step{display:none;}
+.step.active{display:block;}
+.step-indicators{display:flex;gap:8px;margin-bottom:28px;}
+.step-dot{width:32px;height:3px;background:var(--border);border-radius:2px;transition:background .3s;}
+.step-dot.active{background:var(--accent);}
+.step-dot.done{background:var(--accent);opacity:.5;}
+.step h4{font-size:1.1rem;font-weight:700;margin-bottom:6px;}
+.step p.step-sub{font-size:.82rem;color:var(--dim);margin-bottom:20px;}
+.step-options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.step-opt{padding:16px;border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all .2s;text-align:center;}
+.step-opt:hover{border-color:#444;background:rgba(255,255,255,.02);}
+.step-opt.selected{border-color:var(--accent);background:rgba(255,92,53,.05);}
+.step-opt .opt-icon{font-size:1.4rem;margin-bottom:8px;}
+.step-opt .opt-label{font-size:.82rem;font-weight:600;}
+.step-nav{display:flex;gap:12px;justify-content:flex-start;margin-top:20px;}
+.btn-step-back{padding:12px 24px;background:none;border:1px solid var(--border);border-radius:3px;color:var(--dim);font-size:.82rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'General Sans',system-ui,sans-serif;}
+.btn-step-back:hover{border-color:#444;color:var(--white);}
+
+/* LOGOS PARTNERS */
+.logos-clients{margin-top:80px;padding-top:48px;border-top:1px solid var(--border);}
+.logos-clients .ls-label{margin-bottom:20px;}
+.client-logos{display:flex;gap:40px;align-items:center;flex-wrap:wrap;}
+.client-logo{font-size:.85rem;color:#333;font-weight:800;letter-spacing:2px;text-transform:uppercase;transition:color .3s;}
+.client-logo:hover{color:var(--dim);}
+
+/* GLOW CARD — hover border light sweep */
+.glow-card{position:relative;overflow:hidden;}
+.glow-card::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:conic-gradient(from var(--card-glow,0deg),transparent 70%,rgba(255,92,53,.4) 85%,transparent 95%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s;pointer-events:none;}
+.glow-card:hover::before{opacity:1;animation:cardGlow 2.5s linear infinite;}
+@keyframes cardGlow{to{--card-glow:360deg;}}
+@property --card-glow{syntax:'<angle>';initial-value:0deg;inherits:false;}
+
+/* TEXT REVEAL — clip from left */
+.text-reveal{clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.77,0,.18,1);}
+.text-reveal.in{clip-path:inset(0 0 0 0);}
+
+/* STAGGER CHILDREN — words appear one by one */
+.stagger-reveal .word{display:inline-block;opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s;}
+.stagger-reveal.in .word{opacity:1;transform:none;}
+
+/* HOVER SOUND PULSE — visual feedback for hovered cards */
+.srv-row::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,92,53,.02),transparent);opacity:0;transition:opacity .3s;}
+.srv-row:hover::before{opacity:1;}
+
+/* FADE IN */
+.fi{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
+.fi.in{opacity:1;transform:none;}
+
+/* CAROUSEL TESTIMONIOS */
+.carousel-testimonios{position:relative;margin-top:80px;}
+.carousel-inner{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:4px;}
+.carousel-track{display:flex;transition:transform .5s cubic-bezier(.77,0,.18,1);}
+.carousel-track .t-card{flex:0 0 calc(100%/3);min-width:0;border-radius:0;border-right:1px solid var(--border);border-bottom:none!important;}
+.carousel-track .t-card:last-child{border-right:none;}
+.carousel-prev,.carousel-next{position:absolute;top:50%;transform:translateY(-50%);z-index:2;background:var(--surface);border:1px solid var(--border);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;color:var(--white);transition:all .2s;line-height:1;flex-shrink:0;}
+.carousel-prev{left:-20px;}
+.carousel-next{right:-20px;}
+.carousel-prev:hover,.carousel-next:hover{background:var(--accent);color:#0C0B0A;border-color:var(--accent);}
+.carousel-dots{display:flex;gap:8px;justify-content:center;margin-top:24px;}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .3s;border:none;padding:0;flex-shrink:0;}
+.carousel-dot.active{background:var(--accent);transform:scale(1.2);}
+@media(max-width:1024px){.carousel-track .t-card{flex:0 0 50%;}.carousel-track .t-card:nth-child(2n){border-right:none;}}
+@media(max-width:768px){.carousel-track .t-card{flex:0 0 100%;border-right:none!important;}.carousel-prev,.carousel-next{display:none;}.carousel-inner{padding-left:0;padding-right:0;}}
+/* DESKTOP: metodología como grid 4 cols (igual que antes) */
+@media(min-width:769px){.carousel-metodologia .carousel-inner{overflow:visible;border:none;}.carousel-metodologia .carousel-track{display:grid;grid-template-columns:repeat(4,1fr);transform:none!important;transition:none!important;border:1px solid var(--border);border-radius:4px;overflow:hidden;}.carousel-metodologia .method-step{flex:unset;min-width:unset;}.carousel-metodologia .carousel-prev,.carousel-metodologia .carousel-next,.carousel-metodologia .carousel-dots{display:none;}}
+/* DESKTOP: servicios como flex column (igual que antes) */
+@media(min-width:769px){.carousel-servicios .carousel-inner{overflow:visible;border:none;}.carousel-servicios .carousel-track{display:flex;flex-direction:column;transform:none!important;transition:none!important;}.carousel-servicios .srv-row{flex:unset;min-width:unset;border-top:1px solid var(--border);}.carousel-servicios .srv-row:first-child{border-top:none;}.carousel-servicios .carousel-prev,.carousel-servicios .carousel-next,.carousel-servicios .carousel-dots{display:none;}}
+/* MOBILE: metodología y servicios como carrusel 1 item */
+@media(max-width:768px){.carousel-metodologia .carousel-track .method-step{flex:0 0 100%;border-right:none!important;}.carousel-servicios .carousel-track .srv-row{flex:0 0 100%;border-top:1px solid var(--border);}.carousel-servicios .carousel-track .srv-row:first-child{border-top:none;}}
+
+/* RESPONSIVE */
+@media(max-width:1024px){nav{padding:0 28px;}section{padding:100px 28px;}.srv-row{grid-template-columns:60px 1fr 1fr auto;gap:24px;}.contact-wrap{grid-template-columns:1fr;gap:60px;}.analyzer{padding:60px 40px;}.analyzer-grid{grid-template-columns:1fr;gap:32px;}}
+@media(max-width:768px){.nav-center,.lang-sw,.btn-nav{display:none;}.ham{display:flex;}nav{padding:0 24px;}section{padding:60px 20px;}h1.hero-h{letter-spacing:-2px;font-size:clamp(2.5rem,12vw,4.5rem);margin-bottom:40px;}.hero-stats{display:none;}.prob-grid{grid-template-columns:1fr;gap:0;}.prob-item{border-right:none;border-bottom:1px solid var(--border);padding:32px 24px;}.prob-item:last-child{border-bottom:none;}.method-grid{grid-template-columns:1fr 1fr;gap:20px;}.method-step{padding:32px 24px;}.faq-q{padding:24px 0;}.faq-a-inner{padding:0 0 24px;}.srv-row{grid-template-columns:1fr;gap:20px;padding:24px 20px;}.srv-idx{font-size:2rem;}.analyzer{display:none;}.chat-window{right:16px;left:16px;width:auto;bottom:140px;}.chat-bubble{right:20px;bottom:96px;}.step-options{grid-template-columns:1fr 1fr;}.f-top{flex-direction:column;gap:24px;margin-bottom:20px;}.f-links{flex-direction:column;gap:16px;}footer{padding:32px 20px;}.f-col a{margin-bottom:6px;}.f-bottom{flex-direction:column;align-items:flex-start;padding-top:12px;gap:12px;}.hero-bottom{flex-direction:column;align-items:flex-start;gap:24px;}.wa-btn{margin-right:32px;bottom:24px;}}
+@media(max-width:480px){section{padding:40px 16px;}nav{padding:0 16px;}h1.hero-h{font-size:clamp(2rem,10vw,3.5rem);margin-bottom:32px;}.prob-item,.carousel-track .t-card{padding:24px 16px;}.t-roi{font-size:2.8rem;}.method-grid{grid-template-columns:1fr;gap:12px;}.method-step{border-right:none!important;border-bottom:1px solid var(--border)!important;padding:20px 16px;}.faq-q{padding:20px 0;}.faq-a-inner{padding:0 0 20px;}.method-step:last-child{border-bottom:none!important;}.f-row{grid-template-columns:1fr;gap:16px;}h2{font-size:clamp(1.8rem,8vw,3rem);margin-bottom:32px;}p{font-size:0.95rem;line-height:1.7;}.logos-clients{display:none;}footer{padding:24px 16px;}.f-top{gap:16px;margin-bottom:16px;}.f-links{gap:12px;}.f-col a{font-size:.75rem;margin-bottom:4px;}}
+
+/* MOBILE CAROUSELS — must be last to override base rules */
+.carousel-dots{display:none;justify-content:center;gap:8px;padding:16px 0 4px;}
+.c-dot-i{width:7px;height:7px;border-radius:50%;background:var(--border);transition:background .3s;}
+.c-dot-i.on{background:var(--accent);}
+@media(max-width:768px){
+  .carousel-dots{display:flex;}
+  /* calc */
+  .calc-tasks{grid-template-columns:1fr;}
+  .calc-options{flex-direction:column;gap:24px;}
+  .calc-numbers{gap:24px;}
+  .calc-result{padding:24px;}
+  .calc-block{display:flex;flex-direction:column;}
+  .calc-options{order:-1;width:100%;flex-direction:column;gap:20px;align-items:flex-start;}
+  /* prob-grid carousel */
+  .prob-grid{display:flex!important;overflow-x:scroll;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .prob-grid::-webkit-scrollbar{display:none;}
+  .prob-grid .prob-item{flex:0 0 100%;min-width:100%;scroll-snap-align:start;border-bottom:none;border-right:1px solid var(--border);}
+  .prob-grid .prob-item:last-child{border-right:none;}
+  /* srv-premium carousel */
+  #srv-premium{display:flex;overflow-x:scroll;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  #srv-premium::-webkit-scrollbar{display:none;}
+  #srv-premium .srv-row{flex:0 0 100%;min-width:100%;scroll-snap-align:start;border-bottom:none;}
+  /* t-grid carousel */
+  .t-grid{display:flex!important;overflow-x:scroll!important;overflow-y:hidden!important;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .t-grid::-webkit-scrollbar{display:none;}
+  .t-grid .t-card{flex:0 0 100%;min-width:100%;scroll-snap-align:start;}
+}
+</style>
+<link rel="stylesheet" href="/css/atelier.css">
+<script>if(sessionStorage.getItem('al_intro'))document.documentElement.className+=' al-skip';</script>
+</head>
+<body>
+<div id="al-loader"><span class="al-mark">JOSE<em> · </em>AI</span></div>
+<script>
+(function(){
+  var l=document.getElementById('al-loader');
+  if(!l)return;
+  if(document.documentElement.classList.contains('al-skip')){l.remove();return;}
+  function done(){ l.classList.add('done'); try{sessionStorage.setItem('al_intro','1');}catch(e){} setTimeout(function(){if(l&&l.parentNode)l.remove();},800); }
+  var t=setTimeout(done,1400);
+  window.addEventListener('load',function(){ setTimeout(done,500); });
+})();
+</script>
+
+<!-- DRAWER -->
+<div class="drawer" id="drawer">
+  <a onclick="closeDrawer();goTo('inicio')"><span data-es="Inicio" data-en="Home">Inicio</span></a>
+  <a onclick="closeDrawer();goTo('servicios')"><span data-es="Servicios" data-en="Services">Servicios</span></a>
+  <a onclick="closeDrawer();goTo('resultados')"><span data-es="Resultados" data-en="Results">Resultados</span></a>
+  <a onclick="closeDrawer();goTo('metodologia')"><span data-es="Metodología" data-en="Methodology">Metodología</span></a>
+  <a onclick="window.location.href='/faq.html'">FAQ</a>
+  <a href="portfolio.html" data-es="Portafolio" data-en="Portfolio">Portafolio</a>
+  <a onclick="closeDrawer();goTo('contacto')"><span data-es="Contacto" data-en="Contact">Contacto</span></a>
+  <button class="drawer-cta" onclick="closeDrawer();goTo('contacto')" data-es="Solicitar Auditoría" data-en="Request Audit">Solicitar Auditoría</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo" onclick="goTo('inicio')">HELIX <em>·</em> AI</span>
+  <ul class="nav-center">
+    <li><a onclick="goTo('inicio')" data-es="Inicio" data-en="Home">Inicio</a></li>
+    <li>
+      <a onclick="goTo('servicios')"><span data-es="Servicios" data-en="Services">Servicios</span><span class="arr">▾</span></a>
+      <div class="mega">
+        <!-- SVG ICONS -->
+        <svg style="display:none">
+          <symbol id="ico-ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1 0-6h1V6a4 4 0 0 1 4-4z"/><circle cx="12" cy="12" r="2"/></symbol>
+          <symbol id="ico-voice" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></symbol>
+          <symbol id="ico-agent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><path d="M17 6l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></symbol>
+          <symbol id="ico-gen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+          <symbol id="ico-multi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v7m-3.5-3.5h7"/></symbol>
+          <symbol id="ico-rag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6m-3-3h6"/></symbol>
+          <symbol id="ico-data" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v5c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 10v5c0 1.66 4 3 9 3s9-1.34 9-3v-5"/></symbol>
+          <symbol id="ico-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+          <symbol id="ico-web" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.5 3-4 5.5-4 9s1.5 6 4 9"/><path d="M12 3c2.5 3 4 5.5 4 9s-1.5 6-4 9"/><line x1="3" y1="12" x2="21" y2="12"/></symbol>
+          <symbol id="ico-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.5" stroke-width="2"/></symbol>
+          <symbol id="ico-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+          <symbol id="ico-discover" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+          <symbol id="ico-mvp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4.5 16.5l-1.5 5 5-1.5L20 8a2.83 2.83 0 0 0-4-4L4.5 16.5z"/></symbol>
+          <symbol id="ico-poc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></symbol>
+          <symbol id="ico-front" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="20" height="14" rx="2"/><line x1="8" y1="22" x2="16" y2="22"/><line x1="12" y1="18" x2="12" y2="22"/></symbol>
+          <symbol id="ico-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></symbol>
+        </svg>
+
+        <div class="mega-col">
+          <div class="mega-label">AI SERVICES</div>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-ai"/></svg></div><div><div class="mega-title" data-es="Desarrollo con IA" data-en="AI Development">Desarrollo con IA</div><div class="mega-sub" data-es="Sistemas ML y LLM inteligentes" data-en="ML and LLM intelligent systems">Sistemas ML y LLM inteligentes</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-voice"/></svg></div><div><div class="mega-title" data-es="Voz y Chatbots" data-en="Voice and Chatbots">Voz y Chatbots</div><div class="mega-sub" data-es="Conversaciones potenciadas por IA" data-en="AI-powered conversations">Conversaciones potenciadas por IA</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-agent"/></svg></div><div><div class="mega-title" data-es="Agentes de IA" data-en="AI Agents">Agentes de IA</div><div class="mega-sub" data-es="Agentes autónomos 24/7" data-en="Autonomous agents 24/7">Agentes autónomos 24/7</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-gen"/></svg></div><div><div class="mega-title" data-es="IA Generativa" data-en="Generative AI">IA Generativa</div><div class="mega-sub" data-es="Soluciones LLM a medida" data-en="Custom LLM solutions">Soluciones LLM a medida</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-multi"/></svg></div><div><div class="mega-title" data-es="IA Multimodal" data-en="Multi Modal AI">IA Multimodal</div><div class="mega-sub" data-es="Combina texto, imagen y audio" data-en="Combine text, image and audio">Combina texto, imagen y audio</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-rag"/></svg></div><div><div class="mega-title" data-es="Desarrollo RAG" data-en="RAG Development">Desarrollo RAG</div><div class="mega-sub" data-es="Recuperación de conocimiento con IA" data-en="AI-powered knowledge retrieval">Recuperación de conocimiento con IA</div></div></a>
+        </div>
+
+        <div class="mega-col">
+          <div class="mega-label" data-es="ÁREAS DE DESARROLLO" data-en="DEVELOPMENT AREAS">ÁREAS DE DESARROLLO</div>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-ai"/></svg></div><div><div class="mega-title" data-es="Desarrollo IA" data-en="AI Development">Desarrollo IA</div><div class="mega-sub" data-es="Sistemas ML y LLM inteligentes" data-en="Build ML and LLM based systems">Sistemas ML y LLM inteligentes</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-data"/></svg></div><div><div class="mega-title" data-es="Ingeniería de Datos" data-en="Data Engineering">Ingeniería de Datos</div><div class="mega-sub" data-es="Pipelines, warehouses y analytics" data-en="Pipelines, warehouses, and analytics">Pipelines, warehouses y analytics</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-code"/></svg></div><div><div class="mega-title" data-es="Desarrollo de Software" data-en="Custom Software">Desarrollo de Software</div><div class="mega-sub" data-es="Soluciones a medida de tu negocio" data-en="Tailored solutions for your business">Soluciones a medida de tu negocio</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-web"/></svg></div><div><div class="mega-title" data-es="Desarrollo Web" data-en="Web Development">Desarrollo Web</div><div class="mega-sub" data-es="Apps web responsivas y escalables" data-en="Responsive scalable web apps">Apps web responsivas y escalables</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-mobile"/></svg></div><div><div class="mega-title" data-es="Apps Móviles" data-en="Mobile Apps">Apps Móviles</div><div class="mega-sub" data-es="iOS, Android y cross-platform" data-en="iOS, Android and cross-platform">iOS, Android y cross-platform</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-chat"/></svg></div><div><div class="mega-title" data-es="Desarrollo de Chatbots" data-en="Chatbot Development">Desarrollo de Chatbots</div><div class="mega-sub" data-es="Superficies conversacionales con IA" data-en="AI-powered conversational surfaces">Superficies conversacionales con IA</div></div></a>
+        </div>
+
+        <div class="mega-col">
+          <div class="mega-label" data-es="ETAPA DE DESARROLLO" data-en="DEVELOPMENT STAGE">ETAPA DE DESARROLLO</div>
+          <a class="mega-item" onclick="goTo('metodologia')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-discover"/></svg></div><div><div class="mega-title" data-es="Descubrimiento del Proyecto" data-en="Project Discovery">Descubrimiento del Proyecto</div><div class="mega-sub" data-es="Alcance, objetivos y roadmap" data-en="Define scope, goals, and roadmap">Alcance, objetivos y roadmap</div></div></a>
+          <a class="mega-item" onclick="goTo('metodologia')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-mvp"/></svg></div><div><div class="mega-title" data-es="Desarrollo MVP" data-en="MVP Development">Desarrollo MVP</div><div class="mega-sub" data-es="Lanzá más rápido con funciones clave" data-en="Launch faster with core features">Lanzá más rápido con funciones clave</div></div></a>
+          <a class="mega-item" onclick="goTo('metodologia')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-poc"/></svg></div><div><div class="mega-title" data-es="Desarrollo POC" data-en="POC Development">Desarrollo POC</div><div class="mega-sub" data-es="Validá ideas antes de construir" data-en="Validate ideas before building">Validá ideas antes de construir</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-front"/></svg></div><div><div class="mega-title" data-es="Desarrollo Frontend" data-en="Frontend Development">Desarrollo Frontend</div><div class="mega-sub" data-es="UI para Web, Mobile y más" data-en="Build UI for Web, Mobile and more">UI para Web, Mobile y más</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon"><svg width="16" height="16"><use href="#ico-back"/></svg></div><div><div class="mega-title" data-es="Desarrollo Backend" data-en="Backend Development">Desarrollo Backend</div><div class="mega-sub" data-es="APIs, MCPs y lógica de negocio" data-en="Build APIs, MCPs, and app logic">APIs, MCPs y lógica de negocio</div></div></a>
+        </div>
+
+        <div class="mega-col">
+          <div class="mega-label" data-es="PLATAFORMAS IA" data-en="AI PLATFORMS">PLATAFORMAS IA</div>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon" style="background:#10a37f;border-color:#10a37f;"><img src="/images/openai-chatgpt-logo-icon-free-png.webp" width="20" height="20" style="object-fit:contain;"/></div><div><div class="mega-title">OpenAI</div><div class="mega-sub" data-es="Modelos GPT e integraciones ChatGPT" data-en="GPT models and ChatGPT integrations">Modelos GPT e integraciones ChatGPT</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon" style="background:#fff;border-color:#ddd;"><img src="/images/3d-claude-ai-logo.jpg" width="20" height="20" style="object-fit:contain;filter:saturate(1.2);"/></div><div><div class="mega-title">Anthropic</div><div class="mega-sub" data-es="Aprovechá el poder de Claude" data-en="Take advantage of Claude">Aprovechá el poder de Claude</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon" style="background:#fff;border-color:#e0e0e0;"><img src="/images/gemini.jpg" width="20" height="20" style="object-fit:contain;"/></div><div><div class="mega-title">Gemini</div><div class="mega-sub" data-es="Soluciones multimodales de IA" data-en="Multimodal AI solutions">Soluciones multimodales de IA</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon" style="background:#fff;border-color:#eee;"><img src="/images/LLaMA.png" width="22" height="22" style="object-fit:contain;"/></div><div><div class="mega-title">LLaMA <span style="font-size:.68rem;color:#888;font-weight:400;">by Meta</span></div><div class="mega-sub" data-es="LLM de código abierto" data-en="Open-source LLM">LLM de código abierto</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon" style="background:#0d0d1a;border-color:#3a2a8a;"><img src="/images/qwen-color.png" width="20" height="20" style="object-fit:contain;"/></div><div><div class="mega-title">Qwen</div><div class="mega-sub" data-es="Modelo eficiente open-weight" data-en="Efficient open-weight model">Modelo eficiente open-weight</div></div></a>
+          <a class="mega-item" onclick="goTo('servicios')"><div class="mega-icon" style="background:#0a0a1a;border-color:#1a2a5a;"><img src="/images/deepseek-color.png" width="22" height="20" style="object-fit:contain;"/></div><div><div class="mega-title">Deepseek</div><div class="mega-sub" data-es="Modelos open-weight eficientes" data-en="Efficient open-weight models">Modelos open-weight eficientes</div></div></a>
+        </div>
+      </div>
+    </li>
+    <li><a onclick="goTo('resultados')" data-es="Resultados" data-en="Results">Resultados</a></li>
+    <li><a onclick="goTo('metodologia')" data-es="Metodología" data-en="Methodology">Metodología</a></li>
+    <li><a href="/faq.html">FAQ</a></li>
+    <li><a href="portfolio.html" data-es="Portafolio" data-en="Portfolio">Portafolio</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-sw"><button class="on" onclick="setLang('es')">ES</button><button onclick="setLang('en')">EN</button></div>
+    <button class="btn-nav" onclick="goTo('contacto');playSound('click')" data-es="Solicitar Auditoría" data-en="Request Audit">Solicitar Auditoría</button>
+    <button class="ham" id="ham" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="inicio">
+  <div class="hero-eyebrow fi"><span data-es="Agencia de Crecimiento Digital e IA — 2026" data-en="AI & Digital Growth Agency — 2026">Agencia de Crecimiento Digital e IA — 2026</span></div>
+  <h1 class="hero-h stagger-reveal fi">
+    <span class="word" data-es="Mientras hacés" data-en="While you do">Mientras hacés</span><br>
+    <em class="word" data-es="todo manual," data-en="everything manually," style="transition-delay:.15s">todo manual,</em><br>
+    <span class="word outline" data-es="tu competencia" data-en="your competition" style="transition-delay:.3s">tu competencia</span><br>
+    <span class="word" data-es="ya automatizó" data-en="already automated" style="transition-delay:.45s">ya automatizó</span>
+  </h1>
+  <div class="hero-bottom fi">
+    <p class="hero-desc" data-es="¿Cuántos leads perdés porque no podés responder a tiempo? ¿Cuántas horas tira tu equipo en tareas repetitivas? Eso tiene solución — en semanas, no en meses." data-en="How many leads do you lose because you can't respond in time? How many hours does your team waste on repetitive tasks? That has a solution — in weeks, not months.">¿Cuántos leads perdés porque no podés responder a tiempo? ¿Cuántas horas tira tu equipo en tareas repetitivas? Eso tiene solución — en semanas, no en meses.</p>
+    <div class="hero-actions">
+      <button class="btn-primary btn-glow" onclick="goTo('contacto');playSound('click')" data-es="Solicitar Auditoría de Crecimiento" data-en="Request Growth Audit">Solicitar Auditoría de Crecimiento</button>
+      <button class="btn-ghost" onclick="goTo('servicios')" data-es="Ver servicios" data-en="See services">Ver servicios</button>
+    </div>
+  </div>
+  <div class="vsl-block fi">
+    <div class="vsl-yt">
+      <!-- Reemplazá VIDEO_ID con el ID real de tu video de YouTube -->
+      <iframe
+        src="https://www.youtube.com/embed/VIDEO_ID?controls=1&rel=0&modestbranding=1"
+        title="Propuesta de valor — HELIX AI Growth"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section id="problemas">
+
+  <!-- TECH PARTNER LOGOS — marquee -->
+  <div class="tech-strip fi">
+    <div class="tech-strip-label" data-es="Tecnologías con las que trabajamos" data-en="Technologies we work with">Tecnologías con las que trabajamos</div>
+    <div class="tech-logos-marquee">
+      <div class="tech-logos-track">
+        <!-- === SET 1 === -->
+        <div class="tech-logo" style="--hc:#10A37F"><svg viewBox="0 0 24 24"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg><span class="tech-logo-name">OpenAI</span></div>
+        <div class="tech-logo" style="--hc:#c4a882"><svg viewBox="0 0 24 24"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg><span class="tech-logo-name">Anthropic</span></div>
+        <div class="tech-logo" style="--hc:#EA4B71"><svg viewBox="0 0 24 24"><path d="M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632"/></svg><span class="tech-logo-name">n8n</span></div>
+        <div class="tech-logo" style="--hc:#6D00CC"><svg viewBox="0 0 24 24"><path d="M13.38 3.498c-.27 0-.511.19-.566.465L9.85 18.986a.578.578 0 0 0 .453.678l4.095.826a.58.58 0 0 0 .682-.455l2.963-15.021a.578.578 0 0 0-.453-.678l-4.096-.826a.589.589 0 0 0-.113-.012zm-5.876.098a.576.576 0 0 0-.516.318L.062 17.697a.575.575 0 0 0 .256.774l3.733 1.877a.578.578 0 0 0 .775-.258l6.926-13.781a.577.577 0 0 0-.256-.776L7.762 3.658a.571.571 0 0 0-.258-.062zm11.74.115a.576.576 0 0 0-.576.576v15.426c0 .318.258.578.576.578h4.178a.58.58 0 0 0 .578-.578V4.287a.578.578 0 0 0-.578-.576Z"/></svg><span class="tech-logo-name">Make</span></div>
+        <div class="tech-logo" style="--hc:#25D366"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg><span class="tech-logo-name">WhatsApp</span></div>
+        <div class="tech-logo" style="--hc:#f0f0f0"><svg viewBox="0 0 24 24"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg><span class="tech-logo-name">Vercel</span></div>
+        <div class="tech-logo" style="--hc:#FCB400"><svg viewBox="0 0 24 24"><path d="M11.992 1.966c-.434 0-.87.086-1.28.257L1.779 5.917c-.503.208-.49.908.012 1.116l8.982 3.558a3.266 3.266 0 0 0 2.454 0l8.982-3.558c.503-.196.503-.908.012-1.116l-8.957-3.694a3.255 3.255 0 0 0-1.272-.257zM23.4 8.056a.589.589 0 0 0-.222.045l-10.012 3.877a.612.612 0 0 0-.38.564v8.896a.6.6 0 0 0 .821.552L23.62 18.1a.583.583 0 0 0 .38-.551V8.653a.6.6 0 0 0-.6-.596zM.676 8.095a.644.644 0 0 0-.48.19C.086 8.396 0 8.53 0 8.69v8.355c0 .442.515.737.908.54l6.27-3.006.307-.147 2.969-1.436c.466-.22.43-.908-.061-1.092L.883 8.138a.57.57 0 0 0-.207-.044z"/></svg><span class="tech-logo-name">Airtable</span></div>
+        <div class="tech-logo tech-logo-ig" style="--hc:#c837ab"><svg viewBox="0 0 24 24"><defs><radialGradient id="ig-grad" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg><span class="tech-logo-name">Instagram</span></div>
+        <div class="tech-logo" style="--hc:#635bff"><svg viewBox="0 0 24 24"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.831 3.47 1.426 3.47 2.338 0 .892-.734 1.411-2.013 1.411-2.136 0-4.727-.921-6.538-2.083L4.23 21.49C6.11 22.688 8.913 24 12.677 24c2.554 0 4.695-.657 6.18-1.904 1.6-1.328 2.394-3.224 2.394-5.477 0-4.157-2.498-5.797-7.275-7.469z"/></svg><span class="tech-logo-name">Stripe</span></div>
+        <div class="tech-logo" style="--hc:#f0f0f0"><svg viewBox="0 0 24 24"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.047.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg><span class="tech-logo-name">Notion</span></div>
+        <div class="tech-logo" style="--hc:#4285F4"><svg viewBox="0 0 24 24"><path d="M12.19 2.38a9.344 9.344 0 0 0-9.234 6.893c.053-.02-.055.013 0 0-3.875 2.551-3.922 8.11-.247 10.941l.006-.007-.007.03a6.717 6.717 0 0 0 4.077 1.356h5.173l.03.03h5.192c6.687.053 9.376-8.605 3.835-12.35a9.365 9.365 0 0 0-2.821-4.552l-.043.043.006-.05A9.344 9.344 0 0 0 12.19 2.38zm-.358 4.146c1.244-.04 2.518.368 3.486 1.15a5.186 5.186 0 0 1 1.862 4.078v.518c3.53-.07 3.53 5.262 0 5.193h-5.193l-.008.009v-.04H6.785a2.59 2.59 0 0 1-1.067-.23h.001a2.597 2.597 0 1 1 3.437-3.437l3.013-3.012A6.747 6.747 0 0 0 8.11 8.24c.018-.01.04-.026.054-.023a5.186 5.186 0 0 1 3.67-1.69z"/></svg><span class="tech-logo-name">Google Cloud</span></div>
+        <div class="tech-logo" style="--hc:#8E75B2"><svg viewBox="0 0 24 24"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg><span class="tech-logo-name">Gemini</span></div>
+        <div class="tech-logo" style="--hc:#4285F4"><svg viewBox="0 0 24 24"><path d="M12 12.75v-1.5h9.08a9.06 9.06 0 0 1 .17 1.75c0 2.4-.65 5.37-2.74 7.44C16.56 22.42 14.47 23.5 12 23.5 7.03 23.5 3 19.47 3 14.5S7.03 5.5 12 5.5c2.41 0 4.44.9 5.99 2.36L16.7 9.15C15.54 8.08 13.86 7.25 12 7.25c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c2.37 0 3.72-.95 4.59-1.82.7-.7 1.16-1.7 1.34-3.04H12z"/></svg><span class="tech-logo-name">Workspace</span></div>
+        <div class="tech-logo" style="--hc:#4285F4"><svg viewBox="0 0 24 24"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg><span class="tech-logo-name">Google Ads</span></div>
+        <div class="tech-logo" style="--hc:#FF0000"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span class="tech-logo-name">YouTube</span></div>
+        <div class="tech-logo" style="--hc:#ff4d4d"><svg viewBox="0 0 120 120" width="24" height="24"><defs><linearGradient id="ocg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ff4d4d"/><stop offset="100%" stop-color="#991b1b"/></linearGradient></defs><path fill="url(#ocg)" d="M60 10 C30 10 15 35 15 55 C15 75 30 95 45 100 L45 110 L55 110 L55 100 C55 100 60 102 65 100 L65 110 L75 110 L75 100 C90 95 105 75 105 55 C105 35 90 10 60 10Z"/><path fill="url(#ocg)" d="M20 45 C5 40 0 50 5 60 C10 70 20 65 25 55 C28 48 25 45 20 45Z"/><path fill="url(#ocg)" d="M100 45 C115 40 120 50 115 60 C110 70 100 65 95 55 C92 48 95 45 100 45Z"/><line x1="45" y1="15" x2="30" y2="8" stroke="#ff4d4d" stroke-width="3"/><line x1="75" y1="15" x2="90" y2="8" stroke="#ff4d4d" stroke-width="3"/></svg><span class="tech-logo-name">OpenClaw</span></div>
+        <!-- === SET 2 (duplicate for seamless loop) === -->
+        <div class="tech-logo" style="--hc:#10A37F"><svg viewBox="0 0 24 24"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg><span class="tech-logo-name">OpenAI</span></div>
+        <div class="tech-logo" style="--hc:#c4a882"><svg viewBox="0 0 24 24"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg><span class="tech-logo-name">Anthropic</span></div>
+        <div class="tech-logo" style="--hc:#EA4B71"><svg viewBox="0 0 24 24"><path d="M21.4737 5.6842c-1.1772 0-2.1663.8051-2.4468 1.8947h-2.8955c-1.235 0-2.289.893-2.492 2.111l-.1038.623a1.263 1.263 0 0 1-1.246 1.0555H11.289c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947s-2.1663.8051-2.4467 1.8947H4.973c-.2805-1.0896-1.2696-1.8947-2.4468-1.8947C1.1311 9.4737 0 10.6047 0 12s1.131 2.5263 2.5263 2.5263c1.1772 0 2.1663-.8051 2.4468-1.8947h1.4223c.2804 1.0896 1.2696 1.8947 2.4467 1.8947 1.1772 0 2.1663-.8051 2.4468-1.8947h1.0008a1.263 1.263 0 0 1 1.2459 1.0555l.1038.623c.203 1.218 1.257 2.111 2.492 2.111h.3692c.2804 1.0895 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263c-1.1772 0-2.1664.805-2.4468 1.8947h-.3692a1.263 1.263 0 0 1-1.246-1.0555l-.1037-.623A2.52 2.52 0 0 0 13.9607 12a2.52 2.52 0 0 0 .821-1.4794l.1038-.623a1.263 1.263 0 0 1 1.2459-1.0555h2.8955c.2805 1.0896 1.2696 1.8947 2.4468 1.8947 1.3952 0 2.5263-1.131 2.5263-2.5263s-1.131-2.5263-2.5263-2.5263m0 1.2632a1.263 1.263 0 0 1 1.2631 1.2631 1.263 1.263 0 0 1-1.2631 1.2632 1.263 1.263 0 0 1-1.2632-1.2632 1.263 1.263 0 0 1 1.2632-1.2631M2.5263 10.7368A1.263 1.263 0 0 1 3.7895 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 1.2632 12a1.263 1.263 0 0 1 1.2631-1.2632m6.3158 0A1.263 1.263 0 0 1 10.1053 12a1.263 1.263 0 0 1-1.2632 1.2632A1.263 1.263 0 0 1 7.579 12a1.263 1.263 0 0 1 1.2632-1.2632m10.1053 3.7895a1.263 1.263 0 0 1 1.2631 1.2632 1.263 1.263 0 0 1-1.2631 1.2631 1.263 1.263 0 0 1-1.2632-1.2631 1.263 1.263 0 0 1 1.2632-1.2632"/></svg><span class="tech-logo-name">n8n</span></div>
+        <div class="tech-logo" style="--hc:#6D00CC"><svg viewBox="0 0 24 24"><path d="M13.38 3.498c-.27 0-.511.19-.566.465L9.85 18.986a.578.578 0 0 0 .453.678l4.095.826a.58.58 0 0 0 .682-.455l2.963-15.021a.578.578 0 0 0-.453-.678l-4.096-.826a.589.589 0 0 0-.113-.012zm-5.876.098a.576.576 0 0 0-.516.318L.062 17.697a.575.575 0 0 0 .256.774l3.733 1.877a.578.578 0 0 0 .775-.258l6.926-13.781a.577.577 0 0 0-.256-.776L7.762 3.658a.571.571 0 0 0-.258-.062zm11.74.115a.576.576 0 0 0-.576.576v15.426c0 .318.258.578.576.578h4.178a.58.58 0 0 0 .578-.578V4.287a.578.578 0 0 0-.578-.576Z"/></svg><span class="tech-logo-name">Make</span></div>
+        <div class="tech-logo" style="--hc:#25D366"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg><span class="tech-logo-name">WhatsApp</span></div>
+        <div class="tech-logo" style="--hc:#f0f0f0"><svg viewBox="0 0 24 24"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg><span class="tech-logo-name">Vercel</span></div>
+        <div class="tech-logo" style="--hc:#FCB400"><svg viewBox="0 0 24 24"><path d="M11.992 1.966c-.434 0-.87.086-1.28.257L1.779 5.917c-.503.208-.49.908.012 1.116l8.982 3.558a3.266 3.266 0 0 0 2.454 0l8.982-3.558c.503-.196.503-.908.012-1.116l-8.957-3.694a3.255 3.255 0 0 0-1.272-.257zM23.4 8.056a.589.589 0 0 0-.222.045l-10.012 3.877a.612.612 0 0 0-.38.564v8.896a.6.6 0 0 0 .821.552L23.62 18.1a.583.583 0 0 0 .38-.551V8.653a.6.6 0 0 0-.6-.596zM.676 8.095a.644.644 0 0 0-.48.19C.086 8.396 0 8.53 0 8.69v8.355c0 .442.515.737.908.54l6.27-3.006.307-.147 2.969-1.436c.466-.22.43-.908-.061-1.092L.883 8.138a.57.57 0 0 0-.207-.044z"/></svg><span class="tech-logo-name">Airtable</span></div>
+        <div class="tech-logo tech-logo-ig" style="--hc:#c837ab"><svg viewBox="0 0 24 24"><defs><radialGradient id="ig-grad" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg><span class="tech-logo-name">Instagram</span></div>
+        <div class="tech-logo" style="--hc:#635bff"><svg viewBox="0 0 24 24"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.831 3.47 1.426 3.47 2.338 0 .892-.734 1.411-2.013 1.411-2.136 0-4.727-.921-6.538-2.083L4.23 21.49C6.11 22.688 8.913 24 12.677 24c2.554 0 4.695-.657 6.18-1.904 1.6-1.328 2.394-3.224 2.394-5.477 0-4.157-2.498-5.797-7.275-7.469z"/></svg><span class="tech-logo-name">Stripe</span></div>
+        <div class="tech-logo" style="--hc:#f0f0f0"><svg viewBox="0 0 24 24"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.047.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg><span class="tech-logo-name">Notion</span></div>
+        <div class="tech-logo" style="--hc:#4285F4"><svg viewBox="0 0 24 24"><path d="M12.19 2.38a9.344 9.344 0 0 0-9.234 6.893c.053-.02-.055.013 0 0-3.875 2.551-3.922 8.11-.247 10.941l.006-.007-.007.03a6.717 6.717 0 0 0 4.077 1.356h5.173l.03.03h5.192c6.687.053 9.376-8.605 3.835-12.35a9.365 9.365 0 0 0-2.821-4.552l-.043.043.006-.05A9.344 9.344 0 0 0 12.19 2.38zm-.358 4.146c1.244-.04 2.518.368 3.486 1.15a5.186 5.186 0 0 1 1.862 4.078v.518c3.53-.07 3.53 5.262 0 5.193h-5.193l-.008.009v-.04H6.785a2.59 2.59 0 0 1-1.067-.23h.001a2.597 2.597 0 1 1 3.437-3.437l3.013-3.012A6.747 6.747 0 0 0 8.11 8.24c.018-.01.04-.026.054-.023a5.186 5.186 0 0 1 3.67-1.69z"/></svg><span class="tech-logo-name">Google Cloud</span></div>
+        <div class="tech-logo" style="--hc:#8E75B2"><svg viewBox="0 0 24 24"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg><span class="tech-logo-name">Gemini</span></div>
+        <div class="tech-logo" style="--hc:#4285F4"><svg viewBox="0 0 24 24"><path d="M12 12.75v-1.5h9.08a9.06 9.06 0 0 1 .17 1.75c0 2.4-.65 5.37-2.74 7.44C16.56 22.42 14.47 23.5 12 23.5 7.03 23.5 3 19.47 3 14.5S7.03 5.5 12 5.5c2.41 0 4.44.9 5.99 2.36L16.7 9.15C15.54 8.08 13.86 7.25 12 7.25c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c2.37 0 3.72-.95 4.59-1.82.7-.7 1.16-1.7 1.34-3.04H12z"/></svg><span class="tech-logo-name">Workspace</span></div>
+        <div class="tech-logo" style="--hc:#4285F4"><svg viewBox="0 0 24 24"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg><span class="tech-logo-name">Google Ads</span></div>
+        <div class="tech-logo" style="--hc:#FF0000"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span class="tech-logo-name">YouTube</span></div>
+        <div class="tech-logo" style="--hc:#ff4d4d"><svg viewBox="0 0 120 120" width="24" height="24"><defs><linearGradient id="ocg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ff4d4d"/><stop offset="100%" stop-color="#991b1b"/></linearGradient></defs><path fill="url(#ocg)" d="M60 10 C30 10 15 35 15 55 C15 75 30 95 45 100 L45 110 L55 110 L55 100 C55 100 60 102 65 100 L65 110 L75 110 L75 100 C90 95 105 75 105 55 C105 35 90 10 60 10Z"/><path fill="url(#ocg)" d="M20 45 C5 40 0 50 5 60 C10 70 20 65 25 55 C28 48 25 45 20 45Z"/><path fill="url(#ocg)" d="M100 45 C115 40 120 50 115 60 C110 70 100 65 95 55 C92 48 95 45 100 45Z"/><line x1="45" y1="15" x2="30" y2="8" stroke="#ff4d4d" stroke-width="3"/><line x1="75" y1="15" x2="90" y2="8" stroke="#ff4d4d" stroke-width="3"/></svg><span class="tech-logo-name">OpenClaw</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label fi" style="margin-top:56px;margin-bottom:0" data-es="¿Te identificas?" data-en="Do you relate?">¿Te identificas?</div>
+  <div class="prob-grid fi">
+    <div class="prob-item"><div class="prob-num">01</div><div class="prob-q" data-es="¿Tu contenido no convierte?" data-en="Your content doesn't convert?">¿Tu contenido no convierte?</div><div class="prob-a"><span data-es="Lo resolvemos con " data-en="We fix it with ">Lo resolvemos con </span><strong data-es="Social Media Estratégico" data-en="Strategic Social Media">Social Media Estratégico</strong><span data-es=" orientado a posicionamiento y crecimiento real." data-en=" focused on positioning and real growth."> orientado a posicionamiento y crecimiento real.</span></div></div>
+    <div class="prob-item"><div class="prob-num">02</div><div class="prob-q" data-es="¿Procesos manuales que te frenan?" data-en="Manual processes holding you back?">¿Procesos manuales que te frenan?</div><div class="prob-a"><span data-es="Implementamos " data-en="We implement ">Implementamos </span><strong data-es="automatizaciones con IA" data-en="AI automations">automatizaciones con IA</strong><span data-es=" que liberan el 80% de tu tiempo operativo." data-en=" that free 80% of your operational time."> que liberan el 80% de tu tiempo operativo.</span></div></div>
+    <div class="prob-item"><div class="prob-num">03</div><div class="prob-q" data-es="¿Tu marca pasa desapercibida?" data-en="Is your brand invisible?">¿Tu marca pasa desapercibida?</div><div class="prob-a"><span data-es="Creamos " data-en="We create ">Creamos </span><strong data-es="identidades visuales memorables" data-en="memorable visual identities">identidades visuales memorables</strong><span data-es=" que posicionan tu negocio como autoridad." data-en=" that position your business as an authority."> que posicionan tu negocio como autoridad.</span></div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicios">
+  <div class="srv-header">
+    <div>
+      <div class="label fi" data-es="Sistemas de crecimiento" data-en="Growth systems">Sistemas de crecimiento</div>
+      <h2 class="big fi" style="margin-bottom:0">
+        <span data-es="Lo que perdés" data-en="What you're losing">Lo que perdés</span><br>
+        <em data-es="haciendo esto manual" data-en="doing this manually">haciendo esto manual</em>
+      </h2>
+    </div>
+    <p class="sub fi" data-es="Seleccioná las tareas que tu equipo todavía hace a mano y vé el impacto real — en horas y dinero." data-en="Select the tasks your team still does manually and see the real impact — in hours and money.">Seleccioná las tareas que tu equipo todavía hace a mano y vé el impacto real — en horas y dinero.</p>
+  </div>
+
+  <!-- CALCULATOR -->
+  <div class="calc-block fi">
+    <div class="calc-tasks" id="calcTasks">
+      <div class="calc-task-item" data-hours="8" data-service="agente" onclick="calcToggle(this)">
+        <div class="calc-task-check"></div>
+        <span class="calc-task-label" data-es="Responder mensajes y emails" data-en="Reply to messages & emails">Responder mensajes y emails</span>
+        <span class="calc-task-hours">8h/sem</span>
+      </div>
+      <div class="calc-task-item" data-hours="6" data-service="agente" onclick="calcToggle(this)">
+        <div class="calc-task-check"></div>
+        <span class="calc-task-label" data-es="Calificar leads y prospects" data-en="Qualify leads & prospects">Calificar leads y prospects</span>
+        <span class="calc-task-hours">6h/sem</span>
+      </div>
+      <div class="calc-task-item" data-hours="4" data-service="agente" onclick="calcToggle(this)">
+        <div class="calc-task-check"></div>
+        <span class="calc-task-label" data-es="Agendar reuniones y follow-ups" data-en="Schedule meetings & follow-ups">Agendar reuniones y follow-ups</span>
+        <span class="calc-task-hours">4h/sem</span>
+      </div>
+      <div class="calc-task-item" data-hours="7" data-service="agente" onclick="calcToggle(this)">
+        <div class="calc-task-check"></div>
+        <span class="calc-task-label" data-es="Responder preguntas repetitivas" data-en="Answer repetitive questions">Responder preguntas repetitivas</span>
+        <span class="calc-task-hours">7h/sem</span>
+      </div>
+      <div class="calc-task-item" data-hours="6" data-service="contenido" onclick="calcToggle(this)">
+        <div class="calc-task-check"></div>
+        <span class="calc-task-label" data-es="Publicar y responder en redes" data-en="Publish & respond on social media">Publicar y responder en redes</span>
+        <span class="calc-task-hours">6h/sem</span>
+      </div>
+      <div class="calc-task-item" data-hours="5" data-service="ecosistema" onclick="calcToggle(this)">
+        <div class="calc-task-check"></div>
+        <span class="calc-task-label" data-es="Insertar datos entre sistemas" data-en="Insert data between systems">Insertar datos entre sistemas</span>
+        <span class="calc-task-hours">5h/sem</span>
+      </div>
+      <div class="calc-task-item" data-hours="4" data-service="ecosistema" onclick="calcToggle(this)">
+        <div class="calc-task-check"></div>
+        <span class="calc-task-label" data-es="Generar reportes y dashboards" data-en="Generate reports & dashboards">Generar reportes y dashboards</span>
+        <span class="calc-task-hours">4h/sem</span>
+      </div>
+      <div class="calc-task-item" data-hours="3" data-service="ecosistema" onclick="calcToggle(this)">
+        <div class="calc-task-check"></div>
+        <span class="calc-task-label" data-es="Procesar facturas y documentos" data-en="Process invoices & documents">Procesar facturas y documentos</span>
+        <span class="calc-task-hours">3h/sem</span>
+      </div>
+    </div>
+
+    <div class="calc-options">
+      <div class="calc-option-group">
+        <span class="calc-option-label" data-es="Tamaño del equipo" data-en="Team size">Tamaño del equipo</span>
+        <div class="calc-team-btns">
+          <button class="calc-team-btn" data-size="1" onclick="calcSetTeam(this)">1</button>
+          <button class="calc-team-btn" data-size="3" onclick="calcSetTeam(this)">3</button>
+          <button class="calc-team-btn on" data-size="5" onclick="calcSetTeam(this)">5</button>
+          <button class="calc-team-btn" data-size="10" onclick="calcSetTeam(this)">10</button>
+          <button class="calc-team-btn" data-size="20" onclick="calcSetTeam(this)">20</button>
+        </div>
+      </div>
+      <div class="calc-option-group">
+        <label class="calc-option-label" for="calcRate" data-es="Costo por hora de empleado (USD)" data-en="Employee hourly cost (USD)">Costo por hora de empleado (USD)</label>
+        <input class="calc-rate-input" id="calcRate" type="number" min="1" max="500" value="10" oninput="calcUpdate()">
+      </div>
+    </div>
+
+    <div class="calc-result" id="calcResult" style="display:none">
+      <div class="calc-numbers">
+        <div class="calc-number">
+          <div class="n" id="calcHoursVal">0</div>
+          <div class="t" data-es="horas perdidas por semana" data-en="hours lost per week">horas perdidas por semana</div>
+        </div>
+        <div class="calc-number">
+          <div class="n" id="calcCostVal">$0</div>
+          <div class="t" data-es="USD mensuales en trabajo improductivo" data-en="USD monthly in unproductive work">USD mensuales en trabajo improductivo</div>
+        </div>
+        <div class="calc-number">
+          <div class="n" id="calcAnnualVal">$0</div>
+          <div class="t" data-es="USD perdidos por año" data-en="USD lost per year">USD perdidos por año</div>
+        </div>
+      </div>
+      <div class="calc-result-services">
+        <div class="calc-result-label" data-es="Para eliminar estas pérdidas necesitás:" data-en="To eliminate these losses you need:">Para eliminar estas pérdidas necesitás:</div>
+        <div class="calc-tags">
+          <span class="calc-tag" id="tag-agente">🤖 Agente de Ventas IA</span>
+          <span class="calc-tag" id="tag-contenido">🎬 Fábrica de Contenido IA</span>
+          <span class="calc-tag" id="tag-ecosistema">⚙️ Ecosistema Digital Completo</span>
+        </div>
+      </div>
+      <div style="margin-top:20px">
+        <button class="calc-scroll-cta" onclick="document.getElementById('srv-premium').scrollIntoView({behavior:'smooth'})" data-es="Estos sistemas eliminan cada una de estas tareas →" data-en="These systems eliminate each of these tasks →">Estos sistemas eliminan cada una de estas tareas →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 PREMIUM SERVICES -->
+  <div id="srv-premium">
+    <div class="srv-premium-intro fi" id="srvIntro" style="display:none">
+      <p><strong id="srvIntroText"></strong></p>
+    </div>
+
+    <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')">
+      <div class="srv-idx">01</div>
+      <div>
+        <div class="srv-badge" data-es="Perdés la venta" data-en="You lose the sale">Perdés la venta</div>
+        <div class="srv-pain" data-es="Perdés ventas porque no respondés a tiempo" data-en="You lose sales because you don't respond in time">Perdés ventas porque no respondés a tiempo</div>
+      </div>
+      <div>
+        <p class="srv-body" data-es="El 78% de los clientes le compra al primero que responde. Un agente IA atiende WhatsApp, email e Instagram en segundos, califica cada lead, agenda reuniones y hace seguimiento, sin que nadie de tu equipo toque nada." data-en="78% of customers buy from whoever responds first. An AI agent handles WhatsApp, email and Instagram in seconds, qualifies every lead, schedules meetings and follows up, without your team touching anything.">El 78% de los clientes le compra al primero que responde. Un agente IA atiende WhatsApp, email e Instagram en segundos, califica cada lead, agenda reuniones y hace seguimiento, sin que nadie de tu equipo toque nada.</p>
+        <div class="srv-metric" data-es="→ Demo disponible, Caso real: 14+ apps integradas, zero transferencias manuales" data-en="→ Demo available, Real case: 14+ apps integrated, zero manual transfers">→ Demo disponible, Caso real: 14+ apps integradas, zero transferencias manuales</div>
+      </div>
+      <div class="srv-arrow">↗</div>
+    </div>
+
+    <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')">
+      <div class="srv-idx">02</div>
+      <div>
+        <div class="srv-badge" data-es="Quedás invisible" data-en="You become invisible">Quedás invisible</div>
+        <div class="srv-pain" data-es="No publicás suficiente para ser relevante" data-en="You don't publish enough to stay relevant">No publicás suficiente para ser relevante</div>
+      </div>
+      <div>
+        <p class="srv-body" data-es="Necesitás presencia diaria para competir, pero crear contenido te roba 15+ horas por semana. Un sistema IA genera videos, posts y copy, adaptados a tu marca, y los publica solo, en todos tus canales." data-en="You need daily presence to compete, but creating content steals 15+ hours per week. An AI system generates videos, posts and copy, adapted to your brand, and publishes them automatically across all your channels.">Necesitás presencia diaria para competir, pero crear contenido te roba 15+ horas por semana. Un sistema IA genera videos, posts y copy, adaptados a tu marca, y los publica solo, en todos tus canales.</p>
+        <div class="srv-metric" data-es="→ Caso real: −85% costos de producción, 100+ piezas por semana vs 2–3 antes" data-en="→ Real case: −85% production costs, 100+ pieces per week vs 2–3 before">→ Caso real: −85% costos de producción, 100+ piezas por semana vs 2–3 antes</div>
+      </div>
+      <div class="srv-arrow">↗</div>
+    </div>
+
+    <div class="srv-row glow-card" onclick="goTo('contacto');playSound('click')" onmouseenter="playSound('hover')">
+      <div class="srv-idx">03</div>
+      <div>
+        <div class="srv-badge" data-es="Tu equipo trabaja doble" data-en="Your team works double">Tu equipo trabaja doble</div>
+        <div class="srv-pain" data-es="Tus herramientas no se hablan y tu equipo paga el precio" data-en="Your tools don't talk to each other and your team pays the price">Tus herramientas no se hablan y tu equipo paga el precio</div>
+      </div>
+      <div>
+        <p class="srv-body" data-es="Usás 8+ herramientas que funcionan como islas. Cada dato se copia a mano, cada proceso depende de una persona. Construimos el sistema operativo digital de tu negocio, web, automatizaciones e IA, integrado y autónomo." data-en="You use 8+ tools that work as islands. Every piece of data is copied manually, every process depends on one person. We build the digital operating system for your business, web, automations and AI, integrated and autonomous.">Usás 8+ herramientas que funcionan como islas. Cada dato se copia a mano, cada proceso depende de una persona. Construimos el sistema operativo digital de tu negocio, web, automatizaciones e IA, integrado y autónomo.</p>
+        <div class="srv-metric" data-es="→ Caso real: 14+ apps conectadas, 99.99% uptime, zero intervención humana" data-en="→ Real case: 14+ apps connected, 99.99% uptime, zero human intervention">→ Caso real: 14+ apps conectadas, 99.99% uptime, zero intervención humana</div>
+      </div>
+      <div class="srv-arrow">↗</div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTE DEMO — pinned scroll-scrubbed sequence (device grows, chat advances) -->
+<section id="agente-demo">
+ <div class="demo-runway">
+  <div class="demo-sticky">
+   <div class="wrap">
+    <div class="demo-grid">
+
+      <!-- LEFT: Copy -->
+      <div class="demo-copy fi">
+        <div class="label" data-es="Agente en acción" data-en="Agent in action">Agente en acción</div>
+        <h2 class="big" style="margin-bottom:0">
+          <span data-es="Tu agente cierra" data-en="Your agent closes">Tu agente cierra</span><br>
+          <em data-es="ventas mientras dormís" data-en="sales while you sleep">ventas mientras dormís</em>
+        </h2>
+        <ul class="demo-bullets">
+          <li data-es="✓ <strong>Responde en segundos</strong>, los 7 días, 24 horas" data-en="✓ <strong>Responds in seconds</strong>, 7 days, 24 hours">✓ <strong>Responde en segundos</strong>, los 7 días, 24 horas</li>
+          <li data-es="✓ <strong>Califica leads</strong> y agenda reuniones solo" data-en="✓ <strong>Qualifies leads</strong> and books meetings alone">✓ <strong>Califica leads</strong> y agenda reuniones solo</li>
+          <li data-es="✓ <strong>Escala al humano</strong> cuando el cliente lo necesita" data-en="✓ <strong>Escalates to human</strong> when the client needs it">✓ <strong>Escala al humano</strong> cuando el cliente lo necesita</li>
+        </ul>
+        <button class="btn-primary btn-glow fi" onclick="goTo('contacto');playSound('click')" data-es="Quiero mi agente" data-en="I want my agent">Quiero mi agente</button>
+        <div class="demo-scrollhint" data-es="Scrolleá para ver la conversación ↓" data-en="Scroll to watch the conversation ↓">Scrolleá para ver la conversación ↓</div>
+      </div>
+
+      <!-- RIGHT: realistic CSS iPhone -->
+      <div class="demo-phone-wrap fi">
+        <div class="iphone-wrap">
+          <div class="al-device">
+            <!-- side buttons (left: action + volume · right: side + camera control) -->
+            <span class="al-btn al-btn-action"></span>
+            <span class="al-btn al-btn-vup"></span>
+            <span class="al-btn al-btn-vdn"></span>
+            <span class="al-btn al-btn-side"></span>
+            <span class="al-btn al-btn-cam"></span>
+            <div class="al-screen">
+              <div class="al-island"></div>
+              <div class="al-chat">
+                <div class="al-chat-top">
+                  <span class="al-ava" aria-hidden="true"><svg viewBox="0 0 64 64"><g fill="none" stroke="#160A05" stroke-width="6" stroke-linecap="round"><path d="M22 16 C44 25, 44 39, 22 48"/><path d="M42 16 C20 25, 20 39, 42 48"/></g></svg></span>
+                  <div class="al-chat-id">
+                    <strong>HELIX · <span data-es="Agente IA" data-en="AI Agent">Agente IA</span></strong>
+                    <span class="al-status"><i class="al-dot"></i> <span data-es="en línea" data-en="online">en línea</span></span>
+                  </div>
+                </div>
+                <div class="al-chat-window">
+                  <div class="chat-messages">
+                    <div class="chat-msg user" data-es="Hola, ¿cuánto cuesta el plan?" data-en="Hi, how much is the plan?">Hola, ¿cuánto cuesta el plan?</div>
+                    <div class="chat-msg bot" data-es="¡Hola! 👋 Parte desde <strong>$1.500 USD</strong> — incluye agente IA, calificación de leads y agenda automática." data-en="Hi! 👋 From <strong>$1,500 USD</strong> — includes an AI agent, lead qualification and auto-scheduling.">¡Hola! 👋 Parte desde <strong>$1.500 USD</strong> — incluye agente IA, calificación de leads y agenda automática.</div>
+                    <div class="chat-msg user" data-es="¿Funciona en WhatsApp e Instagram?" data-en="Does it work on WhatsApp & Instagram?">¿Funciona en WhatsApp e Instagram?</div>
+                    <div class="chat-msg bot" data-es="Sí, en todos tus canales. Responde en segundos, los 7 días, 24 horas." data-en="Yes, across all your channels. It replies in seconds, 7 days a week, 24h.">Sí, en todos tus canales. Responde en segundos, los 7 días, 24 horas.</div>
+                    <div class="chat-msg user" data-es="¿Y si la consulta es compleja?" data-en="What about complex questions?">¿Y si la consulta es compleja?</div>
+                    <div class="chat-msg bot" data-es="La escala a tu equipo con todo el contexto. Nunca se pierde un lead." data-en="It escalates to your team with full context. No lead ever slips.">La escala a tu equipo con todo el contexto. Nunca se pierde un lead.</div>
+                    <div class="chat-msg user" data-es="¿Cuánto tardan en implementarlo?" data-en="How long to set it up?">¿Cuánto tardan en implementarlo?</div>
+                    <div class="chat-msg bot" data-es="En 2–3 semanas está operativo y entrenado con tu negocio." data-en="It's live and trained on your business in 2–3 weeks.">En 2–3 semanas está operativo y entrenado con tu negocio.</div>
+                    <div class="chat-msg user" data-es="¿Puedo verlo funcionando antes?" data-en="Can I see it working first?">¿Puedo verlo funcionando antes?</div>
+                    <div class="chat-msg bot" data-es="Claro, te muestro una demo en vivo en la llamada." data-en="Sure — I'll show you a live demo on the call.">Claro, te muestro una demo en vivo en la llamada.</div>
+                    <div class="chat-msg user" data-es="Me interesa." data-en="I'm interested.">Me interesa.</div>
+                    <div class="chat-msg bot" data-es="Genial. Te agendo una llamada hoy mismo. ¿Mañana 10:00? 📅" data-en="Great. I'll book you a call today. Tomorrow 10:00? 📅">Genial. Te agendo una llamada hoy mismo. ¿Mañana 10:00? 📅</div>
+                    <div class="chat-msg user" data-es="Perfecto 🙌" data-en="Perfect 🙌">Perfecto 🙌</div>
+                    <div class="chat-msg bot" data-es="¡Listo! Te envié la confirmación por WhatsApp. Hablamos mañana. ✅" data-en="Done! I've sent the confirmation on WhatsApp. Talk tomorrow. ✅">¡Listo! Te envié la confirmación por WhatsApp. Hablamos mañana. ✅</div>
+                  </div>
+                </div>
+                <div class="al-inputbar">
+                  <span data-es="Escribí un mensaje…" data-en="Type a message…">Escribí un mensaje…</span>
+                  <button class="al-send" type="button" aria-label="Enviar"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-7-8-3z"/></svg></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Floating badges — kept clear of the screen, on the outer right edge -->
+          <div class="demo-badge" style="top:8%;right:-18%">
+            <span class="demo-badge-value">&lt;&nbsp;2s</span>
+            <span class="demo-badge-label" data-es="respuesta" data-en="response">respuesta</span>
+          </div>
+          <div class="demo-badge" style="bottom:10%;right:-20%">
+            <span class="demo-badge-value">24/7</span>
+            <span class="demo-badge-label" data-es="activo siempre" data-en="always on">activo siempre</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section id="resultados">
+  <div class="label fi" data-es="Prueba social" data-en="Social proof">Prueba social</div>
+  <h2 class="big text-reveal fi"><span data-es="Resultados" data-en="Results">Resultados</span><br><em data-es="reales" data-en="that matter">reales</em></h2>
+  <div class="carousel-testimonios fi">
+    <div class="carousel-inner">
+      <div class="carousel-track">
+        <div class="t-card glow-card"><div class="t-roi">−18 hs/sem</div><div class="t-company">E-commerce</div><div class="t-quote" data-es='"Automatizamos el seguimiento de clientes y la gestión de pedidos. Recuperamos casi 3 horas por día que antes perdíamos en tareas manuales."' data-en='"We automated client follow-up and order management. We recovered almost 3 hours per day that we used to waste on manual tasks."'>"Automatizamos el seguimiento de clientes y la gestión de pedidos. Recuperamos casi 3 horas por día que antes perdíamos en tareas manuales."</div><div class="t-author"><div class="t-av">CM</div><div><div class="t-name">Carlos M.</div><div class="t-role">CEO</div></div></div></div>
+        <div class="t-card glow-card"><div class="t-roi">+65%</div><div class="t-company" data-es="Consultoría" data-en="Consulting">Consultoría</div><div class="t-quote" data-es='"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."' data-en='"They redesigned our digital presence and within two months we noticed a clear increase in inbound inquiries."'>"Rediseñaron nuestra presencia digital y en dos meses notamos un aumento claro en las consultas entrantes. La marca ahora transmite lo que somos."</div><div class="t-author"><div class="t-av" style="background:#222">SR</div><div><div class="t-name">Sofia R.</div><div class="t-role" data-es="Fundadora" data-en="Founder">Fundadora</div></div></div></div>
+        <div class="t-card glow-card"><div class="t-roi">×2 cierres</div><div class="t-company" data-es="Servicios B2B" data-en="B2B Services">Servicios B2B</div><div class="t-quote" data-es='"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."' data-en='"They implemented an automated follow-up flow that helped us close twice as many proposals in the same time."'>"Implementaron un flujo de seguimiento automatizado que nos ayudó a cerrar el doble de propuestas en el mismo tiempo."</div><div class="t-author"><div class="t-av" style="background:#1a1a1a">ML</div><div><div class="t-name">Miguel L.</div><div class="t-role" data-es="Director" data-en="Director">Director</div></div></div></div>
+      </div>
+    </div>
+    <div class="carousel-dots"></div>
+  </div>
+
+</section>
+
+<!-- METHODOLOGY -->
+<section id="metodologia">
+  <div class="label fi" data-es="Cómo trabajamos" data-en="How we work">Cómo trabajamos</div>
+  <h2 class="big text-reveal fi"><span data-es="La metodología" data-en="The methodology">La metodología</span><br><em data-es="que funciona" data-en="that works">que funciona</em></h2>
+  <div class="carousel-metodologia fi">
+    <div class="carousel-inner">
+      <div class="carousel-track">
+        <div class="method-step" onmouseenter="playSound('hover')"><div class="m-num">01</div><div class="m-title" data-es="Auditoría y Diagnóstico" data-en="Audit & Diagnosis">Auditoría y Diagnóstico</div><div class="m-text" data-es="Analizamos tu negocio, procesos y presencia digital para detectar oportunidades reales de crecimiento." data-en="We analyze your business, processes and digital presence to identify real growth opportunities.">Analizamos tu negocio, procesos y presencia digital para detectar oportunidades reales de crecimiento.</div></div>
+        <div class="method-step" onmouseenter="playSound('hover')"><div class="m-num">02</div><div class="m-title" data-es="Diseño de Arquitectura" data-en="Architecture Design">Diseño de Arquitectura</div><div class="m-text" data-es="Definimos el sistema de crecimiento personalizado: branding, marketing y automatización integrados." data-en="We define your custom growth system: branding, marketing and automation integrated.">Definimos el sistema de crecimiento personalizado: branding, marketing y automatización integrados.</div></div>
+        <div class="method-step" onmouseenter="playSound('hover')"><div class="m-num">03</div><div class="m-title" data-es="Implementación Agéntica" data-en="Agentic Implementation">Implementación Agéntica</div><div class="m-text" data-es="Desplegamos los sistemas y agentes de IA que operan de forma autónoma para escalar tu negocio." data-en="We deploy the systems and AI agents that operate autonomously to scale your business.">Desplegamos los sistemas y agentes de IA que operan de forma autónoma para escalar tu negocio.</div></div>
+        <div class="method-step" onmouseenter="playSound('hover')"><div class="m-num">04</div><div class="m-title" data-es="Optimización Continua" data-en="Continuous Optimization">Optimización Continua</div><div class="m-text" data-es="Medimos, analizamos y optimizamos el sistema constantemente para seguir escalando con datos reales." data-en="We measure, analyze and optimize constantly to keep scaling with real data.">Medimos, analizamos y optimizamos el sistema constantemente para seguir escalando con datos reales.</div></div>
+      </div>
+      <button class="carousel-prev" aria-label="Anterior">&#8592;</button>
+      <button class="carousel-next" aria-label="Siguiente">&#8594;</button>
+    </div>
+    <div class="carousel-dots"></div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contacto">
+  <div class="label fi" data-es="Empezá hoy" data-en="Start today">Empezá hoy</div>
+  <h2 class="big text-reveal fi"><span data-es="Escalemos" data-en="Let's scale">Escalemos</span><br><em data-es="juntos" data-en="together">juntos</em></h2>
+  <div class="contact-wrap fi">
+    <div class="c-info">
+      <h3 data-es="Auditoría de Crecimiento IA" data-en="AI Growth Audit">Auditoría de Crecimiento IA</h3>
+      <p data-es="Completá el formulario y en menos de 24 horas te contactamos para agendar tu sesión de diagnóstico estratégico personalizado." data-en="Complete the form and within 24 hours we'll contact you to schedule your personalized strategic diagnosis session.">Completá el formulario y en menos de 24 horas te contactamos para agendar tu sesión de diagnóstico estratégico personalizado.</p>
+      <div class="c-detail"><span class="c-dot"></span><span>hola@joseagencia.com</span></div>
+      <div class="c-detail"><span class="c-dot"></span><span data-es="Respuesta en menos de 24 horas" data-en="Response within 24 hours">Respuesta en menos de 24 horas</span></div>
+      <div class="c-detail"><span class="c-dot"></span><span>Latinoamérica · Europa · USA</span></div>
+      <div class="c-detail"><span class="c-dot"></span><span data-es="Operación 100% remota" data-en="100% remote operation">Operación 100% remota</span></div>
+    </div>
+    <form class="c-form" id="cForm" onsubmit="submitForm(event)">
+      <input type="hidden" name="_subject" value="Nueva consulta desde joseagencia.com"/>
+      <input type="hidden" name="_language" value="es"/>
+      <!-- TODO: Reemplaza YOUR_FORMSPREE_ID_HERE con tu ID real de Formspree en la función submitForm() línea ~771 -->
+      <div class="step-indicators"><div class="step-dot active" data-step="0"></div><div class="step-dot" data-step="1"></div><div class="step-dot" data-step="2"></div><div class="step-dot" data-step="3"></div></div>
+
+      <!-- Step 1: Service -->
+      <div class="step active" data-step="0">
+        <h4 data-es="¿Qué necesitas?" data-en="What do you need?">¿Qué necesitas?</h4>
+        <p class="step-sub" data-es="Seleccioná el servicio que más se acerca a lo que buscás." data-en="Select the service closest to what you're looking for.">Seleccioná el servicio que más se acerca a lo que buscás.</p>
+        <div class="step-options">
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'servicio')" data-value="Estrategia e Identidad"><div class="opt-icon">&#9733;</div><div class="opt-label" data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'servicio')" data-value="Ecosistemas de Crecimiento"><div class="opt-icon">&#9878;</div><div class="opt-label" data-es="Crecimiento Digital" data-en="Digital Growth">Crecimiento Digital</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'servicio')" data-value="Automatización Agéntica"><div class="opt-icon">&#9881;</div><div class="opt-label" data-es="Automatización IA" data-en="AI Automation">Automatización IA</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'servicio')" data-value="Infraestructura Web"><div class="opt-icon">&#9677;</div><div class="opt-label" data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</div></div>
+        </div>
+        <input type="hidden" name="servicio" id="fServicio">
+        <div class="step-nav"><button type="button" class="btn-primary" onclick="nextStep();playSound('click')" data-es="Siguiente →" data-en="Next →">Siguiente →</button></div>
+      </div>
+
+      <!-- Step 2: Budget & Timeline -->
+      <div class="step" data-step="1">
+        <h4 data-es="¿Cuál es tu presupuesto estimado?" data-en="What's your estimated budget?">¿Cuál es tu presupuesto estimado?</h4>
+        <p class="step-sub" data-es="Esto nos ayuda a personalizar la propuesta para vos." data-en="This helps us personalize the proposal for you.">Esto nos ayuda a personalizar la propuesta para vos.</p>
+        <div class="step-options">
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'presupuesto')" data-value="< USD 1,000"><div class="opt-icon">$</div><div class="opt-label">< USD 1,000</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'presupuesto')" data-value="USD 1,000 - 5,000"><div class="opt-icon">$$</div><div class="opt-label">USD 1K - 5K</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'presupuesto')" data-value="USD 5,000 - 15,000"><div class="opt-icon">$$$</div><div class="opt-label">USD 5K - 15K</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'presupuesto')" data-value="USD 15,000+"><div class="opt-icon">$$$$</div><div class="opt-label">USD 15K+</div></div>
+        </div>
+        <input type="hidden" name="presupuesto" id="fPresupuesto">
+        <div class="step-nav"><button type="button" class="btn-step-back" onclick="prevStep()" data-es="← Atrás" data-en="← Back">← Atrás</button><button type="button" class="btn-primary" onclick="nextStep();playSound('click')" data-es="Siguiente →" data-en="Next →">Siguiente →</button></div>
+      </div>
+
+      <!-- Step 3: Timeline -->
+      <div class="step" data-step="2">
+        <h4 data-es="¿Cuándo necesitas empezar?" data-en="When do you need to start?">¿Cuándo necesitas empezar?</h4>
+        <p class="step-sub" data-es="Nos ayuda a planificar la disponibilidad del equipo." data-en="Helps us plan team availability.">Nos ayuda a planificar la disponibilidad del equipo.</p>
+        <div class="step-options">
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'timeline')" data-value="Inmediato"><div class="opt-icon">&#9889;</div><div class="opt-label" data-es="Inmediato" data-en="Immediately">Inmediato</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'timeline')" data-value="1-2 semanas"><div class="opt-icon">&#128197;</div><div class="opt-label" data-es="1-2 semanas" data-en="1-2 weeks">1-2 semanas</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'timeline')" data-value="1 mes"><div class="opt-icon">&#128198;</div><div class="opt-label" data-es="En 1 mes" data-en="In 1 month">En 1 mes</div></div>
+          <div class="step-opt" onclick="playSound('hover');selectOpt(this,'timeline')" data-value="Solo explorando"><div class="opt-icon">&#128270;</div><div class="opt-label" data-es="Solo explorando" data-en="Just exploring">Solo explorando</div></div>
+        </div>
+        <input type="hidden" name="timeline" id="fTimeline">
+        <div class="step-nav"><button type="button" class="btn-step-back" onclick="prevStep()" data-es="← Atrás" data-en="← Back">← Atrás</button><button type="button" class="btn-primary" onclick="nextStep();playSound('click')" data-es="Siguiente →" data-en="Next →">Siguiente →</button></div>
+      </div>
+
+      <!-- Step 4: Contact Info -->
+      <div class="step" data-step="3">
+        <h4 data-es="Último paso: tus datos" data-en="Last step: your info">Último paso: tus datos</h4>
+        <p class="step-sub" data-es="Te contactamos en menos de 24 horas con una propuesta personalizada." data-en="We'll contact you within 24 hours with a personalized proposal.">Te contactamos en menos de 24 horas con una propuesta personalizada.</p>
+        <div class="f-row">
+          <div class="fg"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" name="nombre" required placeholder="Tu nombre"></div>
+          <div class="fg"><label>Email</label><input type="email" name="email" required placeholder="tu@email.com"></div>
+        </div>
+        <div class="fg" style="margin-top:16px"><label data-es="Empresa" data-en="Company">Empresa</label><input type="text" name="empresa" placeholder="Nombre de tu empresa"></div>
+        <div class="fg" style="margin-top:16px"><label data-es="Contanos brevemente sobre tu negocio" data-en="Tell us briefly about your business">Contanos brevemente sobre tu negocio</label><textarea name="mensaje" placeholder="¿Qué hace tu empresa? ¿Cuál es tu mayor desafío?"></textarea></div>
+        <div class="step-nav" style="margin-top:24px"><button type="button" class="btn-step-back" onclick="prevStep()" data-es="← Atrás" data-en="← Back">← Atrás</button><button type="submit" class="btn-primary" data-es="Solicitar Auditoría Gratuita →" data-en="Request Free Audit →">Solicitar Auditoría Gratuita →</button></div>
+      </div>
+
+      <div class="f-success" id="fSuccess"><div class="tick">✓</div><h4 data-es="¡Solicitud recibida!" data-en="Request received!">¡Solicitud recibida!</h4><p data-es="Te contactamos en menos de 24 horas con tu propuesta personalizada." data-en="We'll contact you within 24 hours with your personalized proposal.">Te contactamos en menos de 24 horas con tu propuesta personalizada.</p></div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-top">
+    <div><div class="f-logo">HELIX <em>·</em> AI</div><div class="f-tagline" data-es="Agencia de Crecimiento Digital e Inteligencia Artificial" data-en="AI & Digital Growth Agency">Agencia de Crecimiento Digital e Inteligencia Artificial</div></div>
+    <div class="f-links">
+      <div class="f-col">
+        <h5 data-es="Navegación" data-en="Navigation">Navegación</h5>
+        <a onclick="goTo('inicio')" data-es="Inicio" data-en="Home">Inicio</a>
+        <a onclick="goTo('servicios')" data-es="Servicios" data-en="Services">Servicios</a>
+        <a onclick="goTo('resultados')" data-es="Resultados" data-en="Results">Resultados</a>
+        <a onclick="goTo('metodologia')" data-es="Metodología" data-en="Methodology">Metodología</a>
+        <a href="/faq.html">FAQ</a>
+      </div>
+      <div class="f-col">
+        <h5 data-es="Servicios" data-en="Services">Servicios</h5>
+        <a onclick="goTo('servicios')" data-es="Estrategia e Identidad" data-en="Strategy & Identity">Estrategia e Identidad</a>
+        <a onclick="goTo('servicios')" data-es="Crecimiento Digital" data-en="Digital Growth">Crecimiento Digital</a>
+        <a onclick="goTo('servicios')" data-es="Automatización IA" data-en="AI Automation">Automatización IA</a>
+        <a onclick="goTo('servicios')" data-es="Infraestructura Web" data-en="Web Infrastructure">Infraestructura Web</a>
+      </div>
+      <div class="f-col">
+        <h5 data-es="Legal" data-en="Legal">Legal</h5>
+        <a href="privacy.html" data-es="Política de Privacidad" data-en="Privacy Policy">Política de Privacidad</a>
+        <a href="terms.html" data-es="Términos de Servicio" data-en="Terms of Service">Términos de Servicio</a>
+        <a onclick="AtelierConsent.open()" style="cursor:pointer" data-es="Preferencias de cookies" data-en="Cookie preferences">Preferencias de cookies</a>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span style="display:inline-flex;align-items:center;flex-wrap:wrap;"><span class="f-copy" data-es="Todos los derechos reservados. | Desarrollado por " data-en="All rights reserved. | Developed by ">Todos los derechos reservados. | Desarrollado por </span><a href="https://www.vanguardcrux.com/" target="_blank" rel="noopener" style="font-size:.75rem;color:#444;text-decoration:underline;text-underline-offset:3px;">Vanguard Crux</a><span class="f-copy">.</span></span>
+    <div class="lang-sw" style="display:flex"><button class="on" onclick="setLang('es')">ES</button><button onclick="setLang('en')">EN</button></div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a class="wa-btn" href="https://wa.me/5492615251379?text=Hola!%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20Jose%20AI%20Growth." target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- UI SOUNDS — Web Audio API (zero dependency, <1KB) -->
+<script>
+const AudioCtx=window.AudioContext||window.webkitAudioContext;
+let audioCtx;
+function ensureAudio(){if(!audioCtx)audioCtx=new AudioCtx();}
+const sounds={
+  click:()=>{ensureAudio();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.type='sine';o.frequency.setValueAtTime(880,audioCtx.currentTime);o.frequency.exponentialRampToValueAtTime(1320,audioCtx.currentTime+.06);g.gain.setValueAtTime(.12,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.15);o.start(audioCtx.currentTime);o.stop(audioCtx.currentTime+.15);},
+  hover:()=>{ensureAudio();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.type='sine';o.frequency.setValueAtTime(440,audioCtx.currentTime);g.gain.setValueAtTime(.03,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.08);o.start(audioCtx.currentTime);o.stop(audioCtx.currentTime+.08);},
+  chatOpen:()=>{ensureAudio();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.type='triangle';o.frequency.setValueAtTime(523,audioCtx.currentTime);o.frequency.setValueAtTime(659,audioCtx.currentTime+.08);o.frequency.setValueAtTime(784,audioCtx.currentTime+.16);g.gain.setValueAtTime(.1,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.25);o.start(audioCtx.currentTime);o.stop(audioCtx.currentTime+.25);},
+  success:()=>{ensureAudio();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.type='sine';o.frequency.setValueAtTime(523,audioCtx.currentTime);o.frequency.setValueAtTime(659,audioCtx.currentTime+.1);o.frequency.setValueAtTime(784,audioCtx.currentTime+.2);g.gain.setValueAtTime(.1,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.3);o.start(audioCtx.currentTime);o.stop(audioCtx.currentTime+.3);}
+};
+function playSound(name){try{if(sounds[name])sounds[name]();}catch(e){}}
+</script>
+
+<!-- AI CHAT WIDGET -->
+<div class="chat-bubble" title="Soy tu asistente de IA - ¡preguntame!">
+  <span class="chat-label" data-es="Pregúntame" data-en="Ask me">Pregúntame</span>
+  <button class="chat-toggle" id="chatToggle" onclick="toggleChat();playSound('chatOpen')" aria-label="AI Agent">
+    <div class="robot-wrapper">
+      <img src="/images/robot.png" alt="Robot AI">
+    </div>
+  </button>
+</div>
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div class="chat-header-left">
+      <div class="dot"></div>
+      <div><h4>HELIX AI</h4><span data-es="Asistente inteligente" data-en="Smart assistant">Asistente inteligente</span></div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">×</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">¡Hola! 👋 Soy el asistente de HELIX AI.<br>¿Cuál es el mayor desafío de tu negocio ahora mismo?</div>
+  </div>
+  <div class="chat-suggestions" id="chatSuggestions">
+    <button class="chat-chip" onclick="sendQuick('Mis leads no convierten en ventas')">Leads que no convierten</button>
+    <button class="chat-chip" onclick="sendQuick('Mis procesos son muy manuales y consumen tiempo')">Procesos manuales</button>
+    <button class="chat-chip" onclick="sendQuick('Necesito automatizar respuestas a clientes')">Automatizar atención</button>
+    <button class="chat-chip" onclick="sendQuick('¿Cómo sé si HELIX puede ayudarme?')">¿Pueden ayudarme?</button>
+  </div>
+  <div class="chat-input-wrap">
+    <input type="text" id="chatInput" placeholder="Escribí tu pregunta..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" onclick="sendChat()"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+  </div>
+</div>
+
+<script>
+function goTo(id){
+  closeDrawer();
+  const el=document.getElementById(id);
+  if(!el)return;
+  const y=el.getBoundingClientRect().top+document.documentElement.scrollTop-68;
+  document.documentElement.scrollTop=y;
+  document.body.scrollTop=y;
+}
+let lang=localStorage.getItem('lang') || 'es';
+function setLang(l){
+  lang=l;
+  localStorage.setItem('lang', l);
+  document.querySelectorAll('[data-es]').forEach(el=>{
+    el.innerHTML=el.getAttribute('data-'+l)||el.getAttribute('data-es');
+  });
+  document.querySelectorAll('[data-es-placeholder]').forEach(el=>{
+    el.placeholder=el.getAttribute('data-'+l+'-placeholder')||el.getAttribute('data-es-placeholder');
+  });
+  document.querySelectorAll('.lang-sw button').forEach((b,i)=>{
+    b.classList.toggle('on',(i===0&&l==='es')||(i===1&&l==='en'));
+  });
+  document.documentElement.lang=l;
+}
+window.addEventListener('DOMContentLoaded', () => setLang(lang));
+let drawerOpen=false;
+function toggleDrawer(){
+  drawerOpen=!drawerOpen;
+  document.getElementById('drawer').classList.toggle('open',drawerOpen);
+  document.getElementById('ham').classList.toggle('open',drawerOpen);
+  document.body.style.overflow=drawerOpen?'hidden':'';
+}
+function closeDrawer(){
+  drawerOpen=false;
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+  document.body.style.overflow='';
+}
+async function submitForm(e){
+  e.preventDefault();
+  const form=document.getElementById('cForm');
+  const btn=form.querySelector('button[type="submit"]');
+  btn.textContent=lang==='es'?'Enviando...':'Sending...';
+  btn.disabled=true;
+  playSound('click');
+  const data=new FormData(form);
+  const FORMSPREE_ID='mgopwdvg';
+  if(FORMSPREE_ID==='YOUR_FORMSPREE_ID_HERE'){
+    console.warn('⚠️ Formspree ID no configurado. Configura tu ID en index.html línea 771');
+    console.log('Datos del formulario que se enviarían:',{
+      nombre:form.nombre.value,
+      email:form.email.value,
+      empresa:form.empresa.value,
+      servicio:form.servicio.value,
+      presupuesto:form.presupuesto.value,
+      timeline:form.timeline.value,
+      mensaje:form.mensaje.value
+    });
+    btn.textContent=lang==='es'?'❌ Configura Formspree ID':'❌ Configure Formspree ID';
+    btn.disabled=false;
+    return;
+  }
+  try{
+    const res=await fetch(`https://formspree.io/f/${FORMSPREE_ID}`,{method:'POST',body:data,headers:{Accept:'application/json'}});
+    if(res.ok){
+      playSound('chatOpen');
+      form.querySelectorAll('input,textarea,select,button').forEach(el=>el.style.display='none');
+      document.getElementById('fSuccess').style.display='block';
+
+      /* ─── HUECO PREPARADO · eventos de conversión ───────────────────────────
+         Se disparan SOLO si el visitante consintió la categoría (RGPD).
+         Cuando actives GA4 / Meta Pixel (ver docs/TRACKING-SETUP.md) registran
+         el lead automáticamente — no hace falta tocar nada más acá.
+         Agregá otros proveedores siguiendo el mismo patrón gated. */
+      try {
+        if (window.AtelierConsent) {
+          if (AtelierConsent.has('marketing') && window.fbq) {
+            fbq('track', 'Lead');
+          }
+          if (AtelierConsent.has('analytics') && window.gtag) {
+            gtag('event', 'generate_lead', { event_category: 'contacto', form: 'auditoria', value: 1 });
+          }
+        }
+      } catch (e) { /* sin tracking activo: no-op */ }
+      /* ─── FIN hueco eventos de conversión ──────────────────────────────────── */
+    }else{btn.textContent=lang==='es'?'Error, intentá de nuevo':'Error, try again';btn.disabled=false;}
+  }catch{btn.textContent=lang==='es'?'Error de conexión':'Connection error';btn.disabled=false;}
+}
+/* MULTI-STEP FORM */
+let currentStep=0;
+const formData={};
+function selectOpt(el,field){
+  el.closest('.step-options').querySelectorAll('.step-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  formData[field]=el.dataset.value;
+  const hidden=document.getElementById('f'+field.charAt(0).toUpperCase()+field.slice(1));
+  if(hidden)hidden.value=el.dataset.value;
+  playSound('hover');
+}
+function nextStep(){
+  const steps=document.querySelectorAll('#cForm .step');
+  const dots=document.querySelectorAll('#cForm .step-dot');
+  if(currentStep<steps.length-1){
+    playSound('hover');
+    steps[currentStep].classList.remove('active');
+    dots[currentStep].classList.remove('active');
+    dots[currentStep].classList.add('done');
+    currentStep++;
+    steps[currentStep].classList.add('active');
+    dots[currentStep].classList.add('active');
+  }
+}
+function prevStep(){
+  const steps=document.querySelectorAll('#cForm .step');
+  const dots=document.querySelectorAll('#cForm .step-dot');
+  if(currentStep>0){
+    playSound('hover');
+    steps[currentStep].classList.remove('active');
+    dots[currentStep].classList.remove('active');
+    currentStep--;
+    steps[currentStep].classList.add('active');
+    dots[currentStep].classList.add('active');
+    dots[currentStep].classList.remove('done');
+  }
+}
+
+/* CHAT WIDGET */
+let chatOpen=false;
+function toggleChat(){
+  chatOpen=!chatOpen;
+  document.getElementById('chatWindow').classList.toggle('open',chatOpen);
+}
+function sendQuick(text){
+  document.getElementById('chatSuggestions')?.remove();
+  document.getElementById('chatInput').value=text;
+  sendChat();
+}
+
+let chatHistory = [];
+async function sendChat(){
+  const input=document.getElementById('chatInput');
+  const msg=input.value.trim();
+  if(!msg)return;
+  document.getElementById('chatSuggestions')?.remove();
+  const body=document.getElementById('chatBody');
+  body.innerHTML+=`<div class="chat-msg user">${msg}</div>`;
+  input.value='';
+  body.scrollTop=body.scrollHeight;
+  
+  const loaderId = 'loader-' + Date.now();
+  body.innerHTML+=`<div class="chat-msg bot typing" id="${loaderId}">...</div>`;
+  body.scrollTop=body.scrollHeight;
+  
+  try {
+    chatHistory.push({ role: 'user', content: msg });
+    if (chatHistory.length > 8) chatHistory = chatHistory.slice(chatHistory.length - 8);
+
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: chatHistory })
+    });
+    
+    document.getElementById(loaderId)?.remove();
+    
+    if(res.ok){
+      const data = await res.json();
+      chatHistory.push({ role: 'assistant', content: data.reply });
+      const hasAuditBtn = data.reply.includes('[AUDIT_BTN]');
+      const cleanReply = data.reply.replace('[AUDIT_BTN]','').trim();
+      const formattedReply = cleanReply.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+      body.innerHTML+=`<div class="chat-msg bot">${formattedReply}</div>`;
+      if(hasAuditBtn){
+        body.innerHTML+=`<button class="chat-audit-btn" onclick="goTo('contacto')">Solicitar Auditoría Gratuita →</button>`;
+      }
+    } else {
+      body.innerHTML+=`<div class="chat-msg bot">${lang==='es'?'Hubo un error al contactar al asistente.':'Error contacting the assistant.'}</div>`;
+    }
+  } catch (error) {
+    document.getElementById(loaderId)?.remove();
+    body.innerHTML+=`<div class="chat-msg bot">${lang==='es'?'Hubo un error de conexión.':'Connection error.'}</div>`;
+  }
+  body.scrollTop=body.scrollHeight;
+}
+/* CAROUSEL — función genérica reutilizable */
+function initCarousel(wrap,autoplay){
+  if(!wrap)return;
+  const track=wrap.querySelector('.carousel-track');
+  const dotsWrap=wrap.querySelector('.carousel-dots');
+  if(!track||!dotsWrap)return;
+  const cards=Array.from(track.children);
+  const total=cards.length;
+  let current=0,autoTimer;
+
+  function getVisible(){
+    const isTestimonios=wrap.classList.contains('carousel-testimonios');
+    if(window.innerWidth<=768)return 1;
+    if(window.innerWidth<=1024)return isTestimonios?2:1;
+    return isTestimonios?3:1;
+  }
+
+  function buildDots(){
+    dotsWrap.innerHTML='';
+    const vis=getVisible();
+    const count=Math.max(1,total-vis+1);
+    for(let i=0;i<count;i++){
+      const d=document.createElement('button');
+      d.className='carousel-dot'+(i===current?' active':'');
+      d.setAttribute('aria-label','Ir al item '+(i+1));
+      d.addEventListener('click',()=>{current=i;render();resetAuto();});
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function render(){
+    const vis=getVisible();
+    const max=Math.max(0,total-vis);
+    current=Math.min(current,max);
+    const pct=(100/vis)*current;
+    track.style.transform='translateX(-'+pct+'%)';
+    dotsWrap.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===current));
+  }
+
+  function next(){const vis=getVisible();current=current>=Math.max(0,total-vis)?0:current+1;render();}
+  function prev(){const vis=getVisible();const max=Math.max(0,total-vis);current=current<=0?max:current-1;render();}
+
+  wrap.querySelector('.carousel-next')?.addEventListener('click',()=>{next();resetAuto();});
+  wrap.querySelector('.carousel-prev')?.addEventListener('click',()=>{prev();resetAuto();});
+
+  let tx=0;
+  track.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+  track.addEventListener('touchend',e=>{
+    const diff=tx-e.changedTouches[0].clientX;
+    if(Math.abs(diff)>50){diff>0?next():prev();resetAuto();}
+  },{passive:true});
+
+  const inner=track.closest('.carousel-inner');
+  if(inner){
+    inner.addEventListener('mouseenter',()=>clearInterval(autoTimer));
+    inner.addEventListener('mouseleave',startAuto);
+  }
+
+  function startAuto(){if(autoplay)autoTimer=setInterval(next,5000);}
+  function resetAuto(){clearInterval(autoTimer);startAuto();}
+
+  window.addEventListener('resize',()=>{buildDots();render();});
+  buildDots();render();startAuto();
+}
+
+initCarousel(document.querySelector('.carousel-testimonios'),false);
+initCarousel(document.querySelector('.carousel-metodologia'),false);
+initCarousel(document.querySelector('.carousel-servicios'),false);
+
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0,rootMargin:'0px 0px 120px 0px'});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+// (Chat del iPhone ahora es scroll-scrubbed — manejado en /js/atelier.js)
+
+// ─── CALCULATOR ───────────────────────────────────────────────
+(function() {
+  var calcTeamSize = 5;
+
+  function getCheckedTasks() {
+    return Array.from(document.querySelectorAll('.calc-task-item.checked'));
+  }
+
+  function calcWeeklyHours(tasks, teamSize) {
+    return tasks.reduce(function(sum, el) {
+      return sum + parseInt(el.dataset.hours, 10);
+    }, 0) * teamSize;
+  }
+
+  function calcMonthlyCost(weeklyHours, rate) {
+    return weeklyHours * 4 * rate;
+  }
+
+  function getRequiredServices(tasks) {
+    var seen = {};
+    var services = [];
+    tasks.forEach(function(el) {
+      var s = el.dataset.service;
+      if (!seen[s]) { seen[s] = true; services.push(s); }
+    });
+    return services;
+  }
+
+  function formatCost(n) {
+    return '$' + Math.round(n).toLocaleString('es-AR');
+  }
+
+  window.calcToggle = function(el) {
+    el.classList.toggle('checked');
+    calcUpdate();
+  };
+
+  window.calcSetTeam = function(btn) {
+    calcTeamSize = parseInt(btn.dataset.size, 10);
+    document.querySelectorAll('.calc-team-btn').forEach(function(b) {
+      b.classList.remove('on');
+    });
+    btn.classList.add('on');
+    calcUpdate();
+  };
+
+  window.calcUpdate = function() {
+    var tasks    = getCheckedTasks();
+    var rateEl   = document.getElementById('calcRate');
+    var rate     = rateEl ? (parseFloat(rateEl.value) || 5) : 5;
+    var weekly   = calcWeeklyHours(tasks, calcTeamSize);
+    var monthly  = calcMonthlyCost(weekly, rate);
+    var services = getRequiredServices(tasks);
+    var result   = document.getElementById('calcResult');
+    var intro    = document.getElementById('srvIntro');
+
+    if (tasks.length === 0) {
+      if (result) result.style.display = 'none';
+      if (intro)  intro.style.display  = 'none';
+      return;
+    }
+
+    if (result) result.style.display = 'block';
+
+    var annual   = monthly * 12;
+    var hoursEl  = document.getElementById('calcHoursVal');
+    var costEl   = document.getElementById('calcCostVal');
+    var annualEl = document.getElementById('calcAnnualVal');
+    if (hoursEl)  hoursEl.textContent  = weekly + 'h';
+    if (costEl)   costEl.textContent   = formatCost(monthly);
+    if (annualEl) annualEl.textContent = formatCost(annual);
+
+    ['agente', 'contenido', 'ecosistema'].forEach(function(s) {
+      var tag = document.getElementById('tag-' + s);
+      if (!tag) return;
+      if (services.indexOf(s) !== -1) tag.classList.add('visible');
+      else tag.classList.remove('visible');
+    });
+
+    if (intro) {
+      var currentLang = localStorage.getItem('lang') || 'es';
+      var introText = document.getElementById('srvIntroText');
+      if (introText) {
+        introText.textContent = currentLang === 'en'
+          ? 'Based on your selection, these systems eliminate your ' + weekly + 'h/week of loss:'
+          : 'Basado en tu selección, estos sistemas eliminan tus ' + weekly + 'h/sem de pérdida:';
+      }
+      intro.style.display = 'block';
+    }
+  };
+})();
+// ─── END CALCULATOR ───────────────────────────────────────────
+
+// ─── MOBILE CAROUSEL (wrapper-based, bypasses CSS conflicts) ──
+(function(){
+  function buildCarousel(grid,childSelector){
+    if(!grid||grid.dataset.carouselDone)return null;
+    grid.dataset.carouselDone='1';
+    var children=Array.from(grid.querySelectorAll(childSelector));
+    if(children.length<2)return null;
+
+    var track=document.createElement('div');
+    track.className='carousel-track-mobile';
+    track.style.cssText='display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;width:100%;scrollbar-width:none;';
+    track.style.setProperty('-ms-overflow-style','none');
+
+    children.forEach(function(child){
+      child.style.cssText+=';flex:0 0 100%;min-width:100%;max-width:100%;scroll-snap-align:start;box-sizing:border-box;border-right:none;';
+      track.appendChild(child);
+    });
+
+    grid.innerHTML='';
+    grid.style.cssText='display:block;overflow:visible;padding:0;width:100%;';
+    grid.appendChild(track);
+
+    return {track:track,count:children.length};
+  }
+
+  function addDots(grid,carousel){
+    var wrap=document.createElement('div');
+    wrap.className='carousel-dots';
+    wrap.style.cssText='display:flex;justify-content:center;gap:8px;padding:16px 0 4px;';
+    var dots=[];
+    for(var i=0;i<carousel.count;i++){
+      var d=document.createElement('span');
+      d.className='c-dot-i'+(i===0?' on':'');
+      d.style.cssText='width:7px;height:7px;border-radius:50%;transition:background .3s;background:'+(i===0?'#FF5C35':'#1e1e1e')+';';
+      wrap.appendChild(d);
+      dots.push(d);
+    }
+    grid.parentNode.insertBefore(wrap,grid.nextSibling);
+    carousel.track.addEventListener('scroll',function(){
+      var idx=Math.round(carousel.track.scrollLeft/carousel.track.offsetWidth);
+      dots.forEach(function(d,i){
+        d.style.background=i===idx?'#FF5C35':'#1e1e1e';
+        d.classList.toggle('on',i===idx);
+      });
+    },{passive:true});
+  }
+
+  function init(){
+    if(window.innerWidth>768)return;
+    var targets=[
+      {el:document.querySelector('.prob-grid'),sel:'.prob-item'},
+      {el:document.getElementById('srv-premium'),sel:'.srv-row'},
+      {el:document.querySelector('.t-grid'),sel:'.t-card'}
+    ];
+    targets.forEach(function(t){
+      var c=buildCarousel(t.el,t.sel);
+      if(c)addDots(t.el,c);
+    });
+  }
+
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
+  else{init();}
+})();
+</script>
+<script src="/js/atelier.js" defer></script>
+</body>
+</html>

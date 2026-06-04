@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="HELIX AI — Agencia de Crecimiento Digital e IA">
+  <defs>
+    <style>
+      @import url('https://api.fontshare.com/v2/css?f[]=clash-display@600,500&amp;f[]=general-sans@500&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,400&amp;display=swap');
+      .display{font-family:'Clash Display','Arial Narrow',sans-serif;font-weight:600;}
+      .serif{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;}
+      .body{font-family:'General Sans','Segoe UI',Arial,sans-serif;font-weight:500;}
+    </style>
+    <linearGradient id="ember" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF7A52"/><stop offset="1" stop-color="#FF5C35"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.78" cy="0.12" r="0.6">
+      <stop offset="0" stop-color="#FF5C35" stop-opacity="0.42"/><stop offset="1" stop-color="#FF5C35" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.1" cy="1" r="0.7">
+      <stop offset="0" stop-color="#FF7A52" stop-opacity="0.22"/><stop offset="1" stop-color="#FF7A52" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0C0B0A"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+  <rect width="1200" height="630" filter="url(#grain)" opacity="0.06"/>
+  <rect x="20" y="20" width="1160" height="590" rx="22" fill="none" stroke="#EDEAE3" stroke-opacity="0.12" stroke-width="1.5"/>
+
+  <!-- brand lockup -->
+  <g transform="translate(80,78)">
+    <g transform="scale(0.72)">
+      <rect width="64" height="64" rx="15" fill="#0C0B0A" stroke="#EDEAE3" stroke-opacity="0.12"/>
+      <g fill="none" stroke="url(#ember)" stroke-width="5" stroke-linecap="round">
+        <path d="M21 14 C 44 24, 44 40, 21 50"/><path d="M43 14 C 20 24, 20 40, 43 50"/>
+      </g>
+      <g stroke="#EDEAE3" stroke-opacity="0.55" stroke-width="2.4" stroke-linecap="round">
+        <line x1="27" y1="22" x2="37" y2="22"/><line x1="27" y1="42" x2="37" y2="42"/>
+      </g>
+      <circle cx="32" cy="32" r="3.4" fill="#EDEAE3"/>
+    </g>
+    <text x="64" y="32" class="display" font-size="26" letter-spacing="4" fill="#EDEAE3">HELIX</text>
+    <text x="146" y="32" class="display" font-size="26" letter-spacing="4" fill="#FF5C35">· AI</text>
+  </g>
+
+  <!-- eyebrow -->
+  <text x="80" y="300" class="body" font-size="20" letter-spacing="5" fill="#8C877B">AGENCIA DE CRECIMIENTO DIGITAL E IA</text>
+
+  <!-- headline -->
+  <text x="76" y="372" class="display" font-size="76" letter-spacing="-2" fill="#EDEAE3">Tu competencia</text>
+  <text x="76" y="460" class="display" font-size="76" letter-spacing="-2" fill="#EDEAE3">ya <tspan class="serif" fill="#FF5C35">automatizó.</tspan></text>
+
+  <!-- footer line -->
+  <line x1="80" y1="520" x2="1120" y2="520" stroke="#EDEAE3" stroke-opacity="0.12" stroke-width="1.5"/>
+  <text x="80" y="560" class="body" font-size="22" fill="#C8C3B8">Agentes IA · Automatización · Contenido · Sistemas de crecimiento</text>
+  <text x="1120" y="560" text-anchor="end" class="body" font-size="22" fill="#FF5C35">joseagencia.com</text>
+</svg>

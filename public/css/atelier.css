@@ -492,3 +492,18 @@ html,body{overflow-x:clip;}
   font-size:.62rem;line-height:1;letter-spacing:-3px;font-weight:700;
   color:#53bdeb;                 /* WhatsApp "read" blue */
 }
+
+/* Sound mute toggle (bottom-left) */
+.al-sound{position:fixed;left:22px;bottom:20px;z-index:9994;width:42px;height:42px;border-radius:50%;
+  border:1px solid var(--hair-2);background:rgba(16,14,11,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:transform .45s var(--ease),border-color .3s var(--ease),color .3s var(--ease),background .3s var(--ease);}
+.al-sound:hover{transform:translateY(-2px) scale(1.06);border-color:var(--accent);color:var(--accent);}
+.al-sound.muted{color:var(--dim);}
+.al-sound svg{width:18px;height:18px;}
+.al-sound .ic-off{display:none;}
+.al-sound.muted .ic-on{display:none;}
+.al-sound.muted .ic-off{display:block;}
+/* keep the cookie banner clear of the sound toggle (both bottom-left) */
+.cookie-consent{bottom:80px;}
+@media(max-width:768px){ .al-sound{left:14px;bottom:14px;width:38px;height:38px;} .cookie-consent{left:12px;right:12px;bottom:74px;} }

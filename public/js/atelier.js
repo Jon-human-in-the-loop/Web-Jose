@@ -321,3 +321,111 @@
   }
   requestAnimationFrame(frame);
 })();
+
+/* ============================================================
+   PREMIUM SOUND — soft hover ticks + per-section swells + mute toggle
+   Web Audio, dependency-free. Unlocks on first gesture; remembers mute.
+   ============================================================ */
+(function(){
+  "use strict";
+  var AC=window.AudioContext||window.webkitAudioContext;
+  if(!AC) return;
+  var ctx=null, master=null;
+  var enabled = (function(){ try{ return localStorage.getItem("al_sound")!=="off"; }catch(e){ return true; } })();
+
+  function init(){
+    if(ctx) return;
+    ctx=new AC();
+    master=ctx.createGain(); master.gain.value=0.6; master.connect(ctx.destination);
+  }
+  function unlock(){ init(); if(ctx && ctx.state==="suspended") ctx.resume(); }
+
+  // a soft, lowpass-filtered tone with gentle attack + smooth decay
+  function tone(freq, dur, gain, type, slideTo){
+    if(!enabled || !ctx) return;
+    var t=ctx.currentTime;
+    var o=ctx.createOscillator(), g=ctx.createGain(), f=ctx.createBiquadFilter();
+    o.type=type||"sine"; o.frequency.setValueAtTime(freq,t);
+    if(slideTo) o.frequency.exponentialRampToValueAtTime(slideTo,t+dur);
+    f.type="lowpass"; f.frequency.setValueAtTime(2400,t);
+    g.gain.setValueAtTime(0.0001,t);
+    g.gain.linearRampToValueAtTime(gain,t+0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    o.connect(f); f.connect(g); g.connect(master);
+    o.start(t); o.stop(t+dur+0.03);
+  }
+  // soft pad chord (two notes a fifth apart) — used entering a section
+  function swell(base){
+    if(!enabled || !ctx) return;
+    tone(base, 0.42, 0.018, "sine");
+    tone(base*1.5, 0.40, 0.012, "sine");
+  }
+
+  // hover pitch varies by element type → feels "designed"
+  var lastHover=0;
+  function hover(el){
+    var now=ctx?ctx.currentTime:0;
+    if(now-lastHover < 0.045) return;          // throttle (collapses double-fires)
+    lastHover=now;
+    var f=720;
+    if(el.matches("a,.f-col a,.mega-item,.nav-center a,.lang-sw button")) f=900;
+    else if(el.matches(".btn-primary,.btn-nav,.btn-cta,.drawer-cta")) f=540;
+    else if(el.matches(".srv-row,.port-card,.t-card,.method-step,.prob-item")) f=640;
+    else if(el.matches(".cc-switch,.al-send,.chat-toggle,.calc-team-btn,.filter-btn")) f=1040;
+    tone(f, 0.07, 0.03, "sine");
+  }
+
+  /* expose + upgrade the legacy index playSound() to the premium engine */
+  window.AtelierSound={
+    enabled:function(){return enabled;},
+    set:function(on){ enabled=on; try{localStorage.setItem("al_sound",on?"on":"off");}catch(e){} },
+    hover:hover, swell:swell,
+    click:function(){ unlock(); tone(620,0.12,0.07,"triangle",300); },
+    open:function(){ unlock(); tone(523,0.1,0.05,"sine"); tone(784,0.16,0.04,"sine"); },
+    success:function(){ unlock(); tone(523,0.1,0.05); tone(659,0.12,0.05); tone(784,0.18,0.05); }
+  };
+  window.playSound=function(name){
+    unlock();
+    if(name==="click") return window.AtelierSound.click();
+    if(name==="chatOpen") return window.AtelierSound.open();
+    if(name==="success") return window.AtelierSound.success();
+    if(name==="hover"){ /* handled by delegation; ignore to avoid doubles */ return; }
+  };
+
+  /* unlock audio on first real gesture (browser autoplay policy) */
+  ["pointerdown","keydown","touchstart"].forEach(function(ev){
+    window.addEventListener(ev, unlock, {once:true, passive:true});
+  });
+
+  /* element hover micro-feedback (delegated, fires once per new element) */
+  var HOVER_SEL="a,button,.btn-primary,.btn-ghost,.btn-nav,.btn-cta,.btn-back,.srv-row,.port-card,.t-card,.method-step,.prob-item,.faq-q,.calc-task-item,.calc-team-btn,.step-opt,.cc-switch,.cookie-btn,.lang-sw button,.chat-toggle,.filter-btn,.mega-item,.al-send";
+  var lastEl=null;
+  document.addEventListener("mouseover",function(e){
+    var el=e.target.closest && e.target.closest(HOVER_SEL);
+    if(el){ if(el!==lastEl){ lastEl=el; if(enabled) hover(el); } }
+    else lastEl=null;
+  });
+
+  /* subtle swell when the cursor enters a new section */
+  var sectFreqs=[174.6,196,220,246.9,261.6,293.7]; var si=0;
+  document.querySelectorAll("section,.case-hero,.faq-hero,.port-hero").forEach(function(sec){
+    sec.addEventListener("mouseenter",function(){ if(enabled){ swell(sectFreqs[si%sectFreqs.length]); si++; } });
+  });
+
+  /* mute toggle UI */
+  var btn=document.createElement("button");
+  btn.className="al-sound"+(enabled?"":" muted");
+  btn.type="button";
+  btn.setAttribute("aria-label","Sonido");
+  btn.innerHTML=
+    '<svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a8 8 0 0 1 0 12"/></svg>'+
+    '<svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><line x1="22" y1="9" x2="16" y2="15"/><line x1="16" y1="9" x2="22" y2="15"/></svg>';
+  btn.addEventListener("click",function(){
+    unlock();
+    window.AtelierSound.set(!enabled);
+    btn.classList.toggle("muted",!enabled);
+    if(enabled){ tone(880,0.09,0.05,"sine"); }   // confirmation blip when turning on
+  });
+  function mount(){ if(document.body) document.body.appendChild(btn); }
+  if(document.body) mount(); else window.addEventListener("DOMContentLoaded",mount);
+})();

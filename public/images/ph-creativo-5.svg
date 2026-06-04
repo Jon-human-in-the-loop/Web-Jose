@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<defs>
+<filter id="b105" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="120"/></filter>
+<filter id="g105"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer></filter>
+<radialGradient id="v105" cx="50%" cy="42%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.55"/></radialGradient>
+</defs>
+<rect width="1600" height="900" fill="#0C0B0A"/>
+<g filter="url(#b105)"><circle cx="371" cy="671" r="306" fill="#E8943A" opacity="0.57"/><circle cx="1359" cy="831" r="611" fill="#5B2E7A" opacity="0.59"/><circle cx="1247" cy="376" r="581" fill="#E8943A" opacity="0.32"/><circle cx="1352" cy="40" r="528" fill="#5B2E7A" opacity="0.32"/><circle cx="1391" cy="556" r="384" fill="#E8943A" opacity="0.52"/></g>
+<rect width="1600" height="900" fill="url(#v105)"/>
+<rect width="1600" height="900" filter="url(#g105)" opacity="0.5"/>
+</svg>

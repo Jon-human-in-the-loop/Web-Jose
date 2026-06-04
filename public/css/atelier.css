@@ -507,3 +507,30 @@ html,body{overflow-x:clip;}
 /* keep the cookie banner clear of the sound toggle (both bottom-left) */
 .cookie-consent{bottom:80px;}
 @media(max-width:768px){ .al-sound{left:14px;bottom:14px;width:38px;height:38px;} .cookie-consent{left:12px;right:12px;bottom:74px;} }
+
+/* ============================================================
+   ROTATING IMAGE GALLERIES (juice.agency-style autoplay)
+   Reuses the generic .carousel-* engine; 1 image visible at a time.
+   ============================================================ */
+.gallery-section{text-align:center;}
+.gallery-section>.label{display:inline-flex;}
+.gallery-carousel{position:relative;max-width:1080px;margin:clamp(36px,5vw,56px) auto 0;}
+.gallery-carousel .carousel-inner{position:relative;overflow:hidden;border:1px solid var(--hair);border-radius:16px;background:var(--surface);}
+.gallery-carousel .carousel-track{display:flex;}
+.gallery-carousel .gallery-item{flex:0 0 100%;min-width:0;}
+.gallery-carousel .gallery-item img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;}
+/* premium nav arrows tucked just inside the frame */
+.gallery-carousel .carousel-prev,.gallery-carousel .carousel-next{
+  left:auto;right:auto;width:44px;height:44px;
+  background:rgba(16,14,11,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-color:var(--hair-2);color:var(--text);box-shadow:0 8px 28px -12px rgba(0,0,0,.7);}
+.gallery-carousel .carousel-prev{left:16px;}
+.gallery-carousel .carousel-next{right:16px;}
+.gallery-carousel .carousel-prev:hover,.gallery-carousel .carousel-next:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent);}
+/* dots: force-visible on desktop too (base hides them >768px) */
+.gallery-carousel .carousel-dots{display:flex!important;justify-content:center;gap:9px;margin-top:22px;padding:0;}
+@media(max-width:768px){
+  .gallery-carousel .carousel-prev,.gallery-carousel .carousel-next{display:none;}
+  .gallery-carousel{max-width:100%;}
+  .gallery-carousel .carousel-inner{border-radius:12px;}
+}

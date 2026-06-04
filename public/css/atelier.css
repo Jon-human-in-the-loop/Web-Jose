@@ -509,30 +509,41 @@ html,body{overflow-x:clip;}
 @media(max-width:768px){ .al-sound{left:14px;bottom:14px;width:38px;height:38px;} .cookie-consent{left:12px;right:12px;bottom:74px;} }
 
 /* ============================================================
-   CREATIVE REEL — juice.agency-style: contained box, images
-   streaming fast in a continuous loop (two opposing rows).
+   CREATIVE REEL — juice.agency layout: big copy on the left,
+   a smaller "video" box on the right with images streaming in a
+   continuous loop (two opposing rows). Pure CSS, no JS.
    ============================================================ */
-.gallery-section{text-align:center;}
-.gallery-section>.label{display:inline-flex;}
-.reel{position:relative;max-width:1120px;margin:clamp(36px,5vw,56px) auto 0;
+.reel-section{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,88px);align-items:center;}
+.reel-copy{text-align:left;}
+.reel-copy .label{display:inline-flex;}
+.reel-copy h2{margin-bottom:20px;}
+.reel-copy p{color:var(--dim);max-width:42ch;font-size:1rem;line-height:1.7;margin:0;}
+.reel{position:relative;width:100%;max-width:540px;justify-self:end;
   border:1px solid var(--hair);border-radius:18px;background:var(--surface);
-  padding:16px;overflow:hidden;display:flex;flex-direction:column;gap:16px;}
-.reel::before,.reel::after{content:'';position:absolute;top:0;bottom:0;width:96px;z-index:2;pointer-events:none;}
+  padding:14px;overflow:hidden;display:flex;flex-direction:column;gap:14px;}
+.reel::before,.reel::after{content:'';position:absolute;top:0;bottom:0;width:72px;z-index:2;pointer-events:none;}
 .reel::before{left:0;background:linear-gradient(to right,var(--surface),transparent);}
 .reel::after{right:0;background:linear-gradient(to left,var(--surface),transparent);}
 .reel-row{overflow:hidden;}
-.reel-track{display:flex;gap:16px;width:max-content;animation:reelScroll 24s linear infinite;will-change:transform;}
-.reel-track--rev{animation-duration:30s;animation-direction:reverse;}
+.reel-track{display:flex;gap:14px;width:max-content;animation:reelScroll 22s linear infinite;will-change:transform;}
+.reel-track--rev{animation-duration:28s;animation-direction:reverse;}
 .reel:hover .reel-track{animation-play-state:paused;}
 @keyframes reelScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-.reel-card{flex:0 0 auto;width:clamp(190px,20vw,260px);border-radius:12px;overflow:hidden;
+.reel-card{flex:0 0 auto;width:clamp(150px,13vw,190px);border-radius:12px;overflow:hidden;
   border:1px solid var(--hair);background:var(--surface-2);transition:transform .5s var(--ease),box-shadow .5s var(--ease);}
 .reel-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;}
-.reel-card:hover{transform:scale(1.04);box-shadow:0 12px 34px -16px rgba(0,0,0,.7),0 0 22px -8px var(--accent-glow);}
+.reel-card:hover{transform:scale(1.05);box-shadow:0 12px 34px -16px rgba(0,0,0,.7),0 0 22px -8px var(--accent-glow);}
+@media(max-width:900px){
+  .reel-section{grid-template-columns:1fr;gap:34px;}
+  .reel-copy{text-align:center;}
+  .reel-copy .label{margin-left:auto;margin-right:auto;}
+  .reel-copy p{margin-left:auto;margin-right:auto;}
+  .reel{justify-self:center;max-width:560px;}
+}
 @media(max-width:768px){
   .reel{padding:12px;border-radius:14px;gap:12px;}
   .reel-track{gap:12px;}
-  .reel-card{width:clamp(150px,52vw,200px);}
-  .reel::before,.reel::after{width:52px;}
+  .reel-card{width:clamp(140px,46vw,180px);}
+  .reel::before,.reel::after{width:46px;}
 }
 @media(prefers-reduced-motion:reduce){.reel-track{animation:none;}}

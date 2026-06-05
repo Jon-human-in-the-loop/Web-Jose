@@ -362,9 +362,20 @@ html.al-skip #al-loader{display:none !important;}
 @keyframes alMarkIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
 @keyframes alLoad{to{transform:scaleX(1);}}
 
+/* Animated graphic loader (frame-cycled illustration + % counter) */
+.al-load-inner{display:flex;flex-direction:column;align-items:center;gap:24px;opacity:0;animation:alMarkIn .55s var(--ease) forwards;}
+.al-load-img{display:none;width:clamp(150px,30vw,210px);height:auto;
+  filter:drop-shadow(0 16px 38px rgba(0,0,0,.55)) drop-shadow(0 0 26px var(--accent-glow));
+  animation:alFloat 2.6s var(--ease-inout) infinite;}
+.al-load-fallback{display:none;}
+.al-load-pct{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);}
+.al-load-pct b{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums;}
+@keyframes alFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+
 @media (prefers-reduced-motion: reduce){
   #inicio::before{animation:none;}
   .al-mark,.al-mark::after{animation:none;opacity:1;}
+  .al-load-inner,.al-load-img{animation:none;opacity:1;}
 }
 
 /* Generative hero canvas — living ember mesh-gradient field */

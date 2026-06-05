@@ -484,15 +484,41 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 48px
 <script>if(sessionStorage.getItem('al_intro'))document.documentElement.className+=' al-skip';</script>
 </head>
 <body>
-<div id="al-loader"><span class="al-mark">JOSE<em> · </em>AI</span></div>
+<div id="al-loader"><div class="al-load-inner">
+  <img class="al-load-img" alt="" />
+  <span class="al-mark al-load-fallback">JOSE<em> · </em>IA</span>
+  <div class="al-load-pct"><span data-es="Cargando" data-en="Loading">Cargando</span> <b id="al-load-num">0</b>%</div>
+</div></div>
 <script>
 (function(){
-  var l=document.getElementById('al-loader');
-  if(!l)return;
+  var l=document.getElementById('al-loader'); if(!l)return;
   if(document.documentElement.classList.contains('al-skip')){l.remove();return;}
-  function done(){ l.classList.add('done'); try{sessionStorage.setItem('al_intro','1');}catch(e){} setTimeout(function(){if(l&&l.parentNode)l.remove();},800); }
-  var t=setTimeout(done,1400);
-  window.addEventListener('load',function(){ setTimeout(done,500); });
+  var img=l.querySelector('.al-load-img'), fb=l.querySelector('.al-load-fallback'), num=l.querySelector('#al-load-num');
+  var frames=[], started=false, idx=0, cyc=null;
+  // Sequentially probe /images/loader-1..4.png — use whatever exists, cycle them.
+  function probe(n){
+    var im=new Image();
+    im.onload=function(){ frames.push('/images/loader-'+n+'.png'); if(n<4){probe(n+1);}else{begin();} };
+    im.onerror=function(){ begin(); };
+    im.src='/images/loader-'+n+'.png';
+  }
+  probe(1);
+  setTimeout(begin,900); // guard if probing stalls
+  function begin(){
+    if(started)return; started=true;
+    if(frames.length){
+      img.src=frames[0]; img.style.display='block';
+      if(fb)fb.style.display='none';
+      if(frames.length>1){ cyc=setInterval(function(){ idx=(idx+1)%frames.length; img.src=frames[idx]; },190); }
+    }else{ if(img)img.style.display='none'; if(fb)fb.style.display='inline-block'; }
+    count();
+  }
+  function count(){
+    var dur=1500, t0=0;
+    function step(ts){ if(!t0)t0=ts; var p=(ts-t0)/dur; if(p>1)p=1; if(num)num.textContent=Math.round(p*100); if(p<1){requestAnimationFrame(step);}else{done();} }
+    requestAnimationFrame(step);
+  }
+  function done(){ if(cyc)clearInterval(cyc); if(num)num.textContent='100'; l.classList.add('done'); try{sessionStorage.setItem('al_intro','1');}catch(e){} setTimeout(function(){ if(l&&l.parentNode)l.remove(); },800); }
 })();
 </script>
 
